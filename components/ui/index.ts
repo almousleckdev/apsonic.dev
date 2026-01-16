@@ -22,3 +22,5 @@ export {
   UserIcon,
   type IconProps,
 } from './Icons';
+export { SectionHeader } from './SectionHeader';
+export { FeatureCard } from './FeatureCard';

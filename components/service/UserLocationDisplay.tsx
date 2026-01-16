@@ -39,7 +39,7 @@ export const UserLocationDisplay: React.FC<UserLocationDisplayProps> = ({
       }}
     >
       <p className="text-sm mb-2 font-medium" style={{ color: colors.text.primary }}>
-        Your Location:
+        您的位置:
       </p>
       {address.address && address.address !== address.fullAddress && (
         <p className="text-sm mb-1" style={{ color: colors.text.secondary }}>

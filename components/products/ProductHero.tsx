@@ -2,114 +2,97 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
 
-interface BreadcrumbItem {
+interface Breadcrumb {
   label: string;
   href: string;
 }
 
 interface ProductHeroProps {
-  title: string;
+  title?: string;
   subtitle?: string;
-  categoryName?: string;
-  backgroundImage: string;
-  overlayImage?: string;
-  breadcrumbs: BreadcrumbItem[];
-  className?: string;
+  breadcrumbs?: Breadcrumb[];
 }
 
 /**
- * Reusable Hero Banner for categories and products
- * Matches the design with background image, title, and overlay logo
+ * ProductHero - 所有产品使用相同的英雄区背景
+ * 默认图片: AP150-30.png (背景) 和 AP150-30-1.png (PLUS徽章)
  */
 export const ProductHero: React.FC<ProductHeroProps> = ({
-  title,
-  subtitle,
-  categoryName,
-  backgroundImage,
-  overlayImage,
-  breadcrumbs,
-  className,
+  title = "AP150-30",
+  subtitle = "Aloba",
+  breadcrumbs
 }) => {
+  const isDetailPage = !!breadcrumbs;
+
   return (
-    <section className={cn('w-full', className)}>
-      {/* Offset for fixed header (h-20) */}
-      <div className="pt-20">
-        {/* Breadcrumbs Bar (white, separate from hero image) */}
-        <div className="w-full bg-white border-b border-gray-100">
-          <div className="px-6 sm:px-10 lg:px-16 h-12 flex items-center">
-            <nav className="flex items-center space-x-2 text-xs sm:text-sm font-medium tracking-wide text-gray-400">
-              {breadcrumbs.map((item, index) => (
-                <React.Fragment key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="hover:text-gray-700 transition-colors duration-200"
-                  >
-                    {item.label}
-                  </Link>
-                  {index < breadcrumbs.length - 1 && (
-                    <span className="text-gray-300">/</span>
-                  )}
-                </React.Fragment>
-              ))}
+    <div className="relative w-full h-screen overflow-hidden">
+
+      {/* Breadcrumbs - Top Left, White Background */}
+      {isDetailPage && (
+        <div className="absolute top-0 left-0 right-0 z-30 bg-white border-b border-gray-100">
+          <div className="container mx-auto px-4 py-3">
+            <nav className="flex items-center gap-2 text-xs text-gray-400">
+              <Link href="/" className="hover:text-gray-600 transition-colors">
+                首页
+              </Link>
+              <span>/</span>
+              <Link href="/products" className="hover:text-gray-600 transition-colors">
+                全系车型
+              </Link>
+              <span>/</span>
+              <span className="text-gray-900 font-medium">{title}</span>
             </nav>
           </div>
         </div>
+      )}
 
-        {/* Hero Image Area */}
-        <div className="relative w-full overflow-hidden bg-black h-[420px] sm:h-[560px] md:h-[650px] lg:h-[720px]">
-          <Image
-            src={backgroundImage}
-            alt={title}
-            fill
-            priority
-            className="object-cover object-center"
-          />
+      {/* Main Hero Background - 使用默认AP150-30.png图片 */}
+      <div className="absolute inset-0 z-0" style={{ top: '60px', bottom: 0 }}>
+        <Image
+          src="/images/products/accessories/AP150-30.png"
+          alt="Product Hero Background"
+          fill
+          className="object-cover object-top"
+          priority
+        />
 
-          {/* Subtle overlay only (keep colors close to reference) */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/10" />
+        {/* Subtle overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/10" />
+      </div>
 
-          {/* Overlay Title Graphic (small, left-centered like reference) */}
-          {overlayImage ? (
-            <div className="absolute left-6 sm:left-12 lg:left-16 top-1/2 -translate-y-1/2">
-              <div className="relative w-[220px] sm:w-[320px] md:w-[420px] lg:w-[520px] aspect-[2/1]">
+      {/* Content Container - Only PLUS Badge, No Text */}
+      <div className="relative z-10 h-full flex items-center">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl">
+
+            {/* Left Side - Only PLUS Badge */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-white"
+            >
+              {/* PLUS Badge - 使用默认AP150-30-1.png图片 */}
+              <div className="relative inline-block">
                 <Image
-                  src={overlayImage}
-                  alt={title}
-                  fill
-                  className="object-contain object-left"
-                  priority
-                  sizes="(max-width: 640px) 220px, (max-width: 768px) 320px, (max-width: 1024px) 420px, 520px"
+                  src="/images/products/accessories/AP150-30-1.png"
+                  alt="PLUS Badge"
+                  width={200}
+                  height={66}
+                  className="drop-shadow-lg"
                 />
               </div>
-            </div>
-          ) : (
-            <div className="absolute left-6 sm:left-12 lg:left-16 top-1/2 -translate-y-1/2">
-              <div className="animate-fade-in space-y-3">
-                <h1
-                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter"
-                  style={{ textShadow: '0 4px 20px rgba(0,0,0,0.35)' }}
-                >
-                  {title}
-                </h1>
-                {subtitle && (
-                  <p className="text-white/80 text-base sm:text-lg">{subtitle}</p>
-                )}
-                {categoryName && (
-                  <div className="ml-1">
-                    <span className="text-xl sm:text-2xl md:text-3xl text-white/85 italic font-serif tracking-widest uppercase">
-                      {categoryName}
-                    </span>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
+            </motion.div>
+
+          </div>
         </div>
       </div>
-    </section>
+
+      {/* Bottom gradient fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/20 to-transparent z-5" />
+    </div>
   );
 };
-

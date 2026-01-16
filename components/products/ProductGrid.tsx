@@ -65,8 +65,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ products, className })
         >
           {/* Category Title */}
           <MotionH2
-            className="text-2xl font-bold mb-6"
-            style={{ color: colors.text.black }}
+            className="text-2xl font-bold mb-6 text-gray-900"
             variants={itemVariants}
           >
             {CATEGORY_DISPLAY_NAMES[category] || category}

@@ -34,7 +34,6 @@ yarn-error.log*
 .env*
 
 *.md
-*.pdf
 
 # vercel
 .vercel

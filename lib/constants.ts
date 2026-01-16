@@ -14,65 +14,65 @@ export const SOCIAL_LINKS = {
 
 // Footer Navigation Data
 export const FOOTER_PRODUCTS = {
-  title: 'Products',
+  title: '产品',
   items: [
-    { label: 'Brand selection', href: '/products' },
+    { label: '品牌选择', href: '/products' },
     {
       label: 'APSONIC',
       subItems: [
-        { label: 'Bent beam car', href: '/products?category=underbone' },
-        { label: 'Street', href: '/products?category=street' },
-        { label: 'Sports', href: '/products?category=sport' },
-        { label: 'Tricycle', href: '/products?category=tricycle' },
+        { label: '弯梁车', href: '/products?category=underbone' },
+        { label: '街车', href: '/products?category=street' },
+        { label: '运动车', href: '/products?category=sport' },
+        { label: '三轮车', href: '/products?category=tricycle' },
       ],
     },
     {
       label: 'APSONIC Pro',
       subItems: [
-        { label: 'Street car', href: '/products?category=pro-street' },
+        { label: '街车', href: '/products?category=pro-street' },
       ],
     },
     {
       label: 'APSONIC-EMOTO',
       subItems: [
-        { label: 'Tricycle', href: '/products?category=emoto-tricycle' },
+        { label: '三轮车', href: '/products?category=emoto-tricycle' },
       ],
     },
   ],
 };
 
 export const FOOTER_SERVICES = {
-  title: 'Services',
+  title: '服务',
   items: [
-    { label: 'After sales', href: '/services/after-sales' },
-    { label: 'Supply chain support', href: '/services/supply-chain' },
+    { label: '售后服务', href: '/services/after-sales' },
+    { label: '供应链支持', href: '/services/supply-chain' },
   ],
 };
 
 export const FOOTER_ABOUT = {
-  title: 'About',
+  title: '关于',
   items: [
-    { label: 'Brand introduction', href: '/about' },
-    { label: 'Brand culture', href: '/about/culture' },
-    { label: 'Development history', href: '/about/history' },
-    { label: 'News', href: '/about/news' },
-    { label: 'Social contribution', href: '/about/contribution' },
+    { label: '品牌介绍', href: '/about' },
+    { label: '品牌文化', href: '/about/culture' },
+    { label: '发展历程', href: '/about/history' },
+    { label: '新闻资讯', href: '/about/news' },
+    { label: '社会贡献', href: '/about/contribution' },
   ],
 };
 
 export const FOOTER_CONTACT = {
-  title: 'Contact us',
+  title: '联系我们',
   items: [
-    { label: 'Business consulting', href: '/contact' },
+    { label: '商务咨询', href: '/contact' },
   ],
 };
 
 // Navigation Items (matching mockup)
 export const NAV_ITEMS = [
-  { label: 'Products', href: '/products', labelEn: 'Products' },
-  { label: 'Services', href: '/services', labelEn: 'Services' },
-  { label: 'About', href: '/about', labelEn: 'About APSONIC' },
-  { label: 'Contact', href: '/contact', labelEn: 'Contact Us' },
+  { label: '产品', href: '/products', labelEn: 'Products' },
+  { label: '服务', href: '/services', labelEn: 'Services' },
+  { label: '关于', href: '/about', labelEn: 'About APSONIC' },
+  { label: '联系', href: '/contact', labelEn: 'Contact Us' },
 ];
 
 // Hero Slogan (bilingual)

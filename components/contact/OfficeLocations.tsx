@@ -97,18 +97,18 @@ export const OfficeLocations = () => {
         <div className="space-y-16">
 
             {/* Market Coverage Section - Full Width Banner */}
-            <div className="bg-[#1a1a1a] rounded-3xl p-8 lg:p-12 border border-white/5 relative overflow-hidden">
+            <div className="bg-gray-50 rounded-3xl p-8 lg:p-12 border border-gray-100 relative overflow-hidden shadow-sm">
                 <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
                     <div className="max-w-xl">
                         <div className="flex items-center gap-4 mb-4">
                             <div className="bg-brand-green/20 p-3 rounded-full text-brand-green text-2xl">
                                 <MdPublic />
                             </div>
-                            <h3 className="text-3xl font-bold text-white">Market Coverage</h3>
+                            <h3 className="text-3xl font-bold text-gray-900">市场覆盖</h3>
                         </div>
-                        <p className="text-gray-400">
-                            According to industry reports, APSONIC is active across West Africa and beyond,
-                            selling and servicing motorcycles in approximately 16–20 African countries.
+                        <p className="text-gray-600">
+                            根据行业报告，APSONIC活跃于西非及更广泛的地区，
+                            在约16-20个非洲国家销售和维修摩托车。
                         </p>
                     </div>
 
@@ -116,7 +116,7 @@ export const OfficeLocations = () => {
                         {coverageCountries.map((c, idx) => (
                             <span
                                 key={idx}
-                                className="bg-[#111] hover:bg-brand-green/20 hover:text-brand-green transition-colors text-gray-400 px-3 py-1.5 rounded-lg text-xs border border-white/10"
+                                className="bg-white hover:bg-brand-green hover:text-white transition-all text-gray-700 px-3 py-1.5 rounded-lg text-xs border border-gray-200 shadow-sm"
                             >
                                 {c.name}
                             </span>
@@ -127,7 +127,7 @@ export const OfficeLocations = () => {
 
             {/* Official Offices Grid - With Map Visuals */}
             <div>
-                <h3 className="text-2xl font-bold text-white mb-8">Official Branches</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-8">官方分支机构</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {offices.map((office, idx) => (
                         <motion.div
@@ -135,20 +135,20 @@ export const OfficeLocations = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: idx * 0.05 }}
-                            className="group flex flex-col rounded-2xl bg-[#1a1a1a] border border-white/5 overflow-hidden hover:border-brand-green/30 transition-all hover:bg-[#202020]"
+                            className="group flex flex-col rounded-2xl bg-white border border-gray-100 overflow-hidden hover:border-brand-green/30 transition-all hover:shadow-xl hover:shadow-gray-200"
                         >
                             {/* Map Thumbnail Placeholder or Iframe */}
-                            <div className="h-40 w-full bg-[#222] relative overflow-hidden">
+                            <div className="h-40 w-full bg-gray-100 relative overflow-hidden">
                                 {office.mapUrl ? (
                                     <iframe
                                         src={office.mapUrl}
                                         width="100%"
                                         height="100%"
-                                        style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) grayscale(80%)' }}
+                                        style={{ border: 0 }}
                                         allowFullScreen
                                         loading="lazy"
                                         referrerPolicy="no-referrer-when-downgrade"
-                                        className="absolute inset-0 w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
+                                        className="absolute inset-0 w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
                                     />
                                 ) : (
                                     <>
@@ -165,27 +165,27 @@ export const OfficeLocations = () => {
                                 )}
 
                                 {/* Map Icon overlay */}
-                                <div className="absolute top-3 right-3 bg-black/50 p-1.5 rounded-lg backdrop-blur-md pointer-events-none z-10">
-                                    <MdMap className="text-white/70" />
+                                <div className="absolute top-3 right-3 bg-white/50 p-1.5 rounded-lg backdrop-blur-md pointer-events-none z-10">
+                                    <MdMap className="text-gray-900/70" />
                                 </div>
                             </div>
 
                             <div className="p-6 flex flex-col flex-grow">
                                 <div className="flex justify-between items-start mb-2">
-                                    <h4 className="text-white font-bold text-lg">{office.country}</h4>
+                                    <h4 className="text-gray-900 font-bold text-lg">{office.country}</h4>
                                 </div>
                                 <span className="text-brand-green text-sm font-medium mb-4 block">{office.city}</span>
 
-                                <p className="text-gray-400 text-xs mb-6 flex-grow leading-relaxed">
+                                <p className="text-gray-600 text-xs mb-6 flex-grow leading-relaxed">
                                     {office.address}
                                 </p>
 
-                                <div className="space-y-2 pt-4 border-t border-white/5">
-                                    <a href={`tel:${office.phone}`} className="flex items-center gap-3 text-xs text-gray-500 hover:text-white transition-colors">
+                                <div className="space-y-2 pt-4 border-t border-gray-100">
+                                    <a href={`tel:${office.phone}`} className="flex items-center gap-3 text-xs text-gray-500 hover:text-brand-green transition-colors">
                                         <MdPhone className="text-sm" />
                                         <span>{office.phone}</span>
                                     </a>
-                                    <a href={`mailto:${office.email}`} className="flex items-center gap-3 text-xs text-gray-500 hover:text-white transition-colors">
+                                    <a href={`mailto:${office.email}`} className="flex items-center gap-3 text-xs text-gray-500 hover:text-brand-green transition-colors">
                                         <MdEmail className="text-sm" />
                                         <span>{office.email}</span>
                                     </a>
@@ -196,9 +196,9 @@ export const OfficeLocations = () => {
                                         href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(office.address + ', ' + office.city + ', ' + office.country)}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-full py-2 rounded-lg bg-white/5 text-xs font-bold text-white hover:bg-brand-green hover:text-white transition-all flex items-center justify-center gap-2 cursor-pointer"
+                                        className="w-full py-2 rounded-lg bg-gray-50 text-xs font-bold text-gray-900 hover:bg-brand-green hover:text-white transition-all flex items-center justify-center gap-2 cursor-pointer"
                                     >
-                                        <MdLocationOn /> View Directions
+                                        <MdLocationOn /> 查看路线
                                     </a>
                                 </div>
                             </div>

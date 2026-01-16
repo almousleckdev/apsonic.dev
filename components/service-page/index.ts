@@ -6,6 +6,7 @@ export { FeatureCards } from './FeatureCards';
 export { ExploreMore } from './ExploreMore';
 export { StoreLocatorSection } from './StoreLocatorSection';
 export { ServiceCoverage } from './ServiceCoverage';
+export { DealerNetworkInfographic } from './DealerNetworkInfographic';
 export { InformationBlocks } from './InformationBlocks';
 export { FAQ } from './FAQ';
 export type { SupportLink } from './SupportTools';

@@ -27,7 +27,7 @@ export const Banner: React.FC<BannerProps> = ({
   onSlideChange,
 }) => {
   const bannerItems = items.length > 0 ? items : DEFAULT_BANNER_ITEMS;
-  
+
   const { currentIndex, goToSlide, pause, resume } = useCarousel({
     itemsCount: bannerItems.length,
     autoPlay,
@@ -83,7 +83,7 @@ export const Banner: React.FC<BannerProps> = ({
               className="w-full h-full object-cover"
             />
           )}
-          
+
           {/* Overlay for text readability */}
           {showText && (
             <div
@@ -108,14 +108,14 @@ export const Banner: React.FC<BannerProps> = ({
                       fontSize: BANNER_CONFIG.typography.title.fontSize,
                       fontWeight: BANNER_CONFIG.typography.title.fontWeight,
                       lineHeight: BANNER_CONFIG.typography.title.lineHeight,
-                      color: colors.text.primary,
-                      textShadow: '0 2px 20px rgba(0,0,0,0.8), 0 4px 40px rgba(0,0,0,0.4)',
+                      color: '#FFFFFF',
+                      textShadow: '0 2px 20px rgba(0,0,0,0.4), 0 4px 40px rgba(0,0,0,0.2)',
                     }}
                   >
                     {currentItem.title}
                   </h1>
                 )}
-                
+
                 {currentItem.subtitle && (
                   <h2
                     key={`subtitle-${currentIndex}`}
@@ -124,14 +124,14 @@ export const Banner: React.FC<BannerProps> = ({
                       fontSize: BANNER_CONFIG.typography.subtitle.fontSize,
                       fontWeight: BANNER_CONFIG.typography.subtitle.fontWeight,
                       lineHeight: BANNER_CONFIG.typography.subtitle.lineHeight,
-                      color: colors.text.primary,
-                      textShadow: '0 2px 15px rgba(0,0,0,0.7)',
+                      color: '#FFFFFF',
+                      textShadow: '0 2px 15px rgba(0,0,0,0.3)',
                     }}
                   >
                     {currentItem.subtitle}
                   </h2>
                 )}
-                
+
                 {currentItem.description && (
                   <p
                     key={`desc-${currentIndex}`}
@@ -140,8 +140,8 @@ export const Banner: React.FC<BannerProps> = ({
                       fontSize: BANNER_CONFIG.typography.description.fontSize,
                       fontWeight: BANNER_CONFIG.typography.description.fontWeight,
                       lineHeight: BANNER_CONFIG.typography.description.lineHeight,
-                      color: colors.text.primary,
-                      textShadow: '0 2px 10px rgba(0,0,0,0.6)',
+                      color: '#FFFFFF',
+                      textShadow: '0 2px 10px rgba(0,0,0,0.2)',
                     }}
                   >
                     {currentItem.description}

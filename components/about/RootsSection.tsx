@@ -32,7 +32,7 @@ export const RootsSection = () => {
                     >
                         {/* We use a service image but darken it to focus on the 'feeling' */}
                         <Image
-                            src="/images/about-hero.png"
+                            src="/images/about/WechatIMG5213 (1).jpg"
                             alt="The African dusty road"
                             fill
                             className="object-cover sepia-[.5] brightness-75 scale-110"
@@ -44,8 +44,8 @@ export const RootsSection = () => {
                                 AFRICA
                             </span>
                             <h3 className="text-white text-3xl font-bold leading-tight relative">
-                                Born from the <br />
-                                <span className="text-brand-green">Red Earth</span>.
+                                诞生于 <br />
+                                <span className="text-brand-green">红土</span>。
                             </h3>
                         </div>
                     </motion.div>
@@ -57,8 +57,8 @@ export const RootsSection = () => {
                             whileInView={{ opacity: 1 }}
                             className="mb-8"
                         >
-                            <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tighter">
-                                RESILIENCE
+                            <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 tracking-tighter">
+                                坚韧不拔
                             </h2>
                             <div className="h-2 w-32 bg-brand-green mb-8" />
                         </motion.div>
@@ -66,28 +66,28 @@ export const RootsSection = () => {
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            className="text-xl text-gray-300 leading-relaxed mb-8 font-light"
+                            className="text-xl text-gray-700 leading-relaxed mb-8 font-light"
                         >
-                            Our bikes aren't designed in a glass tower in Europe. They are forged in the heat of the Sahel and tested on the laterite roads of the Savanna.
+                            我们的摩托车不是在欧洲的玻璃塔中设计的。它们是在萨赫勒的炎热中锻造的，在稀树草原的红土路上测试的。
                         </motion.p>
 
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="text-lg text-gray-400 leading-relaxed mb-12"
+                            className="text-lg text-gray-600 leading-relaxed mb-12"
                         >
-                            We understand that in Africa, a motorcycle is more than a vehicle. It is a beast of burden, a family member, and a tool for survival. That is why we reinforce our chassis with extra steel and tune our suspension for the unpredictable.
+                            我们明白，在非洲，摩托车不仅仅是一种交通工具。它是驮畜、家庭成员和生存工具。这就是为什么我们用额外的钢材加固底盘，并为不可预测的情况调整悬挂系统。
                         </motion.p>
 
                         <div className="grid grid-cols-2 gap-4">
-                            <div className="p-6 bg-[#1a1a1a] border border-white/5 rounded-xl border-l-4 border-l-brand-green">
-                                <span className="block text-3xl font-bold text-white mb-1">45°C</span>
-                                <span className="text-xs text-brand-green uppercase tracking-widest">Heat Tested</span>
+                            <div className="p-6 bg-gray-50 border border-gray-100 rounded-xl border-l-4 border-l-brand-green">
+                                <span className="block text-3xl font-bold text-gray-900 mb-1">45°C</span>
+                                <span className="text-xs text-brand-green uppercase tracking-widest">高温测试</span>
                             </div>
-                            <div className="p-6 bg-[#1a1a1a] border border-white/5 rounded-xl border-l-4 border-l-white">
-                                <span className="block text-3xl font-bold text-white mb-1">Heavy</span>
-                                <span className="text-xs text-gray-400 uppercase tracking-widest">Load Ready</span>
+                            <div className="p-6 bg-gray-50 border border-gray-100 rounded-xl border-l-4 border-l-gray-300">
+                                <span className="block text-3xl font-bold text-gray-900 mb-1">重载</span>
+                                <span className="text-xs text-gray-500 uppercase tracking-widest">就绪</span>
                             </div>
                         </div>
                     </div>

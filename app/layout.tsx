@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Header, RightSidebar, Footer } from "@/components/layout";
-import { ScrollToTop } from "@/components/ui/ScrollToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,6 +17,8 @@ export const metadata: Metadata = {
   description: "APSONIC motorcycles - High quality motorcycles for West Africa",
 };
 
+import { ConditionalLayout } from "@/components/layout/ConditionalLayout";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,11 +29,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        {children}
-        <RightSidebar />
-        <ScrollToTop />
-        <Footer />
+        <ConditionalLayout>
+          {children}
+        </ConditionalLayout>
       </body>
     </html>
   );

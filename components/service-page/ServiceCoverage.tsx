@@ -45,22 +45,24 @@ export const ServiceCoverage: React.FC<ServiceCoverageProps> = ({
             color: SERVICE_PAGE_CONFIG.typography.sectionTitle.color,
           }}
         >
-          Our Service Network Spans West Africa
+          我们的服务网络覆盖西非
         </h2>
 
         {/* Countries */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
           {countries.map((country, index) => (
             <div
               key={index}
-              className="px-4 py-2 rounded-full"
+              className="flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-gray-100 shadow-sm transition-all hover:scale-105 hover:shadow-md"
               style={{
-                backgroundColor: SERVICE_PAGE_CONFIG.colors.cardBackground,
-                fontSize: '14px',
-                color: SERVICE_PAGE_CONFIG.colors.primary,
+                backgroundColor: '#FFFFFF',
+                fontSize: '15px',
+                fontWeight: 500,
+                color: '#111827',
               }}
             >
-              {country.flag} {country.name}
+              <span className="text-2xl leading-none">{country.flag}</span>
+              <span>{country.name}</span>
             </div>
           ))}
         </div>
@@ -84,7 +86,7 @@ export const ServiceCoverage: React.FC<ServiceCoverageProps> = ({
                 color: SERVICE_PAGE_CONFIG.colors.secondary,
               }}
             >
-              Service Points
+              服务点
             </div>
           </div>
           <div className="text-center">
@@ -104,7 +106,7 @@ export const ServiceCoverage: React.FC<ServiceCoverageProps> = ({
                 color: SERVICE_PAGE_CONFIG.colors.secondary,
               }}
             >
-              Subsidiaries
+              子公司
             </div>
           </div>
           <div className="text-center">
@@ -124,7 +126,7 @@ export const ServiceCoverage: React.FC<ServiceCoverageProps> = ({
                 color: SERVICE_PAGE_CONFIG.colors.secondary,
               }}
             >
-              Authorized Dealers
+              授权经销商
             </div>
           </div>
         </div>

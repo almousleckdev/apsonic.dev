@@ -27,7 +27,7 @@ export const BrandList: React.FC<BrandListProps> = ({
         className="font-medium mb-3 text-xs uppercase tracking-wide"
         style={{ color: colors.text.gray.light }}
       >
-        Brand
+        品牌
       </h3>
 
       <ul className="flex flex-col gap-0.5">

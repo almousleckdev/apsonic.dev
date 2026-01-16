@@ -39,29 +39,16 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
       style={{ backgroundColor: colors.background.white }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Title */}
-        <div className="mb-8">
-          <h2
-            className="font-bold"
-            style={{
-              fontSize: SERVICE_CONFIG.typography.sectionTitle,
-              color: colors.service.brandGreen,
-            }}
-          >
-            {SERVICE_LABELS.sectionTitle}
-          </h2>
-        </div>
-
         {/* Responsive Layout: Vertical on mobile, Horizontal on desktop */}
         <div className="mb-8">
           {/* Mobile: Vertical Stack */}
-          <div className="flex flex-col lg:hidden">
+          <div className="flex flex-col lg:hidden gap-6">
             {/* Left Panel */}
             <div className="w-full">
               <StoreQueryPanel
                 queryType={queryType}
                 onQueryTypeChange={setQueryType}
-                className="h-auto min-h-[200px]"
+                className="h-auto min-h-[160px] rounded-2xl shadow-md"
               />
             </div>
 
@@ -80,29 +67,28 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
                 userAddress={userAddress}
                 isLoadingLocation={isLoadingLocation}
                 locationError={locationError}
-                className="h-auto min-h-[300px]"
+                className="h-auto min-h-[350px] rounded-2xl shadow-md"
               />
             </div>
 
             {/* Map Panel */}
-            <div className="w-full" style={{ minHeight: '400px', height: '400px' }}>
+            <div className="w-full" style={{ minHeight: '450px', height: '450px' }}>
               <AfricaMapPanel
                 selectedCountry={searchTerm.trim() ? (selectedCountry || searchTerm) : ''}
                 onCountrySelect={handleCountrySelect}
                 userLocation={queryType === 'nearby' ? userLocation : null}
                 showOnlyUserLocation={queryType === 'nearby'}
-                className="h-full"
+                className="h-full rounded-2xl shadow-md"
               />
             </div>
           </div>
 
           {/* Desktop: Horizontal Layout with Map as Background */}
-          <div className="hidden lg:flex relative" style={{ minHeight: '600px' }}>
+          <div className="hidden lg:flex gap-6 h-[650px] relative items-stretch">
             {/* Left Panel - Opaque */}
             <div
-              className="flex-shrink-0"
+              className="w-[20%] flex-shrink-0"
               style={{
-                width: SERVICE_CONFIG.layout.leftPanelWidth,
                 position: 'relative',
                 zIndex: 3,
               }}
@@ -110,15 +96,14 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
               <StoreQueryPanel
                 queryType={queryType}
                 onQueryTypeChange={setQueryType}
-                className="h-full"
+                className="h-full shadow-lg shadow-gray-200/50"
               />
             </div>
 
             {/* Middle Panel - Semi-transparent overlay */}
             <div
-              className="flex-shrink-0"
+              className="w-[30%] flex-shrink-0"
               style={{
-                width: SERVICE_CONFIG.layout.middlePanelWidth,
                 position: 'relative',
                 zIndex: 2,
               }}
@@ -136,16 +121,15 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
                 userAddress={userAddress}
                 isLoadingLocation={isLoadingLocation}
                 locationError={locationError}
-                className="h-full"
+                className="h-full shadow-xl shadow-gray-200/50"
               />
             </div>
 
-            {/* Map - Starts exactly after middle panel, centered in remaining space */}
+            {/* Map Area */}
             <div
-              className="absolute inset-0"
+              className="flex-grow h-full"
               style={{
-                left: `${parseFloat(SERVICE_CONFIG.layout.leftPanelWidth) + parseFloat(SERVICE_CONFIG.layout.middlePanelWidth)}%`,
-                right: 0,
+                position: 'relative',
                 zIndex: 1,
               }}
             >
@@ -154,7 +138,7 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
                 onCountrySelect={handleCountrySelect}
                 userLocation={queryType === 'nearby' ? userLocation : null}
                 showOnlyUserLocation={queryType === 'nearby'}
-                className="h-full"
+                className="h-full shadow-2xl shadow-gray-200/50"
               />
             </div>
           </div>

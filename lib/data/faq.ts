@@ -4,45 +4,45 @@ import type { FAQItem } from '@/components/service-page/FAQ';
 export const SERVICE_FAQ_ITEMS: FAQItem[] = [
   {
     id: '1',
-    question: 'What is the difference between limited warranty and extended warranty service?',
+    question: '有限保修和延保服务有什么区别？',
     answer:
-      'Limited warranty covers manufacturing defects for the first year or specified mileage. Extended warranty service provides additional coverage beyond the standard warranty period, including parts and labor for covered repairs at authorized service centers.',
+      '有限保修涵盖第一年或指定里程内的制造缺陷。延保服务提供超出标准保修期的额外保障，包括在授权服务中心进行维修的配件和人工费用。',
   },
   {
     id: '2',
-    question: 'How do I purchase extended warranty?',
+    question: '如何购买延保？',
     answer:
-      'You can purchase extended warranty at any authorized Apsonic dealer or service center. You can also contact our customer service team or purchase online through our official website. Extended warranty must be purchased before your standard warranty expires.',
+      '您可以在任何授权的Apsonic经销商或服务中心购买延保。您也可以联系我们的客户服务团队或通过官方网站在线购买。延保必须在标准保修到期前购买。',
   },
   {
     id: '3',
-    question: 'Does warranty include service for accessories?',
+    question: '保修是否包括配件的服务？',
     answer:
-      'Standard warranty covers the motorcycle and original factory-installed components. Aftermarket accessories and modifications are not covered under warranty. However, genuine Apsonic accessories purchased from authorized dealers may have separate warranty coverage.',
+      '标准保修涵盖摩托车和原厂安装的组件。售后配件和改装不在保修范围内。但是，从授权经销商购买的正品Apsonic配件可能有单独的保修保障。',
   },
   {
     id: '4',
-    question: 'How do I send my motorcycle for repair?',
+    question: '如何送修我的摩托车？',
     answer:
-      'You can bring your motorcycle to any authorized Apsonic service center. Contact the service center in advance to schedule an appointment. For warranty repairs, bring your warranty card and proof of purchase. Our service centers are located across West Africa for your convenience.',
+      '您可以将摩托车带到任何授权的Apsonic服务中心。请提前联系服务中心预约。对于保修维修，请携带保修卡和购买凭证。我们的服务中心遍布西非，方便您的使用。',
   },
   {
     id: '5',
-    question: 'How quickly can my motorcycle be repaired?',
+    question: '我的摩托车多久可以修好？',
     answer:
-      'Repair time depends on the nature of the issue and parts availability. Standard service typically takes 1-2 business days. For warranty repairs, we aim to complete service within 3-5 business days. Complex repairs may take longer, and we will keep you informed of the progress.',
+      '维修时间取决于问题的性质和配件可用性。标准服务通常需要1-2个工作日。对于保修维修，我们力争在3-5个工作日内完成服务。复杂的维修可能需要更长时间，我们会及时告知您进度。',
   },
   {
     id: '6',
-    question: 'Where can I find genuine Apsonic spare parts?',
+    question: '在哪里可以找到正品Apsonic配件？',
     answer:
-      'Genuine Apsonic spare parts are available at all authorized dealers and service centers. You can also order parts online through our official website. Always ensure you purchase from authorized sources to guarantee authenticity and warranty coverage.',
+      '正品Apsonic配件可在所有授权经销商和服务中心购买。您也可以通过我们的官方网站在线订购配件。请务必从授权渠道购买，以确保正品和保修保障。',
   },
   {
     id: '7',
-    question: 'What should I do if I suspect counterfeit parts?',
+    question: '如果我怀疑是假冒配件该怎么办？',
     answer:
-      'If you suspect counterfeit parts, stop using them immediately and contact our customer service. Report the seller and location where you purchased the parts. We will investigate and provide guidance. Using counterfeit parts can void your warranty and pose safety risks.',
+      '如果您怀疑是假冒配件，请立即停止使用并联系我们的客户服务。请报告销售商和购买地点。我们将进行调查并提供指导。使用假冒配件可能会使您的保修失效并带来安全风险。',
   },
 ];
 

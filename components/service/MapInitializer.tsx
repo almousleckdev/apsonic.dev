@@ -37,9 +37,15 @@ export const useMapInitializer = (): UseMapInitializerResult => {
       container: mapContainer.current,
       style: SERVICE_CONFIG.map.style,
       bounds: AFRICA_MAP_CONFIG.bounds.africa,
+      maxBounds: AFRICA_MAP_CONFIG.bounds.africa, // Restrict to Africa
+      minZoom: 1.5,
+      maxZoom: 12,
       fitBoundsOptions: {
-        padding: 50,
+        padding: 100,
       },
+      dragRotate: false, // Prevent orientation issues
+      touchPitch: false,
+      pitchWithRotate: false
     });
 
     map.current.addControl(new mapboxgl.NavigationControl(), 'bottom-right');

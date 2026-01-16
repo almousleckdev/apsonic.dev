@@ -3,33 +3,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight, MdPlayCircleOutline } from 'react-icons/md';
-import { Section } from '@/components/ui/Section';
+import { Section } from '@/components/ui';
 import { colors } from '@/lib/design-tokens';
 import Image from 'next/image';
-
-const videos = [
-    {
-        id: '1',
-        title: "Apsonic puts durability to the ultimate test!",
-        description: "We wanted to ensure that our engines could withstand the harshest adherence tests in the Sahel. So we put our new DuraCore™ engine through a 5,000km endurance run from Lagos to Bamako without a single oil change.",
-        youtubeId: "LXb3EKWsInQ", // Placeholder ID
-        thumbnail: "/images/services/services1.jpg" // Reusing distinct image
-    },
-    {
-        id: '2',
-        title: "The Heartbeat of the Market",
-        description: "See how Apsonic motorcycles power the daily economy of Accra's busiest markets. From dawn till dusk, we are the silent partner in every transaction.",
-        youtubeId: "ScMzIvxBSi4", // Placeholder ID
-        thumbnail: "/images/about-hero.png" // Reusing hero
-    },
-    {
-        id: '3',
-        title: "Engineering the Future",
-        description: "A behind-the-scenes look at our assembly plant in Guangzhou and our testing facilities in Togo. Precision meets passion.",
-        youtubeId: "JGwWNGJdvx8", // Placeholder ID
-        thumbnail: "/images/services/services2.jpg" // Reusing image
-    }
-];
+import { videos } from '@/lib/data/about';
 
 export const VideoShowcaseSection = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -45,19 +22,19 @@ export const VideoShowcaseSection = () => {
     const currentVideo = videos[currentIndex];
 
     return (
-        <Section backgroundColor={colors.background.primary} className="relative py-24 border-t border-white/5">
+        <Section id="videos" backgroundColor={colors.background.primary} className="relative py-24 border-t border-gray-100">
             <div className="container mx-auto px-4 relative">
 
-                {/* Navigation Arrows (Absolute on Desktop) */}
+                {/* Navigation Arrows */}
                 <button
                     onClick={prevVideo}
-                    className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 z-20 hidden lg:flex h-12 w-12 items-center justify-center rounded-full border border-white/10 text-brand-green hover:bg-brand-green hover:text-white transition-all"
+                    className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 z-20 hidden lg:flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 text-brand-green hover:bg-brand-green hover:text-white transition-all bg-white shadow-sm"
                 >
                     <MdKeyboardArrowLeft className="text-3xl" />
                 </button>
                 <button
                     onClick={nextVideo}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 z-20 hidden lg:flex h-12 w-12 items-center justify-center rounded-full border border-white/10 text-brand-green hover:bg-brand-green hover:text-white transition-all"
+                    className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 z-20 hidden lg:flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 text-brand-green hover:bg-brand-green hover:text-white transition-all bg-white shadow-sm"
                 >
                     <MdKeyboardArrowRight className="text-3xl" />
                 </button>
@@ -74,10 +51,10 @@ export const VideoShowcaseSection = () => {
                                 exit={{ opacity: 0, x: 20 }}
                                 transition={{ duration: 0.5 }}
                             >
-                                <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight">
+                                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
                                     {currentVideo.title}
                                 </h2>
-                                <p className="text-gray-400 text-lg leading-relaxed mb-8">
+                                <p className="text-gray-600 text-lg leading-relaxed mb-8">
                                     {currentVideo.description}
                                 </p>
                                 <a
@@ -86,7 +63,7 @@ export const VideoShowcaseSection = () => {
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-2 text-brand-green font-bold hover:gap-3 transition-all"
                                 >
-                                    Watch it on Youtube <MdKeyboardArrowRight className="text-xl" />
+                                    在YouTube上观看 <MdKeyboardArrowRight className="text-xl" />
                                 </a>
                             </motion.div>
                         </AnimatePresence>
@@ -95,7 +72,7 @@ export const VideoShowcaseSection = () => {
                     {/* Right: Video Player & Thumbnails */}
                     <div className="w-full lg:w-7/12">
                         {/* Main Video Area */}
-                        <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-black shadow-2xl border border-white/10 mb-8">
+                        <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-black shadow-2xl border border-gray-100 mb-8">
                             <AnimatePresence mode="wait">
                                 <motion.div
                                     key={currentVideo.id}
@@ -126,7 +103,7 @@ export const VideoShowcaseSection = () => {
                                     <button
                                         key={idx}
                                         onClick={() => setCurrentIndex(idx)}
-                                        className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentIndex ? 'w-8 bg-brand-green' : 'w-4 bg-white/20 hover:bg-white/40'
+                                        className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentIndex ? 'w-8 bg-brand-green' : 'w-4 bg-gray-200 hover:bg-gray-300'
                                             }`}
                                     />
                                 ))}
@@ -147,7 +124,6 @@ export const VideoShowcaseSection = () => {
                                             fill
                                             className="object-cover"
                                         />
-                                        {/* Play Icon Overlay */}
                                         <div className="absolute inset-0 flex items-center justify-center bg-black/30">
                                             <MdPlayCircleOutline className="text-white text-2xl" />
                                         </div>

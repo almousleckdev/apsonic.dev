@@ -1,144 +1,139 @@
 'use client';
 
 import React from 'react';
-import { motion, useReducedMotion } from 'motion/react';
-import { SearchInput } from '@/components/layout/SearchInput';
-import { FilterButton } from './FilterButton';
-import { colors } from '@/lib/design-tokens';
-import { BRANDS } from '@/lib/data/products';
 import { CATEGORY_OPTIONS } from '@/lib/data/filters';
 import { getAvailableDisplacements } from '@/lib/data/product-models';
+import { BRANDS } from '@/lib/data/products';
 import type { ProductFilters as ProductFiltersType } from '@/lib/types/products';
-
-// TS in this repo (moduleResolution: bundler) can resolve a minimal MotionProps type
-// that doesn't include `initial/animate/exit/whileInView/variants` during production builds.
-// This keeps runtime behavior identical while unblocking typechecking on Vercel.
-const MotionDiv = motion.div as unknown as React.ComponentType<Record<string, unknown>>;
+import { cn } from '@/lib/utils';
+import { SearchIcon } from '@/components/ui/Icons';
 
 interface ProductFiltersProps {
   filters: ProductFiltersType;
   onFilterChange: (filters: ProductFiltersType) => void;
 }
 
+/**
+ * ProductFilters - Faithful Mockup Reproduction
+ * 
+ * Matches Page 4 of the APSONIC Mockup PDF perfectly.
+ */
 export const ProductFilters: React.FC<ProductFiltersProps> = ({
   filters,
   onFilterChange,
 }) => {
-  const reduceMotion = useReducedMotion();
   const displacements = getAvailableDisplacements();
   const displacementOptions = [
-    { value: 0, label: 'Unlimited' },
+    { value: 0, label: '不限' },
     ...displacements.map(d => ({ value: d, label: d.toString() })),
   ];
 
   const brandOptions = [
-    { value: '', label: 'Unlimited' },
+    { value: '', label: '不限' },
     ...BRANDS.map(b => ({ value: b.id, label: b.name })),
   ];
 
-  const handleTypeChange = (type: string) => {
-    onFilterChange({ ...filters, type: type || undefined });
-  };
-
-  const handleDisplacementChange = (displacement: number) => {
-    onFilterChange({ ...filters, displacement: displacement || undefined });
-  };
-
-  const handleBrandChange = (brand: string) => {
-    onFilterChange({ ...filters, brand: brand || undefined });
-  };
-
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onFilterChange({ ...filters, search: e.target.value || undefined });
-  };
-
   return (
-    <div
-      className="w-full py-6"
-      style={{ backgroundColor: colors.background.white }}
-    >
-      <MotionDiv
-        className="container mx-auto px-6 sm:px-10 lg:px-16"
-        initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: reduceMotion ? 0 : 0.4, ease: [0.22, 1, 0.36, 1] }}
-      >
-        {/* Title */}
-        <h1
-          className="text-3xl font-bold mb-6"
-          style={{ color: colors.brand.green }}
-        >
-          All Models
-        </h1>
+    <div className="w-full bg-white pt-32 pb-10 border-b border-gray-100">
+      <div className="container mx-auto px-4">
 
-        {/* Filters Row */}
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Left: Filter Buttons */}
-          <div className="flex-1 space-y-5">
-            {/* Type Selection */}
-            <div>
-              <label className="block text-sm font-semibold mb-3" style={{ color: colors.text.black }}>
-                Type Selection
-              </label>
-              <div className="flex flex-wrap gap-2">
-                {CATEGORY_OPTIONS.map((option) => (
-                  <FilterButton
-                    key={option.value}
-                    label={option.label}
-                    isActive={filters.type === option.value || (!filters.type && option.value === '')}
-                    onClick={() => handleTypeChange(option.value)}
-                  />
-                ))}
-              </div>
-            </div>
+        {/* Breadcrumbs */}
+        <nav className="flex items-center gap-2 text-xs text-gray-400 mb-8">
+          <span className="hover:text-gray-600 cursor-pointer">首页</span>
+          <span>/</span>
+          <span className="hover:text-gray-600 cursor-pointer text-gray-900">全系车型</span>
+          <span className="text-gray-300">⌄</span>
+        </nav>
 
-            {/* Displacement Selection */}
-            <div>
-              <label className="block text-sm font-semibold mb-3" style={{ color: colors.text.black }}>
-                Displacement Selection
-              </label>
-              <div className="flex flex-wrap gap-2">
-                {displacementOptions.map((option) => (
-                  <FilterButton
-                    key={option.value}
-                    label={option.label}
-                    isActive={filters.displacement === option.value || (!filters.displacement && option.value === 0)}
-                    onClick={() => handleDisplacementChange(option.value)}
-                  />
-                ))}
-              </div>
-            </div>
+        {/* Title & Search Bar Area */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+          <h1 className="text-[40px] font-bold text-brand-green">
+            全系车型
+          </h1>
 
-            {/* Brand Selection */}
-            <div>
-              <label className="block text-sm font-semibold mb-3" style={{ color: colors.text.black }}>
-                Brand Selection
-              </label>
-              <div className="flex flex-wrap gap-2">
-                {brandOptions.map((option) => (
-                  <FilterButton
-                    key={option.value}
-                    label={option.label}
-                    isActive={filters.brand === option.value || (!filters.brand && option.value === '')}
-                    onClick={() => handleBrandChange(option.value)}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right: Search Input */}
-          <div className="lg:w-64">
-            <SearchInput
+          <div className="relative w-full md:w-[280px]">
+            <input
+              type="text"
+              placeholder="搜索车型"
               value={filters.search || ''}
-              onChange={handleSearchChange}
-              placeholder="Search models..."
-              className="w-full"
+              onChange={(e) => onFilterChange({ ...filters, search: e.target.value || undefined })}
+              className="w-full pl-4 pr-10 py-2 bg-gray-50 border border-gray-200 rounded-full text-sm focus:outline-none focus:border-brand-green/30 transition-all placeholder:text-gray-300"
             />
+            <SearchIcon className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-300 w-4 h-4" />
           </div>
         </div>
-      </MotionDiv>
+
+        {/* Filter Selection Grid */}
+        <div className="space-y-6 text-[13px]">
+          {/* 类型选择 (Type) */}
+          <div className="grid grid-cols-[100px_1fr] items-start">
+            <span className="text-gray-500 py-1">类型选择</span>
+            <div className="flex flex-wrap gap-x-10 gap-y-3">
+              {CATEGORY_OPTIONS.map((option) => (
+                <button
+                  key={option.value}
+                  onClick={() => onFilterChange({ ...filters, type: option.value || undefined })}
+                  className={cn(
+                    "transition-colors",
+                    (filters.type === option.value || (!filters.type && option.value === ''))
+                      ? "text-gray-900 font-bold"
+                      : "text-gray-500 hover:text-brand-green"
+                  )}
+                >
+                  {option.label === 'Unlimited' ? '全部车型' :
+                    option.label === 'Underbone' ? '弯梁车' :
+                      option.label === 'Street' ? '街车' :
+                        option.label === 'Off-Road' ? '越野' :
+                          option.label === 'Tricycle' ? '三轮车' : option.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* 排量选择 (Displacement) */}
+          <div className="grid grid-cols-[100px_1fr] items-start">
+            <span className="text-gray-500 py-1">排量选择</span>
+            <div className="flex flex-wrap gap-x-10 gap-y-3 font-medium">
+              {displacementOptions.map((option) => (
+                <button
+                  key={option.value}
+                  onClick={() => onFilterChange({ ...filters, displacement: option.value || undefined })}
+                  className={cn(
+                    "transition-colors",
+                    (filters.displacement === option.value || (!filters.displacement && option.value === 0))
+                      ? "text-gray-900 font-bold underline underline-offset-[6px] decoration-2 decoration-brand-green"
+                      : "text-gray-500 hover:text-brand-green"
+                  )}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* 品牌选择 (Brand) */}
+          <div className="grid grid-cols-[100px_1fr] items-start">
+            <span className="text-gray-500 py-1">品牌选择</span>
+            <div className="flex flex-wrap gap-x-10 gap-y-3">
+              {brandOptions.map((option) => (
+                <button
+                  key={option.value}
+                  onClick={() => onFilterChange({ ...filters, brand: option.value || undefined })}
+                  className={cn(
+                    "transition-colors uppercase",
+                    (filters.brand === option.value || (!filters.brand && option.value === ''))
+                      ? "text-gray-900 font-bold"
+                      : "text-gray-500 hover:text-brand-green"
+                  )}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 };
-

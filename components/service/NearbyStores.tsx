@@ -31,10 +31,10 @@ export const NearbyStores: React.FC<NearbyStoresProps> = ({
             color: colors.text.black,
           }}
         >
-          Nearby Stores
+          附近商店
         </h3>
         <p style={{ color: colors.text.secondary }}>
-          {country ? `No stores found in ${country}` : SERVICE_LABELS.noStoresFound}
+          {country ? `在${country}未找到商店` : SERVICE_LABELS.noStoresFound}
         </p>
       </div>
     );
@@ -47,20 +47,19 @@ export const NearbyStores: React.FC<NearbyStoresProps> = ({
         {stores.map((store) => (
           <div
             key={store.id}
-            className="p-4 rounded-lg border"
+            className="p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
             style={{
-              borderColor: colors.ui.border,
-              backgroundColor: 'rgba(0, 0, 0, 0.4)',
+              backgroundColor: '#FFFFFF',
             }}
           >
-            <div className="flex items-start justify-between mb-2">
-              <div className="flex items-center gap-2">
-                <span className="text-xl">{getCountryFlag(store.country)}</span>
+            <div className="flex items-start justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">{getCountryFlag(store.country)}</span>
                 <h4
                   className="font-bold"
                   style={{
                     fontSize: SERVICE_CONFIG.typography.storeName,
-                    color: colors.background.white,
+                    color: '#111827',
                   }}
                 >
                   {store.name}
@@ -84,8 +83,9 @@ export const NearbyStores: React.FC<NearbyStoresProps> = ({
               <div className="flex items-start gap-2">
                 <LocationIcon className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: colors.text.secondary }} />
                 <p
+                  className="font-light"
                   style={{
-                    color: colors.text.secondary,
+                    color: '#4B5563',
                     fontSize: SERVICE_CONFIG.typography.storeAddress,
                   }}
                 >

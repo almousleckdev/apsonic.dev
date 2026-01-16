@@ -10,13 +10,13 @@ export const RhythmSection = () => {
         <Section backgroundColor={colors.background.secondary} className="relative py-32 overflow-hidden">
             {/* Background Text Texture */}
             <div className="absolute inset-0 flex flex-col justify-between opacity-5 pointer-events-none select-none overflow-hidden">
-                <div className="whitespace-nowrap text-[20vh] font-bold text-transparent text-stroke-2 text-stroke-white animate-marquee">
+                <div className="whitespace-nowrap text-[20vh] font-bold text-transparent text-stroke-2 text-stroke-black animate-marquee">
                     ACCRA LAGOS LOME COTONOU BAMAKO OUAGA
                 </div>
-                <div className="whitespace-nowrap text-[20vh] font-bold text-transparent text-stroke-2 text-stroke-white animate-marquee-reverse">
+                <div className="whitespace-nowrap text-[20vh] font-bold text-transparent text-stroke-2 text-stroke-black animate-marquee-reverse">
                     MOVE RISE GROW BUILD DREAM HUSTLE
                 </div>
-                <div className="whitespace-nowrap text-[20vh] font-bold text-transparent text-stroke-2 text-stroke-white animate-marquee">
+                <div className="whitespace-nowrap text-[20vh] font-bold text-transparent text-stroke-2 text-stroke-black animate-marquee">
                     THE HEARTBEAT OF THE STREETS
                 </div>
             </div>
@@ -27,18 +27,18 @@ export const RhythmSection = () => {
                     whileInView={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-8 leading-none">
-                        The Rhythm of <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green via-white to-brand-green animate-gradient-x">Every City</span>
+                    <h2 className="text-4xl md:text-6xl font-black text-gray-900 uppercase tracking-tighter mb-8 leading-none">
+                        城市的 <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green via-gray-900 to-brand-green animate-gradient-x">节拍</span>
                     </h2>
 
                     <div className="max-w-2xl mx-auto">
                         <p className="text-xl text-brand-green font-mono mb-8">
-                            // DAKAR // ABIDJAN // ACCRA // LAGOS
+                            // 达喀尔 // 阿比让 // 阿克拉 // 拉各斯
                         </p>
-                        <p className="text-gray-400 text-lg">
-                            From the dawn prayer to the midnight market, Apsonic is the soundtrack of the city.
-                            We are indispensable to the flow of life across West Africa.
+                        <p className="text-gray-600 text-lg">
+                            从清晨的祈祷到午夜的市场，Apsonic是城市的配乐。
+                            我们对西非的生活流动不可或缺。
                         </p>
                     </div>
                 </motion.div>
@@ -47,7 +47,7 @@ export const RhythmSection = () => {
             {/* Custom CSS for Marquee - Injected here for simplicity or should be in globals */}
             <style jsx>{`
                 .text-stroke-2 {
-                    -webkit-text-stroke: 1px rgba(255,255,255,0.2);
+                    -webkit-text-stroke: 1px rgba(0,0,0,0.1);
                 }
                 .animate-marquee {
                     animation: marquee 20s linear infinite;

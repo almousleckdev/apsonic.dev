@@ -39,7 +39,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         case 'primary':
           return {
             backgroundColor: colors.brand.green,
-            color: colors.text.primary,
+            color: '#FFFFFF',
             border: 'none',
             hover: {
               backgroundColor: '#1B8F45', // Darker green for hover (calculated from brand.green)
@@ -78,7 +78,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         default:
           return {
             backgroundColor: colors.brand.green,
-            color: colors.text.primary,
+            color: '#FFFFFF',
             border: 'none',
           };
       }

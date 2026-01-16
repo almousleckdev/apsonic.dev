@@ -1,3 +1,5 @@
+import { colors } from '../design-tokens';
+
 // Products grid constants
 export const PRODUCTS_GRID_CONFIG = {
   // Grid layout
@@ -7,35 +9,34 @@ export const PRODUCTS_GRID_CONFIG = {
       tablet: 2,
       desktop: 3,
     },
-    gap: '5px', // Spacing between cards - REDUCE THIS to make gaps smaller
+    gap: '32px', // Comfortable spacing
   },
-  
+
   // Card styling
   card: {
-    background: '#F5F5F5',
-    borderRadius: '12px',
-    padding: '12px', // REDUCE THIS to make card padding smaller
-    maxWidth: '80%', // Match image width - REDUCE THIS to make card smaller
-    // Note: overflow removed - images intentionally overflow for floating effect
+    background: colors.background.secondary,
+    borderRadius: '16px',
+    padding: '24px',
+    maxWidth: '100%',
   },
-  
+
   // Image styling
   image: {
     aspectRatio: '3/2',
-    maxHeight: '220px', // Limit maximum image height - REDUCE THIS to make images smaller
-    maxWidth: '80%', // Limit maximum image width - REDUCE THIS to make images narrower
+    maxHeight: '220px',
+    maxWidth: '100%',
   },
-  
+
   // Typography
   typography: {
     modelName: {
-      fontSize: '16px',
+      fontSize: '18px',
       fontWeight: 700,
-      color: '#000000',
+      color: colors.text.primary,
     },
     brandName: {
       fontSize: '12px',
-      color: '#999999',
+      color: colors.brand.green, // Brand Green
     },
   },
 } as const;

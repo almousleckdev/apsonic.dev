@@ -39,21 +39,27 @@ export const DEFAULT_FEATURED_MODELS: FeaturedModel[] = [
 export const DEFAULT_CATEGORIES: MotorcycleCategory[] = [
   {
     id: 'underbone',
-    name: 'Underbone',
+    name: '弯梁车',
     image: '/images/banners/homepage/img1.jpg',
     href: '/products?category=underbone',
   },
   {
     id: 'street',
-    name: 'Street',
+    name: '街车',
     image: '/images/banners/homepage/img2.jpg',
     href: '/products?category=street',
   },
   {
     id: 'offroad',
-    name: 'Off-Road',
+    name: '越野',
     image: '/images/banners/homepage/img3.jpg',
     href: '/products?category=offroad',
+  },
+  {
+    id: 'tricycle',
+    name: '三轮车',
+    image: '/images/banners/homepage/img4.png',
+    href: '/products?category=tricycle',
   },
 ];
 

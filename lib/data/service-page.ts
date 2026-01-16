@@ -10,17 +10,17 @@ export const FEATURE_CARDS: FeatureCard[] = [
   {
     id: '1',
     image: '/images/services/services1.jpg',
-    title: 'Professional Service Network',
-    description: 'Visit our authorized service centers across West Africa. Expert care, genuine parts.',
-    ctaText: 'Find Service Center',
+    title: '专业服务网络',
+    description: '访问我们在西非的授权服务中心。专业护理，正品配件。',
+    ctaText: '查找服务中心',
     href: '/services/locations',
   },
   {
     id: '2',
     image: '/images/services/services2.jpg',
-    title: 'Order Genuine Spare Parts',
-    description: 'Get authentic Apsonic parts delivered to your location. Quality guaranteed.',
-    ctaText: 'Browse Parts Catalog',
+    title: '订购正品配件',
+    description: '获取正品Apsonic配件，送货上门。品质保证。',
+    ctaText: '浏览配件目录',
     href: '/services/parts',
   },
 ];
@@ -30,15 +30,15 @@ export const EXPLORE_CARDS: ExploreCard[] = [
   {
     id: '1',
     icon: '📘',
-    title: 'Download Manuals & Guides',
-    ctaText: 'Download',
+    title: '下载手册与指南',
+    ctaText: '下载',
     href: '/services/manuals',
   },
   {
     id: '2',
     icon: '🔧',
-    title: 'Mechanic Training Programs',
-    ctaText: 'Learn More',
+    title: '机械师培训课程',
+    ctaText: '了解更多',
     href: '/services/training',
   },
 ];
@@ -47,31 +47,31 @@ export const EXPLORE_CARDS: ExploreCard[] = [
 export const INFO_BLOCKS: InfoBlock[] = [
   {
     id: '1',
-    title: 'Warranty Information',
+    title: '保修信息',
     content:
-      'All Apsonic motorcycles come with comprehensive warranty coverage and lifetime maintenance support. Our authorized service centers ensure your bike stays in perfect condition.',
-    ctaText: 'View Warranty Terms',
+      '所有Apsonic摩托车均享有全面保修和终身维护支持。我们的授权服务中心确保您的摩托车保持完美状态。',
+    ctaText: '查看保修条款',
     href: '/services/warranty',
     variant: 'default',
   },
   {
     id: '2',
-    title: '⚠️ Beware of Counterfeit Parts',
+    title: '⚠️ 谨防假冒配件',
     content:
-      'Only genuine Apsonic parts guarantee safety and performance. Counterfeit parts can cause serious damage and void your warranty. Always purchase from authorized dealers.',
-    ctaText: 'How to Identify Genuine Parts',
+      '只有正品Apsonic配件才能保证安全和性能。假冒配件可能导致严重损坏并使您的保修失效。请务必从授权经销商处购买。',
+    ctaText: '如何识别正品配件',
     href: '/services/counterfeit-warning',
     variant: 'warning',
   },
   {
     id: '3',
-    title: 'Current Service Campaigns',
+    title: '当前服务活动',
     content: [
-      'Free inspection for AP200 models',
-      'Brake system upgrade program',
-      'Seasonal maintenance offers',
+      'AP200型号免费检查',
+      '制动系统升级计划',
+      '季节性维护优惠',
     ],
-    ctaText: 'View All Programs',
+    ctaText: '查看所有活动',
     href: '/services/campaigns',
     variant: 'default',
   },
@@ -79,10 +79,10 @@ export const INFO_BLOCKS: InfoBlock[] = [
 
 // Support tools links
 export const SUPPORT_LINKS: SupportLink[] = [
-  { label: 'Find Your Nearest Service Center', href: '/services/locations' },
-  { label: 'Check Warranty Status', href: '/services/warranty' },
-  { label: 'Order Genuine Spare Parts', href: '/services/parts' },
-  { label: 'Download User Manuals', href: '/services/manuals' },
+  { label: '查找最近的服务中心', href: '/services/locations' },
+  { label: '检查保修状态', href: '/services/warranty' },
+  { label: '订购正品配件', href: '/services/parts' },
+  { label: '下载用户手册', href: '/services/manuals' },
 ];
 
 // Service coverage data

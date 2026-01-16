@@ -3,34 +3,40 @@
 
 :root {
   /* Background Colors */
-  --background-primary: #0f0f0f;
-  --background-secondary: #1e1e1e;
-  --background-tertiary: #2a2a2a;
-  
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f8f9fa;
+  --color-background-tertiary: #f1f3f5;
+
   /* Text Colors */
-  --text-primary: #f2f2f2;
-  --text-secondary: #b0b0b0;
-  --text-muted: #808080;
-  
+  --color-text-primary: #121212;
+  --color-text-secondary: #4a4a4a;
+  --color-text-muted: #6c757d;
+
   /* Brand Colors */
-  --brand-green: #1fa84f;
-  
+  --color-brand-green: #1fa84f;
+
   /* UI Colors */
-  --border: rgba(255, 255, 255, 0.1);
-  --border-hover: rgba(255, 255, 255, 0.2);
-  --hover-overlay: rgba(255, 255, 255, 0.05);
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-border-hover: rgba(0, 0, 0, 0.15);
+  --color-hover-overlay: rgba(0, 0, 0, 0.03);
 }
 
 @theme inline {
-  --color-background: var(--background-primary);
-  --color-foreground: var(--text-primary);
+  --color-brand-green: var(--color-brand-green);
+  --color-background-primary: var(--color-background-primary);
+  --color-background-secondary: var(--color-background-secondary);
+  --color-background-tertiary: var(--color-background-tertiary);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 body {
-  background: var(--background-primary);
-  color: var(--text-primary);
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
@@ -46,16 +52,16 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background-primary);
+  background: var(--color-background-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 /* Hide scrollbar utility */

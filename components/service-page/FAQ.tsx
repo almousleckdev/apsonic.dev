@@ -21,7 +21,7 @@ export interface FAQProps {
 
 // FAQ component with accordion functionality - Apple-inspired design
 export const FAQ: React.FC<FAQProps> = ({
-  title = 'Frequently Asked Questions',
+  title = '常见问题',
   items,
   className,
 }) => {

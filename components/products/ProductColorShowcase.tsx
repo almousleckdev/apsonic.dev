@@ -82,7 +82,7 @@ export const ProductColorShowcase: React.FC<ProductColorShowcaseProps> = ({
     <section
       className={cn(
         'w-full py-20 sm:py-24 overflow-hidden',
-        'bg-gradient-to-b from-[#8d8d8d] via-[#cfcfcf] to-[#f3f3f3]',
+        'bg-gradient-to-b from-gray-200 via-gray-50 to-white',
         className
       )}
     >
@@ -95,21 +95,21 @@ export const ProductColorShowcase: React.FC<ProductColorShowcaseProps> = ({
         >
           {/* Top-left copy */}
           <div className="absolute top-4 sm:top-6 left-4 sm:left-8 z-20 pointer-events-none max-w-[240px]">
-            <h3 className="text-white/95 text-base sm:text-lg font-medium tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)]">
+            <h3 className="text-gray-900 text-base sm:text-lg font-medium tracking-wide">
               {title}
             </h3>
-            <p className="mt-1 text-white/80 text-xs sm:text-sm font-light tracking-widest drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)]">
+            <p className="mt-1 text-gray-500 text-xs sm:text-sm font-light tracking-widest">
               {subtitle}
             </p>
           </div>
 
           {/* Top-right active label */}
           <div className="absolute top-4 sm:top-6 right-4 sm:right-8 z-20 pointer-events-none text-right max-w-[240px]">
-            <div className="text-white/95 text-base sm:text-lg font-medium tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)]">
+            <div className="text-gray-900 text-base sm:text-lg font-medium tracking-wide">
               {active.name}
             </div>
             {active.description && (
-              <div className="mt-1 text-white/75 text-[10px] sm:text-xs font-light tracking-widest drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)]">
+              <div className="mt-1 text-gray-400 text-[10px] sm:text-xs font-light tracking-widest">
                 {active.description}
               </div>
             )}

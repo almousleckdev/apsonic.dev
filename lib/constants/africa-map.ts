@@ -3,13 +3,13 @@ export const AFRICA_MAP_CONFIG = {
   // Map bounds for Africa continent
   bounds: {
     // Africa continent bounds [west, south, east, north]
-    africa: [-20, -35, 55, 38] as [number, number, number, number],
+    africa: [-40, -55, 80, 55] as [number, number, number, number],
   },
-  
+
   // Default view
-  defaultCenter: [20, 5] as [number, number], // Center of Africa
-  defaultZoom: 3.5,
-  
+  defaultCenter: [15, 2] as [number, number], // Adjusted center
+  defaultZoom: 2.2,
+
   // Region colors for APSONIC presence highlighting
   regionColors: {
     west: '#10B981', // Green - Strong presence
@@ -18,7 +18,7 @@ export const AFRICA_MAP_CONFIG = {
     other: '#3B82F6', // Blue - Coverage/Parts
     default: '#CFD8DC', // Gray - No presence
   },
-  
+
   // Countries by region (ISO 3166-1 alpha-3 codes)
   countriesByRegion: {
     // West Africa - Red
@@ -39,10 +39,10 @@ export const AFRICA_MAP_CONFIG = {
       'ZMB', 'MWI', 'MOZ', 'ZWE', 'BWA', 'NAM', 'ZAF', 'LSO', 'SWZ', 'MDG', 'MUS',
     ],
   },
-  
+
   // Search highlight color (when searching for a country)
   searchHighlightColor: '#EF4444', // Red
-  
+
   // Animation settings
   animation: {
     duration: 1500, // milliseconds

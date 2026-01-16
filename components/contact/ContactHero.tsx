@@ -36,13 +36,13 @@ export const ContactHero = () => {
                     <h1
                         className="mb-6 text-5xl font-bold tracking-tight text-white md:text-7xl drop-shadow-2xl"
                     >
-                        Let&apos;s Start a <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-brand-green to-brand-green">Conversation</span>.
+                        让我们开始 <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-brand-green to-brand-green">对话</span>。
                     </h1>
 
                     <p className="mx-auto max-w-2xl text-lg text-gray-300 md:text-xl font-light leading-relaxed">
-                        From finding your nearest dealer to technical support,
-                        our global team is ready to assist you.
+                        从寻找最近的经销商到技术支持，
+                        我们的全球团队随时准备为您提供帮助。
                     </p>
                 </motion.div>
             </div>

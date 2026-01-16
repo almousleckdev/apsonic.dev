@@ -12,13 +12,13 @@ export const colors = {
 
   // Background Colors
   background: {
-    primary: '#0F0F0F', // Main background
-    secondary: '#1E1E1E', // Cards, sections, elevated surfaces
-    tertiary: '#2A2A2A', // Hover states, borders
-    header: '#0F0F0F', // Header background
-    sidebar: 'rgba(40, 40, 40, 0.95)', // Sidebar - black but not very black
-    overlay: 'rgba(0, 0, 0, 0.4)', // Image overlay
-    overlayDark: 'rgba(0, 0, 0, 0.6)', // Darker image overlay
+    primary: '#FFFFFF', // Main background
+    secondary: '#F8F9FA', // Cards, sections, elevated surfaces
+    tertiary: '#E9ECEF', // Hover states, borders
+    header: '#FFFFFF', // Header background
+    sidebar: 'rgba(255, 255, 255, 0.95)', // Sidebar - white
+    overlay: 'rgba(0, 0, 0, 0.2)', // Image overlay
+    overlayDark: 'rgba(0, 0, 0, 0.4)', // Darker image overlay
     white: '#FFFFFF', // White background for light sections
     light: '#F8F9FA', // Light gray background for dropdowns
     card: '#F3F4F6', // Light gray for product cards (gray-100)
@@ -26,35 +26,35 @@ export const colors = {
 
   // Text Colors
   text: {
-    primary: '#F2F2F2', // Main content, headings
-    secondary: '#B0B0B0', // Body text, descriptions
-    muted: '#808080', // Placeholders, disabled states
+    primary: '#121212', // Main content, headings
+    secondary: '#4A4A4A', // Body text, descriptions
+    muted: '#6C757D', // Placeholders, disabled states
     black: '#000000', // Black text for light backgrounds
     gray: {
       light: '#6B7280', // Light gray for labels
       medium: '#374151', // Medium gray for body text on light backgrounds
-      dark: '#1F2937', // Dark gray for headings on light backgrounds
+      dark: '#111827', // Dark gray for headings on light backgrounds
     },
   },
 
   // UI Colors
   ui: {
     active: '#1FA84F', // Active nav, selected states
-    border: 'rgba(255, 255, 255, 0.1)', // Subtle borders
-    borderHover: 'rgba(255, 255, 255, 0.2)', // Hover borders
-    hover: 'rgba(255, 255, 255, 0.05)', // Hover overlay
+    border: 'rgba(0, 0, 0, 0.1)', // Subtle borders
+    borderHover: 'rgba(0, 0, 0, 0.15)', // Hover borders
+    hover: 'rgba(0, 0, 0, 0.03)', // Hover overlay
     error: '#ef4444', // Error states
   },
-  
+
   // Service Support specific colors
   service: {
-    brandGreen: '#00A86B',
-    brandGreenLight: '#00C853',
-    panelDark: '#2a2a2a',
-    panelOverlay: 'rgba(0, 0, 0, 0.75)',
-    inputDark: '#1a1a1a',
-    textMuted: '#999999',
-    textSecondary: '#666666',
+    brandGreen: '#1FA84F',
+    brandGreenLight: '#1FA84F',
+    panelDark: '#F8F9FA', // Light background for panels
+    panelOverlay: 'rgba(255, 255, 255, 0.95)', // White overlay
+    inputDark: '#FFFFFF', // White input field
+    textMuted: '#6C757D',
+    textSecondary: '#4A4A4A',
     white: '#FFFFFF',
   },
 } as const;

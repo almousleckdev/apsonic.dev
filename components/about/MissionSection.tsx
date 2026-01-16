@@ -9,7 +9,7 @@ import { Section } from '@/components/ui/Section';
 
 export const MissionSection = () => {
     return (
-        <Section backgroundColor={colors.background.secondary} padding="none" className="relative overflow-hidden">
+        <Section id="story" backgroundColor={colors.background.secondary} padding="none" className="relative overflow-hidden">
             <div className="flex flex-col lg:flex-row h-full min-h-[80vh]">
 
                 {/* Left Side: Sticky Content */}
@@ -27,31 +27,31 @@ export const MissionSection = () => {
                                 color: colors.text.primary
                             }}
                         >
-                            Moving A Continent <span style={{ color: colors.brand.green }}>Forward</span>.
+                            推动大陆 <span style={{ color: colors.brand.green }}>前行</span>。
                         </h2>
 
-                        <div className="space-y-6 text-lg text-gray-400">
+                        <div className="space-y-6 text-lg text-gray-600">
                             <p>
-                                At Apsonic, we don't just build motorcycles. We build lifelines.
-                                In a continent where mobility means opportunity, our mission is simple:
-                                <strong> To empower every journey with relentless reliability.</strong>
+                                在Apsonic，我们不仅仅制造摩托车。我们构建生命线。
+                                在一个流动性意味着机遇的大陆，我们的使命很简单：
+                                <strong> 以坚韧的可靠性赋能每一次旅程。</strong>
                             </p>
                             <p>
-                                From the bustling streets of Lagos to the rugged terrains of the Sahel,
-                                our machines are engineered to withstand the toughest conditions,
-                                ensuring that businesses keep moving, families stay connected, and
-                                economies grow.
+                                从拉各斯繁忙的街道到萨赫勒崎岖的地形，
+                                我们的机器经过精心设计，能够承受最恶劣的条件，
+                                确保企业持续运转，家庭保持联系，
+                                经济不断发展。
                             </p>
                         </div>
 
                         <div className="mt-12 flex gap-8">
                             <div className="flex flex-col">
-                                <span className="text-4xl font-bold text-white">10+</span>
-                                <span className="text-sm text-gray-500 uppercase tracking-widest">Countries</span>
+                                <span className="text-4xl font-bold text-gray-900">10+</span>
+                                <span className="text-sm text-gray-500 uppercase tracking-widest">国家</span>
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-4xl font-bold text-white">1M+</span>
-                                <span className="text-sm text-gray-500 uppercase tracking-widest">Riders</span>
+                                <span className="text-4xl font-bold text-gray-900">1M+</span>
+                                <span className="text-sm text-gray-500 uppercase tracking-widest">骑手</span>
                             </div>
                         </div>
                     </motion.div>
@@ -60,13 +60,13 @@ export const MissionSection = () => {
                 {/* Right Side: Image */}
                 <div className="relative h-[50vh] w-full lg:h-auto lg:w-1/2">
                     <Image
-                        src="/images/services/services1.jpg"
+                        src="/images/about/WechatIMG5212.jpg"
                         alt="Confident African rider looking at horizon"
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, 50vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 lg:bg-gradient-to-r lg:from-neutral-900 lg:via-transparent lg:to-transparent opacity-90" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/80 lg:bg-gradient-to-r lg:from-white/40 lg:via-transparent lg:to-transparent opacity-90" />
                 </div>
             </div>
         </Section>

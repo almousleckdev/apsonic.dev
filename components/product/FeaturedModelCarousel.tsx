@@ -49,7 +49,7 @@ export const FeaturedModelCarousel: React.FC<FeaturedModelCarouselProps> = ({
             color: colors.brand.green,
           }}
         >
-          Recommended Models
+          车型推荐
         </h2>
       </div>
 
@@ -127,7 +127,7 @@ export const FeaturedModelCarousel: React.FC<FeaturedModelCarouselProps> = ({
       <div className="text-center">
         <Link href="/products">
           <Button variant="outline" size="md">
-            All Models
+            全系车型
           </Button>
         </Link>
       </div>

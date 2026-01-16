@@ -48,7 +48,7 @@ export const AfricaMapPanel: React.FC<AfricaMapPanelProps> = ({
 
     geoJsonDataRef.current = geoJson;
     updateGeoJSONSource(map.current, geoJson);
-    
+
     // Add layers after source is ready
     setTimeout(() => {
       if (map.current && map.current.getSource('africa-countries')) {
@@ -96,7 +96,7 @@ export const AfricaMapPanel: React.FC<AfricaMapPanelProps> = ({
     } else if (!selectedCountry?.trim()) {
       // Reset to default view when search is cleared
       map.current.fitBounds(AFRICA_MAP_CONFIG.bounds.africa, {
-        padding: 50,
+        padding: 100,
         duration: 1000,
         easing: (t: number) => t * (2 - t),
       });
@@ -109,7 +109,7 @@ export const AfricaMapPanel: React.FC<AfricaMapPanelProps> = ({
 
     if (!showOnlyUserLocation) {
       map.current.fitBounds(AFRICA_MAP_CONFIG.bounds.africa, {
-        padding: 50,
+        padding: 100,
         duration: 1000,
         easing: (t: number) => t * (2 - t),
       });
@@ -123,6 +123,6 @@ export const AfricaMapPanel: React.FC<AfricaMapPanelProps> = ({
   }, [showOnlyUserLocation, userLocation, isLoaded, map]);
 
   return (
-    <div ref={mapContainer} className={cn('w-full h-full', className)} />
+    <div ref={mapContainer} className={cn('w-full h-full rounded-2xl overflow-hidden border border-gray-100 shadow-inner', className)} />
   );
 };

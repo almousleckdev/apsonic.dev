@@ -17,17 +17,17 @@ export const ContactForm = () => {
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="flex flex-col items-center justify-center text-center p-12 bg-[#1a1a1a] rounded-2xl border border-green-500/20"
+                className="flex flex-col items-center justify-center text-center p-12 bg-white rounded-2xl border border-green-100 shadow-xl shadow-gray-200"
             >
                 <div className="text-6xl text-brand-green mb-6">
                     <MdCheckCircle />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">Message Sent Successfully</h3>
-                <p className="text-gray-400 mb-8 max-w-md">
-                    Thank you for contacting Apsonic. A member of our team will review your request and get back to you within 24 hours.
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">消息发送成功</h3>
+                <p className="text-gray-600 mb-8 max-w-md">
+                    感谢您联系Apsonic。我们的团队成员将审核您的请求，并在24小时内回复您。
                 </p>
-                <Button onClick={resetStatus} variant="outline" className="border-white text-white">
-                    Send Another Message
+                <Button onClick={resetStatus} variant="outline" className="border-gray-200 text-gray-900 hover:bg-gray-50">
+                    发送另一条消息
                 </Button>
             </motion.div>
         );
@@ -38,8 +38,8 @@ export const ContactForm = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input
                     name="firstName"
-                    label="First Name"
-                    placeholder="Enter your first name"
+                    label="名"
+                    placeholder="请输入您的名"
                     value={values.firstName}
                     onChange={handleChange}
                     error={errors.firstName}
@@ -47,8 +47,8 @@ export const ContactForm = () => {
                 />
                 <Input
                     name="lastName"
-                    label="Last Name"
-                    placeholder="Enter your last name"
+                    label="姓"
+                    placeholder="请输入您的姓"
                     value={values.lastName}
                     onChange={handleChange}
                     error={errors.lastName}
@@ -60,7 +60,7 @@ export const ContactForm = () => {
                 <Input
                     name="email"
                     type="email"
-                    label="Email Address"
+                    label="电子邮箱"
                     placeholder="you@company.com"
                     value={values.email}
                     onChange={handleChange}
@@ -70,7 +70,7 @@ export const ContactForm = () => {
                 <Input
                     name="phone"
                     type="tel"
-                    label="Phone Number (Optional)"
+                    label="电话号码（可选）"
                     placeholder="+233 ..."
                     value={values.phone}
                     onChange={handleChange}
@@ -81,26 +81,26 @@ export const ContactForm = () => {
 
             {/* Department Select - Custom Style to match */}
             <div className="w-full">
-                <label className="mb-2 block text-sm font-medium text-white">Department</label>
+                <label className="mb-2 block text-sm font-medium text-gray-700">部门</label>
                 <select
                     name="department"
                     value={values.department}
                     onChange={handleChange}
                     disabled={isSubmitting}
-                    className="flex h-12 w-full rounded-lg px-4 bg-[#1e1e1e] border border-white/10 text-white focus:border-brand-green focus:outline-none transition-colors"
+                    className="flex h-12 w-full rounded-lg px-4 bg-gray-50 border border-gray-100 text-gray-900 focus:border-brand-green focus:bg-white focus:outline-none transition-all duration-200"
                 >
-                    <option value="general">General Inquiry</option>
-                    <option value="sales">Sales & Fleet</option>
-                    <option value="dealership">Dealership Application</option>
-                    <option value="support">Technical Support</option>
-                    <option value="media">Media & PR</option>
+                    <option value="general">一般咨询</option>
+                    <option value="sales">销售与车队</option>
+                    <option value="dealership">经销商申请</option>
+                    <option value="support">技术支持</option>
+                    <option value="media">媒体与公关</option>
                 </select>
             </div>
 
             <Input
                 name="subject"
-                label="Subject"
-                placeholder="How can we help?"
+                label="主题"
+                placeholder="我们可以如何帮助您？"
                 value={values.subject}
                 onChange={handleChange}
                 error={errors.subject}
@@ -109,8 +109,8 @@ export const ContactForm = () => {
 
             <Textarea
                 name="message"
-                label="Message"
-                placeholder="Tell us more about your inquiry..."
+                label="留言"
+                placeholder="请详细说明您的咨询内容..."
                 value={values.message}
                 onChange={handleChange}
                 error={errors.message}
@@ -125,14 +125,14 @@ export const ContactForm = () => {
                     loading={isSubmitting}
                     variant="primary"
                 >
-                    Send Message
+                    发送消息
                 </Button>
             </div>
 
             {submitStatus === 'error' && (
                 <div className="flex items-center gap-2 text-red-500 bg-red-500/10 p-4 rounded-lg">
                     <MdError />
-                    <span>Something went wrong. Please try again later.</span>
+                    <span>出现了错误。请稍后再试。</span>
                 </div>
             )}
         </form>

@@ -25,6 +25,8 @@ export const StoreQueryPanel: React.FC<StoreQueryPanelProps> = ({
       style={{
         backgroundColor: colors.service.panelDark,
         padding: 'clamp(20px, 4vw, 30px) clamp(16px, 3vw, 40px)',
+        borderRadius: '20px',
+        border: '1px solid rgba(0, 0, 0, 0.05)',
       }}
     >
       <h3

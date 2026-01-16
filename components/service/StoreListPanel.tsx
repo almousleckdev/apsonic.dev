@@ -60,16 +60,20 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
       style={{
         backgroundColor: colors.service.panelOverlay,
         padding: 'clamp(20px, 4vw, 30px) clamp(16px, 3vw, 40px)',
-        borderRadius: '0',
+        borderRadius: '20px',
+        border: '1px solid rgba(0, 0, 0, 0.05)',
+        boxShadow: '0 10px 30px -10px rgba(0, 0, 0, 0.1)',
       }}
     >
       {/* Search Bar */}
       <div style={{ marginBottom: SERVICE_CONFIG.spacing.searchMarginBottom }}>
+        <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-2 px-1">搜索中心</p>
         <div
-          className="relative"
+          className="relative transition-all"
           style={{
-            border: `2px solid ${colors.service.brandGreen}`,
-            borderRadius: '10px',
+            border: `1.5px solid ${colors.service.brandGreen}`,
+            borderRadius: '12px',
+            boxShadow: '0 4px 10px rgba(31, 168, 79, 0.05)',
           }}
         >
           <input
@@ -77,16 +81,17 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
             placeholder={SERVICE_LABELS.searchPlaceholder}
             value={searchTerm}
             onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full px-4 py-2 pl-10 focus:outline-none"
+            className="w-full px-4 py-3 pl-11 focus:outline-none placeholder:text-gray-400"
             style={{
-              backgroundColor: colors.service.inputDark,
-              color: colors.text.primary,
-              borderRadius: '8px',
+              backgroundColor: '#FFFFFF',
+              color: '#111827',
+              borderRadius: '10px',
+              fontSize: '14px',
             }}
           />
           <div
-            className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"
-            style={{ color: colors.service.textMuted }}
+            className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none"
+            style={{ color: colors.service.brandGreen }}
           >
             <SearchIcon className="w-4 h-4" />
           </div>
@@ -142,7 +147,7 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
             >
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 mb-4" style={{ borderColor: colors.service.brandGreen }} />
               <p style={{ color: colors.service.textMuted }}>
-                Finding your location...
+                正在查找您的位置...
               </p>
             </MotionDiv>
           ) : locationError ? (
@@ -158,13 +163,13 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
               }}
             >
               <p className="mb-2" style={{ color: colors.text.primary }}>
-                Unable to get your location
+                无法获取您的位置
               </p>
               <p className="text-sm" style={{ color: colors.text.secondary }}>
                 {locationError}
               </p>
               <p className="text-sm mt-2" style={{ color: colors.text.secondary }}>
-                Please enable location services or search for a location manually.
+                请启用位置服务或手动搜索位置。
               </p>
             </MotionDiv>
           ) : showNearbyResults && hasResults ? (
@@ -190,7 +195,7 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
               }}
             >
               <p className="mb-2 font-medium" style={{ color: colors.text.primary }}>
-                No APSONIC service found nearby
+                附近未找到APSONIC服务
               </p>
               {userAddress && (
                 <div className="text-sm" style={{ color: colors.text.secondary }}>
@@ -202,11 +207,11 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
               )}
               {userLocation && !userAddress && (
                 <p className="text-sm" style={{ color: colors.text.secondary }}>
-                  Your location: {userLocation.lat.toFixed(4)}, {userLocation.lng.toFixed(4)}
+                  您的位置: {userLocation.lat.toFixed(4)}, {userLocation.lng.toFixed(4)}
                 </p>
               )}
               <p className="text-sm mt-2" style={{ color: colors.text.secondary }}>
-                Please try searching for a specific location or country.
+                请尝试搜索特定位置或国家。
               </p>
             </MotionDiv>
           ) : hasSearch && hasResults ? (

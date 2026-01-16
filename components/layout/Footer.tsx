@@ -48,7 +48,7 @@ const FooterLink: React.FC<{ href?: string; label: string; isSubItem?: boolean }
   isSubItem = false,
 }) => {
   const linkStyle = {
-    color: isSubItem ? colors.text.muted : colors.text.secondary,
+    color: isSubItem ? '#A0A0A0' : '#E0E0E0',
     fontSize: isSubItem ? typography.size.caption : typography.size.bodySmall,
   };
 
@@ -78,7 +78,7 @@ const FooterSection: React.FC<{ section: FooterSection }> = ({ section }) => {
       <h3
         className="font-semibold mb-4"
         style={{
-          color: colors.text.primary,
+          color: '#FFFFFF',
           fontSize: typography.size.body,
         }}
       >
@@ -107,15 +107,15 @@ const FooterSection: React.FC<{ section: FooterSection }> = ({ section }) => {
 export const Footer: React.FC = () => {
   return (
     <footer
-      className="w-full"
+      className="w-full text-white"
       style={{
-        backgroundColor: colors.background.secondary,
+        backgroundColor: '#111111',
       }}
     >
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         {/* Top Section - Brand and Columns */}
-        <div className="mb-8 pb-8 border-b" style={{ borderColor: colors.ui.border }}>
+        <div className="mb-8 pb-8 border-b border-white/10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Brand Section */}
             <div className="lg:col-span-1">
@@ -144,8 +144,8 @@ export const Footer: React.FC = () => {
               >
                 <Icon
                   size={20}
-                  style={{ color: colors.text.secondary }}
-                  className="transition-colors"
+                  style={{ color: '#E0E0E0' }}
+                  className="transition-colors hover:text-brand-green"
                 />
               </Link>
             ))}
@@ -154,7 +154,7 @@ export const Footer: React.FC = () => {
           {/* Copyright */}
           <div
             className="text-sm"
-            style={{ color: colors.text.muted }}
+            style={{ color: '#808080' }}
           >
             APSONIC.Africa
           </div>

@@ -43,9 +43,9 @@ export const RightSidebar: React.FC = () => {
         style={{
           backgroundColor: colors.background.sidebar,
           backdropFilter: 'blur(10px)',
-          borderLeft: `1px solid rgba(255, 255, 255, 0.2)`,
-          borderTop: `1px solid rgba(255, 255, 255, 0.2)`,
-          borderBottom: `1px solid rgba(255, 255, 255, 0.2)`,
+          borderLeft: `1px solid ${colors.ui.border}`,
+          borderTop: `1px solid ${colors.ui.border}`,
+          borderBottom: `1px solid ${colors.ui.border}`,
           top: '100px', // Space after header (80px header + 20px gap)
         }}
         onMouseLeave={handleIconLeave}
@@ -53,7 +53,7 @@ export const RightSidebar: React.FC = () => {
         {SIDEBAR_ICONS.map((item) => {
           const isHovered = hoveredIcon === item.id;
           const IconComponent = ICON_MAP[item.iconName];
-          
+
           const handleClick = () => {
             if (item.id === 'chat') {
               handleChatClick();
@@ -101,7 +101,7 @@ export const RightSidebar: React.FC = () => {
           );
         })}
       </aside>
-      
+
       <AIChat isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </>
   );

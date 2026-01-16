@@ -9,15 +9,15 @@ import { FAQ } from '@/components/service-page';
 import { SERVICE_FAQ_ITEMS } from '@/lib/data/faq';
 
 export const metadata = {
-    title: 'Contact Us - Apsonic',
-    description: 'Get in touch with Apsonic. Dealer inquiries, support, and general questions.',
+    title: '联系我们 - Apsonic',
+    description: '联系我们。经销商咨询、技术支持及一般问题。',
 };
 
 export default function ContactPage() {
     return (
-        <main className="min-h-screen bg-black">
+        <main className="min-h-screen bg-white">
             <ContactHero />
-            <ContactCategories />
+            {/* <ContactCategories /> */}
 
             <Section backgroundColor={colors.background.primary} className="py-20">
                 <div className="container mx-auto px-4">
@@ -25,9 +25,9 @@ export default function ContactPage() {
                     {/* Section 1: Contact Form - Centered */}
                     <div className="max-w-3xl mx-auto mb-24">
                         <div className="text-center mb-12">
-                            <h2 className="text-3xl font-bold text-white mb-4">Send us a Message</h2>
+                            <h2 className="text-3xl font-bold text-gray-900 mb-4">给我们留言</h2>
                             <p className="text-gray-400">
-                                Fill out the form below and we'll route your inquiry to the right department.
+                                请填写以下表单，我们将把您的咨询转交给相关部门。
                             </p>
                         </div>
                         <ContactForm />
@@ -42,9 +42,9 @@ export default function ContactPage() {
             </Section>
 
             {/* FAQ Section Reuse */}
-            <div className="border-t border-white/10">
+            {/* <div className="border-t border-white/10">
                 <FAQ items={SERVICE_FAQ_ITEMS.slice(0, 4)} />
-            </div>
+            </div> */}
 
         </main>
     );
