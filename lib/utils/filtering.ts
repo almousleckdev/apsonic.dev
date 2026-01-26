@@ -4,7 +4,7 @@
 
 export interface FilterOptions<T> {
     // Exact match filters (e.g., category, status)
-    exact?: Partial<Record<keyof T, any>>;
+    exact?: Partial<Record<keyof T, unknown>>;
     // Partial match filters (e.g., country name, address)
     partial?: Partial<Record<keyof T, string>>;
     // Search filter across multiple fields
