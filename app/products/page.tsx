@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { ProductFilters, ProductModelCard } from "@/components/products";
 import type { ProductFilters as ProductFiltersType } from "@/lib/types/products";
@@ -29,7 +29,10 @@ import { ANIMATION_VARIANTS } from "@/lib/constants/animations";
 /**
  * ProductsPage - Faithful Mockup Reproduction
  */
-export default function ProductsPage() {
+
+// ... (keep constants)
+
+function ProductsContent() {
   const searchParams = useSearchParams();
   const [filters, setFilters] = useState<ProductFiltersType>({});
 
@@ -63,7 +66,12 @@ export default function ProductsPage() {
             if (!products || products.length === 0) return null;
 
             return (
-              <ScrollReveal key={category} variant="fadeUp" amount={0.05} once={false}>
+              <ScrollReveal
+                key={category}
+                variant="fadeUp"
+                amount={0.05}
+                once={false}
+              >
                 <section>
                   <div className="mb-16">
                     <h2 className="text-[42px] font-medium text-gray-900 tracking-tight">
@@ -101,5 +109,13 @@ export default function ProductsPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white" />}>
+      <ProductsContent />
+    </Suspense>
   );
 }
