@@ -63,37 +63,21 @@ export const STORES: Store[] = [
   },
 ];
 
+import { applyFilters } from '@/lib/utils/filtering';
+
 // Filter stores based on criteria
 export const filterStores = (stores: Store[], filter: StoreFilter): Store[] => {
-  return stores.filter((store) => {
-    // Filter by type
-    if (filter.type !== 'all' && store.type !== filter.type) {
-      return false;
-    }
-
-    // Filter by search term
-    if (filter.search) {
-      const searchLower = filter.search.toLowerCase();
-      const matchesName = store.name.toLowerCase().includes(searchLower);
-      const matchesAddress = store.address.toLowerCase().includes(searchLower);
-      const matchesCity = store.city?.toLowerCase().includes(searchLower);
-      const matchesCountry = store.country.toLowerCase().includes(searchLower);
-      
-      if (!matchesName && !matchesAddress && !matchesCity && !matchesCountry) {
-        return false;
-      }
-    }
-
-    // Filter by country (case-insensitive partial match)
-    if (filter.country) {
-      const filterCountryLower = filter.country.toLowerCase();
-      const storeCountryLower = store.country.toLowerCase();
-      if (!storeCountryLower.includes(filterCountryLower)) {
-        return false;
-      }
-    }
-
-    return true;
+  return applyFilters(stores, {
+    exact: {
+      type: filter.type,
+    },
+    partial: {
+      country: filter.country,
+    },
+    search: filter.search ? {
+      query: filter.search,
+      fields: ['name', 'address', 'city', 'country'],
+    } : undefined,
   });
 };
 

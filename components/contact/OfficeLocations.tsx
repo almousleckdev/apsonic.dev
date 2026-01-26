@@ -3,6 +3,7 @@
 import React from 'react';
 import { MdLocationOn, MdPhone, MdEmail, MdPublic, MdMap } from 'react-icons/md';
 import { motion } from 'framer-motion';
+import { Container } from '@/components/ui/Container';
 
 // Expanded list of countries APSONIC is active in (16-20 approx)
 // West Africa focus + others
@@ -94,7 +95,8 @@ const offices = [
 
 export const OfficeLocations = () => {
     return (
-        <div className="space-y-16">
+        <Container maxWidth="wide">
+            <div className="space-y-16">
 
             {/* Market Coverage Section - Full Width Banner */}
             <div className="bg-gray-50 rounded-3xl p-8 lg:p-12 border border-gray-100 relative overflow-hidden shadow-sm">
@@ -206,7 +208,7 @@ export const OfficeLocations = () => {
                     ))}
                 </div>
             </div>
-
-        </div>
+            </div>
+        </Container>
     );
 };

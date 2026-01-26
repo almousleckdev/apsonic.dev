@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { KeyMetric, TechSpecItem } from '@/lib/types/products';
 
 // TS in this repo (moduleResolution: bundler) can resolve a minimal MotionProps type
@@ -34,7 +34,7 @@ export const ProductSpecification: React.FC<ProductSpecificationProps> = ({
   return (
     <section className={cn("w-full py-32 bg-white", className)}>
       <div className="container mx-auto px-4 max-w-6xl">
-        
+
         {/* 1. Header Section */}
         <MotionDiv
           className="text-center mb-24"
@@ -47,7 +47,7 @@ export const ProductSpecification: React.FC<ProductSpecificationProps> = ({
             技术参数
           </h2>
         </MotionDiv>
-        
+
         {/* 2. Key Performance Metrics - Perfectly Aligned */}
         <MotionDiv
           className="grid grid-cols-2 lg:grid-cols-4 gap-y-16 mb-28"
@@ -71,7 +71,7 @@ export const ProductSpecification: React.FC<ProductSpecificationProps> = ({
               <span className="text-[12px] text-gray-500 font-medium uppercase tracking-[0.15em] mb-8 h-8 flex items-center text-center">
                 {metric.label}
               </span>
-              
+
               <div className="flex items-start">
                 {metric.subValue && (
                   <span className="text-2xl font-light text-gray-300 mt-2 mr-1">
@@ -82,7 +82,7 @@ export const ProductSpecification: React.FC<ProductSpecificationProps> = ({
                   {metric.value}
                 </span>
               </div>
-              
+
               <span className="text-[12px] text-gray-400 font-light uppercase tracking-[0.2em] mt-8">
                 {metric.unit}
               </span>
@@ -97,7 +97,7 @@ export const ProductSpecification: React.FC<ProductSpecificationProps> = ({
 
         {/* 3. Interactive Toggle Button */}
         <div className="flex justify-center mb-16">
-          <button 
+          <button
             onClick={() => setIsExpanded(!isExpanded)}
             className={cn(
               "px-12 py-3 border border-gray-300 rounded-xl transition-all duration-300",
@@ -121,8 +121,8 @@ export const ProductSpecification: React.FC<ProductSpecificationProps> = ({
             >
               <div className="grid grid-cols-1 md:grid-cols-2 border-t border-gray-200">
                 {detailedSpecs.map((spec, idx) => (
-                  <div 
-                    key={idx} 
+                  <div
+                    key={idx}
                     className={cn(
                       "flex border-b border-gray-200 min-h-[50px] sm:min-h-[56px] transition-colors hover:bg-gray-50/50",
                       // Vertical divider for the two-column layout on desktop

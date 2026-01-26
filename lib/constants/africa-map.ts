@@ -2,13 +2,13 @@
 export const AFRICA_MAP_CONFIG = {
   // Map bounds for Africa continent
   bounds: {
-    // Africa continent bounds [west, south, east, north]
-    africa: [-40, -55, 80, 55] as [number, number, number, number],
+    // Tighter Africa continent bounds [west, south, east, north]
+    africa: [-20, -36, 52, 38] as [number, number, number, number],
   },
 
-  // Default view
-  defaultCenter: [15, 2] as [number, number], // Adjusted center
-  defaultZoom: 2.2,
+  // Refined default view
+  defaultCenter: [18, 1] as [number, number],
+  defaultZoom: 4.0,
 
   // Region colors for APSONIC presence highlighting
   regionColors: {

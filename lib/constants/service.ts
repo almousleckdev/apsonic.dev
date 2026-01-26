@@ -3,8 +3,8 @@ export const SERVICE_CONFIG = {
   // Layout proportions
   layout: {
     leftPanelWidth: '20%',
-    middlePanelWidth: '25%', // Reduced from 35% to make map more visible
-    mapStartPosition: '45%', // Adjusted to show map more centered in right panel
+    middlePanelWidth: '25%',
+    mapStartPosition: '45%',
   },
 
   // Panel styling

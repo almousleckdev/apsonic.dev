@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { ProductModel } from '@/lib/types/products';
+import { buildProductDetailUrl } from '@/lib/data/products';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { HoverCard } from '@/components/ui/HoverCard';
@@ -39,7 +40,7 @@ export const MotorcycleGrid: React.FC<MotorcycleGridProps> = ({
             <HoverCard
               key={motorcycle.id}
               as="link"
-              href={`/products/${motorcycle.id}`}
+              href={buildProductDetailUrl(motorcycle.id, motorcycle.category)}
               hoverTransform={SERVICE_PAGE_CONFIG.card.hoverTransform}
               hoverShadow={SERVICE_PAGE_CONFIG.card.hoverShadow}
               transition={SERVICE_PAGE_CONFIG.card.transition}

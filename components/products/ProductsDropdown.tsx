@@ -24,6 +24,7 @@ export const ProductsDropdown: React.FC<ProductsDropdownProps> = ({
   const [selectedBrandId, setSelectedBrandId] = useState<string>(config.brands[0]?.id || '');
 
   const currentCategories = useMemo(() => getCategoriesByBrand(selectedBrandId), [selectedBrandId]);
+  const selectedBrand = useMemo(() => config.brands.find(b => b.id === selectedBrandId), [config.brands, selectedBrandId]);
   const handleBrandHover = useCallback((brand: Brand) => setSelectedBrandId(brand.id), []);
 
   return (
@@ -52,7 +53,7 @@ export const ProductsDropdown: React.FC<ProductsDropdownProps> = ({
           <div className="flex-1 overflow-x-auto">
             <div className="flex gap-5 items-start">
               {currentCategories.map((category) => (
-                <ProductCard key={category.id} category={category} />
+                <ProductCard key={category.id} category={category} brand={selectedBrand} />
               ))}
             </div>
           </div>

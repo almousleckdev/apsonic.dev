@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { StoreQueryPanel } from './StoreQueryPanel';
-import { StoreListPanel } from './StoreListPanel';
-import { AfricaMapPanel } from './AfricaMapPanel';
-import { Button } from '@/components/ui/Button';
-import { colors, spacing } from '@/lib/design-tokens';
-import { SERVICE_CONFIG, SERVICE_LABELS } from '@/lib/constants/service';
-import { useServiceSupport } from '@/hooks/useServiceSupport';
-import { cn } from '@/lib/utils';
+import React from "react";
+import { StoreQueryPanel } from "./StoreQueryPanel";
+import { StoreListPanel } from "./StoreListPanel";
+import { AfricaMapPanel } from "./AfricaMapPanel";
+import { Button } from "@/components/ui/Button";
+import { colors, spacing } from "@/lib/design-tokens";
+import { SERVICE_CONFIG, SERVICE_LABELS } from "@/lib/constants/service";
+import { useServiceSupport } from "@/hooks/useServiceSupport";
+import { cn } from "@/lib/utils";
 
 export interface ServiceSupportProps {
   className?: string;
@@ -35,7 +35,7 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
 
   return (
     <section
-      className={cn('w-full', spacing.section.vertical, className)}
+      className={cn("w-full", spacing.section.vertical, className)}
       style={{ backgroundColor: colors.background.white }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,25 +72,34 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
             </div>
 
             {/* Map Panel */}
-            <div className="w-full" style={{ minHeight: '450px', height: '450px' }}>
+            <div
+              className="w-full"
+              style={{ minHeight: "450px", height: "450px" }}
+            >
               <AfricaMapPanel
-                selectedCountry={searchTerm.trim() ? (selectedCountry || searchTerm) : ''}
+                selectedCountry={selectedCountry}
                 onCountrySelect={handleCountrySelect}
-                userLocation={queryType === 'nearby' ? userLocation : null}
-                showOnlyUserLocation={queryType === 'nearby'}
+                userLocation={queryType === "nearby" ? userLocation : null}
+                showOnlyUserLocation={queryType === "nearby"}
                 className="h-full rounded-2xl shadow-md"
               />
             </div>
           </div>
 
           {/* Desktop: Horizontal Layout with Map as Background */}
-          <div className="hidden lg:flex gap-6 h-[650px] relative items-stretch">
+          <div
+            className="hidden lg:flex h-[650px] relative items-stretch"
+            style={{ gap: "0" }}
+          >
             {/* Left Panel - Opaque */}
             <div
-              className="w-[20%] flex-shrink-0"
+              className="flex-shrink-0 overflow-hidden"
               style={{
-                position: 'relative',
+                width: "20%",
+                position: "relative",
                 zIndex: 3,
+                borderTopLeftRadius: "16px",
+                borderBottomLeftRadius: "16px",
               }}
             >
               <StoreQueryPanel
@@ -102,9 +111,10 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
 
             {/* Middle Panel - Semi-transparent overlay */}
             <div
-              className="w-[30%] flex-shrink-0"
+              className="flex-shrink-0"
               style={{
-                position: 'relative',
+                width: "20%",
+                position: "relative",
                 zIndex: 2,
               }}
             >
@@ -127,18 +137,20 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
 
             {/* Map Area */}
             <div
-              className="flex-grow h-full"
+              className="flex-grow h-full overflow-hidden"
               style={{
-                position: 'relative',
+                position: "relative",
                 zIndex: 1,
+                borderTopRightRadius: "16px",
+                borderBottomRightRadius: "16px",
               }}
             >
               <AfricaMapPanel
-                selectedCountry={searchTerm.trim() ? (selectedCountry || searchTerm) : ''}
+                selectedCountry={selectedCountry}
                 onCountrySelect={handleCountrySelect}
-                userLocation={queryType === 'nearby' ? userLocation : null}
-                showOnlyUserLocation={queryType === 'nearby'}
-                className="h-full shadow-2xl shadow-gray-200/50"
+                userLocation={queryType === "nearby" ? userLocation : null}
+                showOnlyUserLocation={queryType === "nearby"}
+                className="h-full w-full"
               />
             </div>
           </div>
@@ -159,9 +171,7 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
             {SERVICE_LABELS.buttonText}
           </Button>
         </div>
-
       </div>
     </section>
   );
 };
-

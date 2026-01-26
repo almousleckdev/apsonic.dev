@@ -1,80 +1,69 @@
+'use client';
+
 import React from 'react';
 import { SearchIcon } from '@/components/ui/Icons';
 import { colors } from '@/lib/design-tokens';
 import { cn } from '@/lib/utils';
 
 export interface SearchInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   placeholder?: string;
   className?: string;
   variant?: 'dark' | 'light';
+  size?: 'sm' | 'md' | 'lg';
 }
 
+/**
+ * Unified SearchInput - Optimized for both Header (Dark) and Product (Light) areas.
+ */
 export const SearchInput: React.FC<SearchInputProps> = ({
   placeholder = 'Search...',
   className,
   value,
-  variant,
+  variant = 'light',
+  size = 'md',
   ...props
 }) => {
-  const hasWidthClass = className?.includes('w-');
-  // Determine theme: explicit variant prop, or auto-detect from context
-  const isLightTheme = variant === 'light' || 
-    (variant !== 'dark' && className?.includes('w-full') && value === undefined);
-  const isProductsPage = className?.includes('w-full') && value !== undefined;
-  
+  const isDark = variant === 'dark';
+
+  const sizeClasses = {
+    sm: 'h-9 px-4 text-xs',
+    md: 'h-10 px-5 text-sm',
+    lg: 'h-12 px-6 text-base',
+  };
+
+  const variantStyles = isDark
+    ? {
+      input: 'bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:border-brand-green/50 focus:bg-white/15',
+      icon: 'text-white/40',
+      ring: 'ring-brand-green/20'
+    }
+    : {
+      input: 'bg-gray-50 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-brand-green/50 focus:bg-white',
+      icon: 'text-gray-400',
+      ring: 'ring-brand-green/10'
+    };
+
   return (
-    <div className={cn('relative', hasWidthClass ? className : '')}>
+    <div className={cn('relative group w-full', className)}>
       <input
         type="text"
         placeholder={placeholder}
         value={value}
         className={cn(
-          'rounded-lg px-4 py-2 pl-10',
-          'focus:outline-none',
-          'transition-colors',
-          hasWidthClass ? 'w-full' : 'w-32',
-          (isProductsPage || isLightTheme) && 'text-sm shadow-sm'
+          'w-full rounded-full pl-11 outline-none border transition-all duration-200',
+          'focus:ring-4',
+          sizeClasses[size as keyof typeof sizeClasses],
+          variantStyles.input,
+          variantStyles.ring
         )}
-        style={{
-          backgroundColor: isProductsPage || isLightTheme 
-            ? colors.background.white 
-            : colors.background.secondary,
-          border: isProductsPage || isLightTheme
-            ? `1px solid ${value ? colors.brand.green : '#E5E5E5'}`
-            : `1px solid ${colors.ui.border}`,
-          color: isProductsPage || isLightTheme 
-            ? colors.text.black 
-            : colors.text.primary,
-        }}
-        onFocus={(e) => {
-          e.target.style.borderColor = colors.brand.green;
-          if (isProductsPage || isLightTheme) {
-            e.target.style.boxShadow = `0 0 0 3px ${colors.brand.green}20`;
-          }
-        }}
-        onBlur={(e) => {
-          if (isProductsPage || isLightTheme) {
-            e.target.style.borderColor = value ? colors.brand.green : '#E5E5E5';
-            e.target.style.boxShadow = 'none';
-          } else {
-            e.target.style.borderColor = colors.ui.border;
-          }
-        }}
         {...props}
       />
-      <SearchIcon
-        className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"
-        size={isProductsPage || isLightTheme ? 18 : 16}
-        style={{
-          color: isProductsPage || isLightTheme
-            ? value
-              ? colors.brand.green
-              : colors.text.gray.medium
-            : colors.text.muted,
-        }}
-      />
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
+        <SearchIcon
+          className={cn('w-4 h-4 transition-colors duration-200 group-focus-within:text-brand-green', variantStyles.icon)}
+        />
+      </div>
     </div>
   );
 };
-

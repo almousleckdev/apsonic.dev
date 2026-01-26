@@ -3,8 +3,8 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { colors, typography } from '@/lib/design-tokens';
 import { Section } from '@/components/ui/Section';
+import { ENTERPRISE_EASE } from '@/lib/constants/animations';
 
 export const ContactHero = () => {
     return (
@@ -18,17 +18,17 @@ export const ContactHero = () => {
                     src="/images/about-hero.png"
                     alt="Apsonic Contact Support"
                     fill
-                    className="object-cover opacity-40 blur-sm scale-105"
+                    className="object-cover opacity-30 grayscale blur-[1px] scale-110 transition-transform duration-[3s] ease-linear group-hover:scale-100"
                     priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black" />
             </div>
 
             <div className="container relative z-10 px-4 text-center">
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    transition={{ duration: 1, ease: ENTERPRISE_EASE }}
                     className="flex flex-col items-center"
                 >
                     <div className="mb-8 h-px w-20 bg-brand-green/60" />

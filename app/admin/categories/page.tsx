@@ -8,8 +8,9 @@ import { AdminDialog } from '@/components/admin/AdminDialog';
 import { Button, Input } from '@/components/ui';
 import { MdAdd, MdFilterList } from 'react-icons/md';
 import Image from 'next/image';
+import type { AdminCategory } from '@/lib/types/admin';
 
-const mockCategories = [
+const mockCategories: AdminCategory[] = [
     { id: 1, name: 'Underbone', slug: 'underbone', image: '/images/products/underbone.png', count: 24 },
     { id: 2, name: 'Street', slug: 'street', image: '/images/products/street.png', count: 32 },
     { id: 3, name: 'Off-road', slug: 'off-road', image: '/images/products/offroad.png', count: 18 },
@@ -19,11 +20,11 @@ const mockCategories = [
 
 export default function CategoriesPage() {
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
-    const [selectedCategory, setSelectedCategory] = useState<any>(null);
+    const [selectedCategory, setSelectedCategory] = useState<AdminCategory | null>(null);
 
     const columns = [
         {
-            header: 'Image', accessor: (item: any) => (
+            header: 'Image', accessor: (item: AdminCategory) => (
                 <div className="relative w-12 h-12 rounded-lg overflow-hidden border border-gray-100 bg-gray-50">
                     {/* Fallback pattern if image is missing */}
                     <div className="absolute inset-0 bg-brand-green/20 flex items-center justify-center font-bold text-[10px] text-brand-green">IMG</div>
@@ -31,7 +32,7 @@ export default function CategoriesPage() {
             )
         },
         {
-            header: 'Name', accessor: (item: any) => (
+            header: 'Name', accessor: (item: AdminCategory) => (
                 <div>
                     <div className="font-bold text-gray-900">{item.name}</div>
                     <div className="text-xs text-gray-500">/{item.slug}</div>
@@ -39,7 +40,7 @@ export default function CategoriesPage() {
             )
         },
         {
-            header: 'Items Count', accessor: (item: any) => (
+            header: 'Items Count', accessor: (item: AdminCategory) => (
                 <span className="px-2 py-1 rounded-md bg-gray-100 text-xs text-gray-500">
                     {item.count} Products
                 </span>

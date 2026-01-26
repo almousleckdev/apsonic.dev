@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Section } from '@/components/ui/Section';
-import { Container } from '@/components/ui/Container';
-import { colors } from '@/lib/design-tokens';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
+import React from "react";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { colors } from "@/lib/design-tokens";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 interface PhilosophyItem {
   id: string;
@@ -19,33 +19,36 @@ interface PhilosophyItem {
 
 const philosophyItems: PhilosophyItem[] = [
   {
-    id: 'company-intro',
-    title: '企业介绍',
-    description: '了解Apsonic的企业文化、发展历程和核心价值观。',
-    image: '/images/about/envato-labs-image-edit (1)E.png',
-    link: '#story'
+    id: "company-intro",
+    title: "好质量好生活",
+    description:
+      "我们在生产的每一个环节都精益求精，致力于通过高品质产品改善民众生活。",
+    image: "/about/Picture2.png",
+    link: "#story",
   },
   {
-    id: 'quality-life',
-    title: '好质量好生活（实验舱等）',
-    description: '探索Apsonic如何通过严格的测试和质量控制，确保每一辆摩托车都达到最高标准。',
-    image: '/images/about/envato-labs-image-edit (32).png',
-    link: '#engineering'
+    id: "africa-cup",
+    title: "激情体育",
+    description: "全球唯一连续三届签约非洲国家杯官方合作伙伴的摩托车品牌",
+    image: "/about/Picture5.png",
+    link: "/news/africa-cup-support",
   },
   {
-    id: 'commercial',
-    title: '广告片',
-    description: '观看Apsonic的品牌宣传片，了解我们的故事和愿景。',
-    image: '/images/about/envato-labs-image-edit (38).png',
-    link: '#videos'
+    id: "community-transport",
+    title: "社区运输方案",
+    description:
+      "通过多元化的三轮车和两轮车产品，我们为西非数百万人的出行和短途运输提供主力支持。",
+    image: "/about/Picture7.png",
+    link: "#engineering",
   },
   {
-    id: 'africa-cup',
-    title: '非洲杯',
-    description: 'Apsonic支持非洲杯，为社区和体育发展贡献力量。',
-    image: '/images/news/非洲杯大屏幕1.png',
-    link: '/news/africa-cup-support'
-  }
+    id: "innovation-future",
+    title: "可持续创新",
+    description:
+      "APSONIC倡导“高品质美好生活”，通过太阳能基础设施等创新技术回报社会。",
+    image: "/about/Picture9.png",
+    link: "#sustainability",
+  },
 ];
 
 export const PhilosophySection: React.FC = () => {
@@ -71,11 +74,7 @@ export const PhilosophySection: React.FC = () => {
         {/* Philosophy Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {philosophyItems.map((item, index) => (
-            <ScrollReveal
-              key={item.id}
-              variant="fadeUp"
-              delay={index * 0.1}
-            >
+            <ScrollReveal key={item.id} variant="fadeUp" delay={index * 0.1}>
               <motion.div
                 whileHover={{ y: -8 }}
                 className="group relative h-full rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:border-brand-green/30 transition-all duration-300"

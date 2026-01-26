@@ -7,8 +7,9 @@ import { AdminTable } from '@/components/admin/AdminTable';
 import { AdminDialog } from '@/components/admin/AdminDialog';
 import { Button, Input } from '@/components/ui';
 import { MdAdd, MdSearch, MdFilterList, MdSettingsSuggest } from 'react-icons/md';
+import type { AdminProduct } from '@/lib/types/admin';
 
-const mockProducts = [
+const mockProducts: AdminProduct[] = [
     { id: '1', model: 'AP50-3', brand: 'APSONIC', category: 'Underbone', specsCount: 12, lastUpdated: '2025-11-20' },
     { id: '2', model: 'AP125-30', brand: 'APSONIC', category: 'Street', specsCount: 15, lastUpdated: '2025-11-18' },
     { id: '3', model: 'AP150ZH-20 SPORT', brand: 'APSONIC', category: 'Tricycle', specsCount: 18, lastUpdated: '2025-11-15' },
@@ -17,11 +18,11 @@ const mockProducts = [
 
 export default function ProductSpecsPage() {
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
-    const [selectedProduct, setSelectedProduct] = useState<any>(null);
+    const [selectedProduct, setSelectedProduct] = useState<AdminProduct | null>(null);
 
     const columns = [
         {
-            header: 'Product Model', accessor: (item: any) => (
+            header: 'Product Model', accessor: (item: AdminProduct) => (
                 <div>
                     <div className="font-bold text-gray-900">{item.model}</div>
                     <div className="text-xs text-brand-green">{item.brand}</div>
@@ -30,7 +31,7 @@ export default function ProductSpecsPage() {
         },
         { header: 'Category', accessor: 'category' },
         {
-            header: 'Specs Defined', accessor: (item: any) => (
+            header: 'Specs Defined', accessor: (item: AdminProduct) => (
                 <div className="flex items-center gap-2">
                     <div className="w-16 h-1.5 bg-gray-100 rounded-full overflow-hidden">
                         <div className="h-full bg-brand-green" style={{ width: `${(item.specsCount / 20) * 100}%` }} />

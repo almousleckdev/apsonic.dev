@@ -2,16 +2,17 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
-import { HoverCard } from '@/components/ui/HoverCard';
-import { SERVICE_PAGE_CONFIG } from '@/lib/constants/service-page';
 import { cn } from '@/lib/utils';
+import { MdArrowForward } from 'react-icons/md';
 
 export interface FeatureCard {
   id: string;
   image: string;
   title: string;
+  subtitle?: string;
   description: string;
   ctaText: string;
   href: string;
@@ -22,7 +23,11 @@ export interface FeatureCardsProps {
   className?: string;
 }
 
-// Feature cards section - two large cards
+/**
+ * FeatureCards - Refined & Compact
+ * Vertical layout, Image Top, Text Below.
+ * Removed bulky icons but added strong hover states to indicate clickability.
+ */
 export const FeatureCards: React.FC<FeatureCardsProps> = ({
   cards,
   className,
@@ -30,86 +35,55 @@ export const FeatureCards: React.FC<FeatureCardsProps> = ({
   return (
     <Section
       className={className}
-      backgroundColor={SERVICE_PAGE_CONFIG.colors.background}
+      backgroundColor="#F8F9FA"
       padding="large"
     >
       <Container maxWidth="wide">
-        <div
-          className="grid grid-cols-1 md:grid-cols-2"
-          style={{ gap: SERVICE_PAGE_CONFIG.grid.cardGap }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto pb-12">
           {cards.map((card) => (
-            <HoverCard
-              key={card.id}
-              as="link"
-              href={card.href}
-              hoverTransform={SERVICE_PAGE_CONFIG.featureCard.hoverTransform}
-              hoverShadow={SERVICE_PAGE_CONFIG.featureCard.hoverShadow}
-              transition={SERVICE_PAGE_CONFIG.card.transition}
-              className="block text-center"
-              style={{
-                backgroundColor: SERVICE_PAGE_CONFIG.colors.cardBackground,
-                borderRadius: SERVICE_PAGE_CONFIG.card.borderRadius,
-                padding: SERVICE_PAGE_CONFIG.featureCard.padding,
-                textDecoration: 'none',
-              }}
-            >
-              {/* Image */}
-              <div
-                className="relative w-full mb-6 rounded-xl overflow-hidden"
-                style={{
-                  height: SERVICE_PAGE_CONFIG.featureCard.imageHeight,
-                }}
-              >
-                <Image
-                  src={card.image}
-                  alt={card.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+            <Link key={card.id} href={card.href} className="group relative block h-full">
+              <div className={cn(
+                "bg-white rounded-[32px] p-8 h-full flex flex-col items-center text-center transition-all duration-500 border border-gray-100/50 shadow-sm",
+                "hover:shadow-2xl hover:shadow-black/5 hover:-translate-y-1.5"
+              )}>
+                {/* Image Section - Top Centered & Compact */}
+                <div className="relative w-full aspect-[16/10] mb-8 flex items-center justify-center overflow-visible">
+                  <div className="absolute inset-x-0 bottom-0 top-0 transition-transform duration-700 group-hover:scale-105">
+                    <Image
+                      src={card.image}
+                      alt={card.title}
+                      fill
+                      className="object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
+                      sizes="(max-width: 768px) 100vw, 400px"
+                    />
+                  </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="flex flex-col items-center mt-auto">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-1 tracking-tight group-hover:text-brand-green transition-colors">
+                    {card.title}
+                  </h3>
+                  {card.subtitle && (
+                    <span className="block text-base font-medium text-gray-400 mb-4">
+                      {card.subtitle}
+                    </span>
+                  )}
+                  <p className="text-sm text-gray-500 max-w-[280px] leading-relaxed mb-6">
+                    {card.description}
+                  </p>
+
+                  {/* Attractive Click Indicator */}
+                  <div className="inline-flex items-center gap-2 text-brand-green font-bold text-sm opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                    <span>{card.ctaText}</span>
+                    <MdArrowForward className="text-lg" />
+                  </div>
+                </div>
               </div>
-
-              {/* Title */}
-              <h3
-                className="mb-4"
-                style={{
-                  fontSize: SERVICE_PAGE_CONFIG.typography.cardTitle.fontSize,
-                  fontWeight: SERVICE_PAGE_CONFIG.typography.cardTitle.fontWeight,
-                  color: SERVICE_PAGE_CONFIG.typography.cardTitle.color,
-                }}
-              >
-                {card.title}
-              </h3>
-
-              {/* Description */}
-              <p
-                className="mb-6"
-                style={{
-                  fontSize: '16px',
-                  color: SERVICE_PAGE_CONFIG.colors.secondary,
-                  lineHeight: 1.6,
-                }}
-              >
-                {card.description}
-              </p>
-
-              {/* CTA Link */}
-              <span
-                className="inline-block"
-                style={{
-                  color: SERVICE_PAGE_CONFIG.colors.accent,
-                  fontWeight: 500,
-                  textDecoration: 'none',
-                }}
-              >
-                {card.ctaText} →
-              </span>
-            </HoverCard>
+            </Link>
           ))}
         </div>
       </Container>
     </Section>
   );
 };
-

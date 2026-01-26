@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { motion, useReducedMotion } from 'motion/react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { EngineSpec } from '@/lib/types/products';
 
 // TS in this repo (moduleResolution: bundler) can resolve a minimal MotionProps type

@@ -19,6 +19,8 @@ export const metadata: Metadata = {
 
 import { ConditionalLayout } from "@/components/layout/ConditionalLayout";
 
+import { ErrorBoundary } from "@/components/error/ErrorBoundary";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,9 +31,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ConditionalLayout>
-          {children}
-        </ConditionalLayout>
+        <ErrorBoundary>
+          <ConditionalLayout>
+            {children}
+          </ConditionalLayout>
+        </ErrorBoundary>
       </body>
     </html>
   );

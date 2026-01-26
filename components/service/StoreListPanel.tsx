@@ -1,22 +1,26 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import type { Store } from '@/lib/types/store';
-import type { StoreQueryType } from './StoreQueryPanel';
-import type { Coordinates, Address } from '@/lib/utils/geolocation';
-import { LocationIcon, SearchIcon } from '@/components/ui/Icons';
-import { NearbyStores } from './NearbyStores';
-import { UserLocationDisplay } from './UserLocationDisplay';
-import { colors } from '@/lib/design-tokens';
-import { SERVICE_CONFIG, SERVICE_LABELS } from '@/lib/constants/service';
-import { cn } from '@/lib/utils';
+import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import type { Store } from "@/lib/types/store";
+import type { StoreQueryType } from "./StoreQueryPanel";
+import type { Coordinates, Address } from "@/lib/utils/geolocation";
+import { LocationIcon, SearchIcon } from "@/components/ui/Icons";
+import { NearbyStores } from "./NearbyStores";
+import { UserLocationDisplay } from "./UserLocationDisplay";
+import { colors } from "@/lib/design-tokens";
+import { SERVICE_CONFIG, SERVICE_LABELS } from "@/lib/constants/service";
+import { cn } from "@/lib/utils";
 
 // TS in this repo (moduleResolution: bundler) can resolve a minimal MotionProps type
 // that doesn't include `initial/animate/exit/whileInView/variants` during production builds.
 // This keeps runtime behavior identical while unblocking typechecking on Vercel.
-const MotionDiv = motion.div as unknown as React.ComponentType<Record<string, unknown>>;
-const MotionP = motion.p as unknown as React.ComponentType<Record<string, unknown>>;
+const MotionDiv = motion.div as unknown as React.ComponentType<
+  Record<string, unknown>
+>;
+const MotionP = motion.p as unknown as React.ComponentType<
+  Record<string, unknown>
+>;
 
 export interface StoreListPanelProps {
   stores: Store[];
@@ -49,31 +53,34 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
   locationError,
   className,
 }) => {
-  const isNearbyQuery = queryType === 'nearby';
+  const isNearbyQuery = queryType === "nearby";
   const hasSearch = searchTerm.trim().length > 0 || isNearbyQuery;
   const hasResults = stores.length > 0;
-  const showNearbyResults = isNearbyQuery && !isLoadingLocation && !locationError;
+  const showNearbyResults =
+    isNearbyQuery && !isLoadingLocation && !locationError;
 
   return (
     <div
-      className={cn('h-full flex flex-col', className)}
+      className={cn("h-full flex flex-col", className)}
       style={{
         backgroundColor: colors.service.panelOverlay,
-        padding: 'clamp(20px, 4vw, 30px) clamp(16px, 3vw, 40px)',
-        borderRadius: '20px',
-        border: '1px solid rgba(0, 0, 0, 0.05)',
-        boxShadow: '0 10px 30px -10px rgba(0, 0, 0, 0.1)',
+        padding: "clamp(20px, 4vw, 30px) clamp(16px, 3vw, 40px)",
+        borderRadius: "20px",
+        border: "1px solid rgba(0, 0, 0, 0.05)",
+        boxShadow: "0 10px 30px -10px rgba(0, 0, 0, 0.1)",
       }}
     >
       {/* Search Bar */}
       <div style={{ marginBottom: SERVICE_CONFIG.spacing.searchMarginBottom }}>
-        <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-2 px-1">搜索中心</p>
+        <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-2 px-1">
+          搜索中心
+        </p>
         <div
           className="relative transition-all"
           style={{
             border: `1.5px solid ${colors.service.brandGreen}`,
-            borderRadius: '12px',
-            boxShadow: '0 4px 10px rgba(31, 168, 79, 0.05)',
+            borderRadius: "12px",
+            boxShadow: "0 4px 10px rgba(31, 168, 79, 0.05)",
           }}
         >
           <input
@@ -83,10 +90,10 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
             onChange={(e) => onSearchChange(e.target.value)}
             className="w-full px-4 py-3 pl-11 focus:outline-none placeholder:text-gray-400"
             style={{
-              backgroundColor: '#FFFFFF',
-              color: '#111827',
-              borderRadius: '10px',
-              fontSize: '14px',
+              backgroundColor: "#FFFFFF",
+              color: "#111827",
+              borderRadius: "10px",
+              fontSize: "14px",
             }}
           />
           <div
@@ -114,7 +121,7 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
           >
             <LocationIcon
               size={28}
-              style={{ color: colors.text.primary, marginRight: '10px' }}
+              style={{ color: colors.text.primary, marginRight: "10px" }}
             />
             <h3
               className="font-bold"
@@ -123,7 +130,7 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
                 color: colors.text.primary,
               }}
             >
-              {SERVICE_LABELS.listTitle}
+              {selectedCountry ? `附近商店` : `查找商店`}
             </h3>
           </MotionDiv>
         )}
@@ -145,7 +152,10 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
               exit={{ opacity: 0 }}
               className="flex flex-col items-center justify-center py-8"
             >
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 mb-4" style={{ borderColor: colors.service.brandGreen }} />
+              <div
+                className="animate-spin rounded-full h-8 w-8 border-b-2 mb-4"
+                style={{ borderColor: colors.service.brandGreen }}
+              />
               <p style={{ color: colors.service.textMuted }}>
                 正在查找您的位置...
               </p>
@@ -168,7 +178,10 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
               <p className="text-sm" style={{ color: colors.text.secondary }}>
                 {locationError}
               </p>
-              <p className="text-sm mt-2" style={{ color: colors.text.secondary }}>
+              <p
+                className="text-sm mt-2"
+                style={{ color: colors.text.secondary }}
+              >
                 请启用位置服务或手动搜索位置。
               </p>
             </MotionDiv>
@@ -194,23 +207,37 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
                 border: `1px solid ${colors.ui.border}`,
               }}
             >
-              <p className="mb-2 font-medium" style={{ color: colors.text.primary }}>
+              <p
+                className="mb-2 font-medium"
+                style={{ color: colors.text.primary }}
+              >
                 附近未找到APSONIC服务
               </p>
               {userAddress && (
-                <div className="text-sm" style={{ color: colors.text.secondary }}>
-                  {userAddress.address && userAddress.address !== userAddress.fullAddress && (
-                    <p className="mb-1">{userAddress.address}</p>
-                  )}
-                  <p>{userAddress.city !== 'Unknown' && userAddress.city}, {userAddress.country}</p>
+                <div
+                  className="text-sm"
+                  style={{ color: colors.text.secondary }}
+                >
+                  {userAddress.address &&
+                    userAddress.address !== userAddress.fullAddress && (
+                      <p className="mb-1">{userAddress.address}</p>
+                    )}
+                  <p>
+                    {userAddress.city !== "Unknown" && userAddress.city},{" "}
+                    {userAddress.country}
+                  </p>
                 </div>
               )}
               {userLocation && !userAddress && (
                 <p className="text-sm" style={{ color: colors.text.secondary }}>
-                  您的位置: {userLocation.lat.toFixed(4)}, {userLocation.lng.toFixed(4)}
+                  您的位置: {userLocation.lat.toFixed(4)},{" "}
+                  {userLocation.lng.toFixed(4)}
                 </p>
               )}
-              <p className="text-sm mt-2" style={{ color: colors.text.secondary }}>
+              <p
+                className="text-sm mt-2"
+                style={{ color: colors.text.secondary }}
+              >
                 请尝试搜索特定位置或国家。
               </p>
             </MotionDiv>
@@ -240,4 +267,3 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
     </div>
   );
 };
-

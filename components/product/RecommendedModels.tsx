@@ -8,6 +8,9 @@ import { colors, spacing } from '@/lib/design-tokens';
 import { DEFAULT_FEATURED_MODELS, DEFAULT_CATEGORIES } from '@/lib/data/featured-models';
 import { cn } from '@/lib/utils';
 
+import { motion } from 'framer-motion';
+import { ANIMATION_VARIANTS } from '@/lib/constants/animations';
+
 export interface RecommendedModelsProps {
   featuredModels?: FeaturedModel[];
   categories?: MotorcycleCategory[];
@@ -24,21 +27,29 @@ export const RecommendedModels: React.FC<RecommendedModelsProps> = ({
       className={cn('w-full', spacing.section.vertical, className)}
       style={{ backgroundColor: colors.background.white }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.div
+        variants={ANIMATION_VARIANTS.staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.1 }}
+        className="container mx-auto px-4 sm:px-6 lg:px-8"
+      >
         {/* Featured Model Carousel */}
-        <div className="mb-16 lg:mb-24">
+        <motion.div variants={ANIMATION_VARIANTS.fadeUp} className="mb-16 lg:mb-24">
           <FeaturedModelCarousel
             models={featuredModels}
             autoPlay
           />
-        </div>
+        </motion.div>
 
         {/* Category Carousel */}
-        <CategoryCarousel
-          categories={categories}
-          autoPlay={false}
-        />
-      </div>
+        <motion.div variants={ANIMATION_VARIANTS.fadeUp}>
+          <CategoryCarousel
+            categories={categories}
+            autoPlay={false}
+          />
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

@@ -77,6 +77,9 @@ export const useServiceSupport = () => {
   const handleCountrySelect = (searchValue: string) => {
     const country = findCountryFromSearch(searchValue);
     setSelectedCountry(country || '');
+    if (country) {
+      setSearchTerm(country);
+    }
     setSelectedStore(undefined);
   };
 

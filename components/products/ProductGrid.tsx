@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion, useReducedMotion } from 'motion/react';
+import { motion, useReducedMotion } from 'framer-motion';
 import type { ProductModel } from '@/lib/types/products';
 import { ProductModelCard } from './ProductModelCard';
 import { colors } from '@/lib/design-tokens';

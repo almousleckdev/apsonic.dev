@@ -1,28 +1,43 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { ServiceHero } from '@/components/service-page/ServiceHero';
-import { FeatureCards } from '@/components/service-page/FeatureCards';
-import { StoreLocatorSection } from '@/components/service-page/StoreLocatorSection';
-import { ServiceCoverage } from '@/components/service-page/ServiceCoverage';
-import { DealerNetworkInfographic } from '@/components/service-page/DealerNetworkInfographic';
-import {
-  FEATURE_CARDS,
-} from '@/lib/data/service-page';
-import { SERVICE_FAQ_ITEMS } from '@/lib/data/faq';
-import { FAQ } from '@/components/service-page';
-import { SERVICE_PAGE_CONFIG } from '@/lib/constants/service-page';
+import React from "react";
+import { ServiceHero } from "@/components/service-page/ServiceHero";
+import { FeatureCards } from "@/components/service-page/FeatureCards";
+import { StoreLocatorSection } from "@/components/service-page/StoreLocatorSection";
+import { ServiceCoverage } from "@/components/service-page/ServiceCoverage";
+import { DealerNetworkInfographic } from "@/components/service-page/DealerNetworkInfographic";
+import { FEATURE_CARDS } from "@/lib/data/service-page";
+import { SERVICE_FAQ_ITEMS } from "@/lib/data/faq";
+import { FAQ } from "@/components/service-page";
+import { SERVICE_PAGE_CONFIG } from "@/lib/constants/service-page";
+import { OfficeLocations } from "@/components/contact/OfficeLocations";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export default function ServicesPage() {
   return (
     <main style={{ backgroundColor: SERVICE_PAGE_CONFIG.colors.background }}>
       <ServiceHero />
-      <FeatureCards cards={FEATURE_CARDS} />
-      <DealerNetworkInfographic />
-      <ServiceCoverage />
-      <StoreLocatorSection />
-      <FAQ items={SERVICE_FAQ_ITEMS} />
+      <ScrollReveal variant="fadeUp" delay={0.1} amount={0.05} once={false}>
+        <FeatureCards cards={FEATURE_CARDS} />
+      </ScrollReveal>
+
+      <ScrollReveal variant="fadeUp" delay={0.2} amount={0.05} once={false}>
+        <DealerNetworkInfographic />
+      </ScrollReveal>
+
+      <ScrollReveal variant="fadeIn" delay={0.3} amount={0.05} once={false}>
+        <ServiceCoverage />
+      </ScrollReveal>
+
+      <div className="border-t border-white/5 pt-20">
+        <ScrollReveal variant="fadeUp" delay={0.2} amount={0.05} once={false}>
+          <OfficeLocations />
+        </ScrollReveal>
+      </div>
+
+      <ScrollReveal variant="fadeUp" delay={0.4} amount={0.05} once={false}>
+        <FAQ items={SERVICE_FAQ_ITEMS} />
+      </ScrollReveal>
     </main>
   );
 }
-

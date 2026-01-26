@@ -1,5 +1,13 @@
 import { MdVerified, MdGroups, MdEco, MdHandshake, MdTimeline, MdTrendingUp, MdPublic, MdRocketLaunch, MdLocalGasStation, MdFlashOn, MdSpeed } from 'react-icons/md';
 
+export interface TimelineEvent {
+    year: string;
+    title: string;
+    description: string;
+    iconName: string;
+    image?: string;
+}
+
 export const stories = [
     {
         name: "Kwame Mensah",
@@ -72,30 +80,132 @@ export const videos = [
     }
 ];
 
-export const timelineEvents = [
+export const timelineEvents: TimelineEvent[] = [
     {
         year: "2005",
-        title: "创立之初",
-        description: "Apsonic在西非建立业务，愿景是彻底改变个人交通。我们从一个目标开始：可靠性。",
-        iconName: 'MdTimeline'
+        title: "品牌应运而生",
+        description: 'APSONIC诞生于多哥洛美，赋予"好质量，好生活"品牌理念。',
+        iconName: 'MdTimeline',
+        image: "/timeline/2005.jpg"
     },
     {
-        year: "2010",
-        title: "市场领导者",
-        description: "成为多哥和贝宁销量第一的摩托车品牌，通过我们的'Aloba'车型赢得了数百万人的信任。",
-        iconName: 'MdTrendingUp'
+        year: "2006",
+        title: "筑梦君子之国",
+        description: "APSONIC进军布吉纳法索，并开始辐射周边国家。",
+        iconName: 'MdPublic',
+        image: "/timeline/2006.jpg"
+    },
+    {
+        year: "2009",
+        title: "涉足黄金海岸",
+        description: "APSONIC开拓加纳市场，由北向南布局加纳全国市场。",
+        iconName: 'MdTrendingUp',
+        image: "/timeline/2009.jpg"
+    },
+    {
+        year: "2009",
+        title: "席卷西非市场",
+        description: "APSONIC骑士车AP125-30(ALOBA)及APSONIC三轮车正式量产投放，迅速席卷西非市场，成为非洲最受欢迎的交通工具。同年进驻布基纳法索南部波波迪乌拉索区域。",
+        iconName: 'MdRocketLaunch',
+        image: "/timeline/2009.jpg"
+    },
+    {
+        year: "2011",
+        title: "畅游鳄鱼之河",
+        description: "APSONIC进驻马里，继续开拓西非内陆国家市场。",
+        iconName: 'MdPublic',
+        image: "/timeline/2011.jpg"
+    },
+    {
+        year: "2012",
+        title: "破浪象牙海岸",
+        description: "APSONIC开拓科特迪瓦市场，由中部向四周辐射。",
+        iconName: 'MdPublic',
+        image: "/timeline/2012.jpg"
+    },
+    {
+        year: "2012",
+        title: "涉猎户外越野",
+        description: "APSONIC越野车200GY-3亮相户外。",
+        iconName: 'MdFlashOn',
+        image: "/timeline/2012.jpg"
+    },
+    {
+        year: "2013",
+        title: "首家工厂投产",
+        description: "APSONIC 首座组装工厂在布吉纳法索首都瓦加杜古顺利投产，产能效率大幅提升。",
+        iconName: 'MdLocalGasStation',
+        image: "/timeline/2013.jpg"
+    },
+    {
+        year: "2014",
+        title: "远赴西非绿肺",
+        description: "APSONIC进驻经济重镇锡卡索地区。",
+        iconName: 'MdPublic',
+        image: "/timeline/2014.jpg"
     },
     {
         year: "2015",
-        title: "扩张时代",
-        description: "将业务扩展到加纳、科特迪瓦和布基纳法索，建立了由500多名机械师组成的强大服务网络。",
-        iconName: 'MdPublic'
+        title: "梦绕油棕之国",
+        description: "APSONIC进军贝宁市场。",
+        iconName: 'MdPublic',
+        image: "/timeline/2015.jpg"
     },
     {
-        year: "2026",
-        title: "未来科技",
-        description: "进入新时代，推出Series-X电动混合动力车，并在西非扩大我们的智能制造工厂。",
-        iconName: 'MdRocketLaunch'
+        year: "2017",
+        title: "售后战役打响",
+        description: 'APSONIC正式启动"售后服务万里行活动"。',
+        iconName: 'MdHandshake',
+        image: "/timeline/2017.jpg"
+    },
+    {
+        year: "2018",
+        title: "服务全域覆盖",
+        description: "APSONIC专业售后服务网点达800余个。",
+        iconName: 'MdGroups',
+        image: "/timeline/2016.jpg"
+    },
+    {
+        year: "2019",
+        title: "矢志科技研发",
+        description: "APSONIC模拟非洲工况和用户使用习惯的新技术中心投入使用。",
+        iconName: 'MdSpeed',
+        image: "/timeline/2019.jpg"
+    },
+    {
+        year: "2020",
+        title: "开启东非序幕",
+        description: "APSONIC正式肯尼亚市场，开启东非市场序幕。",
+        iconName: 'MdPublic',
+        image: "/timeline/2020.jpg"
+    },
+    {
+        year: "2021",
+        title: "首创销量纪录",
+        description: "APSONIC 在非洲销售超两百万台。",
+        iconName: 'MdTrendingUp',
+        image: "/timeline/2021.jpg"
+    },
+    {
+        year: "2023",
+        title: "闪耀非洲杯",
+        description: "与非洲足球联合会达成战略合作，成为全球摩托车行业首家非洲杯官方合作伙伴。",
+        iconName: 'MdVerified',
+        image: "/timeline/2024.jpg"
+    },
+    {
+        year: "2024",
+        title: "东西并进",
+        description: "在西非，正式进驻塞内加尔，毛里塔尼亚。在东非，完成了坦桑尼亚、乌干达的市场调研。",
+        iconName: 'MdPublic',
+        image: "/timeline/2024.jpg"
+    },
+    {
+        year: "2025",
+        title: "再耀非洲杯",
+        description: "成为第35届和第36届非洲杯官方全球合作伙伴，成为全球唯一连续三届赞助该项级洲际足球赛事的摩托车品牌。",
+        iconName: 'MdVerified',
+        image: "/timeline/2025.jpg"
     }
 ];
 

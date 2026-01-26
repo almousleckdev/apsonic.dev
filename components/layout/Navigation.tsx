@@ -52,7 +52,7 @@ export const Navigation: React.FC<NavigationProps> = ({
                 isMobile && 'py-3',
                 isMobile && isActive && 'font-semibold'
               )}
-              style={{ color: isActive ? colors.brand.green : colors.text.primary }}
+              style={{ color: isActive ? colors.brand.green : '#E0E0E0' }}
             >
               {item.label}
               {!isMobile && isActive && (

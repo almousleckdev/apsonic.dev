@@ -7,6 +7,7 @@ import { BRANDS } from '@/lib/data/products';
 import type { ProductFilters as ProductFiltersType } from '@/lib/types/products';
 import { cn } from '@/lib/utils';
 import { SearchIcon } from '@/components/ui/Icons';
+import { SearchInput } from '@/components/layout/SearchInput';
 
 interface ProductFiltersProps {
   filters: ProductFiltersType;
@@ -35,7 +36,7 @@ export const ProductFilters: React.FC<ProductFiltersProps> = ({
 
   return (
     <div className="w-full bg-white pt-32 pb-10 border-b border-gray-100">
-      <div className="container mx-auto px-4">
+      <div className="max-w-[1360px] mx-auto px-10">
 
         {/* Breadcrumbs */}
         <nav className="flex items-center gap-2 text-xs text-gray-400 mb-8">
@@ -45,21 +46,18 @@ export const ProductFilters: React.FC<ProductFiltersProps> = ({
           <span className="text-gray-300">⌄</span>
         </nav>
 
-        {/* Title & Search Bar Area */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
           <h1 className="text-[40px] font-bold text-brand-green">
             全系车型
           </h1>
 
-          <div className="relative w-full md:w-[280px]">
-            <input
-              type="text"
+          <div className="w-full md:w-[320px]">
+            <SearchInput
               placeholder="搜索车型"
               value={filters.search || ''}
               onChange={(e) => onFilterChange({ ...filters, search: e.target.value || undefined })}
-              className="w-full pl-4 pr-10 py-2 bg-gray-50 border border-gray-200 rounded-full text-sm focus:outline-none focus:border-brand-green/30 transition-all placeholder:text-gray-300"
+              size="lg"
             />
-            <SearchIcon className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-300 w-4 h-4" />
           </div>
         </div>
 

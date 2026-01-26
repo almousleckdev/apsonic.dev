@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
 /**
  * Map initialization hook
  * Separates map setup logic from main component
  */
 
-import { useEffect, useRef, useState } from 'react';
-import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import { AFRICA_MAP_CONFIG } from '@/lib/constants/africa-map';
-import { SERVICE_CONFIG } from '@/lib/constants/service';
+import { useEffect, useRef, useState } from "react";
+import mapboxgl from "mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+import { AFRICA_MAP_CONFIG } from "@/lib/constants/africa-map";
+import { SERVICE_CONFIG } from "@/lib/constants/service";
 
 interface UseMapInitializerResult {
   map: React.MutableRefObject<mapboxgl.Map | null>;
@@ -27,7 +27,7 @@ export const useMapInitializer = (): UseMapInitializerResult => {
 
     const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
     if (!token) {
-      console.error('NEXT_PUBLIC_MAPBOX_TOKEN is not set');
+      console.error("NEXT_PUBLIC_MAPBOX_TOKEN is not set");
       return;
     }
 
@@ -38,19 +38,19 @@ export const useMapInitializer = (): UseMapInitializerResult => {
       style: SERVICE_CONFIG.map.style,
       bounds: AFRICA_MAP_CONFIG.bounds.africa,
       maxBounds: AFRICA_MAP_CONFIG.bounds.africa, // Restrict to Africa
-      minZoom: 1.5,
+      minZoom: 2.5,
       maxZoom: 12,
       fitBoundsOptions: {
-        padding: 100,
+        padding: 10,
       },
       dragRotate: false, // Prevent orientation issues
       touchPitch: false,
-      pitchWithRotate: false
+      pitchWithRotate: false,
     });
 
-    map.current.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+    map.current.addControl(new mapboxgl.NavigationControl(), "bottom-right");
 
-    map.current.on('load', () => {
+    map.current.on("load", () => {
       setIsLoaded(true);
     });
 
@@ -64,4 +64,3 @@ export const useMapInitializer = (): UseMapInitializerResult => {
 
   return { map, isLoaded, mapContainer };
 };
-

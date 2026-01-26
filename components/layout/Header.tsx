@@ -46,11 +46,11 @@ export const Header: React.FC = () => {
     <header
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm"
       style={{
-        backgroundColor: colors.background.header,
-        borderBottom: `1px solid ${colors.ui.border}`,
+        backgroundColor: '#111111',
+        borderBottom: `1px solid rgba(255, 255, 255, 0.1)`,
       }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1360px] mx-auto px-10">
         <div className="flex items-center justify-between h-20">
           <Logo size="md" />
 
@@ -69,13 +69,12 @@ export const Header: React.FC = () => {
             )}
           </div>
 
-          {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-4">
-            <SearchInput />
+            <SearchInput variant="dark" className="w-[180px]" size="sm" />
             <LanguageSelector value={language} onChange={setLanguage} />
           </div>
 
-        <MobileMenuButton isOpen={isMobileMenuOpen} onClick={handleMobileMenuToggle} />
+          <MobileMenuButton isOpen={isMobileMenuOpen} onClick={handleMobileMenuToggle} />
         </div>
 
         {/* Mobile Menu Overlay */}
@@ -86,23 +85,24 @@ export const Header: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="md:hidden fixed inset-0 top-20 bg-white z-40 overflow-y-auto"
+              className="md:hidden fixed inset-0 top-20 z-40 overflow-y-auto"
+              style={{ backgroundColor: '#111111' }}
             >
               <nav className="container mx-auto px-4 py-8 flex flex-col gap-8">
-                <Navigation 
-                  items={NAV_ITEMS} 
-                  className="flex-col items-start gap-6" 
-                  onItemClick={handleMobileMenuClose} 
+                <Navigation
+                  items={NAV_ITEMS}
+                  className="flex-col items-start gap-6"
+                  onItemClick={handleMobileMenuClose}
                 />
-                
-                <div className="flex flex-col gap-6 pt-6 border-t border-gray-100">
+
+                <div className="flex flex-col gap-6 pt-6 border-t border-white/10">
                   <div className="space-y-2">
-                    <span className="text-[10px] text-gray-400 uppercase tracking-widest font-medium">搜索车型</span>
-                    <SearchInput className="w-full" />
+                    <span className="text-[10px] text-white/60 uppercase tracking-widest font-medium">搜索车型</span>
+                    <SearchInput className="w-full" variant="dark" />
                   </div>
-                  
+
                   <div className="space-y-2">
-                    <span className="text-[10px] text-gray-400 uppercase tracking-widest font-medium">语言设置</span>
+                    <span className="text-[10px] text-white/60 uppercase tracking-widest font-medium">语言设置</span>
                     <LanguageSelector value={language} onChange={setLanguage} />
                   </div>
                 </div>

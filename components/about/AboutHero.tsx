@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { colors, typography } from '@/lib/design-tokens';
-import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/Button';
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { colors, typography } from "@/lib/design-tokens";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/Button";
 
 export const AboutHero = () => {
   return (
@@ -18,8 +18,8 @@ export const AboutHero = () => {
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <Image
-          src="/images/about/c9ed1b38a5835b3d366a3833094ebbe0.png"
-          alt="Apsonic motorcycle on an African road at sunset"
+          src="/about/Picture1.png"
+          alt="Apsonic After-Sales Service Center"
           fill
           className="object-cover object-center"
           priority
@@ -33,7 +33,6 @@ export const AboutHero = () => {
 
       {/* Content Container */}
       <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
-
         {/* Call to Action */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -46,9 +45,9 @@ export const AboutHero = () => {
             size="lg"
             className="rounded-full px-8 backdrop-blur-sm"
             onClick={() => {
-              const element = document.getElementById('story');
+              const element = document.getElementById("story");
               if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
+                element.scrollIntoView({ behavior: "smooth" });
               }
             }}
           >
@@ -75,7 +74,7 @@ export const AboutHero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
           className="mt-6 max-w-2xl text-lg text-gray-200 sm:text-xl font-medium"
-          style={{ fontFamily: 'var(--font-geist-mono)' }}
+          style={{ fontFamily: "var(--font-geist-mono)" }}
         >
           为大陆而设计。经久耐用。赋能前行。
         </motion.p>
@@ -89,7 +88,9 @@ export const AboutHero = () => {
         className="absolute bottom-10 left-1/2 -translate-x-1/2 transform"
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-xs uppercase tracking-widest text-gray-400">滚动</span>
+          <span className="text-xs uppercase tracking-widest text-gray-400">
+            滚动
+          </span>
           <div className="h-10 w-[1px] bg-gradient-to-b from-brand-green to-transparent" />
         </div>
       </motion.div>

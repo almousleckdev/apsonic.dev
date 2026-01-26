@@ -3,21 +3,22 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import type { ProductCategory } from '@/lib/types/products';
+import type { ProductCategory, Brand } from '@/lib/types/products';
 import { buildProductUrl } from '@/lib/data/products';
 import { colors, effects } from '@/lib/design-tokens';
 import { cn } from '@/lib/utils';
 
 interface ProductCardProps {
   category: ProductCategory;
+  brand?: Brand;
   className?: string;
 }
 
 // Product category card with image
-export const ProductCard: React.FC<ProductCardProps> = ({ category, className }) => {
+export const ProductCard: React.FC<ProductCardProps> = ({ category, brand, className }) => {
   return (
     <Link
-      href={buildProductUrl(category)}
+      href={buildProductUrl(category, brand)}
       className={cn(
         'group flex flex-col items-center cursor-pointer',
         effects.transition.default,

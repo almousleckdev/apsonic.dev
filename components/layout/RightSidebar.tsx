@@ -39,14 +39,14 @@ export const RightSidebar: React.FC = () => {
   return (
     <>
       <aside
-        className="hidden sm:flex fixed right-0 z-40 flex flex-col items-center gap-2 md:gap-3 py-2 md:py-4 px-1 md:px-1.5 rounded-l-lg transition-all"
+        className="hidden sm:flex fixed right-0 z-40 flex flex-col items-center gap-2 py-6 px-1.5 rounded-l-2xl transition-all shadow-2xl"
         style={{
-          backgroundColor: colors.background.sidebar,
-          backdropFilter: 'blur(10px)',
-          borderLeft: `1px solid ${colors.ui.border}`,
-          borderTop: `1px solid ${colors.ui.border}`,
-          borderBottom: `1px solid ${colors.ui.border}`,
-          top: '100px', // Space after header (80px header + 20px gap)
+          backgroundColor: 'rgba(255, 255, 255, 0.9)',
+          backdropFilter: 'blur(20px)',
+          border: '1px solid rgba(0, 0, 0, 0.05)',
+          borderRight: 'none',
+          top: '50%',
+          transform: 'translateY(-50%)',
         }}
         onMouseLeave={handleIconLeave}
       >

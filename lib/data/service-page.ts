@@ -5,23 +5,25 @@ import type { InfoBlock } from '@/components/service-page/InformationBlocks';
 import type { SupportLink } from '@/components/service-page/SupportTools';
 import { PRODUCT_MODELS } from './product-models';
 
-// Feature cards data
+// FEATURE_CARDS - Mapped precisely as per user request:
+// manuals content -> services/locations (手册与指南)
+// training content -> services/parts (三轮车)
 export const FEATURE_CARDS: FeatureCard[] = [
   {
-    id: '1',
-    image: '/images/services/services1.jpg',
-    title: '专业服务网络',
-    description: '访问我们在西非的授权服务中心。专业护理，正品配件。',
-    ctaText: '查找服务中心',
-    href: '/services/locations',
+    id: 'locations-manuals',
+    image: '/products/AP110-A-PLUS(白).png',
+    title: '两轮车',
+    description: '弯梁车、街车、越野车型手册下载与服务网点查询。',
+    ctaText: '立即查看',
+    href: '/services/locations', // mapped to locations
   },
   {
-    id: '2',
-    image: '/images/services/services2.jpg',
-    title: '订购正品配件',
-    description: '获取正品Apsonic配件，送货上门。品质保证。',
-    ctaText: '浏览配件目录',
-    href: '/services/parts',
+    id: 'parts-tricycles',
+    image: '/products/AP150ZH-20 SPORT (1).png',
+    title: '三轮车',
+    description: '三轮车手册与指南下载，及原厂配件订购。',
+    ctaText: '立即查看',
+    href: '/services/parts', // mapped to parts
   },
 ];
 
@@ -106,4 +108,3 @@ export const SERVICE_COVERAGE_STATS = {
 export const getServicePageMotorcycles = () => {
   return PRODUCT_MODELS.slice(0, 8);
 };
-

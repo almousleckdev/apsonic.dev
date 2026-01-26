@@ -18,7 +18,7 @@ export const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({
     <button
       onClick={onClick}
       className={cn('p-2 md:hidden transition-colors', className)}
-      style={{ color: colors.text.primary }}
+      style={{ color: '#E0E0E0' }}
       aria-label={isOpen ? 'Close menu' : 'Open menu'}
       aria-expanded={isOpen}
     >

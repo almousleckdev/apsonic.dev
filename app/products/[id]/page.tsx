@@ -65,7 +65,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
       {details && (
         <>
           {/* 视觉展示组件 - 中文 */}
-          <ScrollReveal as="div" variant="fadeUp">
+          <ScrollReveal as="div" variant="fadeUp" amount={0.05} once={false}>
             <ProductFeatureHighlight
               title="先进结构工程"
               description="加固底盘，卓越稳定性。高强度车架设计确保最大耐用性和操控信心，适应所有地形类型。"
@@ -74,14 +74,14 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
             />
           </ScrollReveal>
 
-          <ScrollReveal as="div" variant="fadeUp">
+          <ScrollReveal as="div" variant="fadeUp" amount={0.05} once={false}>
             <ProductFeatureShowcase
               sectionTitle={`${product.model} 设计亮点`}
               features={details.features}
             />
           </ScrollReveal>
 
-          <ScrollReveal as="div" variant="fadeUp" amount={0.12}>
+          <ScrollReveal as="div" variant="fadeUp" amount={0.05} once={false}>
             <ProductEngineSpecs
               title="新一代技术核心"
               description="高效燃烧技术，多通道冷却。专为极端高温下的低噪音和平稳换挡而设计。"
@@ -91,7 +91,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
             />
           </ScrollReveal>
 
-          <ScrollReveal as="div" variant="fadeUp">
+          <ScrollReveal as="div" variant="fadeUp" amount={0.05} once={false}>
             <ProductFeatureGrid
               sectionTitle="集成性能特性"
               features={details.gridFeatures}
@@ -100,7 +100,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
           </ScrollReveal>
 
           {/* 颜色展示 */}
-          <ScrollReveal as="div" variant="fadeUp">
+          <ScrollReveal as="div" variant="fadeUp" amount={0.05} once={false}>
             <ProductColorShowcase
               title="高级配色方案"
               subtitle="探索精神"
@@ -132,7 +132,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
           </ScrollReveal>
 
           {/* 技术规格 */}
-          <ScrollReveal as="div" variant="fadeUp">
+          <ScrollReveal as="div" variant="fadeUp" amount={0.05} once={false}>
             <ProductSpecification
               keyMetrics={details.keyMetrics}
               detailedSpecs={details.detailedSpecs}

@@ -8,6 +8,8 @@ import { NewsItem } from '@/lib/types/news';
 import { cn } from '@/lib/utils';
 import { MdCalendarToday, MdOutlineArrowForward } from 'react-icons/md';
 
+import { ANIMATION_VARIANTS, ENTERPRISE_EASE } from '@/lib/constants/animations';
+
 interface NewsCardProps {
     item: NewsItem;
     index?: number;
@@ -26,10 +28,8 @@ export const NewsCard: React.FC<NewsCardProps> = ({
     if (variant === 'overlay') {
         return (
             <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                variants={ANIMATION_VARIANTS.scaleIn}
+                transition={{ duration: 0.8, ease: ENTERPRISE_EASE as any }}
                 className={cn('relative h-[400px] rounded-2xl overflow-hidden group border border-gray-100 cursor-pointer shadow-lg shadow-gray-200', className)}
             >
                 <Link href={`/news/${item.id}`} className="absolute inset-0">
@@ -37,10 +37,10 @@ export const NewsCard: React.FC<NewsCardProps> = ({
                         src={item.thumbnail}
                         alt={item.title}
                         fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        className="object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-80 transition-opacity" />
-                    <div className="absolute bottom-0 left-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <div className="absolute bottom-0 left-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out">
                         <span className="text-brand-green text-xs font-bold uppercase tracking-widest mb-2 block">
                             {item.category}
                         </span>
@@ -58,11 +58,9 @@ export const NewsCard: React.FC<NewsCardProps> = ({
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            viewport={{ once: true }}
-            className={cn('group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-brand-green/30 hover:shadow-xl hover:shadow-gray-200 transition-all duration-300', className)}
+            variants={ANIMATION_VARIANTS.fadeUp}
+            transition={{ duration: 1.0, ease: ENTERPRISE_EASE as any }}
+            className={cn('group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-brand-green/30 hover:shadow-2xl hover:shadow-gray-200 transition-all duration-500 hover:-translate-y-2', className)}
         >
             <Link href={`/news/${item.id}`} className="flex flex-col h-full">
                 <div className="relative aspect-[16/9] w-full overflow-hidden">

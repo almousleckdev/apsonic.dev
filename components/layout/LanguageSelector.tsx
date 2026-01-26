@@ -39,15 +39,15 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
         className
       )}
       style={{
-        backgroundColor: colors.background.secondary,
-        border: `1px solid ${colors.ui.border}`,
-        color: colors.text.primary,
+        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        border: `1px solid rgba(255, 255, 255, 0.2)`,
+        color: '#E0E0E0',
       }}
       onFocus={(e) => {
         e.target.style.borderColor = colors.brand.green;
       }}
       onBlur={(e) => {
-        e.target.style.borderColor = colors.ui.border;
+        e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
       }}
       aria-label="Select language"
     >
@@ -55,7 +55,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
         <option
           key={option.value}
           value={option.value}
-          style={{ backgroundColor: colors.background.primary }}
+          style={{ backgroundColor: '#111111', color: '#E0E0E0' }}
         >
           {option.label}
         </option>

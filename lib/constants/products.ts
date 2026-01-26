@@ -14,9 +14,9 @@ export const PRODUCTS_GRID_CONFIG = {
 
   // Card styling
   card: {
-    background: colors.background.secondary,
-    borderRadius: '16px',
-    padding: '24px',
+    background: '#F3F4F6',
+    borderRadius: '24px',
+    padding: '24px 24px 80px 24px',
     maxWidth: '100%',
   },
 

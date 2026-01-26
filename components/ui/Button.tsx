@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors, effects } from '@/lib/design-tokens';
+import { effects } from '@/lib/design-tokens';
 import { cn } from '@/lib/utils';
 
 export interface ButtonProps
@@ -27,64 +27,16 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles = cn(
-      'inline-flex items-center justify-center font-medium',
-      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-      'disabled:pointer-events-none disabled:opacity-50',
-      effects.transition.colors,
+      'inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
       effects.radius.md
     );
 
-    const getVariantStyles = () => {
-      switch (variant) {
-        case 'primary':
-          return {
-            backgroundColor: colors.brand.green,
-            color: '#FFFFFF',
-            border: 'none',
-            hover: {
-              backgroundColor: '#1B8F45', // Darker green for hover (calculated from brand.green)
-              transform: 'scale(1.02)',
-            },
-          };
-        case 'secondary':
-          return {
-            backgroundColor: colors.background.secondary,
-            color: colors.text.primary,
-            border: `1px solid ${colors.ui.border}`,
-            hover: {
-              backgroundColor: colors.background.tertiary,
-              borderColor: colors.ui.borderHover,
-            },
-          };
-        case 'outline':
-          return {
-            backgroundColor: 'transparent',
-            color: colors.brand.green,
-            border: `1px solid ${colors.brand.green}`,
-            hover: {
-              backgroundColor: `${colors.brand.green}10`,
-              borderColor: colors.brand.green,
-            },
-          };
-        case 'ghost':
-          return {
-            backgroundColor: 'transparent',
-            color: colors.text.primary,
-            border: 'none',
-            hover: {
-              backgroundColor: colors.ui.hover,
-            },
-          };
-        default:
-          return {
-            backgroundColor: colors.brand.green,
-            color: '#FFFFFF',
-            border: 'none',
-          };
-      }
+    const variants = {
+      primary: 'bg-brand-green text-white hover:bg-[#1B8F45] hover:scale-[1.02] active:scale-[0.98]',
+      secondary: 'bg-background-secondary text-text-primary border border-color-border hover:bg-background-tertiary hover:border-color-border-hover',
+      outline: 'bg-transparent text-brand-green border border-brand-green hover:bg-brand-green/10',
+      ghost: 'bg-transparent text-text-primary hover:bg-black/5',
     };
-
-    const variantStyles = getVariantStyles();
 
     const sizes = {
       sm: 'h-9 px-4 text-sm',
@@ -95,33 +47,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         ref={ref}
-        className={cn(baseStyles, sizes[size], className)}
-        style={{
-          backgroundColor: variantStyles.backgroundColor,
-          color: variantStyles.color,
-          border: variantStyles.border,
-        }}
-        onMouseEnter={(e) => {
-          if (!disabled && !loading && variantStyles.hover) {
-            if (variantStyles.hover.backgroundColor) {
-              e.currentTarget.style.backgroundColor =
-                variantStyles.hover.backgroundColor;
-            }
-            if (variantStyles.hover.borderColor) {
-              e.currentTarget.style.borderColor = variantStyles.hover.borderColor;
-            }
-            if (variantStyles.hover.transform) {
-              e.currentTarget.style.transform = variantStyles.hover.transform;
-            }
-          }
-        }}
-        onMouseLeave={(e) => {
-          if (!disabled && !loading) {
-            e.currentTarget.style.backgroundColor = variantStyles.backgroundColor;
-            e.currentTarget.style.borderColor = variantStyles.border || 'transparent';
-            e.currentTarget.style.transform = 'scale(1)';
-          }
-        }}
+        className={cn(baseStyles, variants[variant], sizes[size], className)}
         disabled={disabled || loading}
         {...props}
       >

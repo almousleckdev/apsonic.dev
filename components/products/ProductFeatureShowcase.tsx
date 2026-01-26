@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { ProductFeature } from '@/lib/types/products';
 
 // TS in this repo (moduleResolution: bundler) can resolve a minimal MotionProps type
@@ -34,14 +34,14 @@ export const ProductFeatureShowcase: React.FC<ProductFeatureShowcaseProps> = ({
   if (!activeFeature) return null;
 
   return (
-    <section 
+    <section
       className={cn(
         "relative w-full py-24 sm:py-32 bg-white flex flex-col items-center",
         className
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-        
+
         {/* Section Title */}
         <MotionH2
           className="text-2xl sm:text-3xl md:text-4xl font-light text-gray-900 mb-16 tracking-[0.15em] text-center uppercase"
@@ -103,8 +103,8 @@ export const ProductFeatureShowcase: React.FC<ProductFeatureShowcaseProps> = ({
                 onClick={() => setActiveFeature(feature)}
                 className={cn(
                   "relative py-2 text-[10px] sm:text-sm font-medium tracking-[0.1em] uppercase transition-all duration-300 flex-shrink-0",
-                  activeFeature.id === feature.id 
-                    ? "text-gray-900" 
+                  activeFeature.id === feature.id
+                    ? "text-gray-900"
                     : "text-gray-400 hover:text-gray-600"
                 )}
               >
