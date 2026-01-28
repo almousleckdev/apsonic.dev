@@ -33,7 +33,7 @@ export const ImpactGallerySection = () => {
         {/* Item 2: Stadium Branding */}
         <div className="relative group h-full overflow-hidden">
           <Image
-            src="/services/news/6b49b8ea57d293a6eb4bf25457a5108c.jpg"
+            src="/images/news/6b49b8ea57d293a6eb4bf25457a5108c.jpg"
             alt="APSONIC品牌闪耀非洲杯赛场"
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -52,7 +52,7 @@ export const ImpactGallerySection = () => {
         {/* Item 3: Global Sports Marketing */}
         <div className="relative group h-full overflow-hidden">
           <Image
-            src="/services/news/39a4e1841a0271623758b8cdaf1cee99.jpg"
+            src="/images/news/39a4e1841a0271623758b8cdaf1cee99.jpg"
             alt="APSONIC全球体育营销战略"
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"

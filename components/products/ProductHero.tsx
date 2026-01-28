@@ -65,7 +65,7 @@ export const ProductHero: React.FC<ProductHeroProps> = ({
           transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
         >
           <Image
-            src="/services/products/accessories/AP150-30.png"
+            src="/images/products/accessories/AP150-30.png"
             alt="Product Hero Background"
             fill
             className="object-cover object-top"
@@ -91,7 +91,7 @@ export const ProductHero: React.FC<ProductHeroProps> = ({
               className="relative w-[50vw] max-w-[800px] min-w-[300px]"
             >
               <Image
-                src="/services/products/accessories/AP150-30-1.png"
+                src="/images/products/accessories/AP150-30-1.png"
                 alt="AP150-30 Title"
                 width={800}
                 height={264}
