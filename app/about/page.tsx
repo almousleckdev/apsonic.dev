@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from "react";
 import { AboutHero } from "@/components/about/AboutHero";
@@ -24,64 +24,124 @@ export default function AboutPage() {
     <main className="min-h-screen bg-white">
       <AboutHero />
 
-      <ScrollReveal variant="fadeUp" delay={0.1} amount={0.05} once={false}>
-        <PhilosophySection />
-      </ScrollReveal>
-
-      <ScrollReveal variant="fadeIn" delay={0.2} amount={0.05} once={false}>
+      <ScrollReveal
+        variant="fadeUp"
+        delay={0.2}
+        duration={0.9}
+        amount={0.1}
+        once={false}
+      >
         <MissionSection />
       </ScrollReveal>
 
-      <ScrollReveal variant="fadeUp" delay={0.1} amount={0.05} once={false}>
+      {/* <ScrollReveal variant="fadeUp" delay={0.2} duration={0.9} amount={0.1} once={false}>
+        <PhilosophySection />
+      </ScrollReveal> */}
+
+      <ScrollReveal
+        variant="slideRight"
+        delay={0.25}
+        duration={0.9}
+        amount={0.1}
+        once={false}
+      >
         <RootsSection />
       </ScrollReveal>
 
-      <ScrollReveal variant="slideRight" delay={0.2} amount={0.05} once={false}>
-        <NewsSection variant="overlay" light={true} />
-      </ScrollReveal>
-
-      <ScrollReveal variant="fadeUp" delay={0.3} amount={0.05} once={false}>
-        <EngineeringSection />
-      </ScrollReveal>
-
-      <ScrollReveal variant="fadeIn" delay={0.4} amount={0.05} once={false}>
-        <RhythmSection />
-      </ScrollReveal>
-
-      <ScrollReveal variant="scaleIn" delay={0.2} amount={0.05} once={false}>
+      <ScrollReveal
+        variant="scaleIn"
+        delay={0.3}
+        duration={0.9}
+        amount={0.1}
+        once={false}
+      >
         <VideoShowcaseSection />
       </ScrollReveal>
 
-      <ScrollReveal variant="fadeUp" delay={0.1} amount={0.05} once={false}>
-        <MarketDaySection />
-      </ScrollReveal>
-
-      <ScrollReveal variant="fadeIn" delay={0.2} amount={0.05} once={false}>
+      <ScrollReveal
+        variant="fadeIn"
+        delay={0.25}
+        duration={0.9}
+        amount={0.1}
+        once={false}
+      >
         <ImpactGallerySection />
       </ScrollReveal>
 
-      <ScrollReveal variant="fadeUp" delay={0.3} amount={0.05} once={false}>
-        <ProverbSection />
+      {/* <ScrollReveal variant="fadeUp" delay={0.2} duration={0.9} amount={0.1} once={false}>
+        <EngineeringSection />
+      </ScrollReveal> */}
+
+      {/* <ScrollReveal variant="fadeIn" delay={0.25} duration={0.9} amount={0.1} once={false}>
+        <RhythmSection />
+      </ScrollReveal> */}
+
+      <ScrollReveal
+        variant="fadeUp"
+        delay={0.2}
+        duration={0.9}
+        amount={0.1}
+        once={false}
+      >
+        <MarketDaySection />
       </ScrollReveal>
 
-      <ScrollReveal variant="slideLeft" delay={0.4} amount={0.05} once={false}>
+      <ScrollReveal
+        variant="slideLeft"
+        delay={0.3}
+        duration={0.9}
+        amount={0.1}
+        once={false}
+      >
         <TimelineSection />
       </ScrollReveal>
 
-      <ScrollReveal variant="fadeIn" delay={0.1} amount={0.05} once={false}>
-        <VoicesSection />
-      </ScrollReveal>
+      {/* <ScrollReveal variant="fadeUp" delay={0.2} duration={0.9} amount={0.1} once={false}>
+        <SustainabilitySection />
+      </ScrollReveal> */}
 
-      <ScrollReveal variant="fadeUp" delay={0.2} amount={0.05} once={false}>
+      <ScrollReveal
+        variant="fadeUp"
+        delay={0.25}
+        duration={0.9}
+        amount={0.1}
+        once={false}
+      >
         <CoreValuesSection />
       </ScrollReveal>
 
-      <ScrollReveal variant="slideRight" delay={0.3} amount={0.05} once={false}>
+      {/* <ScrollReveal variant="slideRight" delay={0.25} duration={0.9} amount={0.1} once={false}>
         <LeadersSection />
+      </ScrollReveal> */}
+
+      <ScrollReveal
+        variant="slideRight"
+        delay={0.25}
+        duration={0.9}
+        amount={0.1}
+        once={false}
+      >
+        <VoicesSection />
       </ScrollReveal>
 
-      <ScrollReveal variant="fadeUp" delay={0.4} amount={0.05} once={false}>
-        <SustainabilitySection />
+      <ScrollReveal
+        variant="fadeIn"
+        delay={0.2}
+        duration={0.9}
+        amount={0.1}
+        once={false}
+      >
+        <ProverbSection />
+      </ScrollReveal>
+
+      <ScrollReveal
+        variant="fadeUp"
+        delay={0.25}
+        duration={0.9}
+        amount={0.1}
+        once={false}
+      >
+        <NewsSection variant="overlay" light={true} />
       </ScrollReveal>
     </main>
   );

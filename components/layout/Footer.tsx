@@ -1,10 +1,16 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { SOCIAL_LINKS, FOOTER_PRODUCTS, FOOTER_SERVICES, FOOTER_ABOUT, FOOTER_CONTACT } from '@/lib/constants';
-import { colors, typography } from '@/lib/design-tokens';
-import { Logo } from './Logo';
+import React from "react";
+import Link from "next/link";
+import {
+  SOCIAL_LINKS,
+  FOOTER_PRODUCTS,
+  FOOTER_SERVICES,
+  FOOTER_ABOUT,
+  FOOTER_CONTACT,
+} from "@/lib/constants";
+import { colors, typography } from "@/lib/design-tokens";
+import { Logo } from "./Logo";
 import {
   FacebookIcon,
   InstagramIcon,
@@ -12,7 +18,7 @@ import {
   YoutubeIcon,
   LinkedInIcon,
   TikTokIcon,
-} from '@/components/ui/Icons';
+} from "@/components/ui/Icons";
 
 interface FooterLink {
   label: string;
@@ -33,22 +39,22 @@ const FOOTER_SECTIONS: FooterSection[] = [
 ];
 
 const SOCIAL_ICONS = [
-  { name: 'facebook', Icon: FacebookIcon, href: SOCIAL_LINKS.facebook },
-  { name: 'tiktok', Icon: TikTokIcon, href: SOCIAL_LINKS.tiktok },
-  { name: 'instagram', Icon: InstagramIcon, href: SOCIAL_LINKS.instagram },
-  { name: 'twitter', Icon: TwitterIcon, href: SOCIAL_LINKS.twitter },
-  { name: 'youtube', Icon: YoutubeIcon, href: SOCIAL_LINKS.youtube },
-  { name: 'linkedin', Icon: LinkedInIcon, href: SOCIAL_LINKS.linkedin },
+  { name: "facebook", Icon: FacebookIcon, href: SOCIAL_LINKS.facebook },
+  { name: "tiktok", Icon: TikTokIcon, href: SOCIAL_LINKS.tiktok },
+  { name: "instagram", Icon: InstagramIcon, href: SOCIAL_LINKS.instagram },
+  { name: "twitter", Icon: TwitterIcon, href: SOCIAL_LINKS.twitter },
+  { name: "youtube", Icon: YoutubeIcon, href: SOCIAL_LINKS.youtube },
+  { name: "linkedin", Icon: LinkedInIcon, href: SOCIAL_LINKS.linkedin },
 ];
 
 // Footer link component
-const FooterLink: React.FC<{ href?: string; label: string; isSubItem?: boolean }> = ({
-  href,
-  label,
-  isSubItem = false,
-}) => {
+const FooterLink: React.FC<{
+  href?: string;
+  label: string;
+  isSubItem?: boolean;
+}> = ({ href, label, isSubItem = false }) => {
   const linkStyle = {
-    color: isSubItem ? '#A0A0A0' : '#E0E0E0',
+    color: isSubItem ? "#A0A0A0" : "#E0E0E0",
     fontSize: isSubItem ? typography.size.caption : typography.size.bodySmall,
   };
 
@@ -78,7 +84,7 @@ const FooterSection: React.FC<{ section: FooterSection }> = ({ section }) => {
       <h3
         className="font-semibold mb-4"
         style={{
-          color: '#FFFFFF',
+          color: "#FFFFFF",
           fontSize: typography.size.body,
         }}
       >
@@ -92,7 +98,11 @@ const FooterSection: React.FC<{ section: FooterSection }> = ({ section }) => {
               <ul className="ml-4 mt-2 flex flex-col gap-1">
                 {item.subItems.map((subItem, subIndex) => (
                   <li key={subIndex}>
-                    <FooterLink href={subItem.href} label={subItem.label} isSubItem />
+                    <FooterLink
+                      href={subItem.href}
+                      label={subItem.label}
+                      isSubItem
+                    />
                   </li>
                 ))}
               </ul>
@@ -109,7 +119,7 @@ export const Footer: React.FC = () => {
     <footer
       className="w-full text-white"
       style={{
-        backgroundColor: '#111111',
+        backgroundColor: "#111111",
       }}
     >
       {/* Main Footer Content */}
@@ -144,7 +154,7 @@ export const Footer: React.FC = () => {
               >
                 <Icon
                   size={20}
-                  style={{ color: '#E0E0E0' }}
+                  style={{ color: "#E0E0E0" }}
                   className="transition-colors hover:text-brand-green"
                 />
               </Link>
@@ -152,10 +162,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Copyright */}
-          <div
-            className="text-sm"
-            style={{ color: '#808080' }}
-          >
+          <div className="text-sm" style={{ color: "#808080" }}>
             APSONIC.Africa
           </div>
         </div>
@@ -163,4 +170,3 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
-

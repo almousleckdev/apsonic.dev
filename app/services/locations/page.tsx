@@ -108,7 +108,13 @@ export default function LocationsPage() {
 
       <div className="container mx-auto px-4 py-20">
         {/* PDF Downloads Section */}
-        <ScrollReveal variant="fadeUp" amount={0.05} once={false}>
+        <ScrollReveal
+          variant="fadeUp"
+          delay={0.2}
+          duration={0.9}
+          amount={0.1}
+          once={false}
+        >
           <div className="mb-24">
             <div className="flex items-center gap-4 mb-14">
               <div className="w-14 h-14 rounded-2xl bg-brand-green/10 flex items-center justify-center">
@@ -179,7 +185,13 @@ export default function LocationsPage() {
         </ScrollReveal>
 
         {/* Video Section */}
-        <ScrollReveal variant="fadeUp" amount={0.05} once={false}>
+        <ScrollReveal
+          variant="scaleIn"
+          delay={0.25}
+          duration={0.9}
+          amount={0.1}
+          once={false}
+        >
           <div className="mb-24">
             <div className="flex items-center gap-4 mb-14">
               <div className="w-14 h-14 rounded-2xl bg-brand-green/10 flex items-center justify-center">
@@ -214,7 +226,13 @@ export default function LocationsPage() {
         </ScrollReveal>
 
         {/* Image Gallery */}
-        <ScrollReveal variant="fadeUp">
+        <ScrollReveal
+          variant="fadeIn"
+          delay={0.2}
+          duration={0.9}
+          amount={0.1}
+          once={false}
+        >
           <div className="bg-[#f8f9fc] rounded-[64px] p-12 lg:p-24 relative overflow-hidden">
             {/* Abstract Background Element */}
             <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-green/5 rounded-full blur-[80px]" />

@@ -11,11 +11,11 @@ export const ImpactGallerySection = () => {
   return (
     <Section backgroundColor={colors.background.primary} padding="none">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-[80vh] w-full">
-        {/* Item 1: Africa Cup */}
+        {/* Item 1: Main Africa Cup Message */}
         <div className="relative group h-full overflow-hidden">
           <Image
             src="/about/Picture4.png"
-            alt="Africa Cup of Nations sponsored by Apsonic"
+            alt="APSONIC非洲国家杯官方合作伙伴"
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
@@ -30,38 +30,40 @@ export const ImpactGallerySection = () => {
           </div>
         </div>
 
-        {/* Item 2: CSR Impact */}
+        {/* Item 2: Stadium Branding */}
         <div className="relative group h-full overflow-hidden">
           <Image
-            src="/about/Picture8.png"
-            alt="Apsonic community support"
+            src="/services/news/6b49b8ea57d293a6eb4bf25457a5108c.jpg"
+            alt="APSONIC品牌闪耀非洲杯赛场"
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300" />
           <div className="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
             <span className="text-brand-green text-sm font-bold uppercase tracking-widest">
-              社会责任
+              激情体育
             </span>
-            <h3 className="text-2xl font-bold text-white mt-2">赋能本地社区</h3>
+            <h3 className="text-2xl font-bold text-white mt-2">
+              品牌闪耀非洲顶级赛场
+            </h3>
           </div>
         </div>
 
-        {/* Item 3: Trophy/Pride */}
+        {/* Item 3: Global Sports Marketing */}
         <div className="relative group h-full overflow-hidden">
           <Image
-            src="/about/Picture6.png"
-            alt="Apsonic Brand Pride"
+            src="/services/news/39a4e1841a0271623758b8cdaf1cee99.jpg"
+            alt="APSONIC全球体育营销战略"
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300" />
           <div className="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
             <span className="text-brand-green text-sm font-bold uppercase tracking-widest">
-              品质认可
+              激情体育
             </span>
             <h3 className="text-2xl font-bold text-white mt-2">
-              连接梦想与荣誉
+              全球体育营销战略布局
             </h3>
           </div>
         </div>

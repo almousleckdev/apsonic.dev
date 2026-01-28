@@ -17,25 +17,55 @@ export default function ServicesPage() {
   return (
     <main style={{ backgroundColor: SERVICE_PAGE_CONFIG.colors.background }}>
       <ServiceHero />
-      <ScrollReveal variant="fadeUp" delay={0.1} amount={0.05} once={false}>
+      <ScrollReveal
+        variant="fadeUp"
+        delay={0.2}
+        duration={0.9}
+        amount={0.1}
+        once={false}
+      >
         <FeatureCards cards={FEATURE_CARDS} />
       </ScrollReveal>
 
-      <ScrollReveal variant="fadeUp" delay={0.2} amount={0.05} once={false}>
+      <ScrollReveal
+        variant="scaleIn"
+        delay={0.25}
+        duration={0.9}
+        amount={0.1}
+        once={false}
+      >
         <DealerNetworkInfographic />
       </ScrollReveal>
 
-      <ScrollReveal variant="fadeIn" delay={0.3} amount={0.05} once={false}>
+      <ScrollReveal
+        variant="fadeIn"
+        delay={0.3}
+        duration={0.9}
+        amount={0.1}
+        once={false}
+      >
         <ServiceCoverage />
       </ScrollReveal>
 
       <div className="border-t border-white/5 pt-20">
-        <ScrollReveal variant="fadeUp" delay={0.2} amount={0.05} once={false}>
+        <ScrollReveal
+          variant="fadeUp"
+          delay={0.2}
+          duration={0.9}
+          amount={0.1}
+          once={false}
+        >
           <OfficeLocations />
         </ScrollReveal>
       </div>
 
-      <ScrollReveal variant="fadeUp" delay={0.4} amount={0.05} once={false}>
+      <ScrollReveal
+        variant="fadeUp"
+        delay={0.25}
+        duration={0.9}
+        amount={0.1}
+        once={false}
+      >
         <FAQ items={SERVICE_FAQ_ITEMS} />
       </ScrollReveal>
     </main>

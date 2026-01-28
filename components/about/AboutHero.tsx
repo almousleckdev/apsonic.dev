@@ -18,8 +18,8 @@ export const AboutHero = () => {
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <Image
-          src="/about/Picture1.png"
-          alt="Apsonic After-Sales Service Center"
+          src="/about/hero.bmp"
+          alt="APSONIC 摩托车生产基地"
           fill
           className="object-cover object-center"
           priority
@@ -33,12 +33,36 @@ export const AboutHero = () => {
 
       {/* Content Container */}
       <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
+        {/* Animated Tagline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+          className="max-w-4xl font-bold tracking-tight text-white"
+          style={{
+            fontSize: typography.size.hero,
+          }}
+        >
+          道路的心跳
+        </motion.h1>
+
+        {/* Subtext */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+          className="mt-6 max-w-2xl text-lg text-gray-200 sm:text-xl font-medium"
+          style={{ fontFamily: "var(--font-geist-mono)" }}
+        >
+          为大陆而设计。经久耐用。赋能前行。
+        </motion.p>
+
         {/* Call to Action */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-          className="mb-12"
+          transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
+          className="mt-12"
         >
           <Button
             variant="primary"
@@ -54,30 +78,6 @@ export const AboutHero = () => {
             了解我们的故事
           </Button>
         </motion.div>
-
-        {/* Animated Tagline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-          className="max-w-4xl font-bold tracking-tight text-white"
-          style={{
-            fontSize: typography.size.hero,
-          }}
-        >
-          道路的心跳
-        </motion.h1>
-
-        {/* Subtext */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
-          className="mt-6 max-w-2xl text-lg text-gray-200 sm:text-xl font-medium"
-          style={{ fontFamily: "var(--font-geist-mono)" }}
-        >
-          为大陆而设计。经久耐用。赋能前行。
-        </motion.p>
       </div>
 
       {/* Scroll Indicator */}

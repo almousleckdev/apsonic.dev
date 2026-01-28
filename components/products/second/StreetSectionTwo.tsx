@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import type { ProductModel } from '@/lib/types/products';
+import React from "react";
+import Image from "next/image";
+import type { ProductModel } from "@/lib/types/products";
 
 interface StreetSectionTwoProps {
   product: ProductModel;
@@ -12,11 +12,28 @@ interface StreetSectionTwoProps {
  * Section Two for Street Product Details Page (Second Design)
  * Displays three product feature images
  */
-export const StreetSectionTwo: React.FC<StreetSectionTwoProps> = ({ product }) => {
+import { motion } from "framer-motion";
+
+/**
+ * Section Two for Street Product Details Page (Second Design)
+ * Displays three product feature images
+ */
+export const StreetSectionTwo: React.FC<StreetSectionTwoProps> = ({
+  product,
+}) => {
   const images = [
-    { src: '/products/second/images/img1.png', alt: 'Motorcycle Tires - Vacuum Anti-skid Tire' },
-    { src: '/products/second/images/img2.png', alt: 'Luxury Muffler - Exhaust System' },
-    { src: '/products/second/images/img3.png', alt: '110CC Engine - Fuel Efficient' },
+    {
+      src: "/products/second/images/img1.png",
+      alt: "Motorcycle Tires - Vacuum Anti-skid Tire",
+    },
+    {
+      src: "/products/second/images/img2.png",
+      alt: "Luxury Muffler - Exhaust System",
+    },
+    {
+      src: "/products/second/images/img3.png",
+      alt: "110CC Engine - Fuel Efficient",
+    },
   ];
 
   return (
@@ -24,7 +41,19 @@ export const StreetSectionTwo: React.FC<StreetSectionTwoProps> = ({ product }) =
       <div className="w-full">
         <div className="flex flex-col">
           {images.map((image, index) => (
-            <div key={index} className="relative w-full" style={{ width: '100vw', height: 'auto' }}>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{
+                duration: 0.8,
+                delay: index * 0.2,
+                ease: "easeOut",
+              }}
+              key={index}
+              className="relative w-full"
+              style={{ width: "100vw", height: "auto" }}
+            >
               <Image
                 src={image.src}
                 alt={image.alt}
@@ -33,9 +62,9 @@ export const StreetSectionTwo: React.FC<StreetSectionTwoProps> = ({ product }) =
                 className="w-full h-auto"
                 sizes="100vw"
                 priority={index === 0}
-                style={{ width: '100%', height: 'auto', display: 'block' }}
+                style={{ width: "100%", height: "auto", display: "block" }}
               />
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

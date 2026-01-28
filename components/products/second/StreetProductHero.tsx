@@ -1,8 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import type { ProductModel } from '@/lib/types/products';
+import React from "react";
+import Image from "next/image";
+import type { ProductModel } from "@/lib/types/products";
+
+import { motion } from "framer-motion";
 
 interface StreetProductHeroProps {
   product: ProductModel;
@@ -12,9 +14,17 @@ interface StreetProductHeroProps {
  * Hero Section for Street Product Details Page (Second Design)
  * Displays the hero.jpg image at 100vw width, showing full image without cropping
  */
-export const StreetProductHero: React.FC<StreetProductHeroProps> = ({ product }) => {
+export const StreetProductHero: React.FC<StreetProductHeroProps> = ({
+  product,
+}) => {
   return (
-    <div className="relative w-full overflow-hidden" style={{ width: '100vw', maxWidth: '100vw' }}>
+    <motion.div
+      initial={{ opacity: 0, scale: 1.05 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+      className="relative w-full overflow-hidden"
+      style={{ width: "100vw", maxWidth: "100vw" }}
+    >
       <Image
         src="/products/second/images/hero.jpg"
         alt={`${product.model} - Street Motorcycle Hero`}
@@ -24,8 +34,13 @@ export const StreetProductHero: React.FC<StreetProductHeroProps> = ({ product })
         priority
         sizes="100vw"
         quality={100}
-        style={{ width: '100vw', height: 'auto', display: 'block', maxWidth: '100vw' }}
+        style={{
+          width: "100vw",
+          height: "auto",
+          display: "block",
+          maxWidth: "100vw",
+        }}
       />
-    </div>
+    </motion.div>
   );
 };

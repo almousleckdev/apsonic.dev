@@ -9,6 +9,9 @@ import { colors, spacing } from "@/lib/design-tokens";
 import { SERVICE_CONFIG, SERVICE_LABELS } from "@/lib/constants/service";
 import { useServiceSupport } from "@/hooks/useServiceSupport";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { ENTERPRISE_EASE } from "@/lib/constants/animations";
+import Link from "next/link";
 
 export interface ServiceSupportProps {
   className?: string;
@@ -44,16 +47,28 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
           {/* Mobile: Vertical Stack */}
           <div className="flex flex-col lg:hidden gap-6">
             {/* Left Panel */}
-            <div className="w-full">
+            <motion.div
+              className="w-full"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.7, ease: ENTERPRISE_EASE }}
+            >
               <StoreQueryPanel
                 queryType={queryType}
                 onQueryTypeChange={setQueryType}
                 className="h-auto min-h-[160px] rounded-2xl shadow-md"
               />
-            </div>
+            </motion.div>
 
             {/* Middle Panel */}
-            <div className="w-full">
+            <motion.div
+              className="w-full"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.7, ease: ENTERPRISE_EASE, delay: 0.1 }}
+            >
               <StoreListPanel
                 stores={filteredStores}
                 searchTerm={searchTerm}
@@ -69,12 +84,16 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
                 locationError={locationError}
                 className="h-auto min-h-[350px] rounded-2xl shadow-md"
               />
-            </div>
+            </motion.div>
 
             {/* Map Panel */}
-            <div
+            <motion.div
               className="w-full"
               style={{ minHeight: "450px", height: "450px" }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.7, ease: ENTERPRISE_EASE, delay: 0.2 }}
             >
               <AfricaMapPanel
                 selectedCountry={selectedCountry}
@@ -83,7 +102,7 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
                 showOnlyUserLocation={queryType === "nearby"}
                 className="h-full rounded-2xl shadow-md"
               />
-            </div>
+            </motion.div>
           </div>
 
           {/* Desktop: Horizontal Layout with Map as Background */}
@@ -92,7 +111,7 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
             style={{ gap: "0" }}
           >
             {/* Left Panel - Opaque */}
-            <div
+            <motion.div
               className="flex-shrink-0 overflow-hidden"
               style={{
                 width: "20%",
@@ -101,22 +120,30 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
                 borderTopLeftRadius: "16px",
                 borderBottomLeftRadius: "16px",
               }}
+              initial={{ opacity: 0, x: -80 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, amount: 0.15 }}
+              transition={{ duration: 0.8, ease: ENTERPRISE_EASE }}
             >
               <StoreQueryPanel
                 queryType={queryType}
                 onQueryTypeChange={setQueryType}
                 className="h-full shadow-lg shadow-gray-200/50"
               />
-            </div>
+            </motion.div>
 
             {/* Middle Panel - Semi-transparent overlay */}
-            <div
+            <motion.div
               className="flex-shrink-0"
               style={{
                 width: "20%",
                 position: "relative",
                 zIndex: 2,
               }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: false, amount: 0.15 }}
+              transition={{ duration: 0.8, ease: ENTERPRISE_EASE, delay: 0.15 }}
             >
               <StoreListPanel
                 stores={filteredStores}
@@ -133,10 +160,10 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
                 locationError={locationError}
                 className="h-full shadow-xl shadow-gray-200/50"
               />
-            </div>
+            </motion.div>
 
             {/* Map Area */}
-            <div
+            <motion.div
               className="flex-grow h-full overflow-hidden"
               style={{
                 position: "relative",
@@ -144,6 +171,10 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
                 borderTopRightRadius: "16px",
                 borderBottomRightRadius: "16px",
               }}
+              initial={{ opacity: 0, x: 80 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, amount: 0.15 }}
+              transition={{ duration: 0.8, ease: ENTERPRISE_EASE, delay: 0.3 }}
             >
               <AfricaMapPanel
                 selectedCountry={selectedCountry}
@@ -152,25 +183,33 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
                 showOnlyUserLocation={queryType === "nearby"}
                 className="h-full w-full"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
 
         {/* Bottom Button */}
-        <div className="text-center">
-          <Button
-            variant="outline"
-            size="md"
-            style={{
-              backgroundColor: colors.background.white,
-              border: `2px solid ${colors.service.brandGreen}`,
-              color: colors.service.brandGreen,
-              fontWeight: 600,
-            }}
-          >
-            {SERVICE_LABELS.buttonText}
-          </Button>
-        </div>
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: ENTERPRISE_EASE, delay: 0.2 }}
+        >
+          <Link href="/services#official-branches">
+            <Button
+              variant="outline"
+              size="md"
+              style={{
+                backgroundColor: colors.background.white,
+                border: `2px solid ${colors.service.brandGreen}`,
+                color: colors.service.brandGreen,
+                fontWeight: 600,
+              }}
+            >
+              {SERVICE_LABELS.buttonText}
+            </Button>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

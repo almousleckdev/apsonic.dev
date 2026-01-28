@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { cn } from '@/lib/utils';
-import { GridFeature } from '@/lib/types/products';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { GridFeature } from "@/lib/types/products";
 
 interface ProductFeatureGridProps {
   sectionTitle: string;
@@ -27,19 +27,46 @@ export const ProductFeatureGrid: React.FC<ProductFeatureGridProps> = ({
   return (
     <section className={cn("w-full py-24 bg-white", className)}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-10%" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-gray-900 tracking-[0.2em] uppercase">
             {sectionTitle}
           </h2>
-        </div>
+        </motion.div>
 
         {/* Features Grid - Refined spacing and rounded corners */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 max-w-7xl mx-auto">
-          {features.map((feature, idx) => (
-            <ScrollReveal key={feature.id} delay={idx * 0.06} variant="fadeUp" amount={0.25}>
-              <div className="relative aspect-[4/3] sm:aspect-[3/2] md:aspect-square lg:aspect-[4/3] bg-gray-50 group overflow-hidden rounded-lg sm:rounded-xl shadow-sm">
+          {features.map((feature, idx) => {
+            // Alternate animation direction: even indices from left, odd from right
+            const isEven = idx % 2 === 0;
+
+            return (
+              <motion.div
+                key={feature.id}
+                initial={{
+                  opacity: 0,
+                  x: isEven ? -150 : 150,
+                  scale: 0.9,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                  scale: 1,
+                }}
+                viewport={{ once: false, margin: "-10%" }}
+                transition={{
+                  duration: 0.8,
+                  delay: (idx % 2) * 0.15, // Stagger pairs
+                  ease: "easeOut",
+                }}
+                className="relative aspect-[4/3] sm:aspect-[3/2] md:aspect-square lg:aspect-[4/3] bg-gray-50 group overflow-hidden rounded-lg sm:rounded-xl shadow-sm"
+              >
                 {/* Feature Image */}
                 <Image
                   src={feature.image}
@@ -61,21 +88,26 @@ export const ProductFeatureGrid: React.FC<ProductFeatureGridProps> = ({
 
                 {/* Subtle hover overlay */}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
-              </div>
-            </ScrollReveal>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Footer Text */}
         {footerText && (
-          <div className="mt-16 text-center">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mt-16 text-center"
+          >
             <p className="text-[10px] sm:text-xs text-gray-400 font-light tracking-[0.1em] uppercase">
               {footerText}
             </p>
-          </div>
+          </motion.div>
         )}
       </div>
     </section>
   );
 };
-

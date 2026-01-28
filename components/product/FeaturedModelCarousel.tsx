@@ -1,15 +1,20 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { FeaturedModel } from '@/lib/types';
-import { colors, typography, effects } from '@/lib/design-tokens';
-import { CAROUSEL_CONFIG } from '@/lib/constants';
-import { useCarousel } from '@/hooks/useCarousel';
-import { CarouselNavButton } from '@/components/ui/CarouselNavButton';
-import { Button } from '@/components/ui/Button';
-import { cn } from '@/lib/utils';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { FeaturedModel } from "@/lib/types";
+import { colors, typography, effects } from "@/lib/design-tokens";
+import { CAROUSEL_CONFIG } from "@/lib/constants";
+import { useCarousel } from "@/hooks/useCarousel";
+import { CarouselNavButton } from "@/components/ui/CarouselNavButton";
+import { Button } from "@/components/ui/Button";
+import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import {
+  ANIMATION_VARIANTS,
+  ENTERPRISE_EASE,
+} from "@/lib/constants/animations";
 
 export interface FeaturedModelCarouselProps {
   models: FeaturedModel[];
@@ -40,7 +45,13 @@ export const FeaturedModelCarousel: React.FC<FeaturedModelCarouselProps> = ({
       onMouseLeave={resume}
     >
       {/* Section Title */}
-      <div className="text-center mb-8">
+      <motion.div
+        className="text-center mb-8"
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.8, ease: ENTERPRISE_EASE }}
+      >
         <h2
           className="font-bold"
           style={{
@@ -51,10 +62,16 @@ export const FeaturedModelCarousel: React.FC<FeaturedModelCarouselProps> = ({
         >
           车型推荐
         </h2>
-      </div>
+      </motion.div>
 
       {/* Model Name */}
-      <div className="text-center mb-6">
+      <motion.div
+        className="text-center mb-6"
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.7, ease: ENTERPRISE_EASE, delay: 0.1 }}
+      >
         <h3
           className="font-semibold"
           style={{
@@ -65,29 +82,40 @@ export const FeaturedModelCarousel: React.FC<FeaturedModelCarouselProps> = ({
         >
           {currentModel.name}
         </h3>
-      </div>
+      </motion.div>
 
       {/* Main Image Container */}
       <div className="relative w-full mb-8">
         {/* Image with Watermark */}
-        <div className="relative w-full max-w-4xl mx-auto aspect-[16/10] overflow-hidden">
+        <motion.div
+          className="relative w-full max-w-4xl mx-auto aspect-[16/10] overflow-hidden"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.9, ease: ENTERPRISE_EASE, delay: 0.2 }}
+        >
           {/* Watermark Background */}
           {currentModel.watermark && (
-            <div
+            <motion.div
               className="absolute inset-0 flex items-start justify-center z-0"
               style={{
-                color: 'rgba(0, 0, 0, 0.05)',
-                fontSize: 'clamp(4rem, 15vw, 12rem)',
+                color: "rgba(0, 0, 0, 0.05)",
+                fontSize: "clamp(4rem, 15vw, 12rem)",
                 fontWeight: 900,
-                fontFamily: 'var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-                paddingTop: 'clamp(2rem, 8vw, 6rem)',
-                letterSpacing: '-0.02em',
+                fontFamily:
+                  'var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+                paddingTop: "clamp(2rem, 8vw, 6rem)",
+                letterSpacing: "-0.02em",
                 lineHeight: 0.9,
-                whiteSpace: 'nowrap',
+                whiteSpace: "nowrap",
               }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 1.2, ease: ENTERPRISE_EASE, delay: 0.5 }}
             >
               {currentModel.watermark}
-            </div>
+            </motion.div>
           )}
 
           {/* Motorcycle Image */}
@@ -97,41 +125,60 @@ export const FeaturedModelCarousel: React.FC<FeaturedModelCarouselProps> = ({
               alt={currentModel.name}
               fill
               className={cn(
-                'object-contain object-center',
-                effects.transition.default
+                "object-contain object-center",
+                effects.transition.default,
               )}
               priority={currentIndex === 0}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Navigation Arrows - positioned at container level */}
         {models.length > 1 && (
           <>
-            <CarouselNavButton
-              direction="left"
-              onClick={prevSlide}
-              ariaLabel="Previous model"
-            />
-            <CarouselNavButton
-              direction="right"
-              onClick={nextSlide}
-              ariaLabel="Next model"
-            />
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: ENTERPRISE_EASE, delay: 0.4 }}
+            >
+              <CarouselNavButton
+                direction="left"
+                onClick={prevSlide}
+                ariaLabel="Previous model"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: ENTERPRISE_EASE, delay: 0.4 }}
+            >
+              <CarouselNavButton
+                direction="right"
+                onClick={nextSlide}
+                ariaLabel="Next model"
+              />
+            </motion.div>
           </>
         )}
       </div>
 
       {/* Call to Action Button */}
-      <div className="text-center">
+      <motion.div
+        className="text-center"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.7, ease: ENTERPRISE_EASE, delay: 0.3 }}
+      >
         <Link href="/products">
           <Button variant="outline" size="md">
             全系车型
           </Button>
         </Link>
-      </div>
+      </motion.div>
     </div>
   );
 };
-

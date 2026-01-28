@@ -1,13 +1,15 @@
-'use client';
+"use client";
 
-import React, { useRef, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { MotorcycleCategory } from '@/lib/types';
-import { colors, effects, typography } from '@/lib/design-tokens';
-import { CAROUSEL_CONFIG } from '@/lib/constants';
-import { CarouselNavButton } from '@/components/ui/CarouselNavButton';
-import { cn } from '@/lib/utils';
+import React, { useRef, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { MotorcycleCategory } from "@/lib/types";
+import { colors, effects, typography } from "@/lib/design-tokens";
+import { CAROUSEL_CONFIG } from "@/lib/constants";
+import { CarouselNavButton } from "@/components/ui/CarouselNavButton";
+import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { ENTERPRISE_EASE } from "@/lib/constants/animations";
 
 export interface CategoryCarouselProps {
   categories: MotorcycleCategory[];
@@ -21,16 +23,16 @@ export const CategoryCarousel: React.FC<CategoryCarouselProps> = ({
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Scrolls the carousel horizontally by one card width plus gap
-  const scroll = (direction: 'left' | 'right') => {
+  const scroll = (direction: "left" | "right") => {
     if (!scrollContainerRef.current) return;
-    
+
     const container = scrollContainerRef.current;
     const cardWidth = container.firstElementChild?.clientWidth || 0;
     const scrollAmount = cardWidth + CAROUSEL_CONFIG.scrollGap;
-    
+
     container.scrollBy({
-      left: direction === 'left' ? -scrollAmount : scrollAmount,
-      behavior: 'smooth',
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
     });
   };
 
@@ -51,16 +53,30 @@ export const CategoryCarousel: React.FC<CategoryCarouselProps> = ({
       {/* Navigation Arrows */}
       {categories.length > 1 && (
         <>
-          <CarouselNavButton
-            direction="left"
-            onClick={() => scroll('left')}
-            ariaLabel="Previous categories"
-          />
-          <CarouselNavButton
-            direction="right"
-            onClick={() => scroll('right')}
-            ariaLabel="Next categories"
-          />
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: ENTERPRISE_EASE, delay: 0.2 }}
+          >
+            <CarouselNavButton
+              direction="left"
+              onClick={() => scroll("left")}
+              ariaLabel="Previous categories"
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: ENTERPRISE_EASE, delay: 0.2 }}
+          >
+            <CarouselNavButton
+              direction="right"
+              onClick={() => scroll("right")}
+              ariaLabel="Next categories"
+            />
+          </motion.div>
         </>
       )}
 
@@ -69,59 +85,77 @@ export const CategoryCarousel: React.FC<CategoryCarouselProps> = ({
         ref={scrollContainerRef}
         className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth px-12 justify-center items-center"
         style={{
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none',
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
         }}
       >
-        {categories.map((category) => (
-          <Link
+        {categories.map((category, index) => (
+          <motion.div
             key={category.id}
-            href={category.href || `/products?category=${category.id}`}
-            className={cn(
-              'group relative block rounded-lg flex-shrink-0',
-              effects.transition.default,
-              'hover:scale-105',
-              'w-[280px]'
-            )}
-            style={{
-              backgroundColor: colors.background.white,
+            initial={{
+              opacity: 0,
+              x: index % 2 === 0 ? -80 : 80,
+              scale: 0.9,
             }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+              scale: 1,
+            }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{
+              duration: 0.7,
+              ease: ENTERPRISE_EASE,
+              delay: index * 0.1,
+            }}
+            whileHover={{ scale: 1.05 }}
           >
-            {/* Category Image - Centered, no overflow */}
-            <div className="relative w-full aspect-[4/3] flex items-center justify-center">
-              <Image
-                src={category.image}
-                alt={category.name}
-                fill
-                className={cn(
-                  'object-contain object-center',
-                  effects.transition.default,
-                  'group-hover:scale-105'
-                )}
-                sizes="280px"
-              />
-            </div>
+            <Link
+              href={category.href || `/products?category=${category.id}`}
+              className={cn(
+                "group relative block rounded-lg flex-shrink-0",
+                effects.transition.default,
+                "w-[280px]",
+              )}
+              style={{
+                backgroundColor: colors.background.white,
+              }}
+            >
+              {/* Category Image - Centered, no overflow */}
+              <div className="relative w-full aspect-[4/3] flex items-center justify-center">
+                <Image
+                  src={category.image}
+                  alt={category.name}
+                  fill
+                  className={cn(
+                    "object-contain object-center",
+                    effects.transition.default,
+                    "group-hover:scale-105",
+                  )}
+                  sizes="280px"
+                />
+              </div>
 
-            {/* Category Name */}
-            <div className="p-4 text-center">
-              <h3
-                className={cn(
-                  'font-medium',
-                  effects.transition.colors,
-                  'group-hover:text-[#1FA84F]' // Brand green hover (Tailwind requires static value)
-                )}
-                style={{
-                  color: colors.text.black,
-                  fontSize: typography.size.body,
-                }}
-              >
-                {category.name}
-              </h3>
-            </div>
-          </Link>
+              {/* Category Name */}
+              <div className="p-4 text-center">
+                <h3
+                  className={cn(
+                    "font-medium",
+                    effects.transition.colors,
+                    "group-hover:text-[#1FA84F]", // Brand green hover (Tailwind requires static value)
+                  )}
+                  style={{
+                    color: colors.text.black,
+                    fontSize: typography.size.body,
+                  }}
+                >
+                  {category.name}
+                </h3>
+              </div>
+            </Link>
+          </motion.div>
         ))}
       </div>
     </div>
   );
 };
-

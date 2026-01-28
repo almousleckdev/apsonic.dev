@@ -106,7 +106,13 @@ export default function PartsPage() {
 
       <div className="container mx-auto px-4 py-20">
         {/* PDF Downloads */}
-        <ScrollReveal variant="fadeUp" amount={0.05} once={false}>
+        <ScrollReveal
+          variant="fadeUp"
+          delay={0.2}
+          duration={0.9}
+          amount={0.1}
+          once={false}
+        >
           <div className="mb-20">
             <div className="flex items-center justify-between mb-12">
               <div className="flex items-center gap-3">
@@ -177,7 +183,13 @@ export default function PartsPage() {
         </ScrollReveal>
 
         {/* Technical Videos */}
-        <ScrollReveal variant="fadeUp" amount={0.05} once={false}>
+        <ScrollReveal
+          variant="scaleIn"
+          delay={0.25}
+          duration={0.9}
+          amount={0.1}
+          once={false}
+        >
           <div className="mb-20">
             <div className="flex items-center gap-3 mb-12">
               <div className="w-12 h-12 rounded-2xl bg-brand-green/10 flex items-center justify-center">
@@ -214,7 +226,13 @@ export default function PartsPage() {
         </ScrollReveal>
 
         {/* Parts Gallery */}
-        <ScrollReveal variant="fadeUp" amount={0.05} once={false}>
+        <ScrollReveal
+          variant="fadeIn"
+          delay={0.2}
+          duration={0.9}
+          amount={0.1}
+          once={false}
+        >
           <div className="bg-gray-50 rounded-[48px] p-12 lg:p-20 overflow-hidden relative">
             {/* Decorative Background Icon */}
             <div className="absolute top-10 right-10 opacity-[0.03] rotate-12">
