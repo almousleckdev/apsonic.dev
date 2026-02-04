@@ -1,5 +1,6 @@
 "use client";
 
+// how can we make the apsonic website more interactive and engaging?
 import React from "react";
 import { FeaturedModel, MotorcycleCategory } from "@/lib/types";
 import { FeaturedModelCarousel } from "./FeaturedModelCarousel";
@@ -27,29 +28,23 @@ export const RecommendedModels: React.FC<RecommendedModelsProps> = ({
 }) => {
   return (
     <section
-      className={cn("w-full", spacing.section.vertical, className)}
+      className={cn("w-full py-2", className)}
       style={{ backgroundColor: colors.background.white }}
     >
-      <motion.div
-        variants={ANIMATION_VARIANTS.staggerContainer}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.15 }}
-        className="container mx-auto px-4 sm:px-6 lg:px-8"
-      >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Featured Model Carousel */}
-        <motion.div
-          variants={ANIMATION_VARIANTS.fadeUp}
-          className="mb-16 lg:mb-24"
-        >
+        <div className="mb-4 lg:mb-8">
           <FeaturedModelCarousel models={featuredModels} autoPlay />
-        </motion.div>
+        </div>
 
         {/* Category Carousel */}
-        <motion.div variants={ANIMATION_VARIANTS.fadeUp}>
-          <CategoryCarousel categories={categories} autoPlay={false} />
-        </motion.div>
-      </motion.div>
+        <div>
+          <CategoryCarousel
+            categories={categories.slice(0, 3)}
+            autoPlay={false}
+          />
+        </div>
+      </div>
     </section>
   );
 };

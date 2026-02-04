@@ -6,11 +6,9 @@ import { StoreListPanel } from "./StoreListPanel";
 import { AfricaMapPanel } from "./AfricaMapPanel";
 import { Button } from "@/components/ui/Button";
 import { colors, spacing } from "@/lib/design-tokens";
-import { SERVICE_CONFIG, SERVICE_LABELS } from "@/lib/constants/service";
+import { SERVICE_LABELS } from "@/lib/constants/service";
 import { useServiceSupport } from "@/hooks/useServiceSupport";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import { ENTERPRISE_EASE } from "@/lib/constants/animations";
 import Link from "next/link";
 
 export interface ServiceSupportProps {
@@ -38,178 +36,93 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
 
   return (
     <section
-      className={cn("w-full", spacing.section.vertical, className)}
-      style={{ backgroundColor: colors.background.white }}
+      className={cn("w-full py-2", className)}
+      style={{
+        backgroundColor: colors.background.white,
+      }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Responsive Layout: Vertical on mobile, Horizontal on desktop */}
-        <div className="mb-8">
-          {/* Mobile: Vertical Stack */}
-          <div className="flex flex-col lg:hidden gap-6">
-            {/* Left Panel */}
-            <motion.div
-              className="w-full"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.7, ease: ENTERPRISE_EASE }}
-            >
-              <StoreQueryPanel
-                queryType={queryType}
-                onQueryTypeChange={setQueryType}
-                className="h-auto min-h-[160px] rounded-2xl shadow-md"
-              />
-            </motion.div>
+      <div className="w-full px-4 md:px-8">
+        {/* Header */}
+        <div className="text-center mb-6">
+          <h2 className="text-3xl font-bold text-[#1FA84F]">服务支持</h2>
+        </div>
 
-            {/* Middle Panel */}
-            <motion.div
-              className="w-full"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.7, ease: ENTERPRISE_EASE, delay: 0.1 }}
-            >
-              <StoreListPanel
-                stores={filteredStores}
-                searchTerm={searchTerm}
-                onSearchChange={handleSearchChange}
-                selectedStoreId={selectedStore?.id}
-                onStoreSelect={setSelectedStore}
-                onCountrySearch={handleCountrySelect}
-                selectedCountry={selectedCountry}
-                queryType={queryType}
-                userLocation={userLocation}
-                userAddress={userAddress}
-                isLoadingLocation={isLoadingLocation}
-                locationError={locationError}
-                className="h-auto min-h-[350px] rounded-2xl shadow-md"
-              />
-            </motion.div>
-
-            {/* Map Panel */}
-            <motion.div
-              className="w-full"
-              style={{ minHeight: "450px", height: "450px" }}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.7, ease: ENTERPRISE_EASE, delay: 0.2 }}
-            >
-              <AfricaMapPanel
-                selectedCountry={selectedCountry}
-                onCountrySelect={handleCountrySelect}
-                userLocation={queryType === "nearby" ? userLocation : null}
-                showOnlyUserLocation={queryType === "nearby"}
-                className="h-full rounded-2xl shadow-md"
-              />
-            </motion.div>
+        {/* Main Content Area - Flat Section */}
+        <div className="relative w-full h-[650px] border-y border-gray-100 bg-gray-50">
+          {/* 1. Map Background (Full Size) */}
+          <div className="absolute inset-0 z-0">
+            <AfricaMapPanel
+              selectedCountry={selectedCountry}
+              onCountrySelect={handleCountrySelect}
+              userLocation={queryType === "nearby" ? userLocation : null}
+              showOnlyUserLocation={queryType === "nearby"}
+              className="w-full h-full"
+              padding={{ left: 680, top: 20, bottom: 20, right: 20 }} // Offset for 2 sidebars (300 + 380)
+            />
           </div>
 
-          {/* Desktop: Horizontal Layout with Map as Background */}
-          <div
-            className="hidden lg:flex h-[650px] relative items-stretch"
-            style={{ gap: "0" }}
-          >
-            {/* Left Panel - Opaque */}
-            <motion.div
-              className="flex-shrink-0 overflow-hidden"
+          {/* 2. Overlays Container - Flex Row -> 3-Panel Layout */}
+          <div className="absolute inset-y-0 left-0 z-10 flex flex-row h-full">
+            {/* Panel 1: Search & Query (Left) */}
+            <div
+              className="w-[280px] h-full flex-shrink-0 flex flex-col"
               style={{
-                width: "20%",
-                position: "relative",
-                zIndex: 3,
-                borderTopLeftRadius: "16px",
-                borderBottomLeftRadius: "16px",
+                backgroundColor: "#1e1e1e", // Solid dark, no blur
+                borderRight: "1px solid rgba(255,255,255,0.1)",
               }}
-              initial={{ opacity: 0, x: -80 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, amount: 0.15 }}
-              transition={{ duration: 0.8, ease: ENTERPRISE_EASE }}
             >
-              <StoreQueryPanel
-                queryType={queryType}
-                onQueryTypeChange={setQueryType}
-                className="h-full shadow-lg shadow-gray-200/50"
-              />
-            </motion.div>
+              <div className="p-6 h-full">
+                <StoreQueryPanel
+                  queryType={queryType}
+                  onQueryTypeChange={setQueryType}
+                  className="bg-transparent shadow-none p-0 text-white"
+                  variant="dark"
+                />
+              </div>
+            </div>
 
-            {/* Middle Panel - Semi-transparent overlay */}
-            <motion.div
-              className="flex-shrink-0"
+            {/* Panel 2: Results List (Middle) */}
+            <div
+              className="w-[360px] h-full flex-shrink-0 flex flex-col"
               style={{
-                width: "20%",
-                position: "relative",
-                zIndex: 2,
+                backgroundColor: "#252525", // Solid lighter dark, no blur
               }}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: false, amount: 0.15 }}
-              transition={{ duration: 0.8, ease: ENTERPRISE_EASE, delay: 0.15 }}
             >
-              <StoreListPanel
-                stores={filteredStores}
-                searchTerm={searchTerm}
-                onSearchChange={handleSearchChange}
-                selectedStoreId={selectedStore?.id}
-                onStoreSelect={setSelectedStore}
-                onCountrySearch={handleCountrySelect}
-                selectedCountry={selectedCountry}
-                queryType={queryType}
-                userLocation={userLocation}
-                userAddress={userAddress}
-                isLoadingLocation={isLoadingLocation}
-                locationError={locationError}
-                className="h-full shadow-xl shadow-gray-200/50"
-              />
-            </motion.div>
+              <div className="flex-1 overflow-hidden px-2 py-6">
+                <StoreListPanel
+                  stores={filteredStores}
+                  searchTerm={searchTerm}
+                  onSearchChange={handleSearchChange}
+                  selectedStoreId={selectedStore?.id}
+                  onStoreSelect={setSelectedStore}
+                  onCountrySearch={handleCountrySelect}
+                  selectedCountry={selectedCountry}
+                  queryType={queryType}
+                  userLocation={userLocation}
+                  userAddress={userAddress}
+                  isLoadingLocation={isLoadingLocation}
+                  locationError={locationError}
+                  className="bg-transparent shadow-none h-full text-white"
+                  variant="dark"
+                />
+              </div>
+            </div>
 
-            {/* Map Area */}
-            <motion.div
-              className="flex-grow h-full overflow-hidden"
-              style={{
-                position: "relative",
-                zIndex: 1,
-                borderTopRightRadius: "16px",
-                borderBottomRightRadius: "16px",
-              }}
-              initial={{ opacity: 0, x: 80 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, amount: 0.15 }}
-              transition={{ duration: 0.8, ease: ENTERPRISE_EASE, delay: 0.3 }}
-            >
-              <AfricaMapPanel
-                selectedCountry={selectedCountry}
-                onCountrySelect={handleCountrySelect}
-                userLocation={queryType === "nearby" ? userLocation : null}
-                showOnlyUserLocation={queryType === "nearby"}
-                className="h-full w-full"
-              />
-            </motion.div>
+            {/* Panel 3 is effectively the transparent right area showing the Map */}
           </div>
         </div>
 
         {/* Bottom Button */}
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.7, ease: ENTERPRISE_EASE, delay: 0.2 }}
-        >
+        <div className="mt-12 text-center">
           <Link href="/services#official-branches">
             <Button
               variant="outline"
-              size="md"
-              style={{
-                backgroundColor: colors.background.white,
-                border: `2px solid ${colors.service.brandGreen}`,
-                color: colors.service.brandGreen,
-                fontWeight: 600,
-              }}
+              className="rounded-full border-gray-300 text-gray-700 hover:bg-gray-50 bg-white shadow-sm"
             >
-              {SERVICE_LABELS.buttonText}
+              了解售后服务
             </Button>
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

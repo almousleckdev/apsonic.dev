@@ -40,7 +40,7 @@ const offices = [
     phone: "+228 90 00 00 00",
     email: "togo@apsonic.dev",
     mapUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d1.222186314769039!3d6.124580995568863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023e1c113185419%3A0x231899122312!2sLome%20Port!5e0!3m2!1sen!2stg!4v1625431234567", // Placeholder
+      "https://maps.google.com/maps?q=Lome%20Port%2C%20Togo&t=&z=13&ie=UTF8&iwloc=&output=embed",
   },
   {
     country: "Ghana 🇬🇭",
@@ -49,7 +49,7 @@ const offices = [
     phone: "+233 54 000 0000",
     email: "ghana@apsonic.dev",
     mapUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127065.2465366479!2d-0.1995!3d5.6037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s!2s!5e0!3m2!1sen!2sgh",
+      "https://maps.google.com/maps?q=124%20Spintex%20Road%2C%20Accra%2C%20Ghana&t=&z=13&ie=UTF8&iwloc=&output=embed",
   },
   {
     country: "Mali 🇲🇱",
@@ -58,7 +58,7 @@ const offices = [
     phone: "+223 20 00 00 00",
     email: "mali@apsonic.dev",
     mapUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248900.2!2d-8.0!3d12.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1",
+      "https://maps.google.com/maps?q=ACI%202000%2C%20Bamako%2C%20Mali&t=&z=13&ie=UTF8&iwloc=&output=embed",
   },
   {
     country: "Burkina Faso 🇧🇫",

@@ -3,45 +3,90 @@ export const AFRICA_MAP_CONFIG = {
   // Map bounds for Africa continent
   bounds: {
     // Tighter Africa continent bounds [west, south, east, north]
-    africa: [-20, -36, 52, 38] as [number, number, number, number],
+    africa: [-25, -36, 55, 38] as [number, number, number, number],
   },
 
+  // Strict bounds to keep view on Africa
+  maxBounds: [-30, -40, 65, 45] as [number, number, number, number],
+
   // Refined default view
-  defaultCenter: [18, 1] as [number, number],
-  defaultZoom: 4.0,
+  defaultCenter: [15, 0] as [number, number],
+  defaultZoom: 2.8,
+  minZoom: 2.0,
 
   // Region colors for APSONIC presence highlighting
   regionColors: {
-    west: '#10B981', // Green - Strong presence
-    east: '#EAB308', // Yellow
-    central: '#F97316', // Orange
-    other: '#3B82F6', // Blue - Coverage/Parts
-    default: '#CFD8DC', // Gray - No presence
+    west: "#10B981", // Green - Strong presence
+    east: "#EAB308", // Yellow
+    central: "#F97316", // Orange
+    other: "#3B82F6", // Blue - Coverage/Parts
+    default: "#CFD8DC", // Gray - No presence
   },
 
   // Countries by region (ISO 3166-1 alpha-3 codes)
   countriesByRegion: {
     // West Africa - Red
     westAfrica: [
-      'SEN', 'GMB', 'GIN', 'GNB', 'SLE', 'LBR', 'CIV', 'GHA', 'TGO', 'BEN',
-      'NGA', 'NER', 'MLI', 'BFA', 'MRT', 'CPV',
+      "SEN",
+      "GMB",
+      "GIN",
+      "GNB",
+      "SLE",
+      "LBR",
+      "CIV",
+      "GHA",
+      "TGO",
+      "BEN",
+      "NGA",
+      "NER",
+      "MLI",
+      "BFA",
+      "MRT",
+      "CPV",
     ],
     // East Africa - Green
     eastAfrica: [
-      'ETH', 'ERI', 'DJI', 'SOM', 'KEN', 'UGA', 'RWA', 'BDI', 'TZA', 'SSD',
+      "ETH",
+      "ERI",
+      "DJI",
+      "SOM",
+      "KEN",
+      "UGA",
+      "RWA",
+      "BDI",
+      "TZA",
+      "SSD",
     ],
     // Central Africa - Yellow
     centralAfrica: [
-      'CAF', 'TCD', 'CMR', 'GNQ', 'GAB', 'COG', 'COD', 'STP', 'AGO',
+      "CAF",
+      "TCD",
+      "CMR",
+      "GNQ",
+      "GAB",
+      "COG",
+      "COD",
+      "STP",
+      "AGO",
     ],
     // Southern Africa - Purple
     southernAfrica: [
-      'ZMB', 'MWI', 'MOZ', 'ZWE', 'BWA', 'NAM', 'ZAF', 'LSO', 'SWZ', 'MDG', 'MUS',
+      "ZMB",
+      "MWI",
+      "MOZ",
+      "ZWE",
+      "BWA",
+      "NAM",
+      "ZAF",
+      "LSO",
+      "SWZ",
+      "MDG",
+      "MUS",
     ],
   },
 
   // Search highlight color (when searching for a country)
-  searchHighlightColor: '#EF4444', // Red
+  searchHighlightColor: "#EF4444", // Red
 
   // Animation settings
   animation: {
@@ -53,26 +98,63 @@ export const AFRICA_MAP_CONFIG = {
 // Country name mappings for search (supports English and French)
 export const COUNTRY_NAME_MAP: Record<string, string> = {
   // West Africa
-  ghana: 'GHA', togo: 'TGO', benin: 'BEN', mali: 'MLI', nigeria: 'NGA',
-  senegal: 'SEN', gambia: 'GMB', guinea: 'GIN', 'guinea-bissau': 'GNB',
-  'sierra leone': 'SLE', liberia: 'LBR', 'ivory coast': 'CIV', 'côte d\'ivoire': 'CIV',
-  niger: 'NER', burkina: 'BFA', 'burkina faso': 'BFA', mauritania: 'MRT',
+  ghana: "GHA",
+  togo: "TGO",
+  benin: "BEN",
+  mali: "MLI",
+  nigeria: "NGA",
+  senegal: "SEN",
+  gambia: "GMB",
+  guinea: "GIN",
+  "guinea-bissau": "GNB",
+  "sierra leone": "SLE",
+  liberia: "LBR",
+  "ivory coast": "CIV",
+  "côte d'ivoire": "CIV",
+  niger: "NER",
+  burkina: "BFA",
+  "burkina faso": "BFA",
+  mauritania: "MRT",
   // East Africa
-  ethiopia: 'ETH', eritrea: 'ERI', djibouti: 'DJI', somalia: 'SOM',
-  kenya: 'KEN', uganda: 'UGA', rwanda: 'RWA', burundi: 'BDI',
-  tanzania: 'TZA', 'south sudan': 'SSD',
+  ethiopia: "ETH",
+  eritrea: "ERI",
+  djibouti: "DJI",
+  somalia: "SOM",
+  kenya: "KEN",
+  uganda: "UGA",
+  rwanda: "RWA",
+  burundi: "BDI",
+  tanzania: "TZA",
+  "south sudan": "SSD",
   // Central Africa
-  'central african republic': 'CAF', 'car': 'CAF', chad: 'TCD',
-  cameroon: 'CMR', 'equatorial guinea': 'GNQ', gabon: 'GAB',
-  congo: 'COG', 'democratic republic of congo': 'COD', 'drc': 'COD',
-  'são tomé and príncipe': 'STP', angola: 'AGO',
+  "central african republic": "CAF",
+  car: "CAF",
+  chad: "TCD",
+  cameroon: "CMR",
+  "equatorial guinea": "GNQ",
+  gabon: "GAB",
+  congo: "COG",
+  "democratic republic of congo": "COD",
+  drc: "COD",
+  "são tomé and príncipe": "STP",
+  angola: "AGO",
   // Southern Africa
-  zambia: 'ZMB', malawi: 'MWI', mozambique: 'MOZ', zimbabwe: 'ZWE',
-  botswana: 'BWA', namibia: 'NAM', 'south africa': 'ZAF', lesotho: 'LSO',
-  swaziland: 'SWZ', eswatini: 'SWZ', madagascar: 'MDG', mauritius: 'MUS',
+  zambia: "ZMB",
+  malawi: "MWI",
+  mozambique: "MOZ",
+  zimbabwe: "ZWE",
+  botswana: "BWA",
+  namibia: "NAM",
+  "south africa": "ZAF",
+  lesotho: "LSO",
+  swaziland: "SWZ",
+  eswatini: "SWZ",
+  madagascar: "MDG",
+  mauritius: "MUS",
   // North Africa
-  egypt: 'EGY', tunisia: 'TUN',
+  egypt: "EGY",
+  tunisia: "TUN",
   // French names
-  'bénin': 'BEN', 'sénégal': 'SEN',
+  bénin: "BEN",
+  sénégal: "SEN",
 };
-

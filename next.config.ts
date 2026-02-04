@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    qualities: [75, 95],
   },
 
   // Enable compression
@@ -18,30 +18,15 @@ const nextConfig: NextConfig = {
   // Optimize production builds
   productionBrowserSourceMaps: false,
 
-  // Experimental features for better performance
-  experimental: {
-    optimizeCss: true,
-    optimizePackageImports: ["framer-motion", "react-icons"],
-  },
-
-  // Headers for better caching
+  // Headers for cache busting
   async headers() {
     return [
       {
-        source: "/:all*(svg|jpg|jpeg|png|gif|webp|avif|bmp)",
+        source: "/:path*",
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-      {
-        source: "/_next/static/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
+            value: "no-store, must-revalidate",
           },
         ],
       },

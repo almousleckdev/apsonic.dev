@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Section } from '@/components/ui/Section';
-import { Container } from '@/components/ui/Container';
-import { cn } from '@/lib/utils';
-import { MdArrowForward } from 'react-icons/md';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { cn } from "@/lib/utils";
+import { MdArrowForward } from "react-icons/md";
 
 export interface FeatureCard {
   id: string;
@@ -27,25 +27,28 @@ export interface FeatureCardsProps {
  * FeatureCards - Refined & Compact
  * Vertical layout, Image Top, Text Below.
  * Removed bulky icons but added strong hover states to indicate clickability.
+ * Updated to max-w-7xl for larger cards.
  */
 export const FeatureCards: React.FC<FeatureCardsProps> = ({
   cards,
   className,
 }) => {
   return (
-    <Section
-      className={className}
-      backgroundColor="#F8F9FA"
-      padding="large"
-    >
+    <Section className={className} backgroundColor="#F8F9FA" padding="large">
       <Container maxWidth="wide">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto pb-12">
           {cards.map((card) => (
-            <Link key={card.id} href={card.href} className="group relative block h-full">
-              <div className={cn(
-                "bg-white rounded-[32px] p-8 h-full flex flex-col items-center text-center transition-all duration-500 border border-gray-100/50 shadow-sm",
-                "hover:shadow-2xl hover:shadow-black/5 hover:-translate-y-1.5"
-              )}>
+            <Link
+              key={card.id}
+              href={card.href}
+              className="group relative block h-full"
+            >
+              <div
+                className={cn(
+                  "bg-white rounded-[32px] p-8 h-full flex flex-col items-center text-center transition-all duration-500 border border-gray-100/50 shadow-sm",
+                  "hover:shadow-2xl hover:shadow-black/5 hover:-translate-y-1.5",
+                )}
+              >
                 {/* Image Section - Top Centered & Compact */}
                 <div className="relative w-full aspect-[16/10] mb-8 flex items-center justify-center overflow-visible">
                   <div className="absolute inset-x-0 bottom-0 top-0 transition-transform duration-700 group-hover:scale-105">

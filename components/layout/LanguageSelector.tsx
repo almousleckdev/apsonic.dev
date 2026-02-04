@@ -33,7 +33,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
       value={value}
       onChange={(e) => onChange(e.target.value as Language)}
       className={cn(
-        "rounded-lg px-3 py-2",
+        "rounded-full px-3 py-2",
         "focus:outline-none",
         "transition-colors cursor-pointer",
         className,

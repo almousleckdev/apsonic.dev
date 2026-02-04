@@ -84,7 +84,7 @@ export const NearbyStores: React.FC<NearbyStoresProps> = ({
               )}
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <div className="w-4 h-4 mt-1 flex-shrink-0 opacity-40">
                   <LocationIcon className="w-full h-full" />
@@ -97,6 +97,17 @@ export const NearbyStores: React.FC<NearbyStoresProps> = ({
               <div className="pt-3 border-t border-gray-50">
                 <StoreContactInfo store={store} />
               </div>
+
+              {/* Start Navigation Button */}
+              <a
+                href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(store.address)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-8 px-3 text-xs w-full mt-2 uppercase tracking-wider text-white bg-brand-green hover:bg-[#1B8F45] hover:scale-[1.02] active:scale-[0.98] rounded-md shadow-sm"
+              >
+                <LocationIcon className="w-3.5 h-3.5 mr-2" />
+                开始导航
+              </a>
             </div>
           </motion.div>
         ))}

@@ -37,8 +37,8 @@ export const useMapInitializer = (): UseMapInitializerResult => {
       container: mapContainer.current,
       style: SERVICE_CONFIG.map.style,
       bounds: AFRICA_MAP_CONFIG.bounds.africa,
-      maxBounds: AFRICA_MAP_CONFIG.bounds.africa, // Restrict to Africa
-      minZoom: 2.5,
+      maxBounds: AFRICA_MAP_CONFIG.maxBounds || AFRICA_MAP_CONFIG.bounds.africa,
+      minZoom: AFRICA_MAP_CONFIG.minZoom || 3.0,
       maxZoom: 12,
       fitBoundsOptions: {
         padding: 10,

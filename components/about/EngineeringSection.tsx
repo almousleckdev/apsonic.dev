@@ -54,7 +54,7 @@ export const EngineeringSection = () => {
     <Section
       id="engineering"
       backgroundColor={colors.background.primary}
-      className="relative z-10"
+      className="relative z-10 my-8 shadow-lg"
     >
       <div className="container mx-auto px-4">
         <SectionHeader light={true} label="精密工程" title="经久耐用。" />

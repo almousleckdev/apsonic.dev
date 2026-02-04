@@ -1,17 +1,13 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { colors } from '@/lib/design-tokens';
-import {
-  HelpIcon,
-  ChatIcon,
-  LocationIcon,
-} from '@/components/ui/Icons';
-import { Tooltip } from '@/components/ui/Tooltip';
-import { SIDEBAR_ICONS } from '@/lib/data/sidebar';
-import { AIChat } from '@/components/consultation/AIChat';
-import { cn } from '@/lib/utils';
+import React, { useState } from "react";
+import Link from "next/link";
+import { colors } from "@/lib/design-tokens";
+import { HelpIcon, ChatIcon, LocationIcon } from "@/components/ui/Icons";
+import { Tooltip } from "@/components/ui/Tooltip";
+import { SIDEBAR_ICONS } from "@/lib/data/sidebar";
+import { AIChat } from "@/components/consultation/AIChat";
+import { cn } from "@/lib/utils";
 
 // Map icon names to components
 const ICON_MAP = {
@@ -20,9 +16,20 @@ const ICON_MAP = {
   location: LocationIcon,
 };
 
+import { useScroll, useMotionValueEvent } from "framer-motion";
+
+// ... existing imports
+
 export const RightSidebar: React.FC = () => {
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsScrolled(latest > 50);
+  });
 
   const handleIconHover = (iconId: string) => {
     setHoveredIcon(iconId);
@@ -39,14 +46,24 @@ export const RightSidebar: React.FC = () => {
   return (
     <>
       <aside
-        className="hidden sm:flex fixed right-0 z-40 flex flex-col items-center gap-2 py-6 px-1.5 rounded-l-2xl transition-all shadow-2xl"
+        className="hidden sm:flex fixed right-0 z-40 flex flex-col items-center gap-2 py-6 px-1.5 rounded-l-2xl transition-all shadow-lg backdrop-blur-md"
         style={{
-          backgroundColor: 'rgba(255, 255, 255, 0.9)',
-          backdropFilter: 'blur(20px)',
-          border: '1px solid rgba(0, 0, 0, 0.05)',
-          borderRight: 'none',
-          top: '50%',
-          transform: 'translateY(-50%)',
+          backgroundColor: isScrolled
+            ? "rgba(255, 255, 255, 0.9)"
+            : "rgba(255, 255, 255, 0.1)",
+          borderTop: isScrolled
+            ? "1px solid rgba(0, 0, 0, 0.1)"
+            : "1px solid rgba(255, 255, 255, 0.2)",
+          borderBottom: isScrolled
+            ? "1px solid rgba(0, 0, 0, 0.1)"
+            : "1px solid rgba(255, 255, 255, 0.2)",
+          borderLeft: isScrolled
+            ? "1px solid rgba(0, 0, 0, 0.1)"
+            : "1px solid rgba(255, 255, 255, 0.2)",
+          borderRight: "none",
+          top: "35%",
+          transform: "translateY(-50%)",
+          boxShadow: isScrolled ? "0 4px 6px -1px rgba(0, 0, 0, 0.1)" : "none",
         }}
         onMouseLeave={handleIconLeave}
       >
@@ -55,7 +72,7 @@ export const RightSidebar: React.FC = () => {
           const IconComponent = ICON_MAP[item.iconName];
 
           const handleClick = () => {
-            if (item.id === 'chat') {
+            if (item.id === "chat") {
               handleChatClick();
             } else if (item.onClick) {
               item.onClick();
@@ -67,13 +84,15 @@ export const RightSidebar: React.FC = () => {
               onClick={handleClick}
               onMouseEnter={() => handleIconHover(item.id)}
               className={cn(
-                'p-1.5 md:p-2 rounded-lg transition-all',
-                'hover:scale-110',
-                isHovered && 'scale-110'
+                "p-1.5 md:p-2 rounded-lg transition-all",
+                "hover:scale-110",
+                isHovered && "scale-110",
               )}
               style={{
-                color: colors.text.primary,
-                backgroundColor: isHovered ? colors.ui.hover : 'transparent',
+                color: isScrolled ? colors.text.primary : "#FFFFFF",
+                backgroundColor: isHovered
+                  ? "rgba(31, 168, 79, 0.8)"
+                  : "transparent",
               }}
               aria-label={item.label}
             >

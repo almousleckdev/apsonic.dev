@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { colors } from '@/lib/design-tokens';
-import { cn } from '@/lib/utils';
+import React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { colors } from "@/lib/design-tokens";
+import { cn } from "@/lib/utils";
 
 export interface NavItem {
   label: string;
@@ -29,13 +29,13 @@ export const Navigation: React.FC<NavigationProps> = ({
   onProductsLeave,
 }) => {
   const pathname = usePathname();
-  const isMobile = className?.includes('flex-col');
+  const isMobile = className?.includes("flex-col");
 
   return (
-    <nav className={cn('flex items-center gap-8', className)}>
+    <nav className={cn("flex items-center gap-8", className)}>
       {items.map((item) => {
         const isActive = pathname === item.href;
-        const isProducts = item.href === '/products';
+        const isProducts = item.href === "/products";
 
         return (
           <div
@@ -48,17 +48,17 @@ export const Navigation: React.FC<NavigationProps> = ({
               href={item.href}
               onClick={onItemClick}
               className={cn(
-                'text-base font-medium transition-colors relative block hover:opacity-80',
-                isMobile && 'py-3',
-                isMobile && isActive && 'font-semibold'
+                "text-base font-medium transition-colors relative block hover:opacity-80",
+                isMobile && "py-3",
+                isMobile && isActive && "font-semibold",
               )}
-              style={{ color: isActive ? colors.brand.green : '#E0E0E0' }}
+              style={{ color: isActive ? "#FFD700" : "#E0E0E0" }}
             >
               {item.label}
               {!isMobile && isActive && (
                 <span
                   className="absolute bottom-0 left-0 right-0 h-0.5"
-                  style={{ backgroundColor: colors.brand.green }}
+                  style={{ backgroundColor: "#FFD700" }}
                 />
               )}
             </Link>

@@ -12,6 +12,7 @@ import {
   ProductFeatureGrid,
   ProductColorShowcase,
   ProductSpecification,
+  VideoHero,
 } from "@/components/products";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
@@ -55,11 +56,11 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* 产品Hero - 使用统一的AP150-30背景 */}
-      <ProductHero
-        title={heroData.title}
-        subtitle={heroData.subtitle}
+      {/* 产品Hero - 使用统一的AP150-30背景 - Paths verified */}
+      {/* 产品Hero - Replaced with VideoHero as requested */}
+      <VideoHero
         breadcrumbs={heroData.breadcrumbs}
+        videoSrc="/videos/producthero.mp4"
       />
 
       {details && (
@@ -144,14 +145,14 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
                   id: "black",
                   name: "钻石黑",
                   description: "深邃优雅，彰显品质。",
-                  imageSrc: "/services/brand/img1.png",
+                  imageSrc: "/images/banners/homepage/aloba-black.png",
                   dotColor: "#000000",
                 },
                 {
                   id: "red",
                   name: "激情红",
                   description: "活力四射，引人注目。",
-                  imageSrc: "/services/brand/img.png",
+                  imageSrc: "/images/banners/homepage/aloba-red.png",
                   dotColor: "#DC2626",
                 },
               ]}

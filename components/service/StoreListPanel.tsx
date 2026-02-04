@@ -36,6 +36,7 @@ export interface StoreListPanelProps {
   isLoadingLocation?: boolean;
   locationError?: string | null;
   className?: string;
+  variant?: "default" | "dark";
 }
 
 export const StoreListPanel: React.FC<StoreListPanelProps> = ({
@@ -52,35 +53,44 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
   isLoadingLocation = false,
   locationError,
   className,
+  variant = "default",
 }) => {
   const isNearbyQuery = queryType === "nearby";
   const hasSearch = searchTerm.trim().length > 0 || isNearbyQuery;
   const hasResults = stores.length > 0;
   const showNearbyResults =
     isNearbyQuery && !isLoadingLocation && !locationError;
+  const isDark = variant === "dark";
 
   return (
     <div
       className={cn("h-full flex flex-col", className)}
       style={{
-        backgroundColor: colors.service.panelOverlay,
+        backgroundColor: isDark ? "transparent" : colors.service.panelOverlay,
         padding: "clamp(20px, 4vw, 30px) clamp(16px, 3vw, 40px)",
         borderRadius: "20px",
-        border: "1px solid rgba(0, 0, 0, 0.05)",
-        boxShadow: "0 10px 30px -10px rgba(0, 0, 0, 0.1)",
+        border: isDark ? "none" : "1px solid rgba(0, 0, 0, 0.05)",
+        boxShadow: isDark ? "none" : "0 10px 30px -10px rgba(0, 0, 0, 0.1)",
       }}
     >
-      {/* Search Bar */}
+      {/* Search Bar - Restored */}
       <div style={{ marginBottom: SERVICE_CONFIG.spacing.searchMarginBottom }}>
-        <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-2 px-1">
+        <p
+          className={cn(
+            "text-[11px] font-bold uppercase tracking-widest mb-2 px-1",
+            isDark ? "text-gray-300" : "text-gray-500",
+          )}
+        >
           搜索中心
         </p>
         <div
-          className="relative transition-all"
+          className="relative transition-all z-20"
           style={{
-            border: `1.5px solid ${colors.service.brandGreen}`,
+            border: isDark
+              ? "1px solid rgba(255,255,255,0.2)"
+              : `1.5px solid ${colors.service.brandGreen}`,
             borderRadius: "12px",
-            boxShadow: "0 4px 10px rgba(31, 168, 79, 0.05)",
+            boxShadow: isDark ? "none" : "0 4px 10px rgba(31, 168, 79, 0.05)",
           }}
         >
           <input
@@ -88,10 +98,13 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
             placeholder={SERVICE_LABELS.searchPlaceholder}
             value={searchTerm}
             onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full px-4 py-3 pl-11 focus:outline-none placeholder:text-gray-400"
+            className={cn(
+              "w-full px-4 py-3 pl-11 focus:outline-none placeholder:text-gray-400",
+              isDark && "placeholder:text-gray-300",
+            )}
             style={{
-              backgroundColor: "#FFFFFF",
-              color: "#111827",
+              backgroundColor: isDark ? "rgba(255,255,255,0.1)" : "#FFFFFF",
+              color: isDark ? "#FFFFFF" : "#111827",
               borderRadius: "10px",
               fontSize: "14px",
             }}

@@ -59,6 +59,8 @@ export const Banner: React.FC<BannerProps> = ({
 
         // Check if text is on the right (custom layout request)
         // If textPosition is 'right', we move it further right and scale it up
+        // If textPosition is 'left', we move it further left and scale it up
+        // If textPosition is 'center', we move it to the center and scale it up
 
         if (title) {
           tl.fromTo(

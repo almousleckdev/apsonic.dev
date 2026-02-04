@@ -54,22 +54,21 @@ export const SERVICE_CONFIG = {
 
   // Query types
   queryTypes: {
-    pickup: 'pickup',
-    nearby: 'nearby',
+    dealer: 'dealer',
+    service: 'service',
   } as const,
 } as const;
 
 // Service Support text labels
 export const SERVICE_LABELS = {
   sectionTitle: '服务支持',
-  panelTitle: '商店查询',
-  listTitle: '附近商店',
+  panelTitle: '门店查询',
+  listTitle: '附近门店',
   searchPlaceholder: '请输入关键词',
   noStoresFound: '未找到商店',
-  buttonText: '了解更多服务',
+  buttonText: '了解售后服务',
   queryOptions: {
-    pickup: '自提商店查询',
-    nearby: '附近商店查询',
+    dealer: '经销商门店查询',
+    service: '售后门店查询',
   },
 } as const;
-

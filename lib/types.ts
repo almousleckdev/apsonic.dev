@@ -66,8 +66,8 @@ export interface FeaturedModel {
   colors: Array<{
     id: string;
     name: string; // e.g., "魅夜黑" (Charming Night Black)
-    value: string; // hex color code
-    image?: string; // Optional color-specific image
+    hex: string; // hex color code
+    image: string; // color-specific image
   }>;
   href?: string; // Link to detail page
 }
@@ -77,6 +77,5 @@ export interface MotorcycleCategory {
   id: string;
   name: string; // e.g., "弯梁车", "街车", "越野"
   image: string; // Category image
-  href?: string; // Link to category page
+  href: string; // Link to category page
 }
-

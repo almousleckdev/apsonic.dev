@@ -4,12 +4,8 @@ import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MotorcycleCategory } from "@/lib/types";
-import { colors, effects, typography } from "@/lib/design-tokens";
 import { CAROUSEL_CONFIG } from "@/lib/constants";
 import { CarouselNavButton } from "@/components/ui/CarouselNavButton";
-import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import { ENTERPRISE_EASE } from "@/lib/constants/animations";
 
 export interface CategoryCarouselProps {
   categories: MotorcycleCategory[];
@@ -49,112 +45,85 @@ export const CategoryCarousel: React.FC<CategoryCarouselProps> = ({
   }, [categories.length]);
 
   return (
-    <div className="relative w-full flex items-center justify-center">
-      {/* Navigation Arrows */}
-      {categories.length > 1 && (
-        <>
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.6, ease: ENTERPRISE_EASE, delay: 0.2 }}
-          >
-            <CarouselNavButton
-              direction="left"
-              onClick={() => scroll("left")}
-              ariaLabel="Previous categories"
-            />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.6, ease: ENTERPRISE_EASE, delay: 0.2 }}
-          >
-            <CarouselNavButton
-              direction="right"
-              onClick={() => scroll("right")}
-              ariaLabel="Next categories"
-            />
-          </motion.div>
-        </>
-      )}
+    <div className="w-full flex flex-col items-center">
+      <div className="relative w-full max-w-[1200px] flex items-center justify-between px-4 md:px-12">
+        {/* Left Arrow - Desktop - EXACT SAME STYLE AS FEATURED MODEL */}
+        <div className="hidden md:block z-20">
+          <CarouselNavButton
+            direction="left"
+            onClick={() => scroll("left")}
+            ariaLabel="Previous categories"
+            className="static translate-y-0 w-16 h-12 bg-transparent hover:scale-110 text-black transition-transform"
+            iconClassName="w-8 h-8 text-black"
+          />
+        </div>
 
-      {/* Scrollable Categories Container - Centered */}
-      <div
-        ref={scrollContainerRef}
-        className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth px-12 justify-center items-center"
-        style={{
-          scrollbarWidth: "none",
-          msOverflowStyle: "none",
-        }}
-      >
-        {categories.map((category, index) => (
-          <motion.div
-            key={category.id}
-            initial={{
-              opacity: 0,
-              x: index % 2 === 0 ? -80 : 80,
-              scale: 0.9,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-              scale: 1,
-            }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{
-              duration: 0.7,
-              ease: ENTERPRISE_EASE,
-              delay: index * 0.1,
-            }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <Link
-              href={category.href || `/products?category=${category.id}`}
-              className={cn(
-                "group relative block rounded-lg flex-shrink-0",
-                effects.transition.default,
-                "w-[280px]",
-              )}
-              style={{
-                backgroundColor: colors.background.white,
-              }}
+        {/* Scrollable Categories Container */}
+        <div
+          ref={scrollContainerRef}
+          className="flex-1 flex gap-8 overflow-x-auto scrollbar-hide scroll-smooth px-4 md:px-12 justify-start md:justify-center items-center"
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+          }}
+        >
+          {categories.map((category) => (
+            <div
+              key={category.id}
+              className="flex-shrink-0 w-[280px] group cursor-pointer"
             >
-              {/* Category Image - Centered, no overflow */}
-              <div className="relative w-full aspect-[4/3] flex items-center justify-center">
-                <Image
-                  src={category.image}
-                  alt={category.name}
-                  fill
-                  className={cn(
-                    "object-contain object-center",
-                    effects.transition.default,
-                    "group-hover:scale-105",
-                  )}
-                  sizes="280px"
-                />
-              </div>
+              <Link
+                href={category.href}
+                className="flex flex-col w-full h-full"
+              >
+                {/* Image Box - Light Gray Background */}
+                <div className="relative w-full aspect-square bg-gray-50 flex items-center justify-center overflow-hidden">
+                  <Image
+                    src={category.image}
+                    alt={category.name}
+                    fill
+                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 280px, 300px"
+                  />
+                </div>
 
-              {/* Category Name */}
-              <div className="p-4 text-center">
-                <h3
-                  className={cn(
-                    "font-medium",
-                    effects.transition.colors,
-                    "group-hover:text-[#1FA84F]", // Brand green hover (Tailwind requires static value)
-                  )}
-                  style={{
-                    color: colors.text.black,
-                    fontSize: typography.size.body,
-                  }}
-                >
-                  {category.name}
-                </h3>
-              </div>
-            </Link>
-          </motion.div>
-        ))}
+                {/* Text Below - Simple & Clean */}
+                <div className="mt-4 text-center">
+                  <h3 className="text-lg text-gray-600 group-hover:text-black transition-colors font-medium tracking-wide">
+                    {category.name}
+                  </h3>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
+
+        {/* Right Arrow - Desktop - EXACT SAME STYLE AS FEATURED MODEL */}
+        <div className="hidden md:block z-20">
+          <CarouselNavButton
+            direction="right"
+            onClick={() => scroll("right")}
+            ariaLabel="Next categories"
+            className="static translate-y-0 w-16 h-12 bg-transparent hover:scale-110 text-black transition-transform"
+            iconClassName="w-8 h-8 text-black"
+          />
+        </div>
+      </div>
+
+      {/* Mobile Arrows */}
+      <div className="flex md:hidden gap-4 mt-6">
+        <CarouselNavButton
+          direction="left"
+          onClick={() => scroll("left")}
+          ariaLabel="Previous categories"
+          className="static translate-y-0 w-12 h-10 text-black"
+        />
+        <CarouselNavButton
+          direction="right"
+          onClick={() => scroll("right")}
+          ariaLabel="Next categories"
+          className="static translate-y-0 w-12 h-10 text-black"
+        />
       </div>
     </div>
   );

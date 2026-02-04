@@ -21,6 +21,7 @@ export interface AfricaMapPanelProps {
   userLocation?: { lat: number; lng: number } | null;
   showOnlyUserLocation?: boolean;
   className?: string;
+  padding?: { top?: number; bottom?: number; left?: number; right?: number };
 }
 
 /**
@@ -33,6 +34,7 @@ export const AfricaMapPanel: React.FC<AfricaMapPanelProps> = ({
   userLocation,
   showOnlyUserLocation = false,
   className,
+  padding,
 }) => {
   const { map, isLoaded, mapContainer } = useMapInitializer();
   const geoJsonDataRef = React.useRef<FeatureCollection | null>(null);
@@ -249,7 +251,7 @@ export const AfricaMapPanel: React.FC<AfricaMapPanelProps> = ({
         const bounds = getBoundsFromFeature(searchedFeature);
         if (bounds && map.current) {
           map.current.fitBounds(bounds, {
-            padding: 50,
+            padding: padding || 50,
             duration: AFRICA_MAP_CONFIG.animation.duration,
             easing: (t: number) => t * (2 - t),
           });
@@ -258,13 +260,13 @@ export const AfricaMapPanel: React.FC<AfricaMapPanelProps> = ({
     } else if (!selectedCountry?.trim()) {
       // Reset to default view when search is cleared
       map.current.fitBounds(AFRICA_MAP_CONFIG.bounds.africa, {
-        padding: 10, // Even tighter padding
+        padding: padding || 10, // Use prop padding or default
         duration: 1000,
         easing: (t: number) => t * (2 - t),
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedCountry, isLoaded, map]);
+  }, [selectedCountry, isLoaded, map, padding]);
 
   // Reset map view when showOnlyUserLocation changes
   useEffect(() => {
@@ -272,7 +274,7 @@ export const AfricaMapPanel: React.FC<AfricaMapPanelProps> = ({
 
     if (!showOnlyUserLocation && map.current) {
       map.current.fitBounds(AFRICA_MAP_CONFIG.bounds.africa, {
-        padding: { top: 10, bottom: 10, left: 10, right: 10 }, // Updated padding structure
+        padding: padding || { top: 10, bottom: 10, left: 10, right: 10 },
         duration: 1000,
         easing: (t: number) => t * (2 - t),
       });

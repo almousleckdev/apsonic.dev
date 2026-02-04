@@ -25,7 +25,10 @@ const TimelineEvent = ({
 }: TimelineEventProps) => (
   <div className="relative flex gap-6 md:gap-8 lg:gap-10 items-start mb-10 last:mb-0">
     {/* Left Side - Year */}
-    <div className="flex-shrink-0 flex items-center gap-3 md:gap-4" style={{ width: '140px' }}>
+    <div
+      className="flex-shrink-0 flex items-center gap-3 md:gap-4"
+      style={{ width: "140px" }}
+    >
       <div className="text-right flex-1">
         <span
           className="text-5xl md:text-6xl font-bold text-gray-300 leading-none block"
@@ -74,7 +77,7 @@ export const TimelineSection = () => {
   return (
     <Section
       backgroundColor={colors.background.primary}
-      className="py-16 md:py-24"
+      className="py-16 md:py-24 my-8 shadow-lg"
     >
       <Container maxWidth="wide">
         <SectionHeader
@@ -86,9 +89,9 @@ export const TimelineSection = () => {
         {/* Timeline Container - Shows 2 items at a time with scroll */}
         <div className="relative mt-12 md:mt-16 max-w-5xl mx-auto">
           {/* Vertical Timeline Line - Background */}
-          <div 
-            className="absolute top-0 bottom-0 w-0.5 bg-gray-200 hidden md:block" 
-            style={{ left: '128px' }}
+          <div
+            className="absolute top-0 bottom-0 w-0.5 bg-gray-200 hidden md:block"
+            style={{ left: "128px" }}
           />
 
           {/* Scrollable Timeline Content - Shows 2 items at a time */}
@@ -102,10 +105,7 @@ export const TimelineSection = () => {
           >
             <div className="space-y-0">
               {timelineEvents.map((event, index) => (
-                <div
-                  key={index}
-                  className="scroll-snap-align-start"
-                >
+                <div key={index} className="scroll-snap-align-start">
                   <TimelineEvent
                     year={event.year}
                     title={event.title}

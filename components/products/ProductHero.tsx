@@ -25,6 +25,7 @@ export const ProductHero: React.FC<ProductHeroProps> = ({
   subtitle = "Aloba",
   breadcrumbs,
 }) => {
+  // Verified image paths are correct: /images/...
   const isDetailPage = !!breadcrumbs;
 
   return (

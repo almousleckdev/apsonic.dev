@@ -86,7 +86,7 @@ export default function AboutPage() {
         <MarketDaySection />
       </ScrollReveal>
 
-      <ScrollReveal
+      {/* <ScrollReveal
         variant="slideLeft"
         delay={0.3}
         duration={0.9}
@@ -94,13 +94,13 @@ export default function AboutPage() {
         once={false}
       >
         <TimelineSection />
-      </ScrollReveal>
+      </ScrollReveal> */}
 
       {/* <ScrollReveal variant="fadeUp" delay={0.2} duration={0.9} amount={0.1} once={false}>
         <SustainabilitySection />
       </ScrollReveal> */}
 
-      <ScrollReveal
+      {/* <ScrollReveal
         variant="fadeUp"
         delay={0.25}
         duration={0.9}
@@ -108,7 +108,7 @@ export default function AboutPage() {
         once={false}
       >
         <CoreValuesSection />
-      </ScrollReveal>
+      </ScrollReveal> */}
 
       {/* <ScrollReveal variant="slideRight" delay={0.25} duration={0.9} amount={0.1} once={false}>
         <LeadersSection />
@@ -124,7 +124,7 @@ export default function AboutPage() {
         <VoicesSection />
       </ScrollReveal>
 
-      <ScrollReveal
+      {/* <ScrollReveal
         variant="fadeIn"
         delay={0.2}
         duration={0.9}
@@ -132,7 +132,7 @@ export default function AboutPage() {
         once={false}
       >
         <ProverbSection />
-      </ScrollReveal>
+      </ScrollReveal> */}
 
       <ScrollReveal
         variant="fadeUp"

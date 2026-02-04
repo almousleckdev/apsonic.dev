@@ -22,7 +22,6 @@ const CATEGORY_SLUG_TO_TYPE: Record<string, string> = {
   tricycle: "tricycle",
 };
 
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { motion } from "framer-motion";
 import { ANIMATION_VARIANTS } from "@/lib/constants/animations";
 
@@ -32,6 +31,7 @@ import { ANIMATION_VARIANTS } from "@/lib/constants/animations";
 
 // ... (keep constants)
 
+// ProductsContent component
 function ProductsContent() {
   const searchParams = useSearchParams();
   const [filters, setFilters] = useState<ProductFiltersType>({});
@@ -66,36 +66,38 @@ function ProductsContent() {
             if (!products || products.length === 0) return null;
 
             return (
-              <ScrollReveal
-                key={category}
-                variant="fadeUp"
-                amount={0.05}
-                once={false}
-              >
-                <section>
-                  <div className="mb-16">
-                    <h2 className="text-[42px] font-medium text-gray-900 tracking-tight">
-                      {CATEGORY_LABELS[category]}
-                    </h2>
-                  </div>
+              <section key={category}>
+                <div className="mb-16">
+                  <h2 className="text-[42px] font-medium text-gray-900 tracking-tight">
+                    {CATEGORY_LABELS[category]}
+                  </h2>
+                </div>
 
-                  <motion.div
-                    variants={ANIMATION_VARIANTS.staggerContainer}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: false, amount: 0.05 }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24"
-                  >
-                    {products.map((product) => (
-                      <ProductModelCard
-                        key={product.id}
-                        product={product}
-                        className="transition-transform duration-500"
-                      />
-                    ))}
-                  </motion.div>
-                </section>
-              </ScrollReveal>
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0 },
+                    show: {
+                      opacity: 1,
+                      transition: {
+                        staggerChildren: 0.0, // Together
+                        delayChildren: 0.0,
+                      },
+                    },
+                  }}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.1, margin: "-50px" }}
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12"
+                >
+                  {products.map((product) => (
+                    <ProductModelCard
+                      key={product.id}
+                      product={product}
+                      className="w-full"
+                    />
+                  ))}
+                </motion.div>
+              </section>
             );
           })}
 

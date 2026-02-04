@@ -117,9 +117,14 @@ const FooterSection: React.FC<{ section: FooterSection }> = ({ section }) => {
 export const Footer: React.FC = () => {
   return (
     <footer
-      className="w-full text-white"
+      className="w-full text-white relative"
       style={{
         backgroundColor: "#111111",
+        backgroundImage:
+          "linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.9)), url('/videos/footerbackground.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
     >
       {/* Main Footer Content */}
@@ -129,7 +134,7 @@ export const Footer: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Brand Section */}
             <div className="lg:col-span-1">
-              <Logo showTagline={false} size="lg" />
+              <Logo showTagline={false} size="md" />
             </div>
 
             {/* Footer Sections */}

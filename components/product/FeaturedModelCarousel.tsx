@@ -1,20 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FeaturedModel } from "@/lib/types";
-import { colors, typography, effects } from "@/lib/design-tokens";
+import { colors } from "@/lib/design-tokens";
 import { CAROUSEL_CONFIG } from "@/lib/constants";
 import { useCarousel } from "@/hooks/useCarousel";
 import { CarouselNavButton } from "@/components/ui/CarouselNavButton";
-import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import {
-  ANIMATION_VARIANTS,
-  ENTERPRISE_EASE,
-} from "@/lib/constants/animations";
+import { motion, AnimatePresence } from "framer-motion";
 
 export interface FeaturedModelCarouselProps {
   models: FeaturedModel[];
@@ -29,15 +24,29 @@ export const FeaturedModelCarousel: React.FC<FeaturedModelCarouselProps> = ({
 }) => {
   const { currentIndex, nextSlide, prevSlide, pause, resume } = useCarousel({
     itemsCount: models.length,
-    autoPlay,
+    autoPlay: false,
     interval,
   });
 
   const currentModel = models[currentIndex];
 
+  // Logic to handle color overrides
+  const [overrideImage, setOverrideImage] = useState<string | null>(null);
+
+  // Reset override when model changes
+  useEffect(() => {
+    setOverrideImage(null);
+  }, [currentModel.id]);
+
+  const activeImage = overrideImage || currentModel.image;
+
+  const handleColorSelect = (image: string) => {
+    setOverrideImage(image);
+  };
+
   return (
     <div
-      className="relative w-full"
+      className="relative w-full flex flex-col items-center"
       style={{
         backgroundColor: colors.background.white,
       }}
@@ -45,140 +54,137 @@ export const FeaturedModelCarousel: React.FC<FeaturedModelCarouselProps> = ({
       onMouseLeave={resume}
     >
       {/* Section Title */}
-      <motion.div
-        className="text-center mb-8"
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: ENTERPRISE_EASE }}
-      >
-        <h2
-          className="font-bold"
-          style={{
-            fontSize: typography.size.h2,
-            lineHeight: typography.lineHeight.tight,
-            color: colors.brand.green,
-          }}
-        >
+      <div className="text-center mb-4">
+        <span className="inline-block px-4 py-1 rounded-full border border-[#1FA84F] text-[#1FA84F] text-lg font-medium tracking-wide">
           车型推荐
-        </h2>
-      </motion.div>
-
-      {/* Model Name */}
-      <motion.div
-        className="text-center mb-6"
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.7, ease: ENTERPRISE_EASE, delay: 0.1 }}
-      >
-        <h3
-          className="font-semibold"
-          style={{
-            fontSize: typography.size.h1,
-            lineHeight: typography.lineHeight.tight,
-            color: colors.text.black,
-          }}
-        >
-          {currentModel.name}
-        </h3>
-      </motion.div>
-
-      {/* Main Image Container */}
-      <div className="relative w-full mb-8">
-        {/* Image with Watermark */}
-        <motion.div
-          className="relative w-full max-w-4xl mx-auto aspect-[16/10] overflow-hidden"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.9, ease: ENTERPRISE_EASE, delay: 0.2 }}
-        >
-          {/* Watermark Background */}
-          {currentModel.watermark && (
-            <motion.div
-              className="absolute inset-0 flex items-start justify-center z-0"
-              style={{
-                color: "rgba(0, 0, 0, 0.05)",
-                fontSize: "clamp(4rem, 15vw, 12rem)",
-                fontWeight: 900,
-                fontFamily:
-                  'var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-                paddingTop: "clamp(2rem, 8vw, 6rem)",
-                letterSpacing: "-0.02em",
-                lineHeight: 0.9,
-                whiteSpace: "nowrap",
-              }}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 1.2, ease: ENTERPRISE_EASE, delay: 0.5 }}
-            >
-              {currentModel.watermark}
-            </motion.div>
-          )}
-
-          {/* Motorcycle Image */}
-          <div className="relative w-full h-full z-10">
-            <Image
-              src={currentModel.image}
-              alt={currentModel.name}
-              fill
-              className={cn(
-                "object-contain object-center",
-                effects.transition.default,
-              )}
-              priority={currentIndex === 0}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-            />
-          </div>
-        </motion.div>
-
-        {/* Navigation Arrows - positioned at container level */}
-        {models.length > 1 && (
-          <>
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.6, ease: ENTERPRISE_EASE, delay: 0.4 }}
-            >
-              <CarouselNavButton
-                direction="left"
-                onClick={prevSlide}
-                ariaLabel="Previous model"
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.6, ease: ENTERPRISE_EASE, delay: 0.4 }}
-            >
-              <CarouselNavButton
-                direction="right"
-                onClick={nextSlide}
-                ariaLabel="Next model"
-              />
-            </motion.div>
-          </>
-        )}
+        </span>
       </div>
 
-      {/* Call to Action Button */}
-      <motion.div
-        className="text-center"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.7, ease: ENTERPRISE_EASE, delay: 0.3 }}
-      >
+      {/* Main Content Area */}
+      <div className="w-full flex flex-col items-center">
+        {/* Model Name Box */}
+        <div className="text-center mb-8 px-12 py-3 rounded-none inline-block min-w-[300px]">
+          <h3
+            className="font-bold uppercase tracking-wider"
+            style={{
+              fontSize: "2rem",
+              color: "#333333",
+            }}
+          >
+            {currentModel.name}
+          </h3>
+        </div>
+      </div>
+
+      <div className="relative w-full max-w-[1200px] flex items-center justify-between px-4 md:px-12 mb-8">
+        {/* Left Arrow */}
+        <div className="hidden md:block z-20">
+          <CarouselNavButton
+            direction="left"
+            onClick={prevSlide}
+            ariaLabel="Previous model"
+            className="static translate-y-0 w-16 h-12 bg-transparent hover:scale-110 text-black transition-transform"
+            iconClassName="w-8 h-8 text-black"
+          />
+        </div>
+
+        {/* Animated Image Container */}
+        <div className="relative flex-1 max-w-[900px] mx-auto aspect-[16/9] md:aspect-[2/1] flex items-center justify-center">
+          {/* Background - Static */}
+          <div className="absolute inset-0 z-0 flex items-center justify-center overflow-visible">
+            <div className="relative w-full h-full -translate-y-10 scale-[1.3]">
+              <Image
+                src="/images/brand/ALOBA底图 (1).png"
+                alt="Background"
+                fill
+                className="object-contain"
+                priority
+                sizes="(max-width: 768px) 100vw, 1000px"
+              />
+            </div>
+          </div>
+
+          {/* Bike Image - Animated on Model Change AND Color Change */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeImage}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }} // Fast, snappy transition
+              className="absolute inset-0 z-10 w-[80%] h-[80%] m-auto"
+            >
+              <Image
+                src={activeImage}
+                alt={currentModel.name}
+                fill
+                className="object-contain"
+                priority
+                sizes="(max-width: 768px) 100vw, 800px"
+              />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Right Arrow */}
+        <div className="hidden md:block z-20">
+          <CarouselNavButton
+            direction="right"
+            onClick={nextSlide}
+            ariaLabel="Next model"
+            className="static translate-y-0 w-16 h-12 bg-transparent hover:scale-110 text-black transition-transform"
+            iconClassName="w-8 h-8 text-black"
+          />
+        </div>
+      </div>
+
+      {/* Mobile Arrows */}
+      <div className="flex md:hidden gap-4 mb-6">
+        <CarouselNavButton
+          direction="left"
+          onClick={prevSlide}
+          ariaLabel="Previous model"
+          className="static translate-y-0 w-12 h-10 text-black"
+        />
+        <CarouselNavButton
+          direction="right"
+          onClick={nextSlide}
+          ariaLabel="Next model"
+          className="static translate-y-0 w-12 h-10 text-black"
+        />
+      </div>
+
+      {/* Color Selector */}
+      <div className="flex flex-col items-center gap-3 mb-8">
+        <div className="flex items-center gap-4 py-2 min-h-[40px]">
+          {currentModel.colors?.map((color) => {
+            const isSelected = activeImage === color.image;
+            return (
+              <button
+                key={color.id}
+                onClick={() => handleColorSelect(color.image)}
+                className={cn(
+                  "rounded-full transition-all duration-300 relative",
+                  // Small & Cute: Default small, Scale up (1.5x) on select.
+                  "w-3 h-3 hover:scale-125",
+                  isSelected ? "scale-150" : "opacity-70 hover:opacity-100",
+                )}
+                style={{ backgroundColor: color.hex }}
+                aria-label={`Select color`}
+              />
+            );
+          })}
+        </div>
+      </div>
+
+      {/* CTA Button */}
+      <div className="mb-12">
         <Link href="/products">
-          <Button variant="outline" size="md">
-            全系车型
-          </Button>
+          <button className="px-8 py-2 rounded-full border border-gray-300 bg-white text-gray-600 hover:border-[#1FA84F] hover:text-[#1FA84F] transition-colors text-sm font-medium">
+            全部车型
+          </button>
         </Link>
-      </motion.div>
+      </div>
     </div>
   );
 };

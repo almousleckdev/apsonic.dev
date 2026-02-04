@@ -1,9 +1,14 @@
 "use client";
 
 import React, { useState, useRef, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useMotionValueEvent,
+} from "framer-motion";
+import { usePathname } from "next/navigation";
 import { NAV_ITEMS } from "@/lib/constants";
-import { colors } from "@/lib/design-tokens";
 import { Logo } from "./Logo";
 import { Navigation } from "./Navigation";
 import { SearchInput } from "./SearchInput";
@@ -21,11 +26,55 @@ const MotionDiv = motion.div as unknown as React.ComponentType<
   Record<string, unknown>
 >;
 
+const MotionHeader = motion.header as unknown as React.ComponentType<
+  Record<string, unknown>
+>;
+
 export const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [language, setLanguage] = useState<Language>("zh");
   const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Pages with transparent header (Hero Video pages)
+  const isTransparentPage =
+    pathname === "/" ||
+    pathname === "/about" ||
+    pathname.startsWith("/products/") ||
+    pathname === "/services";
+
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() || 0;
+    const diff = latest - previous;
+
+    // Update scrolled state
+    setIsScrolled(latest > 50);
+
+    // Clear existing timeout when scrolling
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+
+    // Hide navbar if scrolling down and past 100px
+    if (diff > 0 && latest > 100) {
+      setIsVisible(false);
+    }
+    // Show navbar if scrolling up
+    else if (diff < 0) {
+      setIsVisible(true);
+    }
+
+    // Set timeout to detect when scrolling stops (e.g. 500ms)
+    scrollTimeoutRef.current = setTimeout(() => {
+      setIsVisible(true);
+    }, 500);
+  });
 
   const handleMobileMenuToggle = () => setIsMobileMenuOpen((prev) => !prev);
   const handleMobileMenuClose = () => setIsMobileMenuOpen(false);
@@ -45,11 +94,20 @@ export const Header: React.FC = () => {
   }, []);
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm"
+    <MotionHeader
+      variants={{
+        visible: { y: 0 },
+        hidden: { y: "-100%" },
+      }}
+      animate={isVisible ? "visible" : "hidden"}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm transition-colors duration-300"
       style={{
-        backgroundColor: "#111111",
-        borderBottom: `1px solid rgba(255, 255, 255, 0.1)`,
+        backgroundColor:
+          isScrolled || isMobileMenuOpen || !isTransparentPage
+            ? "#058B4F"
+            : "transparent",
+        borderBottom: isScrolled ? `1px solid rgba(9, 16, 11, 0.1)` : "none",
       }}
     >
       <div className="max-w-[1360px] mx-auto px-10">
@@ -71,7 +129,7 @@ export const Header: React.FC = () => {
             )}
           </div>
 
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-3">
             <SearchInput variant="dark" className="w-[180px]" size="sm" />
             <LanguageSelector value={language} onChange={setLanguage} />
           </div>
@@ -91,7 +149,7 @@ export const Header: React.FC = () => {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="md:hidden fixed inset-0 top-20 z-40 overflow-y-auto"
-              style={{ backgroundColor: "#111111" }}
+              style={{ backgroundColor: "#058B4F" }}
             >
               <nav className="container mx-auto px-4 py-8 flex flex-col gap-8">
                 <Navigation
@@ -124,6 +182,6 @@ export const Header: React.FC = () => {
           )}
         </AnimatePresence>
       </div>
-    </header>
+    </MotionHeader>
   );
 };

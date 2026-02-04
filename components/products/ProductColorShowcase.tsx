@@ -5,9 +5,12 @@ import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-const MotionDiv = motion.div as unknown as React.ComponentType<
-  Record<string, unknown>
->;
+// Safe MotionDiv creation that works with both v11 and v12
+const MotionDiv = (
+  (motion as any).create
+    ? (motion as any).create("div")
+    : (motion as any).div || motion.div
+) as React.ComponentType<Record<string, unknown>>;
 
 export interface ColorShowcaseVariant {
   id: string;

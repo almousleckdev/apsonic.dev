@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { colors } from '@/lib/design-tokens';
-import { typography } from '@/lib/design-tokens';
-import { cn } from '@/lib/utils';
+import React from "react";
+import { colors } from "@/lib/design-tokens";
+import { typography } from "@/lib/design-tokens";
+import { cn } from "@/lib/utils";
 
 export interface RadioOptionProps {
   value: string;
@@ -12,6 +12,7 @@ export interface RadioOptionProps {
   onChange: () => void;
   name: string;
   className?: string;
+  textColor?: string;
 }
 
 export const RadioOption: React.FC<RadioOptionProps> = ({
@@ -21,6 +22,7 @@ export const RadioOption: React.FC<RadioOptionProps> = ({
   onChange,
   name,
   className,
+  textColor,
 }) => {
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -28,15 +30,15 @@ export const RadioOption: React.FC<RadioOptionProps> = ({
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' || e.key === ' ') {
+    if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
       onChange();
     }
   };
 
   return (
-    <label 
-      className={cn('flex items-center cursor-pointer', className)}
+    <label
+      className={cn("flex items-center cursor-pointer", className)}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       tabIndex={0}
@@ -44,10 +46,12 @@ export const RadioOption: React.FC<RadioOptionProps> = ({
       aria-checked={checked}
     >
       <div
-        className="mr-3 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all"
+        className="mr-3 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all bg-white/10"
         style={{
-          borderColor: checked ? colors.service.brandGreen : colors.ui.border,
-          backgroundColor: checked ? colors.service.brandGreen : 'transparent',
+          borderColor: checked
+            ? colors.service.brandGreen
+            : textColor || colors.ui.border,
+          backgroundColor: checked ? colors.service.brandGreen : "transparent",
         }}
       >
         {checked && (
@@ -63,7 +67,7 @@ export const RadioOption: React.FC<RadioOptionProps> = ({
         className="font-medium"
         style={{
           fontSize: typography.size.body,
-          color: colors.text.primary,
+          color: textColor || colors.text.primary,
         }}
       >
         {label}
@@ -71,4 +75,3 @@ export const RadioOption: React.FC<RadioOptionProps> = ({
     </label>
   );
 };
-
