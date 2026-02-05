@@ -11,7 +11,7 @@ export const MissionSection = () => {
   return (
     <Section
       id="story"
-      backgroundColor={colors.background.secondary}
+      backgroundColor={colors.background.white}
       padding="none"
       className="relative overflow-hidden my-8 shadow-lg"
     >
@@ -68,7 +68,7 @@ export const MissionSection = () => {
         {/* Right Side: Image */}
         <div className="relative h-[50vh] w-full lg:h-auto lg:w-1/2">
           <Image
-            src="/about/Picture1.png"
+            src="/about/abouthero.jpg"
             alt="APSONIC After-Sales Service Network"
             fill
             className="object-cover"

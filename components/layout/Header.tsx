@@ -42,10 +42,7 @@ export const Header: React.FC = () => {
 
   // Pages with transparent header (Hero Video pages)
   const isTransparentPage =
-    pathname === "/" ||
-    pathname === "/about" ||
-    pathname.startsWith("/products/") ||
-    pathname === "/services";
+    pathname === "/" || pathname.startsWith("/products/");
 
   const { scrollY } = useScroll();
 

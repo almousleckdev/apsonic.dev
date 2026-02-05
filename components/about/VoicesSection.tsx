@@ -10,7 +10,7 @@ import { stories } from "@/lib/data/about";
 export const VoicesSection = () => {
   return (
     <Section
-      backgroundColor={colors.background.tertiary}
+      backgroundColor={colors.background.white}
       className="relative z-10 border-t border-white/5 my-8 shadow-lg"
     >
       <div className="container mx-auto px-4">

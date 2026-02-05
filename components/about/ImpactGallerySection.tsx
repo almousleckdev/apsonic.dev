@@ -10,7 +10,7 @@ import { Section } from "@/components/ui/Section";
 export const ImpactGallerySection = () => {
   return (
     <Section
-      backgroundColor={colors.background.primary}
+      backgroundColor={colors.background.white}
       padding="none"
       className="my-8 shadow-lg overflow-hidden"
     >

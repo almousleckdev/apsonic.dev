@@ -27,7 +27,7 @@ export const RootsSection = () => {
         </div>
 
         {/* Right Side: Text */}
-        <div className="flex w-full flex-col justify-center p-8 lg:w-1/2 lg:p-24 bg-gray-50">
+        <div className="flex w-full flex-col justify-center p-8 lg:w-1/2 lg:p-24 bg-white">
           <motion.div
             initial="hidden"
             whileInView="visible"

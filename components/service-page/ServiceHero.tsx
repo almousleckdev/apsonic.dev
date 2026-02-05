@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { MdSearch } from 'react-icons/md';
-import { ENTERPRISE_EASE } from '@/lib/constants/animations';
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { MdSearch } from "react-icons/md";
+import { ENTERPRISE_EASE } from "@/lib/constants/animations";
 
 export interface ServiceHeroProps {
   className?: string;
@@ -12,34 +12,32 @@ export interface ServiceHeroProps {
 
 export const ServiceHero: React.FC<ServiceHeroProps> = ({ className }) => {
   return (
-    <div className="relative min-h-[85vh] w-full overflow-hidden bg-white flex flex-col justify-center">
-
+    <div className="relative h-screen w-full overflow-hidden bg-black flex flex-col justify-center">
       {/* Background Image with Cinematic Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/services/services1.jpg"
           alt="Apsonic Professional Service"
           fill
-          className="object-cover object-center opacity-25 grayscale-[0.5] blur-[1px]"
+          className="object-cover object-center opacity-40 grayscale-[0.5] blur-[1px]"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black" />
       </div>
 
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-4 pt-32 mt-20">
         <div className="max-w-4xl mx-auto text-center">
-
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: ENTERPRISE_EASE }}
           >
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
               服务 <span className="text-brand-green">卓越</span>。
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-12 font-light max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-300 mb-12 font-light max-w-2xl mx-auto">
               获取手册、机械师培训和正品配件支持，为您的车队提供全方位服务。
             </p>
           </motion.div>
@@ -52,18 +50,16 @@ export const ServiceHero: React.FC<ServiceHeroProps> = ({ className }) => {
             className="relative max-w-2xl mx-auto mb-8 group"
           >
             <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none z-10">
-              <MdSearch className="h-6 w-6 text-gray-500 group-focus-within:text-brand-green transition-colors" />
+              <MdSearch className="h-6 w-6 text-gray-400 group-focus-within:text-brand-green transition-colors" />
             </div>
             <input
               type="text"
               placeholder="搜索手册、错误代码或维护指南..."
-              className="w-full h-16 pl-8 pr-16 rounded-2xl bg-white border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-brand-green/50 focus:ring-4 focus:ring-brand-green/10 transition-all text-lg shadow-xl shadow-gray-200"
+              className="w-full h-16 pl-8 pr-16 rounded-2xl bg-white/10 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-brand-green/50 focus:ring-4 focus:ring-brand-green/20 transition-all text-lg backdrop-blur-md"
             />
           </motion.div>
-
         </div>
       </div>
-
     </div>
   );
 };

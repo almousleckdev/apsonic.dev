@@ -3,12 +3,19 @@
 import React from "react";
 import { videos } from "@/lib/data/about";
 
+import { Section } from "@/components/ui/Section";
+import { colors } from "@/lib/design-tokens";
+
 export const VideoShowcaseSection = () => {
   // Use the first video for the showcase, or the one intended for display
   const video = videos[0];
 
   return (
-    <section className="w-full bg-black relative">
+    <Section
+      backgroundColor={colors.background.white}
+      padding="none"
+      className="my-8 shadow-lg"
+    >
       <div className="w-full h-auto aspect-video relative">
         <video
           width="100%"
@@ -22,6 +29,6 @@ export const VideoShowcaseSection = () => {
           您的浏览器不支持视频播放。
         </video>
       </div>
-    </section>
+    </Section>
   );
 };
