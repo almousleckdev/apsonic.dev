@@ -18,7 +18,7 @@ export const AboutHero = () => {
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <Image
-          src="/about/Picture1.png"
+          src="/about/7221770449479_.pic_hd.jpg"
           alt="APSONIC 摩托车生产基地"
           fill
           className="object-cover object-center"

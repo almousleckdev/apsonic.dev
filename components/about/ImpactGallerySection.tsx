@@ -12,7 +12,7 @@ export const ImpactGallerySection = () => {
     <Section
       backgroundColor={colors.background.white}
       padding="none"
-      className="my-8 shadow-lg overflow-hidden"
+      className="shadow-lg overflow-hidden"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-[80vh] w-full">
         {/* Item 1: Main Africa Cup Message */}

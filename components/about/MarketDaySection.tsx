@@ -122,7 +122,7 @@ export const MarketDaySection = () => {
       <Section
         backgroundColor={colors.background.white}
         padding="none"
-        className="relative overflow-hidden my-8 shadow-lg"
+        className="relative overflow-hidden shadow-lg"
       >
         <div className="flex flex-col lg:flex-row min-h-[80vh]">
           {/* Left Side: Image */}

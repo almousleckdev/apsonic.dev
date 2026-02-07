@@ -14,7 +14,7 @@ export const VideoShowcaseSection = () => {
     <Section
       backgroundColor={colors.background.white}
       padding="none"
-      className="my-8 shadow-lg"
+      className="shadow-lg"
     >
       <div className="w-full h-auto aspect-video relative">
         <video

@@ -15,13 +15,17 @@ export interface NearbyStoresProps {
   stores: Store[];
   country?: string;
   className?: string;
+  variant?: "default" | "dark";
 }
 
 export const NearbyStores: React.FC<NearbyStoresProps> = ({
   stores,
   country,
   className,
+  variant = "default",
 }) => {
+  const isDark = variant === "dark";
+
   if (stores.length === 0) {
     return (
       <div className={className}>
@@ -29,12 +33,16 @@ export const NearbyStores: React.FC<NearbyStoresProps> = ({
           className="font-bold mb-4"
           style={{
             fontSize: SERVICE_CONFIG.typography.listTitle,
-            color: colors.text.black,
+            color: isDark ? "#FFFFFF" : colors.text.black,
           }}
         >
           附近商店
         </h3>
-        <p style={{ color: colors.text.secondary }}>
+        <p
+          style={{
+            color: isDark ? "rgba(255,255,255,0.7)" : colors.text.secondary,
+          }}
+        >
           {country ? `在${country}未找到商店` : SERVICE_LABELS.noStoresFound}
         </p>
       </div>
@@ -46,13 +54,18 @@ export const NearbyStores: React.FC<NearbyStoresProps> = ({
       {country && stores.length > 0 && (
         <div className="flex items-center gap-2 mb-6 px-1">
           <span className="text-xl">{getCountryFlag(country)}</span>
-          <h3 className="text-lg font-bold text-gray-900">
+          <h3
+            className={cn(
+              "text-lg font-bold",
+              isDark ? "text-white" : "text-gray-900",
+            )}
+          >
             {country} 官方中心
           </h3>
         </div>
       )}
 
-      <div className="space-y-4">
+      <div className="space-y-6">
         {stores.map((store) => (
           <motion.div
             key={store.id}
@@ -65,7 +78,7 @@ export const NearbyStores: React.FC<NearbyStoresProps> = ({
           >
             <div className="flex items-start justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-brand-green/5 flex items-center justify-center group-hover:bg-brand-green/10 transition-colors">
+                <div className="w-10 h-10 rounded-full bg-brand-green/10 flex items-center justify-center group-hover:bg-brand-green/20 transition-colors">
                   <LocationIcon className="w-5 h-5 text-brand-green" />
                 </div>
                 <h4

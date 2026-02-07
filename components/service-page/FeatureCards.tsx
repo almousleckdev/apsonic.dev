@@ -50,13 +50,25 @@ export const FeatureCards: React.FC<FeatureCardsProps> = ({
                 )}
               >
                 {/* Image Section - Top Centered & Compact */}
-                <div className="relative w-full aspect-[16/10] mb-8 flex items-center justify-center overflow-visible">
-                  <div className="absolute inset-x-0 bottom-0 top-0 transition-transform duration-700 group-hover:scale-105">
+                <div
+                  className={cn(
+                    "relative w-full h-[320px] mb-8 flex items-center justify-center overflow-visible border border-gray-100 rounded-2xl group-hover:border-brand-green/20 transition-colors duration-300",
+                    card.id === "parts-tricycles" ? "p-0" : "p-6",
+                  )}
+                >
+                  <div
+                    className={cn(
+                      "absolute inset-0 flex items-center justify-center transition-transform duration-700",
+                      card.id === "parts-tricycles"
+                        ? "scale-110 group-hover:scale-115"
+                        : "group-hover:scale-105",
+                    )}
+                  >
                     <Image
                       src={card.image}
                       alt={card.title}
                       fill
-                      className="object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
+                      className="object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.12)] p-4"
                       sizes="(max-width: 768px) 100vw, 400px"
                     />
                   </div>

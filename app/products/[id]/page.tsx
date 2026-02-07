@@ -60,7 +60,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
       {/* 产品Hero - Replaced with VideoHero as requested */}
       <VideoHero
         breadcrumbs={heroData.breadcrumbs}
-        videoSrc="/videos/producthero.mp4"
+        videoSrc="/videos/723_1770449481.mp4"
       />
 
       {details && (
@@ -71,7 +71,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
             variant="fadeUp"
             amount={0.15}
             duration={0.9}
-            once={false}
+            once={true}
           >
             <ProductFeatureHighlight
               title="先进结构工程"
@@ -87,7 +87,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
             amount={0.15}
             duration={0.9}
             delay={0.1}
-            once={false}
+            once={true}
           >
             <ProductFeatureShowcase
               sectionTitle={`${product.model} 设计亮点`}
@@ -101,7 +101,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
             amount={0.15}
             duration={0.9}
             delay={0.1}
-            once={false}
+            once={true}
           >
             <ProductEngineSpecs
               title="新一代技术核心"
@@ -118,7 +118,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
             amount={0.15}
             duration={0.9}
             delay={0.1}
-            once={false}
+            once={true}
           >
             <ProductFeatureGrid
               sectionTitle="集成性能特性"
@@ -134,7 +134,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
             amount={0.15}
             duration={0.9}
             delay={0.1}
-            once={false}
+            once={true}
           >
             <ProductColorShowcase
               title="2 种经典配色"
@@ -166,7 +166,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
             amount={0.15}
             duration={0.9}
             delay={0.1}
-            once={false}
+            once={true}
           >
             <ProductSpecification
               keyMetrics={details.keyMetrics}

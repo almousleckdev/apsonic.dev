@@ -127,8 +127,23 @@ export const Header: React.FC = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <SearchInput variant="dark" className="w-[180px]" size="sm" />
-            <LanguageSelector value={language} onChange={setLanguage} />
+            <SearchInput
+              variant="dark"
+              className="w-[180px]"
+              size="md"
+              placeholder=""
+            />
+            <LanguageSelector
+              value={language}
+              onChange={setLanguage}
+              variant="dark"
+              size="md"
+              options={[
+                { value: "zh", label: "中" },
+                { value: "fr", label: "Fr" },
+                { value: "en", label: "En" },
+              ]}
+            />
           </div>
 
           <MobileMenuButton
@@ -160,14 +175,29 @@ export const Header: React.FC = () => {
                     <span className="text-[10px] text-white/60 uppercase tracking-widest font-medium">
                       搜索车型
                     </span>
-                    <SearchInput className="w-full" variant="dark" />
+                    <SearchInput
+                      className="w-full"
+                      variant="dark"
+                      size="md"
+                      placeholder=""
+                    />
                   </div>
 
                   <div className="space-y-2">
                     <span className="text-[10px] text-white/60 uppercase tracking-widest font-medium">
                       语言设置
                     </span>
-                    <LanguageSelector value={language} onChange={setLanguage} />
+                    <LanguageSelector
+                      value={language}
+                      onChange={setLanguage}
+                      variant="dark"
+                      size="md"
+                      options={[
+                        { value: "zh", label: "中" },
+                        { value: "fr", label: "Fr" },
+                        { value: "en", label: "En" },
+                      ]}
+                    />
                   </div>
                 </div>
 

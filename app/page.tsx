@@ -9,10 +9,7 @@ import { NewsSection } from "@/components/news";
 export default function Home() {
   return (
     <main className="relative bg-white">
-      <VideoHero
-        videos={["/videos/hero1.mp4", "/videos/hero2.mp4"]}
-        interval={8000}
-      />
+      <VideoHero videos={["/videos/hero2.mp4"]} interval={8000} />
 
       {/* Recommended Models Section */}
       <section className="py-6">

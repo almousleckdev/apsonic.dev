@@ -140,7 +140,7 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
               className="font-bold"
               style={{
                 fontSize: SERVICE_CONFIG.typography.listTitle,
-                color: colors.text.primary,
+                color: isDark ? "#FFFFFF" : colors.text.primary,
               }}
             >
               {selectedCountry ? `附近商店` : `查找商店`}
@@ -206,7 +206,11 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
             >
-              <NearbyStores stores={stores} country={selectedCountry} />
+              <NearbyStores
+                stores={stores}
+                country={selectedCountry}
+                variant={variant}
+              />
             </MotionDiv>
           ) : showNearbyResults && !hasResults ? (
             <MotionDiv
@@ -262,7 +266,11 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
             >
-              <NearbyStores stores={stores} country={selectedCountry} />
+              <NearbyStores
+                stores={stores}
+                country={selectedCountry}
+                variant={variant}
+              />
             </MotionDiv>
           ) : hasSearch && !hasResults ? (
             <MotionP

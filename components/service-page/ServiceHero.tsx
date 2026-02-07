@@ -19,11 +19,11 @@ export const ServiceHero: React.FC<ServiceHeroProps> = ({ className }) => {
           src="/images/services/services1.jpg"
           alt="Apsonic Professional Service"
           fill
-          className="object-cover object-center opacity-40 grayscale-[0.5] blur-[1px]"
+          className="object-cover object-center opacity-80"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-black/80" />
       </div>
 
       {/* Main Content */}

@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { CATEGORY_OPTIONS } from '@/lib/data/filters';
-import { getAvailableDisplacements } from '@/lib/data/product-models';
-import { BRANDS } from '@/lib/data/products';
-import type { ProductFilters as ProductFiltersType } from '@/lib/types/products';
-import { cn } from '@/lib/utils';
-import { SearchIcon } from '@/components/ui/Icons';
-import { SearchInput } from '@/components/layout/SearchInput';
+import React from "react";
+import { CATEGORY_OPTIONS } from "@/lib/data/filters";
+import { getAvailableDisplacements } from "@/lib/data/product-models";
+import { BRANDS } from "@/lib/data/products";
+import type { ProductFilters as ProductFiltersType } from "@/lib/types/products";
+import { cn } from "@/lib/utils";
+import { SearchIcon } from "@/components/ui/Icons";
+import { SearchInput } from "@/components/layout/SearchInput";
 
 interface ProductFiltersProps {
   filters: ProductFiltersType;
@@ -16,7 +16,7 @@ interface ProductFiltersProps {
 
 /**
  * ProductFilters - Faithful Mockup Reproduction
- * 
+ *
  * Matches Page 4 of the APSONIC Mockup PDF perfectly.
  */
 export const ProductFilters: React.FC<ProductFiltersProps> = ({
@@ -25,37 +25,41 @@ export const ProductFilters: React.FC<ProductFiltersProps> = ({
 }) => {
   const displacements = getAvailableDisplacements();
   const displacementOptions = [
-    { value: 0, label: '不限' },
-    ...displacements.map(d => ({ value: d, label: d.toString() })),
+    { value: 0, label: "不限" },
+    ...displacements.map((d) => ({ value: d, label: d.toString() })),
   ];
 
   const brandOptions = [
-    { value: '', label: '不限' },
-    ...BRANDS.map(b => ({ value: b.id, label: b.name })),
+    { value: "", label: "不限" },
+    ...BRANDS.map((b) => ({ value: b.id, label: b.name })),
   ];
 
   return (
     <div className="w-full bg-white pt-32 pb-10 border-b border-gray-100">
       <div className="max-w-[1360px] mx-auto px-10">
-
         {/* Breadcrumbs */}
         <nav className="flex items-center gap-2 text-xs text-gray-400 mb-8">
           <span className="hover:text-gray-600 cursor-pointer">首页</span>
           <span>/</span>
-          <span className="hover:text-gray-600 cursor-pointer text-gray-900">全系车型</span>
+          <span className="hover:text-gray-600 cursor-pointer text-gray-900">
+            全系车型
+          </span>
           <span className="text-gray-300">⌄</span>
         </nav>
 
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
-          <h1 className="text-[40px] font-bold text-brand-green">
-            全系车型
-          </h1>
+          <h1 className="text-[40px] font-bold text-brand-green">全系车型</h1>
 
           <div className="w-full md:w-[320px]">
             <SearchInput
-              placeholder="搜索车型"
-              value={filters.search || ''}
-              onChange={(e) => onFilterChange({ ...filters, search: e.target.value || undefined })}
+              placeholder=""
+              value={filters.search || ""}
+              onChange={(e) =>
+                onFilterChange({
+                  ...filters,
+                  search: e.target.value || undefined,
+                })
+              }
               size="lg"
             />
           </div>
@@ -70,19 +74,31 @@ export const ProductFilters: React.FC<ProductFiltersProps> = ({
               {CATEGORY_OPTIONS.map((option) => (
                 <button
                   key={option.value}
-                  onClick={() => onFilterChange({ ...filters, type: option.value || undefined })}
+                  onClick={() =>
+                    onFilterChange({
+                      ...filters,
+                      type: option.value || undefined,
+                    })
+                  }
                   className={cn(
                     "transition-colors",
-                    (filters.type === option.value || (!filters.type && option.value === ''))
+                    filters.type === option.value ||
+                      (!filters.type && option.value === "")
                       ? "text-gray-900 font-bold"
-                      : "text-gray-500 hover:text-brand-green"
+                      : "text-gray-500 hover:text-brand-green",
                   )}
                 >
-                  {option.label === 'Unlimited' ? '全部车型' :
-                    option.label === 'Underbone' ? '弯梁车' :
-                      option.label === 'Street' ? '街车' :
-                        option.label === 'Off-Road' ? '越野' :
-                          option.label === 'Tricycle' ? '三轮车' : option.label}
+                  {option.label === "Unlimited"
+                    ? "全部车型"
+                    : option.label === "Underbone"
+                      ? "弯梁车"
+                      : option.label === "Street"
+                        ? "街车"
+                        : option.label === "Off-Road"
+                          ? "越野"
+                          : option.label === "Tricycle"
+                            ? "三轮车"
+                            : option.label}
                 </button>
               ))}
             </div>
@@ -95,12 +111,18 @@ export const ProductFilters: React.FC<ProductFiltersProps> = ({
               {displacementOptions.map((option) => (
                 <button
                   key={option.value}
-                  onClick={() => onFilterChange({ ...filters, displacement: option.value || undefined })}
+                  onClick={() =>
+                    onFilterChange({
+                      ...filters,
+                      displacement: option.value || undefined,
+                    })
+                  }
                   className={cn(
                     "transition-colors",
-                    (filters.displacement === option.value || (!filters.displacement && option.value === 0))
+                    filters.displacement === option.value ||
+                      (!filters.displacement && option.value === 0)
                       ? "text-gray-900 font-bold underline underline-offset-[6px] decoration-2 decoration-brand-green"
-                      : "text-gray-500 hover:text-brand-green"
+                      : "text-gray-500 hover:text-brand-green",
                   )}
                 >
                   {option.label}
@@ -116,12 +138,18 @@ export const ProductFilters: React.FC<ProductFiltersProps> = ({
               {brandOptions.map((option) => (
                 <button
                   key={option.value}
-                  onClick={() => onFilterChange({ ...filters, brand: option.value || undefined })}
+                  onClick={() =>
+                    onFilterChange({
+                      ...filters,
+                      brand: option.value || undefined,
+                    })
+                  }
                   className={cn(
                     "transition-colors uppercase",
-                    (filters.brand === option.value || (!filters.brand && option.value === ''))
+                    filters.brand === option.value ||
+                      (!filters.brand && option.value === "")
                       ? "text-gray-900 font-bold"
-                      : "text-gray-500 hover:text-brand-green"
+                      : "text-gray-500 hover:text-brand-green",
                   )}
                 >
                   {option.label}
@@ -130,7 +158,6 @@ export const ProductFilters: React.FC<ProductFiltersProps> = ({
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );
