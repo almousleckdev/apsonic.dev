@@ -39,7 +39,7 @@ const TimelineEvent = ({
       </div>
       {/* Green Circle Icon */}
       <div className="relative flex-shrink-0">
-        <div className="h-5 w-5 md:h-6 md:w-6 rounded-full bg-brand-green flex items-center justify-center shadow-lg z-10">
+        <div className="h-5 w-5 md:h-6 md:w-6 rounded-full bg-gray-900 flex items-center justify-center shadow-lg z-10">
           <MdRefresh className="text-white text-[10px] md:text-xs" />
         </div>
       </div>

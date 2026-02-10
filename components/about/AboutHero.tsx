@@ -18,7 +18,7 @@ export const AboutHero = () => {
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <Image
-          src="/about/7221770449479_.pic_hd.jpg"
+          src="/images/about/7361770692820_.pic_hd.jpg"
           alt="APSONIC 摩托车生产基地"
           fill
           className="object-cover object-center"
@@ -91,7 +91,7 @@ export const AboutHero = () => {
           <span className="text-xs uppercase tracking-widest text-gray-400">
             滚动
           </span>
-          <div className="h-10 w-[1px] bg-gradient-to-b from-brand-green to-transparent" />
+          <div className="h-10 w-[1px] bg-gradient-to-b from-gray-400 to-transparent" />
         </div>
       </motion.div>
     </div>

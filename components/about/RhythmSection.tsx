@@ -32,13 +32,11 @@ export const RhythmSection = () => {
         >
           <h2 className="text-4xl md:text-6xl font-black text-gray-900 uppercase tracking-tighter mb-8 leading-none">
             城市的 <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green via-gray-900 to-brand-green animate-gradient-x">
-              节拍
-            </span>
+            <span className="text-gray-900">节拍</span>
           </h2>
 
           <div className="max-w-2xl mx-auto">
-            <p className="text-xl text-brand-green font-mono mb-8">
+            <p className="text-xl text-gray-900 font-mono mb-8">
               // 达喀尔 // 阿比让 // 阿克拉 // 拉各斯
             </p>
             <p className="text-gray-600 text-lg">

@@ -18,11 +18,9 @@ interface ProductHighlightProps {
 }
 
 export const ProductHighlight: React.FC<ProductHighlightProps> = ({
-  title = "APSONIC AP150 · Built for Africa",
-  description = "A full-size product shot that clearly shows the complete motorcycle design, proportions, and stance — the main image users expect before reading features",
+  title = "APSONIC AP150 · 为非洲而生",
+  description = "全尺寸产品照，清晰展示完整的摩托车设计、比例和姿态——这是用户在阅读功能前所期待的主图",
   images,
-  buttonText = "View Real Scenarios",
-  buttonLink = "#",
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -31,8 +29,8 @@ export const ProductHighlight: React.FC<ProductHighlightProps> = ({
       <div className="max-w-[1360px] mx-auto px-10">
         {/* Header */}
         <div className="text-center mb-8">
-          <p className="text-sm text-gray-500 mb-2">Product Highlights</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-brand-green mb-4">
+          <p className="text-sm text-gray-500 mb-2">产品亮点</p>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             {title}
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-sm">
@@ -66,7 +64,7 @@ export const ProductHighlight: React.FC<ProductHighlightProps> = ({
                 onClick={() => setActiveIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all ${
                   index === activeIndex
-                    ? "ring-2 ring-offset-2 ring-brand-green scale-125"
+                    ? "ring-2 ring-offset-2 ring-gray-900 scale-125"
                     : "opacity-60 hover:opacity-100"
                 }`}
                 style={{ backgroundColor: image.color }}
@@ -74,17 +72,6 @@ export const ProductHighlight: React.FC<ProductHighlightProps> = ({
               />
             ))}
           </div>
-        </div>
-
-        {/* Button */}
-        <div className="flex justify-start">
-          <a
-            href={buttonLink}
-            className="inline-flex items-center gap-2 text-brand-green font-medium hover:gap-3 transition-all"
-          >
-            {buttonText}
-            <span className="text-lg">→</span>
-          </a>
         </div>
       </div>
     </section>

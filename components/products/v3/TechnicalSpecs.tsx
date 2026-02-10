@@ -14,7 +14,7 @@ interface TechnicalSpecsProps {
 }
 
 export const TechnicalSpecs: React.FC<TechnicalSpecsProps> = ({
-  title = "Technical Specifications",
+  title = "技术规格",
   specs,
 }) => {
   return (
@@ -26,7 +26,7 @@ export const TechnicalSpecs: React.FC<TechnicalSpecsProps> = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-bold text-brand-green mb-12 text-center px-10"
+          className="text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center px-10"
         >
           {title}
         </motion.h2>
@@ -41,18 +41,18 @@ export const TechnicalSpecs: React.FC<TechnicalSpecsProps> = ({
         >
           <table className="w-full">
             <thead>
-              <tr className="bg-brand-green text-white">
+              <tr className="bg-gray-900 text-white">
                 <th className="px-6 py-6 text-left font-semibold text-sm md:text-base">
-                  Specification
+                  规格参数
                 </th>
                 <th className="px-6 py-6 text-left font-semibold text-sm md:text-base">
-                  Value 1
+                  数值 1
                 </th>
                 <th className="px-6 py-6 text-left font-semibold text-sm md:text-base">
-                  Value 2
+                  数值 2
                 </th>
                 <th className="px-6 py-6 text-left font-semibold text-sm md:text-base">
-                  Value 3
+                  数值 3
                 </th>
               </tr>
             </thead>
@@ -61,8 +61,8 @@ export const TechnicalSpecs: React.FC<TechnicalSpecsProps> = ({
                 <tr
                   key={index}
                   className={`${
-                    index % 2 === 0 ? "bg-brand-green/5" : "bg-white"
-                  } hover:bg-brand-green/10 transition-colors`}
+                    index % 2 === 0 ? "bg-gray-900/5" : "bg-white"
+                  } hover:bg-gray-900/10 transition-colors`}
                 >
                   <td className="px-6 py-6 font-medium text-gray-900 text-sm md:text-base">
                     {spec.label}

@@ -17,20 +17,18 @@ interface FeatureShowcaseProps {
 
 export const FeatureShowcase: React.FC<FeatureShowcaseProps> = ({
   features,
-  sectionTitle = "Core Features Designed for Africa",
+  sectionTitle = "为非洲而设计的核心功能",
 }) => {
   return (
     <section className="w-full bg-white py-20">
       <div className="w-full px-0">
         {/* Section Title */}
         <div className="text-center mb-16 px-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-brand-green mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             {sectionTitle}
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-sm">
-            Based on the unique geographical environment and usage requirements
-            of the African continent, our motorcycles have been comprehensively
-            optimized for durability, fuel economy and adaptability
+            基于非洲大陆独特的地理环境和使用需求，我们的摩托车在耐用性、燃油经济性和适应性方面进行了全面优化。
           </p>
         </div>
 
@@ -74,7 +72,7 @@ export const FeatureShowcase: React.FC<FeatureShowcaseProps> = ({
                 >
                   <div className="max-w-md">
                     {feature.icon && (
-                      <div className="w-12 h-12 bg-brand-green/10 rounded-full flex items-center justify-center mb-6">
+                      <div className="w-12 h-12 bg-black/5 rounded-full flex items-center justify-center mb-6">
                         <span className="text-2xl">{feature.icon}</span>
                       </div>
                     )}

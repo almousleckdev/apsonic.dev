@@ -42,12 +42,12 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   const variantStyles = isDark
     ? {
         select:
-          "bg-white/10 border-white/20 text-white focus:border-brand-green/50 focus:bg-white/15",
+          "bg-white/10 border-white/20 text-white focus:border-white/50 focus:bg-white/15",
         icon: "text-white/40",
       }
     : {
         select:
-          "bg-gray-50 border-gray-200 text-gray-900 focus:border-brand-green/50 focus:bg-white",
+          "bg-gray-50 border-gray-200 text-gray-900 focus:border-gray-900/50 focus:bg-white",
         icon: "text-gray-400",
       };
 
@@ -58,7 +58,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
         onChange={(e) => onChange(e.target.value as Language)}
         className={cn(
           "w-full appearance-none rounded-full outline-none border transition-all duration-200",
-          "cursor-pointer focus:ring-4 focus:ring-brand-green/20",
+          "cursor-pointer focus:ring-4 focus:ring-gray-900/10",
           "text-center", // Center text for compact labels
           "px-4", // Balanced padding since icon is gone
           sizeClasses[size],

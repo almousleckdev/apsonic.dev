@@ -29,7 +29,7 @@ export const VoicesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="relative rounded-2xl bg-white p-8 border border-gray-100 hover:border-brand-green/30 hover:shadow-xl hover:shadow-gray-200 transition-all group"
+              className="relative rounded-2xl bg-white p-8 border border-gray-100 hover:border-black/10 hover:shadow-xl hover:shadow-gray-200 transition-all group"
             >
               <div className="relative z-10">
                 <p className="text-gray-600 text-lg italic mb-6 leading-relaxed">
@@ -37,7 +37,7 @@ export const VoicesSection = () => {
                 </p>
 
                 <div className="flex items-center gap-4">
-                  <div className="relative h-12 w-12 rounded-full overflow-hidden border-2 border-brand-green/50">
+                  <div className="relative h-12 w-12 rounded-full overflow-hidden border-2 border-black/10">
                     <Image
                       src={story.image}
                       alt={story.name}
@@ -47,7 +47,7 @@ export const VoicesSection = () => {
                   </div>
                   <div>
                     <h4 className="text-gray-900 font-bold">{story.name}</h4>
-                    <span className="text-brand-green text-xs uppercase tracking-wider">
+                    <span className="text-gray-900 text-xs uppercase tracking-wider">
                       {story.role}
                     </span>
                   </div>

@@ -28,15 +28,15 @@ export const NewsSection: React.FC<NewsSectionProps> = ({
       backgroundColor={
         light ? colors.background.white : colors.background.primary
       }
-      className={cn("relative z-10 py-6", className)}
+      padding="none"
+      className={cn("relative z-10", className)}
     >
       <div className="container mx-auto px-4">
         <SectionHeader
           light={light}
-          label="资讯中心"
           title={
             <>
-              信息<span className="text-brand-green">中心</span>
+              信息<span className="text-gray-900">中心</span>
             </>
           }
           description="了解APSONIC最新动态"

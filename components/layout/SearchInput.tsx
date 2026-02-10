@@ -37,15 +37,15 @@ export const SearchInput: React.FC<SearchInputProps> = ({
   const variantStyles = isDark
     ? {
         input:
-          "bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:border-brand-green/50 focus:bg-white/15",
+          "bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:border-white/50 focus:bg-white/15",
         icon: "text-white/40",
-        ring: "ring-brand-green/20",
+        ring: "ring-white/20",
       }
     : {
         input:
-          "bg-gray-50 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-brand-green/50 focus:bg-white",
+          "bg-gray-50 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-gray-900/50 focus:bg-white",
         icon: "text-gray-400",
-        ring: "ring-brand-green/10",
+        ring: "ring-gray-900/10",
       };
 
   return (
@@ -66,7 +66,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({
       <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
         <SearchIcon
           className={cn(
-            "w-4 h-4 transition-colors duration-200 group-focus-within:text-brand-green",
+            "w-4 h-4 transition-colors duration-200 group-focus-within:text-gray-900",
             variantStyles.icon,
           )}
         />

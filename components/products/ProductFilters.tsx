@@ -48,7 +48,7 @@ export const ProductFilters: React.FC<ProductFiltersProps> = ({
         </nav>
 
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
-          <h1 className="text-[40px] font-bold text-brand-green">全系车型</h1>
+          <h1 className="text-[40px] font-bold text-gray-900">全系车型</h1>
 
           <div className="w-full md:w-[320px]">
             <SearchInput
@@ -85,7 +85,7 @@ export const ProductFilters: React.FC<ProductFiltersProps> = ({
                     filters.type === option.value ||
                       (!filters.type && option.value === "")
                       ? "text-gray-900 font-bold"
-                      : "text-gray-500 hover:text-brand-green",
+                      : "text-gray-500 hover:text-black",
                   )}
                 >
                   {option.label === "Unlimited"
@@ -121,8 +121,8 @@ export const ProductFilters: React.FC<ProductFiltersProps> = ({
                     "transition-colors",
                     filters.displacement === option.value ||
                       (!filters.displacement && option.value === 0)
-                      ? "text-gray-900 font-bold underline underline-offset-[6px] decoration-2 decoration-brand-green"
-                      : "text-gray-500 hover:text-brand-green",
+                      ? "text-gray-900 font-bold underline underline-offset-[6px] decoration-2 decoration-gray-900"
+                      : "text-gray-500 hover:text-black",
                   )}
                 >
                   {option.label}
@@ -149,7 +149,7 @@ export const ProductFilters: React.FC<ProductFiltersProps> = ({
                     filters.brand === option.value ||
                       (!filters.brand && option.value === "")
                       ? "text-gray-900 font-bold"
-                      : "text-gray-500 hover:text-brand-green",
+                      : "text-gray-500 hover:text-black",
                   )}
                 >
                   {option.label}

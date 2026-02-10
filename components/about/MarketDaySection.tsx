@@ -147,7 +147,7 @@ export const MarketDaySection = () => {
             >
               <motion.div
                 variants={childVariants}
-                className="inline-flex items-center gap-2 text-brand-green mb-4"
+                className="inline-flex items-center gap-2 text-gray-900 mb-4"
               >
                 <MdWaterDrop className="text-2xl" />
                 <span className="font-bold text-sm uppercase tracking-widest">
@@ -158,7 +158,7 @@ export const MarketDaySection = () => {
                 variants={childVariants}
                 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8"
               >
-                为非洲打井 · <span className="text-brand-green">生命之源</span>
+                为非洲打井 · <span className="text-gray-900">生命之源</span>
               </motion.h2>
 
               <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
@@ -175,14 +175,14 @@ export const MarketDaySection = () => {
                 className="flex items-center gap-6 pt-8 mt-8 border-t border-gray-200"
               >
                 <div className="flex flex-col">
-                  <span className="text-4xl font-bold text-brand-green">
+                  <span className="text-4xl font-bold text-gray-900">
                     <Counter end={50} suffix="+" />
                   </span>
                   <span className="text-gray-600 text-sm mt-1">水井数量</span>
                 </div>
                 <div className="w-px h-12 bg-gray-300" />
                 <div className="flex flex-col">
-                  <span className="text-4xl font-bold text-brand-green">
+                  <span className="text-4xl font-bold text-gray-900">
                     <Counter end={10} suffix="万+" />
                   </span>
                   <span className="text-gray-600 text-sm mt-1">受益居民</span>
@@ -222,7 +222,7 @@ export const MarketDaySection = () => {
             >
               <motion.div
                 variants={childVariants}
-                className="inline-flex items-center gap-2 text-brand-green mb-4"
+                className="inline-flex items-center gap-2 text-gray-900 mb-4"
               >
                 <MdGroups className="text-2xl" />
                 <span className="font-bold text-sm uppercase tracking-widest">
@@ -233,7 +233,7 @@ export const MarketDaySection = () => {
                 variants={childVariants}
                 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8"
               >
-                汇聚希望 · <span className="text-brand-green">滋润生命</span>
+                汇聚希望 · <span className="text-gray-900">滋润生命</span>
               </motion.h2>
 
               <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
@@ -278,7 +278,7 @@ export const MarketDaySection = () => {
             >
               <motion.div
                 variants={childVariants}
-                className="inline-flex items-center gap-2 text-brand-green mb-4"
+                className="inline-flex items-center gap-2 text-gray-900 mb-4"
               >
                 <MdLightbulb className="text-2xl" />
                 <span className="font-bold text-sm uppercase tracking-widest">
@@ -289,7 +289,7 @@ export const MarketDaySection = () => {
                 variants={childVariants}
                 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8"
               >
-                点亮非洲 · <span className="text-brand-green">照亮未来</span>
+                点亮非洲 · <span className="text-gray-900">照亮未来</span>
               </motion.h2>
 
               <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
@@ -306,14 +306,14 @@ export const MarketDaySection = () => {
                 className="flex items-center gap-6 pt-8 mt-8 border-t border-gray-200"
               >
                 <div className="flex flex-col">
-                  <span className="text-4xl font-bold text-brand-green">
+                  <span className="text-4xl font-bold text-gray-900">
                     <Counter end={100} suffix="+" />
                   </span>
                   <span className="text-gray-600 text-sm mt-1">太阳能路灯</span>
                 </div>
                 <div className="w-px h-12 bg-gray-300" />
                 <div className="flex flex-col">
-                  <span className="text-4xl font-bold text-brand-green">
+                  <span className="text-4xl font-bold text-gray-900">
                     <Counter end={30} suffix="+" />
                   </span>
                   <span className="text-gray-600 text-sm mt-1">服务社区</span>

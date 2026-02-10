@@ -63,7 +63,7 @@ export const PhilosophySection: React.FC = () => {
         <ScrollReveal variant="fadeUp">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Apsonic <span className="text-brand-green">理念</span>
+              Apsonic <span className="text-gray-900">理念</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               探索Apsonic的核心价值和品牌理念
@@ -77,7 +77,7 @@ export const PhilosophySection: React.FC = () => {
             <ScrollReveal key={item.id} variant="fadeUp" delay={index * 0.1}>
               <motion.div
                 whileHover={{ y: -8 }}
-                className="group relative h-full rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:border-brand-green/30 transition-all duration-300"
+                className="group relative h-full rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:border-black/10 transition-all duration-300"
               >
                 {item.link ? (
                   <Link href={item.link} className="block h-full">
@@ -91,7 +91,7 @@ export const PhilosophySection: React.FC = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     <div className="p-6">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-brand-green transition-colors">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">
                         {item.title}
                       </h3>
                       <p className="text-sm text-gray-600 leading-relaxed">
@@ -111,7 +111,7 @@ export const PhilosophySection: React.FC = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     <div className="p-6">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-brand-green transition-colors">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">
                         {item.title}
                       </h3>
                       <p className="text-sm text-gray-600 leading-relaxed">

@@ -47,7 +47,7 @@ export const NewsCard: React.FC<NewsCardProps> = ({
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-80 transition-opacity" />
           <div className="absolute bottom-0 left-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-            <span className="text-brand-green text-xs font-bold uppercase tracking-widest mb-2 block">
+            <span className="text-white text-xs font-bold uppercase tracking-widest mb-2 block">
               {item.category}
             </span>
             <h3 className="text-2xl font-bold text-white mb-2 leading-tight">
@@ -67,7 +67,7 @@ export const NewsCard: React.FC<NewsCardProps> = ({
       variants={ANIMATION_VARIANTS.fadeUp}
       transition={{ duration: 1.0, ease: ENTERPRISE_EASE as any }}
       className={cn(
-        "group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-brand-green/30 hover:shadow-2xl hover:shadow-gray-200 transition-all duration-500 hover:-translate-y-2",
+        "group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-black/10 hover:shadow-2xl hover:shadow-gray-200 transition-all duration-500 hover:-translate-y-2",
         className,
       )}
     >
@@ -82,14 +82,14 @@ export const NewsCard: React.FC<NewsCardProps> = ({
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute top-4 left-4 bg-brand-green text-black text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">
+          <div className="absolute top-4 left-4 bg-gray-900 text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">
             {item.category}
           </div>
         </div>
         <div className="p-6 flex flex-col flex-grow">
           {/* Author & Date info */}
           <div className="flex items-center gap-3 mb-4">
-            <div className="relative h-8 w-8 rounded-full overflow-hidden border border-brand-green/30">
+            <div className="relative h-8 w-8 rounded-full overflow-hidden border border-black/10">
               <Image
                 src={item.authorImage || "/images/about-hero.png"}
                 alt={item.authorName || "Author"}
@@ -102,7 +102,7 @@ export const NewsCard: React.FC<NewsCardProps> = ({
                 {item.authorName || "Apsonic新闻"}
               </span>
               <div className="flex items-center gap-1.5 text-gray-400 text-[9px] uppercase tracking-widest leading-none">
-                <MdCalendarToday className="text-brand-green size-2.5" />
+                <MdCalendarToday className="text-gray-900 size-2.5" />
                 {new Date(item.date).toLocaleDateString("en-US", {
                   month: "short",
                   day: "numeric",
@@ -112,13 +112,13 @@ export const NewsCard: React.FC<NewsCardProps> = ({
             </div>
           </div>
 
-          <h3 className="text-xl font-bold leading-tight group-hover:text-brand-green transition-colors line-clamp-2 flex-grow text-gray-900">
+          <h3 className="text-xl font-bold leading-tight group-hover:text-black transition-colors line-clamp-2 flex-grow text-gray-900">
             {item.title}
           </h3>
           <p className="mt-4 text-sm line-clamp-2 leading-relaxed text-gray-600">
             {item.excerpt}
           </p>
-          <div className="mt-6 flex items-center text-brand-green font-bold text-sm group-hover:gap-3 transition-all">
+          <div className="mt-6 flex items-center text-gray-900 font-bold text-sm group-hover:gap-3 transition-all">
             阅读故事 <MdOutlineArrowForward className="ml-2" />
           </div>
         </div>

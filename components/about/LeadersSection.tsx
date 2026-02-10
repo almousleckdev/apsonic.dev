@@ -19,7 +19,7 @@ export const LeadersSection = () => {
             <motion.span
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              className="text-brand-green font-mono text-sm uppercase tracking-widest"
+              className="text-gray-900 font-mono text-sm uppercase tracking-widest"
             >
               领导力
             </motion.span>
@@ -36,11 +36,11 @@ export const LeadersSection = () => {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-              <div className="border-l-2 border-brand-green pl-6">
+              <div className="border-l-2 border-gray-900 pl-6">
                 <h4 className="text-gray-900 font-bold text-xl">全球标准</h4>
                 <p className="text-gray-500 mt-1">ISO 9001认证制造</p>
               </div>
-              <div className="border-l-2 border-brand-green pl-6">
+              <div className="border-l-2 border-gray-900 pl-6">
                 <h4 className="text-gray-900 font-bold text-xl">本地影响</h4>
                 <p className="text-gray-500 mt-1">在10多个国家创造就业</p>
               </div>
@@ -68,7 +68,7 @@ export const LeadersSection = () => {
                 className="absolute inset-0 opacity-10"
                 style={{
                   backgroundImage:
-                    "repeating-linear-gradient(45deg, #1fa84f 0, #1fa84f 1px, transparent 0, transparent 50%)",
+                    "repeating-linear-gradient(45deg, #111827 0, #111827 1px, transparent 0, transparent 50%)",
                   backgroundSize: "10px 10px",
                 }}
               />
@@ -78,7 +78,7 @@ export const LeadersSection = () => {
                   <h3 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-2 tracking-tighter">
                     5M+
                   </h3>
-                  <p className="text-brand-green font-medium tracking-widest uppercase text-sm">
+                  <p className="text-gray-900 font-medium tracking-widest uppercase text-sm">
                     日常通勤
                   </p>
                   <p className="text-gray-600 mt-4 max-w-xs mx-auto text-sm">
@@ -88,8 +88,8 @@ export const LeadersSection = () => {
               </div>
 
               {/* Decorative Circles */}
-              <div className="absolute -top-24 -right-24 w-64 h-64 bg-brand-green/10 rounded-full blur-3xl" />
-              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-brand-green/5 rounded-full blur-3xl" />
+              <div className="absolute -top-24 -right-24 w-64 h-64 bg-black/5 rounded-full blur-3xl" />
+              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-black/5 rounded-full blur-3xl" />
             </motion.div>
           </div>
         </div>

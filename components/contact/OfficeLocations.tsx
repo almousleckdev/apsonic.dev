@@ -111,7 +111,7 @@ export const OfficeLocations = () => {
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
             <div className="max-w-xl">
               <div className="flex items-center gap-4 mb-4">
-                <div className="bg-brand-green/20 p-3 rounded-full text-brand-green text-2xl">
+                <div className="bg-black/5 p-3 rounded-full text-gray-900 text-2xl">
                   <MdPublic />
                 </div>
                 <h3 className="text-3xl font-bold text-gray-900">市场覆盖</h3>
@@ -126,7 +126,7 @@ export const OfficeLocations = () => {
               {coverageCountries.map((c, idx) => (
                 <span
                   key={idx}
-                  className="bg-white hover:bg-brand-green hover:text-white transition-all text-gray-700 px-3 py-1.5 rounded-lg text-xs border border-gray-200 shadow-sm"
+                  className="bg-white hover:bg-gray-900 hover:text-white transition-all text-gray-700 px-3 py-1.5 rounded-lg text-xs border border-gray-200 shadow-sm"
                 >
                   {c.name}
                 </span>
@@ -147,7 +147,7 @@ export const OfficeLocations = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05 }}
-                className="group flex flex-col rounded-2xl bg-white border border-gray-100 overflow-hidden hover:border-brand-green/30 transition-all hover:shadow-xl hover:shadow-gray-200"
+                className="group flex flex-col rounded-2xl bg-white border border-gray-100 overflow-hidden hover:border-black/10 transition-all hover:shadow-xl hover:shadow-gray-200"
               >
                 {/* Map Thumbnail Placeholder or Iframe */}
                 <div className="h-40 w-full bg-gray-100 relative overflow-hidden">
@@ -173,8 +173,8 @@ export const OfficeLocations = () => {
                         }}
                       ></div>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="h-8 w-8 rounded-full bg-brand-green/20 flex items-center justify-center animate-pulse">
-                          <div className="h-3 w-3 rounded-full bg-brand-green shadow-[0_0_10px_rgba(31,168,79,0.8)]" />
+                        <div className="h-8 w-8 rounded-full bg-gray-900/20 flex items-center justify-center animate-pulse">
+                          <div className="h-3 w-3 rounded-full bg-gray-900 shadow-[0_0_10px_rgba(0,0,0,0.4)]" />
                         </div>
                       </div>
                     </>
@@ -192,7 +192,7 @@ export const OfficeLocations = () => {
                       {office.country}
                     </h4>
                   </div>
-                  <span className="text-brand-green text-sm font-medium mb-4 block">
+                  <span className="text-gray-900 text-sm font-medium mb-4 block">
                     {office.city}
                   </span>
 
@@ -203,14 +203,14 @@ export const OfficeLocations = () => {
                   <div className="space-y-2 pt-4 border-t border-gray-100">
                     <a
                       href={`tel:${office.phone}`}
-                      className="flex items-center gap-3 text-xs text-gray-500 hover:text-brand-green transition-colors"
+                      className="flex items-center gap-3 text-xs text-gray-500 hover:text-black transition-colors"
                     >
                       <MdPhone className="text-sm" />
                       <span>{office.phone}</span>
                     </a>
                     <a
                       href={`mailto:${office.email}`}
-                      className="flex items-center gap-3 text-xs text-gray-500 hover:text-brand-green transition-colors"
+                      className="flex items-center gap-3 text-xs text-gray-500 hover:text-black transition-colors"
                     >
                       <MdEmail className="text-sm" />
                       <span>{office.email}</span>
@@ -222,7 +222,7 @@ export const OfficeLocations = () => {
                       href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(office.address + ", " + office.city + ", " + office.country)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full py-2 rounded-lg bg-gray-50 text-xs font-bold text-gray-900 hover:bg-brand-green hover:text-white transition-all flex items-center justify-center gap-2 cursor-pointer"
+                      className="w-full py-2 rounded-lg bg-gray-50 text-xs font-bold text-gray-900 hover:bg-gray-900 hover:text-white transition-all flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <MdLocationOn /> 查看路线
                     </a>

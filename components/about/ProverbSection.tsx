@@ -27,12 +27,12 @@ export const ProverbSection = () => {
           transition={{ duration: 1 }}
           className="max-w-4xl mx-auto"
         >
-          <span className="text-brand-green font-serif italic text-xl mb-6 block">
+          <span className="text-gray-900 font-serif italic text-xl mb-6 block">
             非洲谚语
           </span>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-8">
             "如果你想走得快，一个人走。 <br />
-            <span className="text-brand-green">如果你想走得远，一起走。</span>"
+            <span className="text-gray-900">如果你想走得远，一起走。</span>"
           </h2>
           <div className="w-24 h-1 bg-gray-900 mx-auto opacity-10" />
         </motion.div>

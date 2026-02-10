@@ -25,16 +25,15 @@ export const MissionSection = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h2
-              className="mb-8 font-bold leading-tight tracking-tighter"
+              className="mb-8 font-bold leading-tight tracking-tighter text-4xl lg:text-5xl"
               style={{
-                fontSize: typography.size.h1,
                 color: colors.text.primary,
               }}
             >
               品牌介绍
             </h2>
 
-            <div className="space-y-6 text-lg text-gray-600">
+            <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
               <p>
                 APSONIC品牌诞生于2005年，致力于摩托车及相关配件的研发、销售和售后服务。是德诚控股集团旗下主品牌之一。
               </p>
@@ -68,7 +67,7 @@ export const MissionSection = () => {
         {/* Right Side: Image */}
         <div className="relative h-[50vh] w-full lg:h-auto lg:w-1/2">
           <Image
-            src="/about/abouthero.jpg"
+            src="/images/about/7371770692822_.pic_hd.jpg"
             alt="APSONIC After-Sales Service Network"
             fill
             className="object-cover"

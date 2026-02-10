@@ -35,7 +35,7 @@ export const ServiceHero: React.FC<ServiceHeroProps> = ({ className }) => {
             transition={{ duration: 1, ease: ENTERPRISE_EASE }}
           >
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
-              服务 <span className="text-brand-green">卓越</span>。
+              服务 <span className="text-white">卓越</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-12 font-light max-w-2xl mx-auto">
               获取手册、机械师培训和正品配件支持，为您的车队提供全方位服务。
@@ -50,12 +50,12 @@ export const ServiceHero: React.FC<ServiceHeroProps> = ({ className }) => {
             className="relative max-w-2xl mx-auto mb-8 group"
           >
             <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none z-10">
-              <MdSearch className="h-6 w-6 text-gray-400 group-focus-within:text-brand-green transition-colors" />
+              <MdSearch className="h-6 w-6 text-gray-400 group-focus-within:text-white transition-colors" />
             </div>
             <input
               type="text"
               placeholder="搜索手册、错误代码或维护指南..."
-              className="w-full h-16 pl-8 pr-16 rounded-2xl bg-white/10 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-brand-green/50 focus:ring-4 focus:ring-brand-green/20 transition-all text-lg backdrop-blur-md"
+              className="w-full h-16 pl-8 pr-16 rounded-2xl bg-white/10 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-white/50 focus:ring-4 focus:ring-white/20 transition-all text-lg backdrop-blur-md"
             />
           </motion.div>
         </div>

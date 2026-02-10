@@ -14,8 +14,8 @@ interface RealUsageScenariosProps {
 }
 
 export const RealUsageScenarios: React.FC<RealUsageScenariosProps> = ({
-  title = "Real Usage Scenarios",
-  description = "See how users around Africa use our motorcycles in their daily lives, whether for cargo transport, daily commuting or agriculture work.",
+  title = "真实使用场景",
+  description = "看看非洲各地的用户如何在日常生活中使用我们的摩托车，无论是货物运输、日常通勤还是农业工作。",
   images,
 }) => {
   return (
@@ -29,21 +29,20 @@ export const RealUsageScenarios: React.FC<RealUsageScenariosProps> = ({
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-brand-green mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             {title}
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-sm">
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
             {description}
           </p>
         </motion.div>
 
-        {/* Image Grid - Custom Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* First Row - 3 images */}
-          {images.slice(0, 3).map((image, index) => (
+        {/* Standardized Image Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {images.map((image, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -57,57 +56,6 @@ export const RealUsageScenarios: React.FC<RealUsageScenariosProps> = ({
               />
             </motion.div>
           ))}
-        </div>
-
-        {/* Second Row - 3 images with middle one larger */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-          {/* Left image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow group"
-          >
-            <Image
-              src={images[3].src}
-              alt={images[3].alt}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </motion.div>
-
-          {/* Middle image - larger */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-shadow group md:scale-110 md:z-10"
-          >
-            <Image
-              src={images[4].src}
-              alt={images[4].alt}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </motion.div>
-
-          {/* Right image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow group"
-          >
-            <Image
-              src={images[5].src}
-              alt={images[5].alt}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </motion.div>
         </div>
       </div>
     </section>

@@ -107,11 +107,11 @@ export const DealerNetworkInfographic: React.FC<
                   经销商稳定性高
                 </h3>
                 <div className="mb-3">
-                  <span className="text-7xl md:text-8xl font-bold text-brand-green leading-none">
+                  <span className="text-7xl md:text-8xl font-bold text-gray-900 leading-none">
                     <Counter end={83} suffix="%" />
                   </span>
                 </div>
-                <p className="text-sm md:text-base text-brand-green leading-relaxed">
+                <p className="text-sm md:text-base text-gray-900 leading-relaxed">
                   与德诚合作10年以上的一级代理商占83%
                 </p>
               </div>
@@ -123,28 +123,28 @@ export const DealerNetworkInfographic: React.FC<
                 </h3>
                 <div className="flex items-center gap-4 mb-4">
                   <div className="flex-1 text-center">
-                    <div className="text-6xl md:text-7xl font-bold text-brand-green leading-none mb-2">
+                    <div className="text-6xl md:text-7xl font-bold text-gray-900 leading-none mb-2">
                       <Counter end={125} />
                     </div>
-                    <p className="text-sm md:text-base text-brand-green leading-relaxed">
+                    <p className="text-sm md:text-base text-gray-900 leading-relaxed">
                       一级代理125家
                     </p>
                   </div>
                   <div className="w-px h-20 bg-gray-200"></div>
                   <div className="flex-1 text-center">
-                    <div className="text-6xl md:text-7xl font-bold text-brand-green leading-none mb-2">
+                    <div className="text-6xl md:text-7xl font-bold text-gray-900 leading-none mb-2">
                       <Counter end={4500} />
                     </div>
-                    <p className="text-sm md:text-base text-brand-green leading-relaxed">
+                    <p className="text-sm md:text-base text-gray-900 leading-relaxed">
                       4500多个销售终端
                     </p>
                   </div>
                   <div className="w-px h-20 bg-gray-200"></div>
                   <div className="flex-1 text-center">
-                    <div className="text-6xl md:text-7xl font-bold text-brand-green leading-none mb-2">
+                    <div className="text-6xl md:text-7xl font-bold text-gray-900 leading-none mb-2">
                       <Counter end={90} suffix="%" />
                     </div>
-                    <p className="text-sm md:text-base text-brand-green leading-relaxed">
+                    <p className="text-sm md:text-base text-gray-900 leading-relaxed">
                       网点覆盖率90%以上
                     </p>
                   </div>

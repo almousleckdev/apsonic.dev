@@ -25,7 +25,7 @@ export const ImpactGallerySection = () => {
           />
           <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300" />
           <div className="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-            <span className="text-brand-green text-sm font-bold uppercase tracking-widest">
+            <span className="text-white text-sm font-bold uppercase tracking-widest">
               激情体育
             </span>
             <h3 className="text-xl font-bold text-white mt-2 leading-tight">
@@ -44,7 +44,7 @@ export const ImpactGallerySection = () => {
           />
           <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300" />
           <div className="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-            <span className="text-brand-green text-sm font-bold uppercase tracking-widest">
+            <span className="text-white text-sm font-bold uppercase tracking-widest">
               激情体育
             </span>
             <h3 className="text-2xl font-bold text-white mt-2">
@@ -63,7 +63,7 @@ export const ImpactGallerySection = () => {
           />
           <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300" />
           <div className="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-            <span className="text-brand-green text-sm font-bold uppercase tracking-widest">
+            <span className="text-white text-sm font-bold uppercase tracking-widest">
               激情体育
             </span>
             <h3 className="text-2xl font-bold text-white mt-2">

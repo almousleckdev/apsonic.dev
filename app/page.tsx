@@ -8,23 +8,17 @@ import { NewsSection } from "@/components/news";
 
 export default function Home() {
   return (
-    <main className="relative bg-white">
-      <VideoHero videos={["/videos/hero2.mp4"]} interval={8000} />
+    <main className="relative bg-white space-y-0">
+      <VideoHero
+        videos={["/videos/hero2.mp4", "/videos/723_1770449481.mp4"]}
+        interval={8000}
+      />
 
-      {/* Recommended Models Section */}
-      <section className="py-6">
-        <RecommendedModels />
-      </section>
+      <RecommendedModels className="py-20" />
 
-      {/* Service Support Section */}
-      <section className="py-6">
-        <ServiceSupport />
-      </section>
+      <ServiceSupport className="py-20" />
 
-      {/* News Section */}
-      <section className="py-6">
-        <NewsSection variant="overlay" light={true} />
-      </section>
+      <NewsSection variant="overlay" light={true} className="py-20" />
     </main>
   );
 }

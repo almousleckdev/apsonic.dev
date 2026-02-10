@@ -21,14 +21,14 @@ export const SustainabilitySection = () => {
               light={true}
               align="left"
               label="责任"
-              title="保护我们的土地。"
+              title="保护我们的土地"
               description="非洲不仅仅是我们的市场；它是我们的家园。我们致力于通过设计消耗更少燃料、产生更少排放的发动机来最小化我们的环境足迹，保护我们大陆的多样化生态系统。"
               className="mb-8"
             />
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="mt-1 rounded-full bg-brand-green/10 p-2 text-brand-green">
+                <div className="mt-1 rounded-full bg-black/5 p-2 text-gray-900">
                   <Icons.MdFlashOn className="text-2xl" />
                 </div>
                 <div>
@@ -42,7 +42,7 @@ export const SustainabilitySection = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="mt-1 rounded-full bg-brand-green/10 p-2 text-brand-green">
+                <div className="mt-1 rounded-full bg-black/5 p-2 text-gray-900">
                   <Icons.MdWbSunny className="text-2xl" />
                 </div>
                 <div>

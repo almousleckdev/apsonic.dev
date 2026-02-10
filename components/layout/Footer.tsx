@@ -70,7 +70,7 @@ const FooterLink: React.FC<{
   return (
     <Link
       href={href}
-      className="block transition-colors hover:text-[#1FA84F]"
+      className="block transition-colors hover:text-white"
       style={linkStyle}
     >
       {label}
@@ -160,7 +160,7 @@ export const Footer: React.FC = () => {
                 <Icon
                   size={20}
                   style={{ color: "#E0E0E0" }}
-                  className="transition-colors hover:text-brand-green"
+                  className="transition-colors hover:text-white"
                 />
               </Link>
             ))}

@@ -32,7 +32,7 @@ const SpecCard = ({
     )}
   >
     <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity duration-500">
-      <div className="text-4xl text-brand-green">{icon}</div>
+      <div className="text-4xl text-gray-900">{icon}</div>
     </div>
 
     <div className="relative z-10 flex flex-col h-full justify-between">
@@ -45,7 +45,7 @@ const SpecCard = ({
       <p className="text-gray-600 text-sm">{description}</p>
     </div>
 
-    <div className="absolute inset-0 bg-gradient-to-br from-brand-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    <div className="absolute inset-0 bg-gradient-to-br from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
   </motion.div>
 );
 
@@ -75,7 +75,7 @@ export const EngineeringSection = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
             <div className="absolute bottom-0 left-0 p-8">
-              <div className="mb-2 flex items-center gap-2 text-brand-green">
+              <div className="mb-2 flex items-center gap-2 text-white">
                 <Icons.MdHandyman className="text-xl" />
                 <span className="font-bold uppercase tracking-widest text-xs">
                   精密制造

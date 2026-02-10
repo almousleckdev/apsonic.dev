@@ -78,11 +78,11 @@ export const NearbyStores: React.FC<NearbyStoresProps> = ({
           >
             <div className="flex items-start justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-brand-green/10 flex items-center justify-center group-hover:bg-brand-green/20 transition-colors">
-                  <LocationIcon className="w-5 h-5 text-brand-green" />
+                <div className="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center group-hover:bg-black/10 transition-colors">
+                  <LocationIcon className="w-5 h-5 text-gray-900" />
                 </div>
                 <h4
-                  className="font-bold text-gray-900 group-hover:text-brand-green transition-colors"
+                  className="font-bold text-gray-900 group-hover:text-black transition-colors"
                   style={{
                     fontSize: SERVICE_CONFIG.typography.storeName,
                   }}
@@ -91,7 +91,7 @@ export const NearbyStores: React.FC<NearbyStoresProps> = ({
                 </h4>
               </div>
               {store.distance !== undefined && (
-                <span className="text-[10px] font-bold px-2 py-1 rounded-full bg-brand-green/10 text-brand-green uppercase tracking-wider">
+                <span className="text-[10px] font-bold px-2 py-1 rounded-full bg-black/5 text-gray-900 uppercase tracking-wider">
                   {formatDistance(store.distance)}
                 </span>
               )}
@@ -116,7 +116,7 @@ export const NearbyStores: React.FC<NearbyStoresProps> = ({
                 href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(store.address)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-8 px-3 text-xs w-full mt-2 uppercase tracking-wider text-white bg-brand-green hover:bg-[#1B8F45] hover:scale-[1.02] active:scale-[0.98] rounded-md shadow-sm"
+                className="inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-8 px-3 text-xs w-full mt-2 uppercase tracking-wider text-white bg-gray-900 hover:bg-black hover:scale-[1.02] active:scale-[0.98] rounded-md shadow-sm"
               >
                 <LocationIcon className="w-3.5 h-3.5 mr-2" />
                 开始导航

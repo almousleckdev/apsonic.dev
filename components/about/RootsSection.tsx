@@ -59,7 +59,7 @@ export const RootsSection = () => {
                 hidden: { opacity: 0, scaleX: 0 },
                 visible: { opacity: 1, scaleX: 1 },
               }}
-              className="h-1 w-20 bg-brand-green mb-8 origin-left"
+              className="h-1 w-20 bg-gray-900 mb-8 origin-left"
             />
 
             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
@@ -130,7 +130,7 @@ export const RootsSection = () => {
                 hidden: { opacity: 0, scaleX: 0 },
                 visible: { opacity: 1, scaleX: 1 },
               }}
-              className="h-1 w-20 bg-brand-green mb-8 origin-left"
+              className="h-1 w-20 bg-gray-900 mb-8 origin-left"
             />
 
             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">

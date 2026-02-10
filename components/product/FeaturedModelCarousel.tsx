@@ -55,7 +55,7 @@ export const FeaturedModelCarousel: React.FC<FeaturedModelCarouselProps> = ({
     >
       {/* Section Title */}
       <div className="text-center mb-4">
-        <span className="inline-block px-4 py-1 rounded-full border border-[#1FA84F] text-[#1FA84F] text-lg font-medium tracking-wide">
+        <span className="inline-block px-4 py-1 rounded-full border border-gray-900 text-gray-900 text-lg font-medium tracking-wide">
           车型推荐
         </span>
       </div>

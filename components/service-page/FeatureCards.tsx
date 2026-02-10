@@ -52,7 +52,7 @@ export const FeatureCards: React.FC<FeatureCardsProps> = ({
                 {/* Image Section - Top Centered & Compact */}
                 <div
                   className={cn(
-                    "relative w-full h-[320px] mb-8 flex items-center justify-center overflow-visible border border-gray-100 rounded-2xl group-hover:border-brand-green/20 transition-colors duration-300",
+                    "relative w-full h-[320px] mb-8 flex items-center justify-center overflow-visible border border-gray-100 rounded-2xl group-hover:border-black/10 transition-colors duration-300",
                     card.id === "parts-tricycles" ? "p-0" : "p-6",
                   )}
                 >
@@ -76,7 +76,7 @@ export const FeatureCards: React.FC<FeatureCardsProps> = ({
 
                 {/* Content Section */}
                 <div className="flex flex-col items-center mt-auto">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-1 tracking-tight group-hover:text-brand-green transition-colors">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-1 tracking-tight group-hover:text-black transition-colors">
                     {card.title}
                   </h3>
                   {card.subtitle && (
@@ -89,7 +89,7 @@ export const FeatureCards: React.FC<FeatureCardsProps> = ({
                   </p>
 
                   {/* Attractive Click Indicator */}
-                  <div className="inline-flex items-center gap-2 text-brand-green font-bold text-sm opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                  <div className="inline-flex items-center gap-2 text-gray-900 font-bold text-sm opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all duration-300">
                     <span>{card.ctaText}</span>
                     <MdArrowForward className="text-lg" />
                   </div>

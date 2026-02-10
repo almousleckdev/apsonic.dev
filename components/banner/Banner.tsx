@@ -190,7 +190,7 @@ export const Banner: React.FC<BannerProps> = ({
 
             {currentItem.subtitle && (
               <h2
-                className="font-semibold mb-4 uppercase tracking-[0.2em] text-brand-green"
+                className="font-semibold mb-4 uppercase tracking-[0.2em] text-white"
                 style={{
                   fontSize: "1.25rem",
                   textShadow: "0 2px 20px rgba(0,0,0,0.4)",
@@ -217,7 +217,7 @@ export const Banner: React.FC<BannerProps> = ({
               <div className="banner-btn">
                 <Link
                   href={currentItem.link}
-                  className="inline-flex items-center px-8 py-4 bg-brand-green text-white font-bold rounded-full transition-transform hover:scale-105 active:scale-95 shadow-xl shadow-brand-green/20"
+                  className="inline-flex items-center px-8 py-4 bg-white text-black font-bold rounded-full transition-transform hover:scale-105 active:scale-95 shadow-xl shadow-white/20"
                 >
                   了解更多
                 </Link>
