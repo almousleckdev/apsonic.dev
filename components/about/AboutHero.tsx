@@ -65,9 +65,13 @@ export const AboutHero = () => {
           className="mt-12"
         >
           <Button
-            variant="primary"
             size="lg"
-            className="rounded-full px-8 backdrop-blur-sm"
+            className="rounded-full px-8 backdrop-blur-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
+            style={{
+              backgroundColor: "#EAB308", // deep yellow
+              color: colors.text.primary, // Previous dark/deep button color
+              border: "none",
+            }}
             onClick={() => {
               const element = document.getElementById("story");
               if (element) {

@@ -16,8 +16,8 @@ export const VoicesSection = () => {
       <div className="container mx-auto px-4">
         <SectionHeader
           light={true}
-          label="社区"
-          title="大陆的声音。"
+          label={<span style={{ color: colors.brand.green }}>社区</span>}
+          title="大陆的声音"
           highlightWord="大陆"
         />
 

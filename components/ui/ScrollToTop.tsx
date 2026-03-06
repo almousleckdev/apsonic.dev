@@ -1,16 +1,26 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import { HiArrowUp } from 'react-icons/hi2';
-import { motion, AnimatePresence } from 'framer-motion';
-import { colors } from '@/lib/design-tokens';
-import { cn } from '@/lib/utils';
+import React, { useState, useEffect } from "react";
+import { HiArrowUp } from "react-icons/hi2";
+import { motion, AnimatePresence } from "framer-motion";
+import { colors } from "@/lib/design-tokens";
+import { cn } from "@/lib/utils";
 
 // Type-safe Motion wrapper for production builds
 const MotionButton = motion.button as React.ComponentType<
   React.ComponentProps<typeof motion.button> & {
-    initial?: { opacity?: number; scale?: number; y?: number; [key: string]: any };
-    animate?: { opacity?: number; scale?: number; y?: number; [key: string]: any };
+    initial?: {
+      opacity?: number;
+      scale?: number;
+      y?: number;
+      [key: string]: any;
+    };
+    animate?: {
+      opacity?: number;
+      scale?: number;
+      y?: number;
+      [key: string]: any;
+    };
     exit?: { opacity?: number; scale?: number; y?: number; [key: string]: any };
     whileHover?: { scale?: number; [key: string]: any };
     whileTap?: { scale?: number; [key: string]: any };
@@ -34,14 +44,14 @@ export const ScrollToTop: React.FC = () => {
       }
     };
 
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -56,15 +66,15 @@ export const ScrollToTop: React.FC = () => {
           whileTap={{ scale: 0.95 }}
           onClick={scrollToTop}
           className={cn(
-            'fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[60]', // Increased z-index and padding
-            'p-3.5 md:p-4 rounded-full shadow-2xl',
-            'transition-shadow duration-300',
-            'flex items-center justify-center'
+            "fixed bottom-20 right-6 md:bottom-10 md:right-10 z-[60]", // Increased bottom offset on mobile
+            "p-3.5 md:p-4 rounded-full shadow-2xl",
+            "transition-shadow duration-300",
+            "flex items-center justify-center",
           )}
           style={{
             backgroundColor: colors.service.brandGreen,
             color: colors.background.white,
-            boxShadow: '0 8px 30px rgba(31, 168, 79, 0.4)', // Stronger shadow
+            boxShadow: "0 8px 30px rgba(31, 168, 79, 0.4)", // Stronger shadow
           }}
           aria-label="Scroll to top"
         >
@@ -74,4 +84,3 @@ export const ScrollToTop: React.FC = () => {
     </AnimatePresence>
   );
 };
-

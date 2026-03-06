@@ -147,7 +147,8 @@ export const MarketDaySection = () => {
             >
               <motion.div
                 variants={childVariants}
-                className="inline-flex items-center gap-2 text-gray-900 mb-4"
+                className="inline-flex items-center gap-2 mb-4"
+                style={{ color: colors.brand.green }}
               >
                 <MdWaterDrop className="text-2xl" />
                 <span className="font-bold text-sm uppercase tracking-widest">
@@ -175,14 +176,20 @@ export const MarketDaySection = () => {
                 className="flex items-center gap-6 pt-8 mt-8 border-t border-gray-200"
               >
                 <div className="flex flex-col">
-                  <span className="text-4xl font-bold text-gray-900">
+                  <span
+                    className="text-4xl font-bold"
+                    style={{ color: colors.brand.green }}
+                  >
                     <Counter end={50} suffix="+" />
                   </span>
                   <span className="text-gray-600 text-sm mt-1">水井数量</span>
                 </div>
                 <div className="w-px h-12 bg-gray-300" />
                 <div className="flex flex-col">
-                  <span className="text-4xl font-bold text-gray-900">
+                  <span
+                    className="text-4xl font-bold"
+                    style={{ color: colors.brand.green }}
+                  >
                     <Counter end={10} suffix="万+" />
                   </span>
                   <span className="text-gray-600 text-sm mt-1">受益居民</span>
@@ -222,7 +229,8 @@ export const MarketDaySection = () => {
             >
               <motion.div
                 variants={childVariants}
-                className="inline-flex items-center gap-2 text-gray-900 mb-4"
+                className="inline-flex items-center gap-2 mb-4"
+                style={{ color: colors.brand.green }}
               >
                 <MdGroups className="text-2xl" />
                 <span className="font-bold text-sm uppercase tracking-widest">
@@ -278,7 +286,8 @@ export const MarketDaySection = () => {
             >
               <motion.div
                 variants={childVariants}
-                className="inline-flex items-center gap-2 text-gray-900 mb-4"
+                className="inline-flex items-center gap-2 mb-4"
+                style={{ color: colors.brand.green }}
               >
                 <MdLightbulb className="text-2xl" />
                 <span className="font-bold text-sm uppercase tracking-widest">
@@ -306,14 +315,20 @@ export const MarketDaySection = () => {
                 className="flex items-center gap-6 pt-8 mt-8 border-t border-gray-200"
               >
                 <div className="flex flex-col">
-                  <span className="text-4xl font-bold text-gray-900">
+                  <span
+                    className="text-4xl font-bold"
+                    style={{ color: colors.brand.green }}
+                  >
                     <Counter end={100} suffix="+" />
                   </span>
                   <span className="text-gray-600 text-sm mt-1">太阳能路灯</span>
                 </div>
                 <div className="w-px h-12 bg-gray-300" />
                 <div className="flex flex-col">
-                  <span className="text-4xl font-bold text-gray-900">
+                  <span
+                    className="text-4xl font-bold"
+                    style={{ color: colors.brand.green }}
+                  >
                     <Counter end={30} suffix="+" />
                   </span>
                   <span className="text-gray-600 text-sm mt-1">服务社区</span>

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface SectionHeaderProps {
-  label?: string;
+  label?: string | React.ReactNode;
   title: string | React.ReactNode;
   description?: string;
   highlightWord?: string;

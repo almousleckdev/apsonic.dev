@@ -91,7 +91,7 @@ export const FeaturedModelCarousel: React.FC<FeaturedModelCarouselProps> = ({
         {/* Animated Image Container */}
         <div className="relative flex-1 max-w-[900px] mx-auto aspect-[16/9] md:aspect-[2/1] flex items-center justify-center">
           {/* Background - Static */}
-          <div className="absolute inset-0 z-0 flex items-center justify-center overflow-visible">
+          <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
             <div className="relative w-full h-full -translate-y-10 scale-[1.3]">
               <Image
                 src="/images/brand/ALOBA底图 (1).png"

@@ -128,7 +128,7 @@ export const Footer: React.FC = () => {
       }}
     >
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pl-8 sm:pl-12 lg:pl-20 py-12 lg:py-16">
         {/* Top Section - Brand and Columns */}
         <div className="mb-8 pb-8 border-b border-white/10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
@@ -146,8 +146,8 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Section - Social Media and Copyright */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          {/* Social Media Icons */}
-          <div className="flex items-center gap-4">
+          {/* Social Media Icons - Now on the left */}
+          <div className="flex items-center gap-4 order-1 sm:order-1">
             {SOCIAL_ICONS.map(({ name, Icon, href }) => (
               <Link
                 key={name}
@@ -166,8 +166,11 @@ export const Footer: React.FC = () => {
             ))}
           </div>
 
-          {/* Copyright */}
-          <div className="text-sm" style={{ color: "#808080" }}>
+          {/* Copyright - Now on the right with padding to avoid scroll button */}
+          <div
+            className="text-sm order-2 sm:order-2 sm:pr-24"
+            style={{ color: "#808080" }}
+          >
             APSONIC.Africa
           </div>
         </div>

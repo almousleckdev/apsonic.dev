@@ -151,64 +151,64 @@ export const Header: React.FC = () => {
             onClick={handleMobileMenuToggle}
           />
         </div>
-
-        {/* Mobile Menu Overlay */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <MotionDiv
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="md:hidden fixed inset-0 top-20 z-40 overflow-y-auto"
-              style={{ backgroundColor: "#058B4F" }}
-            >
-              <nav className="container mx-auto px-4 py-8 flex flex-col gap-8">
-                <Navigation
-                  items={NAV_ITEMS}
-                  className="flex-col items-start gap-6"
-                  onItemClick={handleMobileMenuClose}
-                />
-
-                <div className="flex flex-col gap-6 pt-6 border-t border-white/10">
-                  <div className="space-y-2">
-                    <span className="text-[10px] text-white/60 uppercase tracking-widest font-medium">
-                      搜索车型
-                    </span>
-                    <SearchInput
-                      className="w-full"
-                      variant="dark"
-                      size="md"
-                      placeholder=""
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <span className="text-[10px] text-white/60 uppercase tracking-widest font-medium">
-                      语言设置
-                    </span>
-                    <LanguageSelector
-                      value={language}
-                      onChange={setLanguage}
-                      variant="dark"
-                      size="md"
-                      options={[
-                        { value: "zh", label: "中" },
-                        { value: "fr", label: "Fr" },
-                        { value: "en", label: "En" },
-                      ]}
-                    />
-                  </div>
-                </div>
-
-                <div className="mt-auto pt-12 pb-8">
-                  <Logo showTagline={false} size="sm" className="opacity-30" />
-                </div>
-              </nav>
-            </MotionDiv>
-          )}
-        </AnimatePresence>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <MotionDiv
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden fixed inset-0 top-20 z-40 overflow-y-auto"
+            style={{ backgroundColor: "#058B4F" }}
+          >
+            <nav className="container mx-auto px-4 py-8 flex flex-col gap-8">
+              <Navigation
+                items={NAV_ITEMS}
+                className="flex-col items-start gap-6"
+                onItemClick={handleMobileMenuClose}
+              />
+
+              <div className="flex flex-col gap-6 pt-6 border-t border-white/10">
+                <div className="space-y-2">
+                  <span className="text-[10px] text-white/60 uppercase tracking-widest font-medium">
+                    搜索车型
+                  </span>
+                  <SearchInput
+                    className="w-full"
+                    variant="dark"
+                    size="md"
+                    placeholder=""
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <span className="text-[10px] text-white/60 uppercase tracking-widest font-medium">
+                    语言设置
+                  </span>
+                  <LanguageSelector
+                    value={language}
+                    onChange={setLanguage}
+                    variant="dark"
+                    size="md"
+                    options={[
+                      { value: "zh", label: "中" },
+                      { value: "fr", label: "Fr" },
+                      { value: "en", label: "En" },
+                    ]}
+                  />
+                </div>
+              </div>
+
+              <div className="mt-auto pt-12 pb-8">
+                <Logo showTagline={false} size="sm" className="opacity-30" />
+              </div>
+            </nav>
+          </MotionDiv>
+        )}
+      </AnimatePresence>
     </MotionHeader>
   );
 };

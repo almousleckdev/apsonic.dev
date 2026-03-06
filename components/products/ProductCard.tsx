@@ -20,6 +20,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   brand,
   className,
 }) => {
+  const isTricycle = category.slug.toLowerCase().includes("tricycle");
+
   return (
     <Link
       href={buildProductUrl(category, brand)}
@@ -43,18 +45,22 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         {category.name}
       </h4>
 
-      <div className="relative w-[240px] h-[130px] overflow-hidden rounded-md">
-        <Image
-          src={category.image}
-          alt={category.name}
-          fill
-          className={cn(
-            "object-contain",
-            effects.transition.default,
-            "group-hover:scale-105",
-          )}
-          sizes="240px"
-        />
+      <div className="relative w-[200px] h-[95px] rounded-md overflow-hidden flex items-end justify-center">
+        <div
+          className="relative w-full h-full transform transition-all duration-500 group-hover:scale-110"
+          style={{
+            transform: isTricycle ? "scale(1.35)" : "scale(1)",
+            transformOrigin: "bottom center",
+          }}
+        >
+          <Image
+            src={category.image}
+            alt={category.name}
+            fill
+            className="object-contain object-bottom"
+            sizes="200px"
+          />
+        </div>
       </div>
     </Link>
   );

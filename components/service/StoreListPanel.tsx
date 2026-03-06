@@ -134,7 +134,10 @@ export const StoreListPanel: React.FC<StoreListPanelProps> = ({
           >
             <LocationIcon
               size={28}
-              style={{ color: colors.text.primary, marginRight: "10px" }}
+              style={{
+                color: isDark ? "#FFFFFF" : colors.text.primary,
+                marginRight: "10px",
+              }}
             />
             <h3
               className="font-bold"

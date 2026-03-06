@@ -141,7 +141,7 @@ export default function AboutPage() {
         amount={0.1}
         once={false}
       >
-        <NewsSection variant="overlay" light={true} />
+        <NewsSection variant="overlay" light={true} className="py-20" />
       </ScrollReveal>
     </main>
   );

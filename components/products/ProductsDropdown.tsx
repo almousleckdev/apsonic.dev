@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import React, { useState, useCallback, useMemo } from 'react';
-import type { Brand } from '@/lib/types/products';
-import { getDropdownConfig, getCategoriesByBrand } from '@/lib/data/products';
-import { colors } from '@/lib/design-tokens';
-import { LAYOUT } from '@/lib/constants';
-import { BrandList } from './BrandList';
-import { ProductCard } from './ProductCard';
+import React, { useState, useCallback, useMemo } from "react";
+import type { Brand } from "@/lib/types/products";
+import { getDropdownConfig, getCategoriesByBrand } from "@/lib/data/products";
+import { colors } from "@/lib/design-tokens";
+import { LAYOUT } from "@/lib/constants";
+import { BrandList } from "./BrandList";
+import { ProductCard } from "./ProductCard";
 
 interface ProductsDropdownProps {
   onMouseEnter?: () => void;
@@ -21,15 +21,26 @@ export const ProductsDropdown: React.FC<ProductsDropdownProps> = ({
   className,
 }) => {
   const config = getDropdownConfig();
-  const [selectedBrandId, setSelectedBrandId] = useState<string>(config.brands[0]?.id || '');
+  const [selectedBrandId, setSelectedBrandId] = useState<string>(
+    config.brands[0]?.id || "",
+  );
 
-  const currentCategories = useMemo(() => getCategoriesByBrand(selectedBrandId), [selectedBrandId]);
-  const selectedBrand = useMemo(() => config.brands.find(b => b.id === selectedBrandId), [config.brands, selectedBrandId]);
-  const handleBrandHover = useCallback((brand: Brand) => setSelectedBrandId(brand.id), []);
+  const currentCategories = useMemo(
+    () => getCategoriesByBrand(selectedBrandId),
+    [selectedBrandId],
+  );
+  const selectedBrand = useMemo(
+    () => config.brands.find((b) => b.id === selectedBrandId),
+    [config.brands, selectedBrandId],
+  );
+  const handleBrandHover = useCallback(
+    (brand: Brand) => setSelectedBrandId(brand.id),
+    [],
+  );
 
   return (
     <div
-      className={`fixed left-0 right-0 shadow-lg z-50 ${className || ''}`}
+      className={`fixed left-0 right-0 shadow-lg z-50 ${className || ""}`}
       style={{
         backgroundColor: colors.background.light,
         borderTop: `1px solid ${colors.ui.border}`,
@@ -41,7 +52,10 @@ export const ProductsDropdown: React.FC<ProductsDropdownProps> = ({
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex gap-6">
           {/* Brand Selection */}
-          <div className="w-40 flex-shrink-0 border-r pr-4" style={{ borderColor: 'rgba(0,0,0,0.08)' }}>
+          <div
+            className="w-40 flex-shrink-0 border-r pr-4"
+            style={{ borderColor: "rgba(0,0,0,0.08)" }}
+          >
             <BrandList
               brands={config.brands}
               selectedBrandId={selectedBrandId}
@@ -50,10 +64,14 @@ export const ProductsDropdown: React.FC<ProductsDropdownProps> = ({
           </div>
 
           {/* Product Categories */}
-          <div className="flex-1 overflow-x-auto">
-            <div className="flex gap-5 items-start">
+          <div className="flex-1 overflow-hidden">
+            <div className="flex gap-4 items-end">
               {currentCategories.map((category) => (
-                <ProductCard key={category.id} category={category} brand={selectedBrand} />
+                <ProductCard
+                  key={category.id}
+                  category={category}
+                  brand={selectedBrand}
+                />
               ))}
             </div>
           </div>
