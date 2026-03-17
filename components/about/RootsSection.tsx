@@ -11,7 +11,7 @@ export const RootsSection = () => {
     <Section
       backgroundColor={colors.background.white}
       padding="none"
-      className="relative overflow-hidden shadow-lg"
+      className="relative overflow-hidden "
     >
       <div className="flex flex-col lg:flex-row min-h-[80vh]">
         {/* Left Side: Image */}

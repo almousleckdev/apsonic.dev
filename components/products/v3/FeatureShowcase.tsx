@@ -20,7 +20,7 @@ export const FeatureShowcase: React.FC<FeatureShowcaseProps> = ({
   sectionTitle = "为非洲而设计的核心功能",
 }) => {
   return (
-    <section className="w-full bg-white py-20">
+    <section className="w-full bg-gray-50 py-20">
       <div className="w-full px-0">
         {/* Section Title */}
         <div className="text-center mb-16 px-10">
@@ -66,7 +66,7 @@ export const FeatureShowcase: React.FC<FeatureShowcaseProps> = ({
 
                 {/* Text Side */}
                 <div
-                  className={`flex items-center justify-center p-12 md:p-16 bg-white ${
+                  className={`flex items-center justify-center p-12 md:p-16 bg-transparent ${
                     isEven ? "md:order-2" : "md:order-1"
                   }`}
                 >

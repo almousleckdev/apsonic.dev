@@ -5,62 +5,52 @@ import Link from "next/link";
 import Image from "next/image";
 import type { ProductCategory, Brand } from "@/lib/types/products";
 import { buildProductUrl } from "@/lib/data/products";
-import { colors, effects } from "@/lib/design-tokens";
 import { cn } from "@/lib/utils";
 
 interface ProductCardProps {
   category: ProductCategory;
   brand?: Brand;
   className?: string;
+  isFirst?: boolean;
 }
 
-// Product category card with image
+/**
+ * ProductCard - Matches the original design screenshot.
+ * Vertical separator on the left.
+ * Decorative bar next to the title.
+ */
 export const ProductCard: React.FC<ProductCardProps> = ({
   category,
   brand,
   className,
+  isFirst = false,
 }) => {
-  const isTricycle = category.slug.toLowerCase().includes("tricycle");
-
   return (
     <Link
       href={buildProductUrl(category, brand)}
       className={cn(
-        "group flex flex-col items-center cursor-pointer",
-        effects.transition.default,
-        "hover:scale-102",
+        "group relative flex flex-col items-start gap-2 cursor-pointer pl-6",
+        !isFirst && "border-l border-gray-100/80",
         className,
       )}
     >
-      <h4
-        className={cn(
-          "font-medium text-center mb-1 text-sm",
-          effects.transition.colors,
-          "group-hover:text-[#1FA84F]",
-        )}
-        style={{
-          color: colors.text.gray.medium,
-        }}
-      >
-        {category.name}
-      </h4>
+      {/* Title Section with decorative bar */}
+      <div className="flex items-center gap-2">
+        <span className="text-[12px] font-medium text-gray-500 tracking-wide group-hover:text-[#1FA84F] transition-colors duration-200">
+          {category.name}
+        </span>
+        <div className="w-12 h-[2px] bg-gray-100 transition-colors duration-200 group-hover:bg-[#1FA84F]/20" />
+      </div>
 
-      <div className="relative w-[200px] h-[95px] rounded-md overflow-hidden flex items-end justify-center">
-        <div
-          className="relative w-full h-full transform transition-all duration-500 group-hover:scale-110"
-          style={{
-            transform: isTricycle ? "scale(1.35)" : "scale(1)",
-            transformOrigin: "bottom center",
-          }}
-        >
-          <Image
-            src={category.image}
-            alt={category.name}
-            fill
-            className="object-contain object-bottom"
-            sizes="200px"
-          />
-        </div>
+      {/* Shared fixed-size image box */}
+      <div className="relative w-full h-[90px]">
+        <Image
+          src={category.image}
+          alt={category.name}
+          fill
+          className="object-contain object-bottom transition-transform duration-500 ease-out group-hover:scale-105"
+          sizes="220px"
+        />
       </div>
     </Link>
   );

@@ -67,7 +67,6 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
         <>
           {/* 视觉展示组件 - Enhanced animation */}
           <ScrollReveal
-            as="div"
             variant="fadeUp"
             amount={0.15}
             duration={0.9}
@@ -82,7 +81,6 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
           </ScrollReveal>
 
           <ScrollReveal
-            as="div"
             variant="fadeUp"
             amount={0.15}
             duration={0.9}
@@ -96,7 +94,6 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
           </ScrollReveal>
 
           <ScrollReveal
-            as="div"
             variant="fadeUp"
             amount={0.15}
             duration={0.9}
@@ -113,7 +110,6 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
           </ScrollReveal>
 
           <ScrollReveal
-            as="div"
             variant="fadeUp"
             amount={0.15}
             duration={0.9}
@@ -129,7 +125,6 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
 
           {/* 颜色展示 */}
           <ScrollReveal
-            as="div"
             variant="fadeUp"
             amount={0.15}
             duration={0.9}
@@ -161,7 +156,6 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
 
           {/* 技术规格 */}
           <ScrollReveal
-            as="div"
             variant="fadeUp"
             amount={0.15}
             duration={0.9}

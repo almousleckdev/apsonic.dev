@@ -13,11 +13,11 @@ export const MissionSection = () => {
       id="story"
       backgroundColor={colors.background.white}
       padding="none"
-      className="relative overflow-hidden shadow-lg"
+      className="relative overflow-hidden "
     >
-      <div className="flex flex-col lg:flex-row h-full min-h-[80vh]">
-        {/* Left Side: Sticky Content */}
-        <div className="flex w-full flex-col justify-center p-8 lg:w-1/2 lg:p-24">
+      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh]">
+        {/* Left Side: Text Content */}
+        <div className="flex w-full flex-col justify-center p-8 lg:p-24 xl:pr-32 bg-white">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -65,15 +65,15 @@ export const MissionSection = () => {
         </div>
 
         {/* Right Side: Image */}
-        <div className="relative h-[50vh] w-full lg:h-auto lg:w-1/2">
+        <div className="relative h-[50vh] lg:h-auto w-full">
           <Image
-            src="/images/about/7371770692822_.pic_hd.jpg"
+            src="/images/about/WechatIMG799.jpg"
             alt="APSONIC After-Sales Service Network"
             fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover object-center"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-white/80 lg:bg-gradient-to-r lg:from-white/40 lg:via-transparent lg:to-transparent opacity-90" />
         </div>
       </div>
     </Section>

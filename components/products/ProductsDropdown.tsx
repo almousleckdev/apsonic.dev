@@ -3,7 +3,6 @@
 import React, { useState, useCallback, useMemo } from "react";
 import type { Brand } from "@/lib/types/products";
 import { getDropdownConfig, getCategoriesByBrand } from "@/lib/data/products";
-import { colors } from "@/lib/design-tokens";
 import { LAYOUT } from "@/lib/constants";
 import { BrandList } from "./BrandList";
 import { ProductCard } from "./ProductCard";
@@ -14,7 +13,10 @@ interface ProductsDropdownProps {
   className?: string;
 }
 
-// Products dropdown - displays brands on left, product categories on right
+/**
+ * ProductsDropdown - Restored to match the original design layout.
+ * Clean sidebar on left, category cards with separators on right.
+ */
 export const ProductsDropdown: React.FC<ProductsDropdownProps> = ({
   onMouseEnter,
   onMouseLeave,
@@ -40,22 +42,18 @@ export const ProductsDropdown: React.FC<ProductsDropdownProps> = ({
 
   return (
     <div
-      className={`fixed left-0 right-0 shadow-lg z-50 ${className || ""}`}
+      className={`fixed left-0 right-0 bg-white shadow-lg z-50 transition-all duration-300 ${className || ""}`}
       style={{
-        backgroundColor: colors.background.light,
-        borderTop: `1px solid ${colors.ui.border}`,
+        borderTop: "1px solid rgba(0,0,0,0.05)",
         top: `${LAYOUT.dropdownTopOffset}px`,
       }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="flex gap-6">
-          {/* Brand Selection */}
-          <div
-            className="w-40 flex-shrink-0 border-r pr-4"
-            style={{ borderColor: "rgba(0,0,0,0.08)" }}
-          >
+      <div className="max-w-[1360px] mx-auto">
+        <div className="flex">
+          {/* Sidebar Section */}
+          <div className="w-[240px] pt-4 pb-5 pr-10 border-r border-gray-100/60">
             <BrandList
               brands={config.brands}
               selectedBrandId={selectedBrandId}
@@ -63,17 +61,17 @@ export const ProductsDropdown: React.FC<ProductsDropdownProps> = ({
             />
           </div>
 
-          {/* Product Categories */}
-          <div className="flex-1 overflow-hidden">
-            <div className="flex gap-4 items-end">
-              {currentCategories.map((category) => (
-                <ProductCard
-                  key={category.id}
-                  category={category}
-                  brand={selectedBrand}
-                />
-              ))}
-            </div>
+          {/* Categories Section */}
+          <div className="flex-1 pt-4 pb-5 flex">
+            {currentCategories.map((category, index) => (
+              <ProductCard
+                key={category.id}
+                category={category}
+                brand={selectedBrand}
+                isFirst={index === 0}
+                className="flex-1"
+              />
+            ))}
           </div>
         </div>
       </div>

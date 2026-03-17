@@ -29,7 +29,7 @@ export default function AboutPage() {
         delay={0.2}
         duration={0.9}
         amount={0.1}
-        once={false}
+        once={true}
       >
         <MissionSection />
       </ScrollReveal>
@@ -43,7 +43,7 @@ export default function AboutPage() {
         delay={0.25}
         duration={0.9}
         amount={0.1}
-        once={false}
+        once={true}
       >
         <RootsSection />
       </ScrollReveal>
@@ -53,7 +53,7 @@ export default function AboutPage() {
         delay={0.3}
         duration={0.9}
         amount={0.1}
-        once={false}
+        once={true}
       >
         <VideoShowcaseSection />
       </ScrollReveal>
@@ -63,7 +63,7 @@ export default function AboutPage() {
         delay={0.25}
         duration={0.9}
         amount={0.1}
-        once={false}
+        once={true}
       >
         <ImpactGallerySection />
       </ScrollReveal>
@@ -81,7 +81,7 @@ export default function AboutPage() {
         delay={0.2}
         duration={0.9}
         amount={0.1}
-        once={false}
+        once={true}
       >
         <MarketDaySection />
       </ScrollReveal>
@@ -91,7 +91,7 @@ export default function AboutPage() {
         delay={0.3}
         duration={0.9}
         amount={0.1}
-        once={false}
+        once={true}
       >
         <TimelineSection />
       </ScrollReveal> */}
@@ -105,7 +105,7 @@ export default function AboutPage() {
         delay={0.25}
         duration={0.9}
         amount={0.1}
-        once={false}
+        once={true}
       >
         <CoreValuesSection />
       </ScrollReveal> */}
@@ -119,7 +119,7 @@ export default function AboutPage() {
         delay={0.25}
         duration={0.9}
         amount={0.1}
-        once={false}
+        once={true}
       >
         <VoicesSection />
       </ScrollReveal>
@@ -129,7 +129,7 @@ export default function AboutPage() {
         delay={0.2}
         duration={0.9}
         amount={0.1}
-        once={false}
+        once={true}
       >
         <ProverbSection />
       </ScrollReveal> */}
@@ -139,7 +139,7 @@ export default function AboutPage() {
         delay={0.25}
         duration={0.9}
         amount={0.1}
-        once={false}
+        once={true}
       >
         <NewsSection variant="overlay" light={true} className="py-20" />
       </ScrollReveal>

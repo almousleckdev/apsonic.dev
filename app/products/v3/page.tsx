@@ -23,7 +23,7 @@ export default function ProductDetailPageV3() {
   };
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-gray-50">
       <VideoHero
         title={heroData.title}
         subtitle={heroData.subtitle}

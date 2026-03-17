@@ -23,12 +23,18 @@ export interface ScrollRevealProps {
   duration?: number;
   once?: boolean;
   amount?: number;
-  as?: keyof React.JSX.IntrinsicElements;
+  // NOTE: The `as` prop has been intentionally removed.
+  // Dynamic tag resolution (motion[tag] / useMemo) diverges between the SSR
+  // and client renders, causing a persistent hydration mismatch. All
+  // ScrollReveal elements now render as <div>. For semantic elements like
+  // <section>, wrap the ScrollReveal in the appropriate HTML element instead.
 }
 
 /**
- * ScrollReveal
- * A premium "scroll into view" component using unified enterprise easing.
+ * ScrollReveal – scroll-triggered reveal animation.
+ *
+ * Always renders as motion.div (fixed at module scope, identical on server
+ * and client — zero chance of a hydration tag mismatch).
  */
 export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
@@ -38,40 +44,24 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   duration = 0.65,
   once = false,
   amount = 0.05,
-  as = "div",
 }) => {
+  const reduceMotion = useReducedMotion();
   const variants = ANIMATION_VARIANTS[variant];
 
-  // Explicitly map supported tags to ensure stable references and avoid hydration mismatches
-  const MotionTag = React.useMemo(() => {
-    const tag = as as string;
-    // Check for direct property availability first (most stable)
-    if ((motion as any)[tag]) {
-      return (motion as any)[tag];
-    }
-    // Fallback to create if available (v12+)
-    if ((motion as any).create) {
-      return (motion as any).create(tag);
-    }
-    // Final fallback to checking motion exports directly (legacy)
-    // or defaulting to div if strictly necessary, but prefer configured tag
-    return motion.div;
-  }, [as]);
-
   return (
-    <MotionTag
+    <motion.div
       className={cn("will-change-transform", className)}
       initial="hidden"
       whileInView="show"
       viewport={{ once, amount }}
-      variants={variants}
+      variants={reduceMotion ? { hidden: {}, show: {} } : variants}
       transition={{
-        duration: duration,
-        delay: delay,
+        duration: reduceMotion ? 0 : duration,
+        delay: reduceMotion ? 0 : delay,
         ease: ENTERPRISE_EASE,
       }}
     >
       {children}
-    </MotionTag>
+    </motion.div>
   );
 };

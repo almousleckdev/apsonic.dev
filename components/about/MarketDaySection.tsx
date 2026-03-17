@@ -122,7 +122,7 @@ export const MarketDaySection = () => {
       <Section
         backgroundColor={colors.background.white}
         padding="none"
-        className="relative overflow-hidden shadow-lg"
+        className="relative overflow-hidden "
       >
         <div className="flex flex-col lg:flex-row min-h-[80vh]">
           {/* Left Side: Image */}
@@ -261,7 +261,7 @@ export const MarketDaySection = () => {
       <Section
         backgroundColor={colors.background.white}
         padding="none"
-        className="relative overflow-hidden"
+        className="relative z-20 shadow-[0_15px_30px_-5px_rgba(0,0,0,0.1)] overflow-visible"
       >
         <div className="flex flex-col lg:flex-row min-h-[80vh]">
           {/* Left Side: Image */}

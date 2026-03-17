@@ -10,7 +10,7 @@ export const CoreValuesSection = () => {
   return (
     <Section
       backgroundColor={colors.background.secondary}
-      className="relative z-10 border-t border-white/5 my-8 shadow-lg"
+      className=""
     >
       <div className="container mx-auto px-4">
         <SectionHeader light={true} label="我们的DNA" title="我们的驱动力。" />

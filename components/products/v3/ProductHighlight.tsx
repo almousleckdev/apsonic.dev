@@ -25,7 +25,7 @@ export const ProductHighlight: React.FC<ProductHighlightProps> = ({
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="w-full bg-white py-20">
+    <section className="w-full bg-gray-50 py-20">
       <div className="max-w-[1360px] mx-auto px-10">
         {/* Header */}
         <div className="text-center mb-8">
@@ -39,7 +39,7 @@ export const ProductHighlight: React.FC<ProductHighlightProps> = ({
         </div>
 
         {/* Image Container */}
-        <div className="relative bg-gradient-to-b from-gray-100 to-gray-200 rounded-2xl overflow-hidden mb-6">
+        <div className="relative mb-6">
           <motion.div
             key={activeIndex}
             initial={{ opacity: 0 }}
@@ -57,7 +57,7 @@ export const ProductHighlight: React.FC<ProductHighlightProps> = ({
           </motion.div>
 
           {/* Color Dots */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-6">
             {images.map((image, index) => (
               <button
                 key={index}

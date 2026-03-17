@@ -9,7 +9,7 @@ export const RhythmSection = () => {
   return (
     <Section
       backgroundColor={colors.background.secondary}
-      className="relative py-32 overflow-hidden my-8 shadow-lg"
+      className=""
     >
       {/* Background Text Texture */}
       <div className="absolute inset-0 flex flex-col justify-between opacity-5 pointer-events-none select-none overflow-hidden">

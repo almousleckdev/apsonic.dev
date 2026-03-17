@@ -54,7 +54,7 @@ export const BRAND_CATEGORIES: Record<string, ProductCategory[]> = {
       id: "tricycle",
       name: "三轮车",
       slug: "tricycle",
-      image: "/products/AP150ZH-20 SPORT (1).png",
+      image: "/products/images/2.png",
       brandId: "apsonic",
     },
   ],

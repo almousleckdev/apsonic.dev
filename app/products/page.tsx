@@ -1,4 +1,5 @@
 "use client";
+// v2 — recompiled to flush stale HMR cache
 
 import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
@@ -60,35 +61,20 @@ function ProductsContent() {
       <ProductFilters filters={filters} onFilterChange={setFilters} />
 
       <div className="max-w-[1360px] mx-auto px-10 py-20">
-        <div className="space-y-32">
+        <div className="space-y-20">
           {categoryOrder.map((category) => {
             const products = groupedProducts[category];
             if (!products || products.length === 0) return null;
 
             return (
               <section key={category}>
-                <div className="mb-16">
+                <div className="mb-8">
                   <h2 className="text-[42px] font-medium text-gray-900 tracking-tight">
                     {CATEGORY_LABELS[category]}
                   </h2>
                 </div>
 
-                <motion.div
-                  variants={{
-                    hidden: { opacity: 0 },
-                    show: {
-                      opacity: 1,
-                      transition: {
-                        staggerChildren: 0.0, // Together
-                        delayChildren: 0.0,
-                      },
-                    },
-                  }}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.1, margin: "-50px" }}
-                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12"
-                >
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 gap-y-12">
                   {products.map((product) => (
                     <ProductModelCard
                       key={product.id}
@@ -96,7 +82,7 @@ function ProductsContent() {
                       className="w-full"
                     />
                   ))}
-                </motion.div>
+                </div>
               </section>
             );
           })}

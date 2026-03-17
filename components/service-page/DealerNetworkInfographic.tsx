@@ -158,12 +158,12 @@ export const DealerNetworkInfographic: React.FC<
             <div className="relative w-full">
               <Image
                 src="/images/development-history.jpg"
-                alt="非洲发展历程 - Africa Development History"
+                alt="发展历程"
                 width={800}
                 height={600}
                 className="w-full h-auto object-contain"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
-                quality={95}
+                quality={75}
                 priority
               />
             </div>

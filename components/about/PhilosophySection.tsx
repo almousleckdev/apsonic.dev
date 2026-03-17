@@ -56,7 +56,7 @@ export const PhilosophySection: React.FC = () => {
     <Section
       backgroundColor={colors.background.primary}
       padding="large"
-      className="relative z-10 my-8 shadow-lg"
+      className=""
     >
       <Container maxWidth="wide">
         {/* Section Header */}

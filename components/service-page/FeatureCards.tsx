@@ -49,22 +49,14 @@ export const FeatureCards: React.FC<FeatureCardsProps> = ({
                   "hover:shadow-2xl hover:shadow-black/5 hover:-translate-y-1.5",
                 )}
               >
-                {/* Image Section - Top Centered & Compact */}
-                <div className="relative w-full h-[320px] mb-8 flex items-center justify-center overflow-visible border border-gray-100 rounded-2xl group-hover:border-black/10 transition-colors duration-300 p-8">
-                  <div
-                    className="absolute inset-0 flex items-center justify-center transition-transform duration-700 group-hover:scale-110"
-                    style={{
-                      transform:
-                        card.id === "locations-manuals"
-                          ? "translateY(40px) scale(0.75)"
-                          : "translateY(15px) scale(1.15)",
-                    }}
-                  >
+                {/* Image Section - Top Centered & Consistent */}
+                <div className="relative w-full h-[280px] mb-8 flex items-end justify-center overflow-visible border border-gray-100 rounded-2xl group-hover:border-[#1FA84F]/20 transition-colors duration-300 p-6">
+                  <div className="relative w-full h-full transition-transform duration-700 group-hover:scale-105">
                     <Image
                       src={card.image}
                       alt={card.title}
                       fill
-                      className="object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
+                      className="object-contain object-bottom drop-shadow-[0_10px_20px_rgba(0,0,0,0.08)]"
                       sizes="(max-width: 768px) 100vw, 400px"
                     />
                   </div>

@@ -39,7 +39,7 @@ const TimelineEvent = ({
       </div>
       {/* Green Circle Icon */}
       <div className="relative flex-shrink-0">
-        <div className="h-5 w-5 md:h-6 md:w-6 rounded-full bg-gray-900 flex items-center justify-center shadow-lg z-10">
+        <div className="">
           <MdRefresh className="text-white text-[10px] md:text-xs" />
         </div>
       </div>
@@ -47,7 +47,7 @@ const TimelineEvent = ({
 
     {/* Right Side - Compact Card with Image */}
     <div className="flex-1 max-w-lg mx-auto">
-      <div className="bg-white rounded-lg overflow-hidden border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
+      <div className="">
         {/* Image - Better proportioned */}
         {image && (
           <div className="relative w-full aspect-[16/10] overflow-hidden">
@@ -77,7 +77,7 @@ export const TimelineSection = () => {
   return (
     <Section
       backgroundColor={colors.background.primary}
-      className="py-16 md:py-24 my-8 shadow-lg"
+      className=""
     >
       <Container maxWidth="wide">
         <SectionHeader

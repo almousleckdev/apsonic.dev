@@ -10,7 +10,7 @@ export const ProverbSection = () => {
     <Section
       backgroundColor={colors.background.secondary}
       padding="none"
-      className="relative py-32 flex items-center justify-center text-center overflow-hidden my-8 shadow-lg"
+      className=""
     >
       {/* Background Pattern - Concentric Circles (Ripple/Community) */}
       <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">

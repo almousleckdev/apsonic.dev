@@ -18,8 +18,8 @@ export const TechnicalSpecs: React.FC<TechnicalSpecsProps> = ({
   specs,
 }) => {
   return (
-    <section className="w-full bg-white py-20">
-      <div className="w-full px-0">
+    <section className="w-full bg-gray-50 py-20">
+      <div className="max-w-[1360px] mx-auto px-4 md:px-10">
         {/* Section Title */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

@@ -19,7 +19,7 @@ export const FEATURE_CARDS: FeatureCard[] = [
   },
   {
     id: "parts-tricycles",
-    image: "/products/AP150ZH-20 SPORT (1).png",
+    image: "/products/images/2.png",
     title: "三轮车",
     description: "三轮车手册与指南下载，及原厂配件订购。",
     ctaText: "立即查看",

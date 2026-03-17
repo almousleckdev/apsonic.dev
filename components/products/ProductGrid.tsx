@@ -1,27 +1,36 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
-import type { ProductModel } from '@/lib/types/products';
-import { ProductModelCard } from './ProductModelCard';
-import { colors } from '@/lib/design-tokens';
-import { groupProductsByCategory } from '@/lib/data/product-models';
-import { CATEGORY_DISPLAY_NAMES } from '@/lib/constants';
-import { PRODUCTS_GRID_CONFIG } from '@/lib/constants/products';
+import React from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import type { ProductModel } from "@/lib/types/products";
+import { ProductModelCard } from "./ProductModelCard";
+import { colors } from "@/lib/design-tokens";
+import { groupProductsByCategory } from "@/lib/data/product-models";
+import { CATEGORY_DISPLAY_NAMES } from "@/lib/constants";
+import { PRODUCTS_GRID_CONFIG } from "@/lib/constants/products";
 
 // TS in this repo (moduleResolution: bundler) can resolve a minimal MotionProps type
 // that doesn't include `initial/animate/exit/whileInView/variants` during production builds.
 // This keeps runtime behavior identical while unblocking typechecking on Vercel.
-const MotionSection = motion.section as unknown as React.ComponentType<Record<string, unknown>>;
-const MotionH2 = motion.h2 as unknown as React.ComponentType<Record<string, unknown>>;
-const MotionDiv = motion.div as unknown as React.ComponentType<Record<string, unknown>>;
+const MotionSection = motion.section as unknown as React.ComponentType<
+  Record<string, unknown>
+>;
+const MotionH2 = motion.h2 as unknown as React.ComponentType<
+  Record<string, unknown>
+>;
+const MotionDiv = motion.div as unknown as React.ComponentType<
+  Record<string, unknown>
+>;
 
 interface ProductGridProps {
   products: ProductModel[];
   className?: string;
 }
 
-export const ProductGrid: React.FC<ProductGridProps> = ({ products, className }) => {
+export const ProductGrid: React.FC<ProductGridProps> = ({
+  products,
+  className,
+}) => {
   const groupedProducts = groupProductsByCategory(products);
   const reduceMotion = useReducedMotion();
 
@@ -33,15 +42,23 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ products, className })
       transition: {
         duration: reduceMotion ? 0 : 0.45,
         ease: [0.22, 1, 0.36, 1],
-        when: 'beforeChildren' as const,
-        staggerChildren: reduceMotion ? 0 : 0.06,
+        when: "beforeChildren" as const,
+        // Small stagger so cards don't all repaint simultaneously
+        staggerChildren: reduceMotion ? 0 : 0.07,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: reduceMotion ? 0 : 10 },
-    show: { opacity: 1, y: 0, transition: { duration: reduceMotion ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] } },
+    hidden: { opacity: 0, y: reduceMotion ? 0 : 16 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: reduceMotion ? 0 : 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
   };
 
   if (products.length === 0) {
@@ -61,7 +78,10 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ products, className })
           variants={sectionVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
+          // Raised amount to 0.15 so the animation only fires once a real
+          // portion of the section is in view — prevents premature jitter.
+          viewport={{ once: true, amount: 0.15 }}
+          style={{ willChange: "transform, opacity" }}
         >
           {/* Category Title */}
           <MotionH2
@@ -87,4 +107,3 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ products, className })
     </div>
   );
 };
-
