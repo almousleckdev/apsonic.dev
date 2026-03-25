@@ -37,14 +37,7 @@ export const ServiceCoverage: React.FC<ServiceCoverageProps> = ({
     >
       <Container maxWidth="wide">
         {/* Heading */}
-        <h2
-          className="text-center mb-8"
-          style={{
-            fontSize: SERVICE_PAGE_CONFIG.typography.sectionTitle.fontSize,
-            fontWeight: SERVICE_PAGE_CONFIG.typography.sectionTitle.fontWeight,
-            color: SERVICE_PAGE_CONFIG.typography.sectionTitle.color,
-          }}
-        >
+        <h2 className="text-center text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-8">
           我们的服务网络覆盖西非
         </h2>
 

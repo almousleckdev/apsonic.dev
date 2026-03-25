@@ -53,7 +53,7 @@ export const ProductsDropdown: React.FC<ProductsDropdownProps> = ({
       <div className="max-w-[1360px] mx-auto">
         <div className="flex">
           {/* Sidebar Section */}
-          <div className="w-[240px] pt-4 pb-5 pr-10 border-r border-gray-100/60">
+          <div className="w-[240px] pt-2 pb-3 pr-10 border-r border-gray-100/60">
             <BrandList
               brands={config.brands}
               selectedBrandId={selectedBrandId}
@@ -62,7 +62,7 @@ export const ProductsDropdown: React.FC<ProductsDropdownProps> = ({
           </div>
 
           {/* Categories Section */}
-          <div className="flex-1 pt-4 pb-5 flex">
+          <div className="flex-1 pt-2 pb-3 flex">
             {currentCategories.map((category, index) => (
               <ProductCard
                 key={category.id}

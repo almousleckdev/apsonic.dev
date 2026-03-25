@@ -24,12 +24,7 @@ export const MissionSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h2
-              className="mb-8 font-bold leading-tight tracking-tighter text-4xl lg:text-5xl"
-              style={{
-                color: colors.text.primary,
-              }}
-            >
+            <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-8">
               品牌介绍
             </h2>
 

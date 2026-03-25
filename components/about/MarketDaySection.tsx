@@ -277,7 +277,10 @@ export const MarketDaySection = () => {
           </div>
 
           {/* Right Side: Text */}
-          <div className="flex w-full flex-col justify-center p-8 lg:w-1/2 lg:p-24 bg-white">
+          <div
+            className="flex w-full flex-col justify-center p-8 lg:w-1/2 lg:p-24 bg-white"
+            style={{ boxShadow: 'inset 20px 0 40px -10px rgba(0,0,0,0.35)' }}
+          >
             <motion.div
               initial="hidden"
               whileInView="visible"

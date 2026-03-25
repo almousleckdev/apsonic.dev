@@ -56,44 +56,21 @@ export const InformationBlocks: React.FC<InformationBlocksProps> = ({
               }}
             >
               {/* Title */}
-              <h3
-                className="mb-4"
-                style={{
-                  fontSize: '20px',
-                  fontWeight: 600,
-                  color: SERVICE_PAGE_CONFIG.colors.primary,
-                }}
-              >
+              <h3 className="mb-4 text-2xl font-bold text-gray-900">
                 {block.title}
               </h3>
 
               {/* Content */}
               {Array.isArray(block.content) ? (
-                <ul className="mb-4 space-y-2">
+                <ul className="mb-4 space-y-2 text-sm text-gray-500 leading-relaxed list-disc ml-5">
                   {block.content.map((item, index) => (
-                    <li
-                      key={index}
-                      style={{
-                        fontSize: '14px',
-                        color: SERVICE_PAGE_CONFIG.colors.secondary,
-                        lineHeight: 1.6,
-                        listStyle: 'disc',
-                        marginLeft: '20px',
-                      }}
-                    >
+                    <li key={index}>
                       {item}
                     </li>
                   ))}
                 </ul>
               ) : (
-                <p
-                  className="mb-4"
-                  style={{
-                    fontSize: '14px',
-                    color: SERVICE_PAGE_CONFIG.colors.secondary,
-                    lineHeight: 1.6,
-                  }}
-                >
+                <p className="mb-4 text-sm text-gray-500 leading-relaxed">
                   {block.content}
                 </p>
               )}

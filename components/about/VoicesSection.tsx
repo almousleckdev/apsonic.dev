@@ -11,7 +11,8 @@ export const VoicesSection = () => {
   return (
     <Section
       backgroundColor={colors.background.white}
-      className="relative z-10 border-t border-white/5 "
+      padding="none"
+      className="relative z-10 border-t border-white/5 pt-16 lg:pt-24 pb-8 lg:pb-12"
     >
       <div className="container mx-auto px-4">
         <SectionHeader

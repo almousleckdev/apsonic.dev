@@ -34,10 +34,6 @@ export default function AboutPage() {
         <MissionSection />
       </ScrollReveal>
 
-      {/* <ScrollReveal variant="fadeUp" delay={0.2} duration={0.9} amount={0.1} once={false}>
-        <PhilosophySection />
-      </ScrollReveal> */}
-
       <ScrollReveal
         variant="slideRight"
         delay={0.25}
@@ -141,7 +137,7 @@ export default function AboutPage() {
         amount={0.1}
         once={true}
       >
-        <NewsSection variant="overlay" light={true} className="py-20" />
+        <NewsSection variant="overlay" light={true} className="pt-4 pb-20" />
       </ScrollReveal>
     </main>
   );

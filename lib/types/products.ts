@@ -13,6 +13,8 @@ export interface ProductCategory {
   slug: string;
   image: string;
   brandId?: string;
+  imageScale?: number;
+  imageTranslateY?: number; // px nudge, positive = down
 }
 
 export interface DropdownConfig {

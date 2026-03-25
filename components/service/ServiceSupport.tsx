@@ -44,7 +44,9 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
       <div className="w-full px-4 md:px-8">
         {/* Header */}
         <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold text-[#1FA84F]">服务支持</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
+            服务支持
+          </h2>
         </div>
 
         {/* Main Content Area - Flat Section */}

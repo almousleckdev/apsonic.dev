@@ -69,7 +69,7 @@ function ProductsContent() {
             return (
               <section key={category}>
                 <div className="mb-8">
-                  <h2 className="text-[42px] font-medium text-gray-900 tracking-tight">
+                  <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
                     {CATEGORY_LABELS[category]}
                   </h2>
                 </div>

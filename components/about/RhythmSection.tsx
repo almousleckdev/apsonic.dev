@@ -39,7 +39,7 @@ export const RhythmSection = () => {
             <p className="text-xl text-gray-900 font-mono mb-8">
               // 达喀尔 // 阿比让 // 阿克拉 // 拉各斯
             </p>
-            <p className="text-gray-600 text-lg">
+            <p className="text-lg text-gray-600 leading-relaxed">
               从清晨的祈祷到午夜的市场，Apsonic是城市的配乐。
               我们对西非的生活流动不可或缺。
             </p>

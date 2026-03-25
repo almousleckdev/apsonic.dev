@@ -89,7 +89,7 @@ export const CategoryCarousel: React.FC<CategoryCarouselProps> = ({
 
                 {/* Text Below - Simple & Clean */}
                 <div className="mt-4 text-center">
-                  <h3 className="text-lg text-gray-600 group-hover:text-black transition-colors font-medium tracking-wide">
+                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-[#1FA84F] transition-colors">
                     {category.name}
                   </h3>
                 </div>

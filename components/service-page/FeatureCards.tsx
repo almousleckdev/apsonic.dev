@@ -11,6 +11,7 @@ import { MdArrowForward } from "react-icons/md";
 export interface FeatureCard {
   id: string;
   image: string;
+  imageScale?: number;
   title: string;
   subtitle?: string;
   description: string;
@@ -50,13 +51,14 @@ export const FeatureCards: React.FC<FeatureCardsProps> = ({
                 )}
               >
                 {/* Image Section - Top Centered & Consistent */}
-                <div className="relative w-full h-[280px] mb-8 flex items-end justify-center overflow-visible border border-gray-100 rounded-2xl group-hover:border-[#1FA84F]/20 transition-colors duration-300 p-6">
-                  <div className="relative w-full h-full transition-transform duration-700 group-hover:scale-105">
+                <div className="relative w-full h-[280px] mb-8 overflow-hidden rounded-2xl bg-white">
+                  <div className="relative w-full h-full">
                     <Image
                       src={card.image}
                       alt={card.title}
                       fill
-                      className="object-contain object-bottom drop-shadow-[0_10px_20px_rgba(0,0,0,0.08)]"
+                      className="object-contain object-center"
+                      style={card.imageScale ? { transform: `scale(${card.imageScale})`, transformOrigin: 'center' } : undefined}
                       sizes="(max-width: 768px) 100vw, 400px"
                     />
                   </div>

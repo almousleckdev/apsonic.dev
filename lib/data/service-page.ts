@@ -12,6 +12,7 @@ export const FEATURE_CARDS: FeatureCard[] = [
   {
     id: "locations-manuals",
     image: "/products/AP110-A-PLUS(白).png",
+    imageScale: 0.75,
     title: "两轮车",
     description: "弯梁车、街车、越野车型手册下载与服务网点查询。",
     ctaText: "立即查看",
@@ -19,7 +20,7 @@ export const FEATURE_CARDS: FeatureCard[] = [
   },
   {
     id: "parts-tricycles",
-    image: "/products/images/2.png",
+    image: "/dropdown/44.jpg",
     title: "三轮车",
     description: "三轮车手册与指南下载，及原厂配件订购。",
     ctaText: "立即查看",

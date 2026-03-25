@@ -58,10 +58,7 @@ export const VideoHero: React.FC<VideoHeroProps> = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="font-bold text-white mb-2 leading-tight pointer-events-auto"
-          style={{
-            fontSize: "clamp(2rem, 4vw, 3rem)",
-          }}
+          className="text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 pointer-events-auto"
         >
           好质量 好生活
         </motion.h1>
@@ -70,7 +67,7 @@ export const VideoHero: React.FC<VideoHeroProps> = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.8 }}
-          className="text-white/90 text-lg md:text-2xl mb-8 font-light pointer-events-auto"
+          className="text-lg md:text-xl text-white/90 leading-relaxed mb-8 pointer-events-auto"
         >
           Bonne qualité pour une meilleure vie
         </motion.p>

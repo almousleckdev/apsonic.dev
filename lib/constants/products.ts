@@ -9,7 +9,8 @@ export const PRODUCTS_GRID_CONFIG = {
       tablet: 2,
       desktop: 3,
     },
-    gap: '32px', // Comfortable spacing
+    gap: '32px',       // Horizontal spacing between columns
+    rowGap: '80px',    // Vertical spacing between rows
   },
 
   // Card styling

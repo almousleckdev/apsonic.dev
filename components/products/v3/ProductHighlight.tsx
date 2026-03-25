@@ -29,8 +29,13 @@ export const ProductHighlight: React.FC<ProductHighlightProps> = ({
       <div className="max-w-[1360px] mx-auto px-10">
         {/* Header */}
         <div className="text-center mb-8">
-          <p className="text-sm text-gray-500 mb-2">产品亮点</p>
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <p
+            className="font-bold text-sm uppercase tracking-widest mb-4"
+            style={{ color: colors.brand.green }}
+          >
+            产品亮点
+          </p>
+          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-4">
             {title}
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-sm">

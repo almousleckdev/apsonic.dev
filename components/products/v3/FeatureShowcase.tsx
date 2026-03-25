@@ -24,10 +24,10 @@ export const FeatureShowcase: React.FC<FeatureShowcaseProps> = ({
       <div className="w-full px-0">
         {/* Section Title */}
         <div className="text-center mb-16 px-10">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-4">
             {sectionTitle}
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-sm">
+          <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
             基于非洲大陆独特的地理环境和使用需求，我们的摩托车在耐用性、燃油经济性和适应性方面进行了全面优化。
           </p>
         </div>

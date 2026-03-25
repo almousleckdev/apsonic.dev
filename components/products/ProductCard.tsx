@@ -29,7 +29,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     <Link
       href={buildProductUrl(category, brand)}
       className={cn(
-        "group relative flex flex-col items-start gap-2 cursor-pointer pl-6",
+        "group relative flex flex-col items-start gap-4 cursor-pointer pl-6 py-3",
         !isFirst && "border-l border-gray-100/80",
         className,
       )}
@@ -43,12 +43,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       </div>
 
       {/* Shared fixed-size image box */}
-      <div className="relative w-full h-[90px]">
+      <div className="relative w-full h-[85px]">
         <Image
           src={category.image}
           alt={category.name}
           fill
-          className="object-contain object-bottom transition-transform duration-500 ease-out group-hover:scale-105"
+          className="object-contain object-center transition-transform duration-500 ease-out group-hover:scale-105"
+          style={{
+            transform: `scale(${category.imageScale ?? 1.5}) translateY(${category.imageTranslateY ?? 0}px)`,
+            transformOrigin: 'center'
+          }}
           sizes="220px"
         />
       </div>

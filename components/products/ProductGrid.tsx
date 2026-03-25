@@ -74,7 +74,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
       {Object.entries(groupedProducts).map(([category, categoryProducts]) => (
         <MotionSection
           key={category}
-          className="mb-10"
+          className="mb-4"
           variants={sectionVariants}
           initial="hidden"
           whileInView="show"
@@ -94,10 +94,10 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
           {/* Product Grid - 3 columns with overlapping effect */}
           <MotionDiv
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
-            style={{ gap: PRODUCTS_GRID_CONFIG.grid.gap }}
+            style={{ columnGap: PRODUCTS_GRID_CONFIG.grid.gap, rowGap: PRODUCTS_GRID_CONFIG.grid.rowGap }}
           >
             {categoryProducts.map((product) => (
-              <MotionDiv key={product.id} variants={itemVariants}>
+              <MotionDiv key={product.id} variants={itemVariants} style={{ marginBottom: '64px' }}>
                 <ProductModelCard product={product} />
               </MotionDiv>
             ))}

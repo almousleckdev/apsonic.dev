@@ -16,9 +16,9 @@ export default function Home() {
 
       <RecommendedModels className="py-20" />
 
-      <ServiceSupport className="py-20" />
+      <ServiceSupport className="pt-20 pb-10" />
 
-      <NewsSection variant="overlay" light={true} className="py-20" />
+      <NewsSection variant="overlay" light={true} className="pt-0 pb-20" />
     </main>
   );
 }

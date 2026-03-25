@@ -31,7 +31,7 @@ export const ContactForm = () => {
           <MdCheckCircle />
         </div>
         <h3 className="text-2xl font-bold text-gray-900 mb-2">消息发送成功</h3>
-        <p className="text-gray-600 mb-8 max-w-md">
+        <p className="text-gray-600 leading-relaxed mb-8 max-w-md">
           感谢您联系Apsonic。我们的团队成员将审核您的请求，并在24小时内回复您。
         </p>
         <Button

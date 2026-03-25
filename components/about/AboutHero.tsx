@@ -12,7 +12,8 @@ export const AboutHero = () => {
     <div className="relative h-screen w-full overflow-hidden bg-gray-900">
       {/* Background Image with Parallax Effect */}
       <motion.div
-        className="absolute inset-0 z-0"
+        className="absolute inset-x-0 z-0"
+        style={{ top: '-15%', height: '115%' }}
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
@@ -21,7 +22,7 @@ export const AboutHero = () => {
           src="/images/about/7361770692820_.pic_hd.jpg"
           alt="APSONIC 摩托车生产基地"
           fill
-          className="object-cover object-center"
+          className="object-cover object-top"
           priority
         />
         {/* Dark Gradient Overlay for better text readability */}
@@ -32,16 +33,13 @@ export const AboutHero = () => {
       </motion.div>
 
       {/* Content Container */}
-      <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
+      <div className="relative z-10 flex h-full w-full flex-col items-center justify-end px-4 pb-24 text-center sm:px-6 lg:px-8">
         {/* Animated Tagline */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-          className="max-w-4xl font-bold tracking-tight text-white"
-          style={{
-            fontSize: typography.size.hero,
-          }}
+          className="text-5xl lg:text-6xl max-w-4xl font-bold tracking-tight text-white"
         >
           道路的心跳
         </motion.h1>
@@ -51,7 +49,7 @@ export const AboutHero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-          className="mt-6 max-w-2xl text-lg text-gray-200 sm:text-xl font-medium"
+          className="mt-6 max-w-2xl text-lg md:text-xl text-gray-200 leading-relaxed font-light"
           style={{ fontFamily: "var(--font-geist-mono)" }}
         >
           为大陆而设计。经久耐用。赋能前行。
@@ -89,7 +87,7 @@ export const AboutHero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 transform"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 transform"
       >
         <div className="flex flex-col items-center gap-2">
           <span className="text-xs uppercase tracking-widest text-gray-400">

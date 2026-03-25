@@ -59,8 +59,8 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className={cn(
-            "font-mono text-sm uppercase tracking-widest mb-4",
-            light ? "text-gray-900" : "text-white/80",
+            "font-bold text-sm uppercase tracking-widest mb-4",
+            light ? "text-[#1FA84F]" : "text-[#1FA84F]/90",
           )}
         >
           {label}
@@ -71,7 +71,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         className={cn(
-          "text-4xl lg:text-5xl font-bold leading-tight",
+          "text-4xl lg:text-5xl font-bold tracking-tight leading-tight",
           light ? "text-gray-900" : "text-white",
         )}
       >

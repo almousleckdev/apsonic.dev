@@ -19,18 +19,18 @@ export const LeadersSection = () => {
             <motion.span
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              className="text-gray-900 font-mono text-sm uppercase tracking-widest"
+              className="font-bold text-sm uppercase tracking-widest text-[#1FA84F]"
             >
               领导力
             </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="mt-4 mb-6 text-3xl font-bold text-gray-900 md:text-5xl"
+              className="mt-4 mb-6 text-4xl lg:text-5xl font-bold tracking-tight text-gray-900"
             >
               方向盘后的远见者。
             </motion.h2>
-            <p className="mb-8 text-lg text-gray-600">
+            <p className="mb-8 text-lg text-gray-600 leading-relaxed">
               我们的领导团队结合了数十年的汽车工程专业知识和对非洲市场的深刻理解。
               我们相信实践型领导——经常到工厂、拜访经销商、倾听骑手的声音。
             </p>

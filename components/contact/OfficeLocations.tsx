@@ -114,9 +114,9 @@ export const OfficeLocations = () => {
                 <div className="bg-black/5 p-3 rounded-full text-gray-900 text-2xl">
                   <MdPublic />
                 </div>
-                <h3 className="text-3xl font-bold text-gray-900">市场覆盖</h3>
+                <h3 className="text-2xl font-bold text-gray-900">市场覆盖</h3>
               </div>
-              <p className="text-gray-600">
+              <p className="text-gray-600 leading-relaxed">
                 根据行业报告，APSONIC活跃于西非及更广泛的地区，
                 在约16-20个非洲国家销售和维修摩托车。
               </p>

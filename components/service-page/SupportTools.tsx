@@ -32,14 +32,7 @@ export const SupportTools: React.FC<SupportToolsProps> = ({
     >
       <Container maxWidth="narrow">
         {/* Section Title */}
-        <h2
-          className="mb-8"
-          style={{
-            fontSize: '32px',
-            fontWeight: 700,
-            color: SERVICE_PAGE_CONFIG.colors.primary,
-          }}
-        >
+        <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-8">
           Support Tools
         </h2>
 

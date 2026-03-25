@@ -55,7 +55,7 @@ export const FeaturedModelCarousel: React.FC<FeaturedModelCarouselProps> = ({
     >
       {/* Section Title */}
       <div className="text-center mb-4">
-        <span className="inline-block px-4 py-1 rounded-full border border-gray-900 text-gray-900 text-lg font-medium tracking-wide">
+        <span className="font-bold text-sm uppercase tracking-widest text-[#1FA84F]">
           车型推荐
         </span>
       </div>
@@ -64,13 +64,7 @@ export const FeaturedModelCarousel: React.FC<FeaturedModelCarouselProps> = ({
       <div className="w-full flex flex-col items-center">
         {/* Model Name Box */}
         <div className="text-center mb-8 px-12 py-3 rounded-none inline-block min-w-[300px]">
-          <h3
-            className="font-bold uppercase tracking-wider"
-            style={{
-              fontSize: "2rem",
-              color: "#333333",
-            }}
-          >
+          <h3 className="text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 uppercase">
             {currentModel.name}
           </h3>
         </div>

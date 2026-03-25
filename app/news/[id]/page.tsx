@@ -23,8 +23,8 @@ export default function NewsDetailPage() {
         return (
             <main className="min-h-screen bg-white flex items-center justify-center p-4">
                 <div className="text-center">
-                    <h1 className="text-4xl font-bold text-gray-900 mb-4">文章未找到</h1>
-                    <p className="text-gray-600 mb-8 font-light italic">您查找的新闻文章不存在。</p>
+                    <h1 className="text-5xl font-bold tracking-tight text-gray-900 mb-4">文章未找到</h1>
+                    <p className="text-lg text-gray-600 leading-relaxed mb-8 font-light italic">您查找的新闻文章不存在。</p>
                     <Button onClick={() => router.push('/news')} variant="primary" className="rounded-full px-10">
                         返回新闻中心
                     </Button>
@@ -67,7 +67,7 @@ export default function NewsDetailPage() {
                                     </span>
                                 )}
                             </div>
-                            <h1 className="text-4xl md:text-7xl font-bold text-white leading-tight mb-8">
+                            <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-white leading-tight mb-8">
                                 {item.title}
                             </h1>
 

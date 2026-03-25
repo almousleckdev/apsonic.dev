@@ -62,10 +62,10 @@ export const PhilosophySection: React.FC = () => {
         {/* Section Header */}
         <ScrollReveal variant="fadeUp">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Apsonic <span className="text-gray-900">理念</span>
+            <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-4">
+              Apsonic <span className="text-[#1FA84F]">理念</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
               探索Apsonic的核心价值和品牌理念
             </p>
           </div>
@@ -91,7 +91,7 @@ export const PhilosophySection: React.FC = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     <div className="p-6">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">
                         {item.title}
                       </h3>
                       <p className="text-sm text-gray-600 leading-relaxed">
@@ -111,7 +111,7 @@ export const PhilosophySection: React.FC = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     <div className="p-6">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">
                         {item.title}
                       </h3>
                       <p className="text-sm text-gray-600 leading-relaxed">

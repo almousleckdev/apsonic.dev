@@ -91,7 +91,8 @@ export const Header: React.FC = () => {
   }, []);
 
   return (
-    <MotionHeader
+    <>
+      <MotionHeader
       variants={{
         visible: { y: 0 },
         hidden: { y: "-100%" },
@@ -152,6 +153,7 @@ export const Header: React.FC = () => {
           />
         </div>
       </div>
+    </MotionHeader>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
@@ -209,6 +211,6 @@ export const Header: React.FC = () => {
           </MotionDiv>
         )}
       </AnimatePresence>
-    </MotionHeader>
+    </>
   );
 };

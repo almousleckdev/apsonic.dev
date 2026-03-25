@@ -29,7 +29,7 @@ export const RealUsageScenarios: React.FC<RealUsageScenariosProps> = ({
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-4">
             {title}
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
