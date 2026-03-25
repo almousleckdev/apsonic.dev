@@ -64,12 +64,11 @@ export const ProductModelCard: React.FC<ProductModelCardProps> = ({
             className="absolute left-0 right-0 bottom-0 flex items-end justify-center z-20 pointer-events-none"
             style={{ height: "185px", width: "100%" }}
           >
-            <MotionDiv
-              className="relative h-full"
+            <div
+              className={`relative h-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                reduceMotion ? "" : "group-hover:translate-x-3 group-hover:scale-105"
+              }`}
               style={{ width: "85%" }}
-              initial={{ x: 0 }}
-              whileHover={reduceMotion ? {} : { x: 8, scale: 1.05 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
               <Image
                 src={product.image}
@@ -79,7 +78,7 @@ export const ProductModelCard: React.FC<ProductModelCardProps> = ({
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 priority={false}
               />
-            </MotionDiv>
+            </div>
           </div>
         </Link>
       </MotionDiv>
