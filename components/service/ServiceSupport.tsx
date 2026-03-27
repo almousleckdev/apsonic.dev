@@ -43,7 +43,7 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
     >
       <div className="w-full px-4 md:px-8">
         {/* Header */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-20">
           <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
             服务支持
           </h2>

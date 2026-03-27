@@ -77,7 +77,7 @@ export const CategoryCarousel: React.FC<CategoryCarouselProps> = ({
                 className="flex flex-col w-full h-full"
               >
                 {/* Image Box - Light Gray Background */}
-                <div className="relative w-full aspect-square bg-gray-50 flex items-center justify-center overflow-hidden">
+                <div className="relative w-full aspect-square flex items-center justify-center overflow-hidden">
                   <Image
                     src={category.image}
                     alt={category.name}

@@ -261,7 +261,7 @@ export const MarketDaySection = () => {
       <Section
         backgroundColor={colors.background.white}
         padding="none"
-        className="relative z-20 shadow-[0_15px_30px_-5px_rgba(0,0,0,0.1)] overflow-visible"
+        className="relative z-20 overflow-visible"
       >
         <div className="flex flex-col lg:flex-row min-h-[80vh]">
           {/* Left Side: Image */}
@@ -277,10 +277,7 @@ export const MarketDaySection = () => {
           </div>
 
           {/* Right Side: Text */}
-          <div
-            className="flex w-full flex-col justify-center p-8 lg:w-1/2 lg:p-24 bg-white"
-            style={{ boxShadow: 'inset 20px 0 40px -10px rgba(0,0,0,0.35)' }}
-          >
+          <div className="flex w-full flex-col justify-center p-8 lg:w-1/2 lg:p-24 bg-white">
             <motion.div
               initial="hidden"
               whileInView="visible"
