@@ -1,130 +1,137 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MotorcycleCategory } from "@/lib/types";
-import { CAROUSEL_CONFIG } from "@/lib/constants";
-import { CarouselNavButton } from "@/components/ui/CarouselNavButton";
+import { cn } from "@/lib/utils";
+import { ChevronLeftIcon, ChevronRightIcon } from "@/components/ui/Icons";
 
 export interface CategoryCarouselProps {
   categories: MotorcycleCategory[];
   autoPlay?: boolean;
-  interval?: number; // Not used, kept for API consistency
+  interval?: number;
 }
 
 export const CategoryCarousel: React.FC<CategoryCarouselProps> = ({
   categories,
 }) => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Scrolls the carousel horizontally by one card width plus gap
-  const scroll = (direction: "left" | "right") => {
-    if (!scrollContainerRef.current) return;
+  // Number of items to show at once (desktop = 3, mobile = 1)
+  const ITEMS_PER_VIEW = 3;
+  const maxIndex = Math.max(0, categories.length - ITEMS_PER_VIEW);
 
-    const container = scrollContainerRef.current;
-    const cardWidth = container.firstElementChild?.clientWidth || 0;
-    const scrollAmount = cardWidth + CAROUSEL_CONFIG.scrollGap;
+  const scrollLeft = useCallback(() => {
+    setCurrentIndex((prev) => Math.max(0, prev - 1));
+  }, []);
 
-    container.scrollBy({
-      left: direction === "left" ? -scrollAmount : scrollAmount,
-      behavior: "smooth",
-    });
-  };
+  const scrollRight = useCallback(() => {
+    setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
+  }, [maxIndex]);
 
-  // Centers scroll position on initial load for better visual balance
-  // Only applies when there are 3 or fewer categories
-  useEffect(() => {
-    if (scrollContainerRef.current && categories.length <= 3) {
-      const container = scrollContainerRef.current;
-      const scrollWidth = container.scrollWidth;
-      const clientWidth = container.clientWidth;
-      const scrollLeft = (scrollWidth - clientWidth) / 2;
-      container.scrollLeft = scrollLeft;
-    }
-  }, [categories.length]);
+  const canScrollLeft = currentIndex > 0;
+  const canScrollRight = currentIndex < maxIndex;
 
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="relative w-full max-w-[1200px] flex items-center justify-between px-4 md:px-12">
-        {/* Left Arrow - Desktop - EXACT SAME STYLE AS FEATURED MODEL */}
-        <div className="hidden md:block z-20">
-          <CarouselNavButton
-            direction="left"
-            onClick={() => scroll("left")}
-            ariaLabel="Previous categories"
-            className="static translate-y-0 w-16 h-12 bg-transparent hover:scale-110 text-black transition-transform"
-            iconClassName="w-8 h-8 text-black"
-          />
+      <div className="relative w-full max-w-[1200px] flex items-center justify-center px-14 md:px-16">
+        {/* Left Arrow */}
+        <button
+          onClick={scrollLeft}
+          disabled={!canScrollLeft}
+          aria-label="Previous Categories"
+          className={cn(
+            "absolute left-0 md:left-0 top-1/2 -translate-y-1/2 z-20",
+            "w-10 h-10 rounded-full flex items-center justify-center",
+            "transition-all duration-200 shadow-sm border",
+            canScrollLeft
+              ? "bg-white border-gray-200 text-gray-800 hover:bg-gray-100 hover:shadow-md cursor-pointer"
+              : "bg-gray-50 border-gray-100 text-gray-300 cursor-not-allowed"
+          )}
+        >
+          <ChevronLeftIcon size={20} />
+        </button>
+
+        {/* Sliding viewport — clips to show exactly 3 items */}
+        {/* gap-6 = 24px; item width = (100% - 2*24px) / 3; offset per step = itemWidth + gap */}
+        <div className="w-full overflow-hidden">
+          <div
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{
+              gap: "24px",
+              transform: `translateX(calc(-${currentIndex} * (100% / 3 - 16px + 24px)))`,
+            }}
+          >
+            {categories.map((category) => (
+              <div
+                key={category.id}
+                className="flex-shrink-0 group cursor-pointer"
+                style={{ width: "calc((100% - 48px) / 3)" }}
+              >
+                <Link href={category.href} className="flex flex-col w-full h-full">
+                  {/* Image Box */}
+                  <div className="relative w-full aspect-[4/3] flex items-center justify-center rounded-xl overflow-hidden">
+                    <Image
+                      src={category.image}
+                      alt={category.name}
+                      fill
+                      className={cn(
+                        "object-contain transition-transform duration-500 group-hover:scale-105",
+                        category.imageClassName || "p-4"
+                      )}
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+
+                  {/* Label */}
+                  <div className="mt-4 text-center">
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-[#1FA84F] transition-colors">
+                      {category.name}
+                    </h3>
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Scrollable Categories Container */}
-        <div
-          ref={scrollContainerRef}
-          className="flex-1 flex gap-8 overflow-x-auto scrollbar-hide scroll-smooth px-4 md:px-12 justify-start md:justify-center items-center"
-          style={{
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-          }}
+        {/* Right Arrow */}
+        <button
+          onClick={scrollRight}
+          disabled={!canScrollRight}
+          aria-label="Next Categories"
+          className={cn(
+            "absolute right-0 md:right-0 top-1/2 -translate-y-1/2 z-20",
+            "w-10 h-10 rounded-full flex items-center justify-center",
+            "transition-all duration-200 shadow-sm border",
+            canScrollRight
+              ? "bg-white border-gray-200 text-gray-800 hover:bg-gray-100 hover:shadow-md cursor-pointer"
+              : "bg-gray-50 border-gray-100 text-gray-300 cursor-not-allowed"
+          )}
         >
-          {categories.map((category) => (
-            <div
-              key={category.id}
-              className="flex-shrink-0 w-[280px] group cursor-pointer"
-            >
-              <Link
-                href={category.href}
-                className="flex flex-col w-full h-full"
-              >
-                {/* Image Box - Light Gray Background */}
-                <div className="relative w-full aspect-square flex items-center justify-center overflow-hidden">
-                  <Image
-                    src={category.image}
-                    alt={category.name}
-                    fill
-                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 280px, 300px"
-                  />
-                </div>
+          <ChevronRightIcon size={20} />
+        </button>
+      </div>
 
-                {/* Text Below - Simple & Clean */}
-                <div className="mt-4 text-center">
-                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-[#1FA84F] transition-colors">
-                    {category.name}
-                  </h3>
-                </div>
-              </Link>
-            </div>
+      {/* Dot Indicators */}
+      {categories.length > ITEMS_PER_VIEW && (
+        <div className="flex gap-2 mt-6">
+          {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentIndex(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              className={cn(
+                "w-2 h-2 rounded-full transition-all duration-300",
+                i === currentIndex
+                  ? "bg-[#1FA84F] w-6"
+                  : "bg-gray-300 hover:bg-gray-400"
+              )}
+            />
           ))}
         </div>
-
-        {/* Right Arrow - Desktop - EXACT SAME STYLE AS FEATURED MODEL */}
-        <div className="hidden md:block z-20">
-          <CarouselNavButton
-            direction="right"
-            onClick={() => scroll("right")}
-            ariaLabel="Next categories"
-            className="static translate-y-0 w-16 h-12 bg-transparent hover:scale-110 text-black transition-transform"
-            iconClassName="w-8 h-8 text-black"
-          />
-        </div>
-      </div>
-
-      {/* Mobile Arrows */}
-      <div className="flex md:hidden gap-4 mt-6">
-        <CarouselNavButton
-          direction="left"
-          onClick={() => scroll("left")}
-          ariaLabel="Previous categories"
-          className="static translate-y-0 w-12 h-10 text-black"
-        />
-        <CarouselNavButton
-          direction="right"
-          onClick={() => scroll("right")}
-          ariaLabel="Next categories"
-          className="static translate-y-0 w-12 h-10 text-black"
-        />
-      </div>
+      )}
     </div>
   );
 };

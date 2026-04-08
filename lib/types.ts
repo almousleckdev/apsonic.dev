@@ -78,4 +78,5 @@ export interface MotorcycleCategory {
   name: string; // e.g., "弯梁车", "街车", "越野"
   image: string; // Category image
   href: string; // Link to category page
+  imageClassName?: string; // Optional custom class for fine-tuning image display (e.g. scale)
 }

@@ -40,7 +40,7 @@ export const RecommendedModels: React.FC<RecommendedModelsProps> = ({
         {/* Category Carousel */}
         <div>
           <CategoryCarousel
-            categories={categories.slice(0, 3)}
+            categories={categories}
             autoPlay={false}
           />
         </div>

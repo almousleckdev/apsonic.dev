@@ -93,6 +93,9 @@ export const SERVICE_COVERAGE_COUNTRIES = [
   { flag: "🇧🇫", name: "Burkina Faso" },
   { flag: "🇲🇱", name: "Mali" },
   { flag: "🇬🇳", name: "Guinea" },
+  { flag: "🇰🇪", name: "Kenya" },
+  { flag: "🇺🇬", name: "Uganda" },
+  { flag: "🇹🇿", name: "Tanzania" },
 ];
 
 export const SERVICE_COVERAGE_STATS = {

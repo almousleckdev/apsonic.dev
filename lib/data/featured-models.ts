@@ -77,12 +77,6 @@ export const DEFAULT_FEATURED_MODELS: FeaturedModel[] = [
 
 export const DEFAULT_CATEGORIES: MotorcycleCategory[] = [
   {
-    id: "underbone",
-    name: "弯梁车",
-    image: "/images/banners/homepage/AP110-A-PLUS(白).png",
-    href: "/products?category=underbone",
-  },
-  {
     id: "street",
     name: "街车",
     image: "/images/banners/homepage/AP125-30（2）.png",
@@ -97,7 +91,14 @@ export const DEFAULT_CATEGORIES: MotorcycleCategory[] = [
   {
     id: "tricycle",
     name: "三轮车",
-    image: "/images/banners/homepage/img4.png",
+    image: "/products/images/AP150ZH-20 MAX (1).png",
     href: "/products?category=tricycle",
+    imageClassName: "md:p-0",
+  },
+  {
+    id: "underbone",
+    name: "弯梁车",
+    image: "/images/banners/homepage/AP110-A-PLUS(白).png",
+    href: "/products?category=underbone",
   },
 ];

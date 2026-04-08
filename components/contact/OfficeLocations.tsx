@@ -11,7 +11,7 @@ import {
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 
-// Expanded list of countries APSONIC is active in (16-20 approx)
+// Expanded list of countries APSONIC is active in (27 approx)
 // West Africa focus + others
 const coverageCountries = [
   { name: "Togo 🇹🇬", active: true },
@@ -30,6 +30,17 @@ const coverageCountries = [
   { name: "Sierra Leone 🇸🇱", active: true },
   { name: "Gambia 🇬🇲", active: true },
   { name: "Gabon 🇬🇦", active: true },
+  { name: "Kenya 🇰🇪", active: true },
+  { name: "Uganda 🇺🇬", active: true },
+  { name: "Tanzania 🇹🇿", active: true },
+  { name: "Mauritania 🇲🇷", active: true },
+  { name: "Angola 🇦🇴", active: true },
+  { name: "Namibia 🇳🇦", active: true },
+  { name: "Zambia 🇿🇲", active: true },
+  { name: "Mozambique 🇲🇿", active: true },
+  { name: "Rwanda 🇷🇼", active: true },
+  { name: "Burundi 🇧🇮", active: true },
+  { name: "Ethiopia 🇪🇹", active: true },
 ];
 
 const offices = [
@@ -111,14 +122,14 @@ export const OfficeLocations = () => {
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
             <div className="max-w-xl">
               <div className="flex items-center gap-4 mb-4">
-                <div className="bg-black/5 p-3 rounded-full text-gray-900 text-2xl">
+                <div className="bg-[#1FA84F]/10 p-3 rounded-full text-[#1FA84F] text-2xl">
                   <MdPublic />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">市场覆盖</h3>
+                <h3 className="text-2xl font-bold text-gray-900">产品覆盖</h3>
               </div>
               <p className="text-gray-600 leading-relaxed">
                 根据行业报告，APSONIC活跃于西非及更广泛的地区，
-                在约16-20个非洲国家销售和维修摩托车。
+                在约27个非洲国家销售和维修摩托车。
               </p>
             </div>
 

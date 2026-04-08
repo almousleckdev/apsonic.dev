@@ -2,11 +2,13 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface Feature {
   title: string;
   description: string;
-  videoSrc: string;
+  videoSrc?: string;
+  imageSrc?: string;
   icon?: string;
 }
 
@@ -48,20 +50,31 @@ export const FeatureShowcase: React.FC<FeatureShowcaseProps> = ({
                   index !== features.length - 1 ? "" : ""
                 }`}
               >
-                {/* Video Side */}
+                {/* Media Side */}
                 <div
                   className={`relative bg-black ${
                     isEven ? "md:order-1" : "md:order-2"
                   }`}
                 >
-                  <video
-                    src={feature.videoSrc}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover min-h-[400px]"
-                  />
+                  {feature.videoSrc ? (
+                    <video
+                      src={feature.videoSrc}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover min-h-[400px]"
+                    />
+                  ) : feature.imageSrc ? (
+                    <div className="relative w-full h-full min-h-[400px]">
+                      <Image
+                        src={feature.imageSrc}
+                        alt={feature.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : null}
                 </div>
 
                 {/* Text Side */}

@@ -61,21 +61,19 @@ export const ServiceCoverage: React.FC<ServiceCoverageProps> = ({
         </div>
 
         {/* Statistics */}
-        <div className="flex flex-wrap justify-center gap-8">
+        <div className="flex flex-wrap justify-center gap-12 lg:gap-20 mt-8">
           <div className="text-center">
             <div
+              className="text-5xl lg:text-6xl font-bold mb-2"
               style={{
-                fontSize: '24px',
-                fontWeight: 600,
                 color: SERVICE_PAGE_CONFIG.colors.secondary,
-                marginBottom: '4px',
               }}
             >
               {stats.servicePoints}
             </div>
             <div
+              className="text-lg lg:text-xl font-medium"
               style={{
-                fontSize: '14px',
                 color: SERVICE_PAGE_CONFIG.colors.secondary,
               }}
             >
@@ -84,18 +82,16 @@ export const ServiceCoverage: React.FC<ServiceCoverageProps> = ({
           </div>
           <div className="text-center">
             <div
+              className="text-5xl lg:text-6xl font-bold mb-2"
               style={{
-                fontSize: '24px',
-                fontWeight: 600,
                 color: SERVICE_PAGE_CONFIG.colors.secondary,
-                marginBottom: '4px',
               }}
             >
               {stats.subsidiaries}
             </div>
             <div
+              className="text-lg lg:text-xl font-medium"
               style={{
-                fontSize: '14px',
                 color: SERVICE_PAGE_CONFIG.colors.secondary,
               }}
             >
@@ -104,18 +100,16 @@ export const ServiceCoverage: React.FC<ServiceCoverageProps> = ({
           </div>
           <div className="text-center">
             <div
+              className="text-5xl lg:text-6xl font-bold mb-2"
               style={{
-                fontSize: '24px',
-                fontWeight: 600,
                 color: SERVICE_PAGE_CONFIG.colors.secondary,
-                marginBottom: '4px',
               }}
             >
               {stats.dealers}
             </div>
             <div
+              className="text-lg lg:text-xl font-medium"
               style={{
-                fontSize: '14px',
                 color: SERVICE_PAGE_CONFIG.colors.secondary,
               }}
             >
