@@ -81,7 +81,7 @@ export const MarketCoveragePanel = () => {
           {/* Top Section: 27 Countries */}
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 flex items-baseline gap-2 justify-center lg:justify-start">
-              产品已覆盖 <AnimatedCounter to={27} className="text-5xl text-[#E33B32] font-black tracking-tighter" /> 个非洲国家
+              产品已覆盖 <AnimatedCounter to={27} className="text-5xl text-[#1FA84F] font-black tracking-tighter" /> 个非洲国家
             </h2>
             <div className="bg-[#F8F9FA] p-6 rounded-2xl">
               <div className="flex flex-wrap gap-2.5 justify-center lg:justify-start">
@@ -101,7 +101,7 @@ export const MarketCoveragePanel = () => {
           {/* Middle Section: 10 Hubs */}
           <div>
             <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-6 flex items-baseline gap-2 justify-center lg:justify-start">
-              已在 <AnimatedCounter to={10} className="text-4xl text-[#E33B32] font-black tracking-tighter" /> 个国家建立营销服务机构
+              已在 <AnimatedCounter to={10} className="text-4xl text-[#1FA84F] font-black tracking-tighter" /> 个国家建立营销服务机构
             </h2>
             <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
               {HUB_COUNTRIES.map((country) => (
