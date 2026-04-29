@@ -1,9 +1,7 @@
 "use client";
-
-import React from "react";
 import { ServiceHero } from "@/components/service-page/ServiceHero";
 import { FeatureCards } from "@/components/service-page/FeatureCards";
-import { StoreLocatorSection } from "@/components/service-page/StoreLocatorSection";
+import { MarketCoveragePanel } from "@/components/service-page";
 import { ServiceCoverage } from "@/components/service-page/ServiceCoverage";
 import { DealerNetworkInfographic } from "@/components/service-page/DealerNetworkInfographic";
 import { FEATURE_CARDS } from "@/lib/data/service-page";
@@ -19,41 +17,22 @@ export default function ServicesPage() {
       <ServiceHero />
       <ScrollReveal
         variant="fadeUp"
-        delay={0.2}
-        duration={0.9}
-        amount={0.1}
-        once={false}
+        delay={0.1}
       >
         <FeatureCards cards={FEATURE_CARDS} />
       </ScrollReveal>
 
       <ScrollReveal
-        variant="scaleIn"
-        delay={0.25}
-        duration={0.9}
-        amount={0.1}
-        once={false}
-      >
-        <DealerNetworkInfographic />
-      </ScrollReveal>
-
-      <ScrollReveal
         variant="fadeIn"
-        delay={0.3}
-        duration={0.9}
-        amount={0.1}
-        once={false}
+        delay={0.15}
       >
-        <ServiceCoverage />
+        <MarketCoveragePanel />
       </ScrollReveal>
 
       <div className="border-t border-white/5 pt-20">
         <ScrollReveal
           variant="fadeUp"
-          delay={0.2}
-          duration={0.9}
-          amount={0.1}
-          once={false}
+          delay={0.1}
         >
           <OfficeLocations />
         </ScrollReveal>
@@ -61,10 +40,7 @@ export default function ServicesPage() {
 
       <ScrollReveal
         variant="fadeUp"
-        delay={0.25}
-        duration={0.9}
-        amount={0.1}
-        once={false}
+        delay={0.1}
       >
         <FAQ items={SERVICE_FAQ_ITEMS} />
       </ScrollReveal>

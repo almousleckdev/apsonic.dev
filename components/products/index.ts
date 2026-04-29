@@ -1,6 +1,7 @@
 // Products components
 export { ProductCard } from "./ProductCard";
 export { ProductModelCard } from "./ProductModelCard";
+export { ProductShowcaseCard } from "./ProductShowcaseCard";
 export { BrandList } from "./BrandList";
 export { FilterButton } from "./FilterButton";
 export { ProductFilters } from "./ProductFilters";

@@ -6,6 +6,7 @@ import { Container } from '@/components/ui/Container';
 import { SERVICE_PAGE_CONFIG } from '@/lib/constants/service-page';
 import { SERVICE_COVERAGE_COUNTRIES, SERVICE_COVERAGE_STATS } from '@/lib/data/service-page';
 import { cn } from '@/lib/utils';
+import { AnimatedCounter } from '@/components/ui';
 
 export interface Country {
   flag: string;
@@ -69,7 +70,7 @@ export const ServiceCoverage: React.FC<ServiceCoverageProps> = ({
                 color: SERVICE_PAGE_CONFIG.colors.secondary,
               }}
             >
-              {stats.servicePoints}
+              <AnimatedCounter to={4500} suffix="+" />
             </div>
             <div
               className="text-lg lg:text-xl font-medium"
@@ -87,7 +88,7 @@ export const ServiceCoverage: React.FC<ServiceCoverageProps> = ({
                 color: SERVICE_PAGE_CONFIG.colors.secondary,
               }}
             >
-              {stats.subsidiaries}
+              <AnimatedCounter to={15} />
             </div>
             <div
               className="text-lg lg:text-xl font-medium"
@@ -105,7 +106,7 @@ export const ServiceCoverage: React.FC<ServiceCoverageProps> = ({
                 color: SERVICE_PAGE_CONFIG.colors.secondary,
               }}
             >
-              {stats.dealers}
+              <AnimatedCounter to={125} suffix="+" />
             </div>
             <div
               className="text-lg lg:text-xl font-medium"

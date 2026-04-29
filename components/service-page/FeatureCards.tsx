@@ -35,7 +35,7 @@ export const FeatureCards: React.FC<FeatureCardsProps> = ({
   className,
 }) => {
   return (
-    <Section className={className} backgroundColor="#F8F9FA" padding="large">
+    <Section className={className} backgroundColor="#FFFFFF" padding="large">
       <Container maxWidth="wide">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto pb-12">
           {cards.map((card) => (

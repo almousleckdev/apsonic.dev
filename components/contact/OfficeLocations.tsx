@@ -11,114 +11,14 @@ import {
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 
-// Expanded list of countries APSONIC is active in (27 approx)
-// West Africa focus + others
-const coverageCountries = [
-  { name: "Togo 🇹🇬", active: true },
-  { name: "Ghana 🇬🇭", active: true },
-  { name: "Mali 🇲🇱", active: true },
-  { name: "Burkina Faso 🇧🇫", active: true },
-  { name: "Ivory Coast 🇨🇮", active: true },
-  { name: "Benin 🇧🇯", active: true },
-  { name: "Guinea 🇬🇳", active: true },
-  { name: "Niger 🇳🇪", active: true },
-  { name: "Senegal 🇸🇳", active: true },
-  { name: "Nigeria 🇳🇬", active: true },
-  { name: "Cameroon 🇨🇲", active: true },
-  { name: "Chad 🇹🇩", active: true },
-  { name: "Liberia 🇱🇷", active: true },
-  { name: "Sierra Leone 🇸🇱", active: true },
-  { name: "Gambia 🇬🇲", active: true },
-  { name: "Gabon 🇬🇦", active: true },
-  { name: "Kenya 🇰🇪", active: true },
-  { name: "Uganda 🇺🇬", active: true },
-  { name: "Tanzania 🇹🇿", active: true },
-  { name: "Mauritania 🇲🇷", active: true },
-  { name: "Angola 🇦🇴", active: true },
-  { name: "Namibia 🇳🇦", active: true },
-  { name: "Zambia 🇿🇲", active: true },
-  { name: "Mozambique 🇲🇿", active: true },
-  { name: "Rwanda 🇷🇼", active: true },
-  { name: "Burundi 🇧🇮", active: true },
-  { name: "Ethiopia 🇪🇹", active: true },
-];
-
-const offices = [
-  {
-    country: "Togo 🇹🇬",
-    city: "Lomé",
-    address: "Zone Portuaire, Lomé",
-    phone: "+228 90 00 00 00",
-    email: "togo@apsonic.dev",
-    mapUrl:
-      "https://maps.google.com/maps?q=Lome%20Port%2C%20Togo&t=&z=13&ie=UTF8&iwloc=&output=embed",
-  },
-  {
-    country: "Ghana 🇬🇭",
-    city: "Accra",
-    address: "124 Spintex Road, Accra",
-    phone: "+233 54 000 0000",
-    email: "ghana@apsonic.dev",
-    mapUrl:
-      "https://maps.google.com/maps?q=124%20Spintex%20Road%2C%20Accra%2C%20Ghana&t=&z=13&ie=UTF8&iwloc=&output=embed",
-  },
-  {
-    country: "Mali 🇲🇱",
-    city: "Bamako",
-    address: "ACI 2000, Bamako",
-    phone: "+223 20 00 00 00",
-    email: "mali@apsonic.dev",
-    mapUrl:
-      "https://maps.google.com/maps?q=ACI%202000%2C%20Bamako%2C%20Mali&t=&z=13&ie=UTF8&iwloc=&output=embed",
-  },
-  {
-    country: "Burkina Faso 🇧🇫",
-    city: "Ouagadougou",
-    address: "Kwame N'Krumah Ave, Ouagadougou",
-    phone: "+226 25 00 00 00",
-    email: "burkina@apsonic.dev",
-    mapUrl: "",
-  },
-  {
-    country: "Ivory Coast 🇨🇮",
-    city: "Abidjan",
-    address: "Marcory Zone 4, Abidjan",
-    phone: "+225 27 00 00 00",
-    email: "ci@apsonic.dev",
-    mapUrl: "",
-  },
-  {
-    country: "Benin 🇧🇯",
-    city: "Cotonou",
-    address: "Ave Steinmetz, Cotonou",
-    phone: "+229 97 00 00 00",
-    email: "benin@apsonic.dev",
-    mapUrl: "",
-  },
-  {
-    country: "Guinea 🇬🇳",
-    city: "Conakry",
-    address: "Kaloum, Conakry",
-    phone: "+224 620 00 00 00",
-    email: "guinea@apsonic.dev",
-    mapUrl: "",
-  },
-  {
-    country: "China 🇨🇳", // Flag added for consistency
-    city: "Guangzhou",
-    address: "Tianhe District, Guangzhou",
-    phone: "+86 20 0000 0000",
-    email: "hq@apsonic.dev",
-    mapUrl: "",
-  },
-];
+import { coverageCountries, offices } from "@/lib/data/contact-page";
 
 export const OfficeLocations = () => {
   return (
     <Container maxWidth="wide">
       <div className="space-y-16">
         {/* Market Coverage Section - Full Width Banner */}
-        <div className="bg-gray-50 rounded-3xl p-8 lg:p-12 border border-gray-100 relative overflow-hidden shadow-sm">
+        {/* <div className="bg-gray-50 rounded-3xl p-8 lg:p-12 border border-gray-100 relative overflow-hidden shadow-sm">
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
             <div className="max-w-xl">
               <div className="flex items-center gap-4 mb-4">
@@ -144,7 +44,7 @@ export const OfficeLocations = () => {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Official Offices Grid - With Map Visuals */}
         <div id="official-branches">

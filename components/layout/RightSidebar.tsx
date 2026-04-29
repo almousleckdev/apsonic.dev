@@ -46,7 +46,7 @@ export const RightSidebar: React.FC = () => {
   return (
     <>
       <aside
-        className="hidden sm:flex fixed right-0 z-40 flex flex-col items-center gap-2 py-6 px-1.5 rounded-l-2xl transition-all shadow-lg backdrop-blur-md"
+        className="hidden sm:flex fixed right-[-8px] md:right-[-12px] hover:right-0 z-40 flex flex-col items-center gap-2 py-6 px-1.5 rounded-l-2xl transition-all duration-300 shadow-lg backdrop-blur-md"
         style={{
           backgroundColor: isScrolled
             ? "rgba(255, 255, 255, 0.9)"

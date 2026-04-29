@@ -10,14 +10,16 @@ import { groupProductsByCategory } from "@/lib/data/product-models";
 
 const CATEGORY_LABELS: Record<string, string> = {
   underbone: "弯梁车",
+  standard: "骑士车",
   street: "街车",
-  offroad: "越野",
+  offroad: "越野车",
   tricycle: "三轮车",
 };
 
 // Map category slugs to filter types (only for APSONIC main brand)
 const CATEGORY_SLUG_TO_TYPE: Record<string, string> = {
   underbone: "underbone",
+  standard: "standard",
   street: "street",
   offroad: "offroad",
   tricycle: "tricycle",
@@ -54,7 +56,7 @@ function ProductsContent() {
 
   const filteredProducts = useProductFilters(filters);
   const groupedProducts = groupProductsByCategory(filteredProducts);
-  const categoryOrder = ["underbone", "street", "offroad", "tricycle"];
+  const categoryOrder = ["underbone", "standard", "street", "offroad", "tricycle"];
 
   return (
     <main className="min-h-screen bg-white pb-32">

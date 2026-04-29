@@ -121,7 +121,7 @@ export const Footer: React.FC = () => {
       style={{
         backgroundColor: "#111111",
         backgroundImage:
-          "linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.9)), url('/videos/footerbackground.jpg')",
+          "linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.9)), url('/videos/footerimage.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

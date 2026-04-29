@@ -13,76 +13,7 @@ import {
 } from "react-icons/md";
 import Image from "next/image";
 
-// Custom hook for counting up animation
-const useCountUp = (
-  end: number,
-  duration: number = 2000,
-  start: boolean = false,
-) => {
-  const [count, setCount] = React.useState(0);
-
-  React.useEffect(() => {
-    if (!start) return;
-
-    let startTime: number | null = null;
-    const animate = (currentTime: number) => {
-      if (!startTime) startTime = currentTime;
-      const progress = Math.min((currentTime - startTime) / duration, 1);
-
-      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-      setCount(Math.floor(easeOutQuart * end));
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
-    };
-
-    requestAnimationFrame(animate);
-  }, [end, duration, start]);
-
-  return count;
-};
-
-interface CounterProps {
-  end: number;
-  suffix?: string;
-  duration?: number;
-}
-
-const Counter: React.FC<CounterProps> = ({
-  end,
-  suffix = "",
-  duration = 2000,
-}) => {
-  const [isInView, setIsInView] = React.useState(false);
-  const ref = React.useRef<HTMLDivElement>(null);
-  const count = useCountUp(end, duration, isInView);
-
-  React.useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 },
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <span ref={ref}>
-      {count}
-      {suffix}
-    </span>
-  );
-};
+import { AnimatedCounter } from "@/components/ui";
 
 export const MarketDaySection = () => {
   const textVariants = {
@@ -141,8 +72,7 @@ export const MarketDaySection = () => {
           <div className="flex w-full flex-col justify-center p-8 lg:w-1/2 lg:p-24 bg-white">
             <motion.div
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              animate="visible"
               variants={textVariants}
             >
               <motion.div
@@ -180,7 +110,7 @@ export const MarketDaySection = () => {
                     className="text-4xl font-bold"
                     style={{ color: colors.brand.green }}
                   >
-                    <Counter end={50} suffix="+" />
+                    <AnimatedCounter to={50} suffix="+" />
                   </span>
                   <span className="text-gray-600 text-sm mt-1">水井数量</span>
                 </div>
@@ -190,7 +120,7 @@ export const MarketDaySection = () => {
                     className="text-4xl font-bold"
                     style={{ color: colors.brand.green }}
                   >
-                    <Counter end={10} suffix="万+" />
+                    <AnimatedCounter to={10} suffix="万+" />
                   </span>
                   <span className="text-gray-600 text-sm mt-1">受益居民</span>
                 </div>
@@ -223,8 +153,7 @@ export const MarketDaySection = () => {
           <div className="flex w-full flex-col justify-center p-8 lg:w-1/2 lg:p-24 bg-white">
             <motion.div
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
+              animate="visible"
               variants={textVariantsLeft}
             >
               <motion.div
@@ -280,8 +209,7 @@ export const MarketDaySection = () => {
           <div className="flex w-full flex-col justify-center p-8 lg:w-1/2 lg:p-24 bg-white">
             <motion.div
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              animate="visible"
               variants={textVariants}
             >
               <motion.div
@@ -319,7 +247,7 @@ export const MarketDaySection = () => {
                     className="text-4xl font-bold"
                     style={{ color: colors.brand.green }}
                   >
-                    <Counter end={100} suffix="+" />
+                    <AnimatedCounter to={100} suffix="+" />
                   </span>
                   <span className="text-gray-600 text-sm mt-1">太阳能路灯</span>
                 </div>
@@ -329,7 +257,7 @@ export const MarketDaySection = () => {
                     className="text-4xl font-bold"
                     style={{ color: colors.brand.green }}
                   >
-                    <Counter end={30} suffix="+" />
+                    <AnimatedCounter to={30} suffix="+" />
                   </span>
                   <span className="text-gray-600 text-sm mt-1">服务社区</span>
                 </div>

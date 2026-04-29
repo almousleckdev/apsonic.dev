@@ -41,16 +41,16 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   className,
   variant = "fadeUp",
   delay = 0,
-  duration = 0.65,
-  once = false,
-  amount = 0.05,
+  duration = 0.6,
+  once = true,
+  amount = 0.1,
 }) => {
   const reduceMotion = useReducedMotion();
   const variants = ANIMATION_VARIANTS[variant];
 
   return (
     <motion.div
-      className={cn("will-change-transform", className)}
+      className={className}
       initial="hidden"
       whileInView="show"
       viewport={{ once, amount }}

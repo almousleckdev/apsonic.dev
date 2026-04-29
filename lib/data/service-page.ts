@@ -86,16 +86,16 @@ export const SUPPORT_LINKS: SupportLink[] = [
 
 // Service coverage data
 export const SERVICE_COVERAGE_COUNTRIES = [
-  { flag: "🇬🇭", name: "Ghana" },
-  { flag: "🇹🇬", name: "Togo" },
-  { flag: "🇧🇯", name: "Benin" },
-  { flag: "🇨🇮", name: "Ivory Coast" },
-  { flag: "🇧🇫", name: "Burkina Faso" },
-  { flag: "🇲🇱", name: "Mali" },
-  { flag: "🇬🇳", name: "Guinea" },
-  { flag: "🇰🇪", name: "Kenya" },
-  { flag: "🇺🇬", name: "Uganda" },
-  { flag: "🇹🇿", name: "Tanzania" },
+  { flag: "🇬🇭", name: "Ghana GH" },
+  { flag: "🇹🇬", name: "Togo TG" },
+  { flag: "🇧🇯", name: "Benin BJ" },
+  { flag: "🇨🇮", name: "Ivory Coast CI" },
+  { flag: "🇧🇫", name: "Burkina Faso BF" },
+  { flag: "🇲🇱", name: "Mali ML" },
+  { flag: "🇬🇳", name: "Guinea GN" },
+  { flag: "🇰🇪", name: "Kenya KE" },
+  { flag: "🇺🇬", name: "Uganda UG" },
+  { flag: "🇹🇿", name: "Tanzania TZ" },
 ];
 
 export const SERVICE_COVERAGE_STATS = {

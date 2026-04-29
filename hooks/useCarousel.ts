@@ -64,7 +64,7 @@ export function useCarousel({
     setIsPaused(false);
   }, []);
 
-  // Auto-play effect
+  // Auto-play effect - resets when currentIndex changes to prevent timer collisions
   useEffect(() => {
     if (!autoPlay || itemsCount <= 1 || isPaused) {
       if (intervalRef.current) {
@@ -84,7 +84,7 @@ export function useCarousel({
         intervalRef.current = null;
       }
     };
-  }, [autoPlay, interval, itemsCount, isPaused, nextSlide]);
+  }, [autoPlay, interval, itemsCount, isPaused, nextSlide, currentIndex]);
 
   return {
     currentIndex,

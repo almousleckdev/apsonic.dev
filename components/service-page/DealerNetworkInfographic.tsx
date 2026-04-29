@@ -10,76 +10,7 @@ import { MdOutlineVerifiedUser, MdOutlineMap } from "react-icons/md";
 /**
  * Dealer Network Infographic Component
  */
-// Custom hook for counting up animation
-const useCountUp = (
-  end: number,
-  duration: number = 4000,
-  start: boolean = false,
-) => {
-  const [count, setCount] = React.useState(0);
-
-  React.useEffect(() => {
-    if (!start) {
-      setCount(0);
-      return;
-    }
-
-    let startTime: number | null = null;
-    const animate = (currentTime: number) => {
-      if (!startTime) startTime = currentTime;
-      const progress = Math.min((currentTime - startTime) / duration, 1);
-
-      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-      setCount(Math.floor(easeOutQuart * end));
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
-    };
-
-    requestAnimationFrame(animate);
-  }, [end, duration, start]);
-
-  return count;
-};
-
-interface CounterProps {
-  end: number;
-  suffix?: string;
-  duration?: number;
-}
-
-const Counter: React.FC<CounterProps> = ({
-  end,
-  suffix = "",
-  duration = 4000,
-}) => {
-  const [isInView, setIsInView] = React.useState(false);
-  const ref = React.useRef<HTMLDivElement>(null);
-  const count = useCountUp(end, duration, isInView);
-
-  React.useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsInView(entry.isIntersecting);
-      },
-      { threshold: 0.1 },
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <span ref={ref}>
-      {count}
-      {suffix}
-    </span>
-  );
-};
+import { AnimatedCounter } from "@/components/ui";
 
 export const DealerNetworkInfographic: React.FC<{ className?: string }> = ({
   className,
@@ -127,8 +58,7 @@ export const DealerNetworkInfographic: React.FC<{ className?: string }> = ({
         <div className="flex w-full flex-col justify-center p-8 lg:w-1/2 lg:p-24 bg-white">
           <motion.div
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            animate="visible"
             variants={textVariantsLeft}
           >
             <motion.div
@@ -163,7 +93,7 @@ export const DealerNetworkInfographic: React.FC<{ className?: string }> = ({
                   className="text-5xl md:text-6xl font-bold"
                   style={{ color: colors.brand.green }}
                 >
-                  <Counter end={83} suffix="%" />
+                  <AnimatedCounter to={83} suffix="%" />
                 </span>
                 <span className="text-gray-600 text-sm md:text-base mt-2 font-medium">10年以上合作代理</span>
               </div>
@@ -195,7 +125,7 @@ export const DealerNetworkInfographic: React.FC<{ className?: string }> = ({
                   className="text-4xl font-bold"
                   style={{ color: colors.brand.green }}
                 >
-                  <Counter end={125} />
+                  <AnimatedCounter to={125} />
                 </span>
                 <span className="text-gray-600 text-sm mt-1">一级代理</span>
               </div>
@@ -205,7 +135,7 @@ export const DealerNetworkInfographic: React.FC<{ className?: string }> = ({
                   className="text-4xl font-bold"
                   style={{ color: colors.brand.green }}
                 >
-                  <Counter end={4500} suffix="+" />
+                  <AnimatedCounter to={4500} suffix="+" />
                 </span>
                 <span className="text-gray-600 text-sm mt-1">销售终端</span>
               </div>
@@ -215,7 +145,7 @@ export const DealerNetworkInfographic: React.FC<{ className?: string }> = ({
                   className="text-4xl font-bold"
                   style={{ color: colors.brand.green }}
                 >
-                  <Counter end={90} suffix="%" />
+                  <AnimatedCounter to={90} suffix="%" />
                 </span>
                 <span className="text-gray-600 text-sm mt-1">网点覆盖率</span>
               </div>

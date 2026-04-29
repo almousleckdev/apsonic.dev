@@ -51,7 +51,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           className="object-contain object-center transition-transform duration-500 ease-out group-hover:scale-105"
           style={{
             transform: `scale(${category.imageScale ?? 1.5}) translateY(${category.imageTranslateY ?? 0}px)`,
-            transformOrigin: 'center'
+            transformOrigin: "center",
           }}
           sizes="220px"
         />

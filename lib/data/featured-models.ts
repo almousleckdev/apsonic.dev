@@ -52,27 +52,6 @@ export const DEFAULT_FEATURED_MODELS: FeaturedModel[] = [
     ],
     href: "/products/ap150-40-cruiser",
   },
-  {
-    id: "3",
-    name: "AP200-50 RACER",
-    image: "/images/banners/homepage/img3.jpg",
-    watermark: "RACER",
-    colors: [
-      {
-        id: "black",
-        name: "魅夜黑",
-        hex: "#000000",
-        image: "/images/banners/homepage/img3.jpg",
-      },
-      {
-        id: "red",
-        name: "激情红",
-        hex: "#E31D1A",
-        image: "/images/banners/homepage/aloba-red.png",
-      },
-    ],
-    href: "/products/ap200-50-racer",
-  },
 ];
 
 export const DEFAULT_CATEGORIES: MotorcycleCategory[] = [
@@ -89,16 +68,16 @@ export const DEFAULT_CATEGORIES: MotorcycleCategory[] = [
     href: "/products?category=offroad",
   },
   {
+    id: "underbone",
+    name: "弯梁车",
+    image: "/images/banners/homepage/AP110-A-PLUS(白).png",
+    href: "/products?category=underbone",
+  },
+  {
     id: "tricycle",
     name: "三轮车",
     image: "/products/images/AP150ZH-20 MAX (1).png",
     href: "/products?category=tricycle",
     imageClassName: "md:p-0",
-  },
-  {
-    id: "underbone",
-    name: "弯梁车",
-    image: "/images/banners/homepage/AP110-A-PLUS(白).png",
-    href: "/products?category=underbone",
   },
 ];

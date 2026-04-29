@@ -35,17 +35,32 @@ export const ScrollToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      // Lowered threshold so it appears sooner on mobile
-      if (window.scrollY > 100) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+    let scrollTimeout: NodeJS.Timeout;
+
+    const handleScroll = () => {
+      // Hide button immediately while actively scrolling
+      setIsVisible(false);
+
+      // Clear any existing timeout
+      clearTimeout(scrollTimeout);
+
+      // Set a new timeout to show the button after scrolling stops
+      scrollTimeout = setTimeout(() => {
+        if (window.scrollY > 100) {
+          setIsVisible(true);
+        }
+      }, 300); // Wait 300ms after scrolling stops before showing
     };
 
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", handleScroll);
+    
+    // Initial check in case user reloads halfway down the page
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(scrollTimeout);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -66,7 +81,7 @@ export const ScrollToTop: React.FC = () => {
           whileTap={{ scale: 0.95 }}
           onClick={scrollToTop}
           className={cn(
-            "fixed bottom-20 right-6 md:bottom-10 md:right-10 z-[60]", // Increased bottom offset on mobile
+            "fixed bottom-20 right-1 md:bottom-10 md:right-2 z-[60]", // Pushed closer to right edge
             "p-3.5 md:p-4 rounded-full shadow-2xl",
             "transition-shadow duration-300",
             "flex items-center justify-center",

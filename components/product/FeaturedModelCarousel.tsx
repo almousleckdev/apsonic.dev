@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FeaturedModel } from "@/lib/types";
@@ -9,7 +9,6 @@ import { CAROUSEL_CONFIG } from "@/lib/constants";
 import { useCarousel } from "@/hooks/useCarousel";
 import { CarouselNavButton } from "@/components/ui/CarouselNavButton";
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
 
 export interface FeaturedModelCarouselProps {
   models: FeaturedModel[];
@@ -24,32 +23,28 @@ export const FeaturedModelCarousel: React.FC<FeaturedModelCarouselProps> = ({
 }) => {
   const { currentIndex, nextSlide, prevSlide, pause, resume } = useCarousel({
     itemsCount: models.length,
-    autoPlay: false,
+    autoPlay,
     interval,
   });
 
+  const [selectedColorImages, setSelectedColorImages] = useState<
+    Record<string, string>
+  >({});
   const currentModel = models[currentIndex];
-
-  // Logic to handle color overrides
-  const [overrideImage, setOverrideImage] = useState<string | null>(null);
-
-  // Reset override when model changes
-  useEffect(() => {
-    setOverrideImage(null);
-  }, [currentModel.id]);
-
-  const activeImage = overrideImage || currentModel.image;
+  const activeImage =
+    selectedColorImages[currentModel.id] || currentModel.image;
 
   const handleColorSelect = (image: string) => {
-    setOverrideImage(image);
+    setSelectedColorImages((prev) => ({
+      ...prev,
+      [currentModel.id]: image,
+    }));
   };
 
   return (
     <div
       className="relative w-full flex flex-col items-center"
-      style={{
-        backgroundColor: colors.background.white,
-      }}
+      style={{ backgroundColor: colors.background.white }}
       onMouseEnter={pause}
       onMouseLeave={resume}
     >
@@ -60,17 +55,14 @@ export const FeaturedModelCarousel: React.FC<FeaturedModelCarouselProps> = ({
         </span>
       </div>
 
-      {/* Main Content Area */}
-      <div className="w-full flex flex-col items-center">
-        {/* Model Name Box */}
-        <div className="text-center mb-8 px-12 py-3 rounded-none inline-block min-w-[300px]">
-          <h3 className="text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 uppercase">
-            {currentModel.name}
-          </h3>
-        </div>
+      {/* Model Name */}
+      <div className="text-center mb-8 px-12 py-3 min-w-[300px] h-[72px] flex items-center justify-center">
+        <h3 className="text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 uppercase transition-opacity duration-300">
+          {currentModel.name}
+        </h3>
       </div>
 
-      <div className="relative w-full max-w-[1200px] flex items-center justify-between px-4 md:px-12 mb-8">
+      <div className="relative w-full max-w-[1200px] flex items-center justify-between px-4 md:px-12 mb-8 h-[300px] md:h-[500px]">
         {/* Left Arrow */}
         <div className="hidden md:block z-20">
           <CarouselNavButton
@@ -82,42 +74,42 @@ export const FeaturedModelCarousel: React.FC<FeaturedModelCarouselProps> = ({
           />
         </div>
 
-        {/* Animated Image Container */}
-        <div className="relative flex-1 max-w-[900px] mx-auto aspect-[16/9] md:aspect-[2/1] flex items-center justify-center">
-          {/* Background - Static */}
-          <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
-            <div className="relative w-full h-full -translate-y-10 scale-[1.3]">
+        {/* Image Container - No animations, pure stability */}
+        <div className="relative flex-1 max-w-[900px] mx-auto w-full h-full flex items-center justify-center overflow-hidden">
+          {/* Background */}
+          <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-30">
+            <div className="relative w-full h-full -translate-y-20 -translate-x-2 scale-[1.0]">
               <Image
                 src="/images/brand/ALOBA底图 (1).png"
                 alt="Background"
                 fill
                 className="object-contain"
                 priority
-                sizes="(max-width: 768px) 100vw, 1000px"
               />
             </div>
           </div>
 
-          {/* Bike Image - Animated on Model Change AND Color Change */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeImage}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }} // Fast, snappy transition
-              className="absolute inset-0 z-10 w-[80%] h-[80%] m-auto"
+          {/* Bike Images - Layered for zero-lag transitions */}
+          {models.map((model, index) => (
+            <div
+              key={model.id}
+              className={cn(
+                "absolute inset-0 z-10 w-[80%] h-[80%] m-auto transition-opacity duration-500 ease-in-out",
+                index === currentIndex
+                  ? "opacity-100 z-10"
+                  : "opacity-0 z-0 pointer-events-none",
+              )}
             >
               <Image
-                src={activeImage}
-                alt={currentModel.name}
+                src={selectedColorImages[model.id] || model.image}
+                alt={model.name}
                 fill
                 className="object-contain"
-                priority
+                priority={index === 0}
                 sizes="(max-width: 768px) 100vw, 800px"
               />
-            </motion.div>
-          </AnimatePresence>
+            </div>
+          ))}
         </div>
 
         {/* Right Arrow */}
@@ -158,9 +150,7 @@ export const FeaturedModelCarousel: React.FC<FeaturedModelCarouselProps> = ({
                 key={color.id}
                 onClick={() => handleColorSelect(color.image)}
                 className={cn(
-                  "rounded-full transition-all duration-300 relative",
-                  // Small & Cute: Default small, Scale up (1.5x) on select.
-                  "w-3 h-3 hover:scale-125",
+                  "rounded-full transition-all duration-300 relative w-3 h-3 hover:scale-125",
                   isSelected ? "scale-150" : "opacity-70 hover:opacity-100",
                 )}
                 style={{ backgroundColor: color.hex }}

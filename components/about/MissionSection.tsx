@@ -20,9 +20,8 @@ export const MissionSection = () => {
         <div className="flex w-full flex-col justify-center p-8 lg:p-24 xl:pr-32 bg-white">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-8">
               品牌介绍

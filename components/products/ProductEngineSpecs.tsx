@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { motion, useReducedMotion, useInView } from "framer-motion";
+import { motion, useReducedMotion, useInView, animate } from "framer-motion";
 import { EngineSpec } from "@/lib/types/products";
 
 const MotionDiv = motion.div as unknown as React.ComponentType<
@@ -17,53 +17,46 @@ const AnimatedNumber: React.FC<{ value: string; delay?: number }> = ({
   value,
   delay = 0,
 }) => {
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: false });
-  const [displayValue, setDisplayValue] = useState("0");
+  const ref = React.useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
-    if (!isInView) return;
+    if (isInView && ref.current) {
+      const numericMatch = value.match(/[\d.]+/);
+      if (!numericMatch) {
+        ref.current.textContent = value;
+        return;
+      }
 
-    const numericMatch = value.match(/[\d.]+/);
-    if (!numericMatch) {
-      setDisplayValue(value);
-      return;
+      const targetNumber = parseFloat(numericMatch[0]);
+      const isDecimal = numericMatch[0].includes(".");
+      const matchIndex = numericMatch.index ?? 0;
+      const matchLength = numericMatch[0].length;
+      const prefix = value.substring(0, matchIndex);
+      const suffix = value.substring(matchIndex + matchLength);
+
+      const controls = animate(0, targetNumber, {
+        duration: 1.5,
+        delay: delay / 1000,
+        ease: [0.22, 1, 0.36, 1],
+        onUpdate(latest) {
+          if (ref.current) {
+            const formatted = isDecimal
+              ? latest.toFixed(1)
+              : Math.floor(latest).toLocaleString();
+            ref.current.textContent = `${prefix}${formatted}${suffix}`;
+          }
+        },
+      });
+      return () => controls.stop();
     }
-
-    const targetNumber = parseFloat(numericMatch[0]);
-    const duration = 2000; // Increased to 2 seconds for smoother animation
-    const fps = 60;
-    const totalFrames = (duration / 1000) * fps;
-    let frame = 0;
-
-    const timer = setTimeout(() => {
-      const interval = setInterval(() => {
-        frame++;
-
-        // Easing function (easeOutCubic) for smooth deceleration
-        const progress = frame / totalFrames;
-        const easedProgress = 1 - Math.pow(1 - progress, 3);
-        const current = targetNumber * easedProgress;
-
-        if (frame >= totalFrames) {
-          setDisplayValue(value);
-          clearInterval(interval);
-        } else {
-          const formatted =
-            targetNumber % 1 === 0
-              ? Math.floor(current).toString()
-              : current.toFixed(1);
-          setDisplayValue(value.replace(numericMatch[0], formatted));
-        }
-      }, 1000 / fps);
-
-      return () => clearInterval(interval);
-    }, delay);
-
-    return () => clearTimeout(timer);
   }, [isInView, value, delay]);
 
-  return <span ref={ref}>{displayValue}</span>;
+  return (
+    <span ref={ref} className="font-mono tabular-nums inline-block min-w-[2ch] whitespace-nowrap">
+      {value}
+    </span>
+  );
 };
 
 interface ProductEngineSpecsProps {
@@ -114,7 +107,7 @@ export const ProductEngineSpecs: React.FC<ProductEngineSpecsProps> = ({
               reduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: -120 }
             }
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{
               duration: reduceMotion ? 0 : 1,
               ease: easing,
@@ -127,7 +120,7 @@ export const ProductEngineSpecs: React.FC<ProductEngineSpecsProps> = ({
             <MotionDiv
               initial={reduceMotion ? { opacity: 1 } : { opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: reduceMotion ? 0 : 0.8, delay: 0.3 }}
             >
               <p className="text-sm sm:text-base text-gray-300 font-light leading-relaxed max-w-md">
@@ -141,7 +134,7 @@ export const ProductEngineSpecs: React.FC<ProductEngineSpecsProps> = ({
             className="w-full space-y-4 sm:space-y-6"
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false, amount: 0.25 }}
+            viewport={{ once: true, amount: 0.25 }}
             variants={{
               hidden: { opacity: 1 },
               show: {
@@ -201,7 +194,7 @@ export const ProductEngineSpecs: React.FC<ProductEngineSpecsProps> = ({
                 reduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }
               }
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{
                 duration: reduceMotion ? 0 : 0.8,
                 delay: 1.4, // After all specs

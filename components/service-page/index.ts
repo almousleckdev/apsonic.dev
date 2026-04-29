@@ -1,4 +1,5 @@
 export { ServiceHero } from './ServiceHero';
+export { MarketCoveragePanel } from './MarketCoveragePanel';
 export { MotorcycleGrid } from './MotorcycleGrid';
 export { SupportTools } from './SupportTools';
 export { ServiceSearch } from './ServiceSearch';

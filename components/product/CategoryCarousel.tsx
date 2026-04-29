@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { MotorcycleCategory } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { ChevronLeftIcon, ChevronRightIcon } from "@/components/ui/Icons";
@@ -54,22 +55,22 @@ export const CategoryCarousel: React.FC<CategoryCarouselProps> = ({
         </button>
 
         {/* Sliding viewport — clips to show exactly 3 items */}
-        {/* gap-6 = 24px; item width = (100% - 2*24px) / 3; offset per step = itemWidth + gap */}
         <div className="w-full overflow-hidden">
           <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{
-              gap: "24px",
-              transform: `translateX(calc(-${currentIndex} * (100% / 3 - 16px + 24px)))`,
+              transform: `translateX(-${currentIndex * (100 / 3)}%)`,
             }}
           >
             {categories.map((category) => (
               <div
                 key={category.id}
-                className="flex-shrink-0 group cursor-pointer"
-                style={{ width: "calc((100% - 48px) / 3)" }}
+                className="flex-shrink-0 w-1/3 px-3 group cursor-pointer"
               >
-                <Link href={category.href} className="flex flex-col w-full h-full">
+                <Link
+                  href={category.href}
+                  className="flex flex-col w-full h-full"
+                >
                   {/* Image Box */}
                   <div className="relative w-full aspect-[4/3] flex items-center justify-center rounded-xl overflow-hidden">
                     <Image
@@ -78,7 +79,7 @@ export const CategoryCarousel: React.FC<CategoryCarouselProps> = ({
                       fill
                       className={cn(
                         "object-contain transition-transform duration-500 group-hover:scale-105",
-                        category.imageClassName || "p-4"
+                        category.imageClassName || "p-4",
                       )}
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
@@ -107,7 +108,7 @@ export const CategoryCarousel: React.FC<CategoryCarouselProps> = ({
             "transition-all duration-200 shadow-sm border",
             canScrollRight
               ? "bg-white border-gray-200 text-gray-800 hover:bg-gray-100 hover:shadow-md cursor-pointer"
-              : "bg-gray-50 border-gray-100 text-gray-300 cursor-not-allowed"
+              : "bg-gray-50 border-gray-100 text-gray-300 cursor-not-allowed",
           )}
         >
           <ChevronRightIcon size={20} />
@@ -126,7 +127,7 @@ export const CategoryCarousel: React.FC<CategoryCarouselProps> = ({
                 "w-2 h-2 rounded-full transition-all duration-300",
                 i === currentIndex
                   ? "bg-[#1FA84F] w-6"
-                  : "bg-gray-300 hover:bg-gray-400"
+                  : "bg-gray-300 hover:bg-gray-400",
               )}
             />
           ))}

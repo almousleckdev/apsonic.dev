@@ -30,17 +30,16 @@ export const RootsSection = () => {
         <div className="flex w-full flex-col justify-center p-8 lg:w-1/2 lg:p-24 bg-white">
           <motion.div
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            animate="visible"
             variants={{
               hidden: { opacity: 0, x: 50 },
               visible: {
                 opacity: 1,
                 x: 0,
                 transition: {
-                  duration: 0.8,
+                  duration: 0.6,
                   ease: "easeOut" as const,
-                  staggerChildren: 0.2, // Stagger effect for children
+                  staggerChildren: 0.15, // Stagger effect for children
                 },
               },
             }}
@@ -102,17 +101,16 @@ export const RootsSection = () => {
         <div className="flex w-full flex-col justify-center p-8 lg:w-1/2 lg:p-24">
           <motion.div
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
             variants={{
               hidden: { opacity: 0, x: -50 },
               visible: {
                 opacity: 1,
                 x: 0,
                 transition: {
-                  duration: 0.8,
+                  duration: 0.6,
                   ease: "easeOut" as const,
-                  staggerChildren: 0.2,
+                  staggerChildren: 0.15,
                 },
               },
             }}
