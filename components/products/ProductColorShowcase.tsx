@@ -98,7 +98,7 @@ export const ProductColorShowcase: React.FC<ProductColorShowcaseProps> = ({
           aria-label="Color selector"
         >
           {/* Top-left copy - Animates with bike color change */}
-          <div className="absolute top-8 sm:top-12 left-12 sm:left-20 z-20 pointer-events-none max-w-[320px]">
+          <div className="absolute top-4 sm:top-8 md:top-12 left-4 sm:left-12 md:left-20 z-20 pointer-events-none max-w-[65%] sm:max-w-[320px]">
             <AnimatePresence mode="wait">
               <MotionDiv
                 key={active.id}
@@ -120,7 +120,7 @@ export const ProductColorShowcase: React.FC<ProductColorShowcaseProps> = ({
           </div>
 
           {/* Top-right active label - Animates with bike color change */}
-          <div className="absolute top-8 sm:top-12 right-12 sm:right-20 z-20 pointer-events-none text-right max-w-[320px]">
+          <div className="hidden sm:block absolute top-8 sm:top-12 right-12 sm:right-20 z-20 pointer-events-none text-right max-w-[320px]">
             <AnimatePresence mode="wait">
               <MotionDiv
                 key={active.id}
@@ -177,7 +177,7 @@ export const ProductColorShowcase: React.FC<ProductColorShowcaseProps> = ({
               reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
             }
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{
               duration: reduceMotion ? 0 : 0.8,
               delay: 0.4,
@@ -192,7 +192,7 @@ export const ProductColorShowcase: React.FC<ProductColorShowcaseProps> = ({
                     key={v.id}
                     initial={reduceMotion ? { scale: 1 } : { scale: 0 }}
                     whileInView={{ scale: 1 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     transition={{
                       duration: reduceMotion ? 0 : 0.4,
                       delay: 0.6 + index * 0.1,

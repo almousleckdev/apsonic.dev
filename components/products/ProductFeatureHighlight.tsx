@@ -52,13 +52,13 @@ export const ProductFeatureHighlight: React.FC<
     >
       {/* ANIMATED BACKGROUND IMAGE with Parallax */}
       <MotionDiv
-        className="absolute inset-0 z-0"
+        className="absolute -inset-y-24 inset-x-0 z-0"
         style={{ y: reduceMotion ? 0 : y }}
         initial={
           reduceMotion ? { scale: 1, opacity: 1 } : { scale: 1.15, opacity: 0 }
         }
         whileInView={{ scale: 1, opacity: 1 }}
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: reduceMotion ? 0 : 1.5, ease: easing }}
       >
         <Image
@@ -79,7 +79,7 @@ export const ProductFeatureHighlight: React.FC<
           className="pt-[6vh] max-w-3xl px-6 space-y-6 pointer-events-auto"
           initial={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.5 }}
           transition={{
             duration: reduceMotion ? 0 : 1,
             delay: 0.2,
@@ -95,7 +95,7 @@ export const ProductFeatureHighlight: React.FC<
                 : { opacity: 0, x: -100, scale: 0.85 }
             }
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{
               duration: reduceMotion ? 0 : 0.8,
               delay: 0.4,
@@ -113,7 +113,7 @@ export const ProductFeatureHighlight: React.FC<
               reduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: 100 }
             }
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{
               duration: reduceMotion ? 0 : 0.8,
               delay: 0.6,
@@ -138,7 +138,7 @@ export const ProductFeatureHighlight: React.FC<
                 : { opacity: 0, y: 60, scale: 0.85 }
             }
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{
               duration: reduceMotion ? 0 : 0.8,
               delay: 0.8,

@@ -53,12 +53,12 @@ export const VideoHero: React.FC<VideoHeroProps> = ({
       </AnimatePresence>
 
       {/* Content Overlay */}
-      <div className="absolute inset-0 flex flex-col justify-end items-start px-10 z-10 max-w-[1360px] mx-auto w-full pb-32 md:pb-40 pointer-events-none">
+      <div className="absolute inset-0 flex flex-col justify-end items-start px-4 sm:px-10 z-10 max-w-[1360px] mx-auto w-full pb-20 sm:pb-32 md:pb-40 pointer-events-none">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 pointer-events-auto"
+          className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 pointer-events-auto"
         >
           好质量 好生活
         </motion.h1>

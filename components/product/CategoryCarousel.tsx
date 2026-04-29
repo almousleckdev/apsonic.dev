@@ -54,7 +54,7 @@ export const CategoryCarousel: React.FC<CategoryCarouselProps> = ({
           <ChevronLeftIcon size={20} />
         </button>
 
-        {/* Sliding viewport — clips to show exactly 3 items */}
+        {/* Sliding viewport */}
         <div className="w-full overflow-hidden">
           <div
             className="flex transition-transform duration-500 ease-in-out"
@@ -65,7 +65,7 @@ export const CategoryCarousel: React.FC<CategoryCarouselProps> = ({
             {categories.map((category) => (
               <div
                 key={category.id}
-                className="flex-shrink-0 w-1/3 px-3 group cursor-pointer"
+                className="flex-shrink-0 w-full sm:w-1/2 md:w-1/3 px-2 sm:px-3 group cursor-pointer"
               >
                 <Link
                   href={category.href}
@@ -81,13 +81,13 @@ export const CategoryCarousel: React.FC<CategoryCarouselProps> = ({
                         "object-contain transition-transform duration-500 group-hover:scale-105",
                         category.imageClassName || "p-4",
                       )}
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                     />
                   </div>
 
                   {/* Label */}
                   <div className="mt-4 text-center">
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-[#1FA84F] transition-colors">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 group-hover:text-[#1FA84F] transition-colors">
                       {category.name}
                     </h3>
                   </div>

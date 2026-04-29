@@ -43,37 +43,37 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
     >
       <div className="w-full px-4 md:px-8">
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
+        <div className="text-center mb-10 md:mb-20">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
             服务支持
           </h2>
         </div>
 
         {/* Main Content Area - Flat Section */}
-        <div className="relative w-full h-[650px] border-y border-gray-100 bg-gray-50">
-          {/* 1. Map Background (Full Size) */}
-          <div className="absolute inset-0 z-0">
+        <div className="relative w-full min-h-[400px] md:h-[650px] border-y border-gray-100 bg-gray-50">
+          {/* 1. Map Background (Full Size) - Hidden on mobile */}
+          <div className="absolute inset-0 z-0 hidden md:block">
             <AfricaMapPanel
               selectedCountry={selectedCountry}
               onCountrySelect={handleCountrySelect}
               userLocation={queryType === "nearby" ? userLocation : null}
               showOnlyUserLocation={queryType === "nearby"}
               className="w-full h-full"
-              padding={{ left: 680, top: 20, bottom: 20, right: 20 }} // Offset for 2 sidebars (300 + 380)
+              padding={{ left: 680, top: 20, bottom: 20, right: 20 }}
             />
           </div>
 
-          {/* 2. Overlays Container - Flex Row -> 3-Panel Layout */}
-          <div className="absolute inset-y-0 left-0 z-10 flex flex-row h-full">
+          {/* 2. Overlays Container - Stack on mobile, row on desktop */}
+          <div className="relative md:absolute inset-y-0 left-0 z-10 flex flex-col md:flex-row h-full w-full md:w-auto">
             {/* Panel 1: Search & Query (Left) */}
             <div
-              className="w-[280px] h-full flex-shrink-0 flex flex-col"
+              className="w-full md:w-[280px] flex-shrink-0 flex flex-col"
               style={{
-                backgroundColor: "#1e1e1e", // Solid dark, no blur
+                backgroundColor: "#1e1e1e",
                 borderRight: "1px solid rgba(255,255,255,0.1)",
               }}
             >
-              <div className="p-6 h-full">
+              <div className="p-4 sm:p-6">
                 <StoreQueryPanel
                   queryType={queryType}
                   onQueryTypeChange={setQueryType}
@@ -85,12 +85,12 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
 
             {/* Panel 2: Results List (Middle) */}
             <div
-              className="w-[360px] h-full flex-shrink-0 flex flex-col"
+              className="w-full md:w-[360px] flex-shrink-0 flex flex-col min-h-[300px] md:h-full"
               style={{
-                backgroundColor: "#252525", // Solid lighter dark, no blur
+                backgroundColor: "#252525",
               }}
             >
-              <div className="flex-1 overflow-hidden px-2 py-6">
+              <div className="flex-1 overflow-auto px-2 py-4 sm:py-6">
                 <StoreListPanel
                   stores={filteredStores}
                   searchTerm={searchTerm}
@@ -109,8 +109,6 @@ export const ServiceSupport: React.FC<ServiceSupportProps> = ({
                 />
               </div>
             </div>
-
-            {/* Panel 3 is effectively the transparent right area showing the Map */}
           </div>
         </div>
 

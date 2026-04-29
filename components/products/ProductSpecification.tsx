@@ -67,7 +67,7 @@ const CountUp = ({
       ref={containerRef}
       className="relative flex flex-col items-center px-4"
     >
-      <span className="text-[14px] text-gray-500 font-normal mb-6 h-8 flex items-center text-center">
+      <span className="text-base sm:text-lg text-gray-600 font-medium mb-6 h-8 flex items-center text-center">
         {label}
       </span>
 
@@ -82,7 +82,7 @@ const CountUp = ({
         </span>
       </div>
 
-      <span className="text-[14px] text-gray-400 font-normal mt-6">{unit}</span>
+      <span className="text-base sm:text-lg text-gray-500 font-medium mt-6">{unit}</span>
     </div>
   );
 };

@@ -56,8 +56,8 @@ export const FeaturedModelCarousel: React.FC<FeaturedModelCarouselProps> = ({
       </div>
 
       {/* Model Name */}
-      <div className="text-center mb-8 px-12 py-3 min-w-[300px] h-[72px] flex items-center justify-center">
-        <h3 className="text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 uppercase transition-opacity duration-300">
+      <div className="text-center mb-4 sm:mb-8 px-4 sm:px-12 py-3 h-auto sm:h-[72px] flex items-center justify-center">
+        <h3 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 uppercase transition-opacity duration-300">
           {currentModel.name}
         </h3>
       </div>

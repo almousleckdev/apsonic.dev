@@ -104,9 +104,9 @@ export const ProductEngineSpecs: React.FC<ProductEngineSpecsProps> = ({
           <MotionDiv
             className="space-y-4"
             initial={
-              reduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: -120 }
+              reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
             }
-            whileInView={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{
               duration: reduceMotion ? 0 : 1,
@@ -153,17 +153,15 @@ export const ProductEngineSpecs: React.FC<ProductEngineSpecsProps> = ({
                   maxWidth: "400px",
                   backgroundColor: "#2A2A2A",
                 }}
-                className="backdrop-blur-sm border border-gray-800 rounded-lg px-6 py-5 sm:py-8 flex items-center justify-between group hover:bg-[#333333] transition-all duration-300"
+                className="border border-gray-800 rounded-lg px-6 py-5 sm:py-8 flex items-center justify-between group hover:bg-[#333333] transition-all duration-300 shadow-xl"
                 variants={{
                   hidden: {
                     opacity: 0,
-                    x: reduceMotion ? 0 : -100,
-                    scale: reduceMotion ? 1 : 0.9,
+                    y: reduceMotion ? 0 : 40,
                   },
                   show: {
                     opacity: 1,
-                    x: 0,
-                    scale: 1,
+                    y: 0,
                     transition: {
                       duration: reduceMotion ? 0 : 0.8,
                       ease: easing,
@@ -191,9 +189,9 @@ export const ProductEngineSpecs: React.FC<ProductEngineSpecsProps> = ({
           {disclaimer && (
             <MotionDiv
               initial={
-                reduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }
+                reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
               }
-              whileInView={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
                 duration: reduceMotion ? 0 : 0.8,

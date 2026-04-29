@@ -25,16 +25,6 @@ const CATEGORY_SLUG_TO_TYPE: Record<string, string> = {
   tricycle: "tricycle",
 };
 
-import { motion } from "framer-motion";
-import { ANIMATION_VARIANTS } from "@/lib/constants/animations";
-
-/**
- * ProductsPage - Faithful Mockup Reproduction
- */
-
-// ... (keep constants)
-
-// ProductsContent component
 function ProductsContent() {
   const searchParams = useSearchParams();
   const [filters, setFilters] = useState<ProductFiltersType>({});
@@ -62,7 +52,7 @@ function ProductsContent() {
     <main className="min-h-screen bg-white pb-32">
       <ProductFilters filters={filters} onFilterChange={setFilters} />
 
-      <div className="max-w-[1360px] mx-auto px-10 py-20">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-10 py-12 sm:py-20">
         <div className="space-y-20">
           {categoryOrder.map((category) => {
             const products = groupedProducts[category];
@@ -71,7 +61,7 @@ function ProductsContent() {
             return (
               <section key={category}>
                 <div className="mb-8">
-                  <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
+                  <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
                     {CATEGORY_LABELS[category]}
                   </h2>
                 </div>

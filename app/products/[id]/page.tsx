@@ -14,7 +14,6 @@ import {
   ProductSpecification,
   VideoHero,
 } from "@/components/products";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;
@@ -66,107 +65,60 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
       {details && (
         <>
           {/* 视觉展示组件 - Enhanced animation */}
-          <ScrollReveal
-            variant="fadeUp"
-            amount={0.15}
-            duration={0.9}
-            once={true}
-          >
-            <ProductFeatureHighlight
-              title="先进结构工程"
-              description="加固底盘，卓越稳定性。高强度车架设计确保最大耐用性和操控信心，适应所有地形类型。"
-              image="/images/products/accessories/second_component.png"
-              bottomText="*基于2026年车队压力测试计算"
-            />
-          </ScrollReveal>
+          <ProductFeatureHighlight
+            title="先进结构工程"
+            description="加固底盘，卓越稳定性。高强度车架设计确保最大耐用性和操控信心，适应所有地形类型。"
+            image="/images/products/accessories/second_component.png"
+            bottomText="*基于2026年车队压力测试计算"
+          />
 
-          <ScrollReveal
-            variant="fadeUp"
-            amount={0.15}
-            duration={0.9}
-            delay={0.1}
-            once={true}
-          >
-            <ProductFeatureShowcase
-              sectionTitle={`${product.model} 设计亮点`}
-              features={details.features}
-            />
-          </ScrollReveal>
+          <ProductFeatureShowcase
+            sectionTitle={`${product.model} 设计亮点`}
+            features={details.features}
+          />
 
-          <ScrollReveal
-            variant="fadeUp"
-            amount={0.15}
-            duration={0.9}
-            delay={0.1}
-            once={true}
-          >
-            <ProductEngineSpecs
-              title="新一代技术核心"
-              description="高效燃烧技术，多通道冷却。专为极端高温下的低噪音和平稳换挡而设计。"
-              backgroundImage="/images/products/accessories/APSONIC-详情页-改版切片_06.png"
-              specs={details.engineSpecs}
-              disclaimer="*数据来源于Apsonic工程实验室"
-            />
-          </ScrollReveal>
+          <ProductEngineSpecs
+            title="新一代技术核心"
+            description="高效燃烧技术，多通道冷却。专为极端高温下的低噪音和平稳换挡而设计。"
+            backgroundImage="/images/products/accessories/APSONIC-详情页-改版切片_06.png"
+            specs={details.engineSpecs}
+            disclaimer="*数据来源于Apsonic工程实验室"
+          />
 
-          <ScrollReveal
-            variant="fadeUp"
-            amount={0.15}
-            duration={0.9}
-            delay={0.1}
-            once={true}
-          >
-            <ProductFeatureGrid
-              sectionTitle="集成性能特性"
-              features={details.gridFeatures}
-              footerText="可用地区：多哥 | 加纳 | 布基纳法索 | 科特迪瓦 | 马里 | 贝宁 | 几内亚 | 肯尼亚 | 坦桑尼亚 | 乌干达"
-            />
-          </ScrollReveal>
+          <ProductFeatureGrid
+            sectionTitle="集成性能特性"
+            features={details.gridFeatures}
+            footerText="可用地区：多哥 | 加纳 | 布基纳法索 | 科特迪瓦 | 马里 | 贝宁 | 几内亚 | 肯尼亚 | 坦桑尼亚 | 乌干达"
+          />
 
           {/* 颜色展示 */}
-          <ScrollReveal
-            variant="fadeUp"
-            amount={0.15}
-            duration={0.9}
-            delay={0.1}
-            once={true}
-          >
-            <ProductColorShowcase
-              title="2 种经典配色"
-              subtitle="非洲生命之美"
-              initialVariantId="black"
-              variants={[
-                {
-                  id: "black",
-                  name: "钻石黑",
-                  description: "深邃优雅，彰显品质。",
-                  imageSrc: "/images/banners/homepage/aloba-black.png",
-                  dotColor: "#000000",
-                },
-                {
-                  id: "red",
-                  name: "激情红",
-                  description: "活力四射，引人注目。",
-                  imageSrc: "/images/banners/homepage/aloba-red.png",
-                  dotColor: "#DC2626",
-                },
-              ]}
-            />
-          </ScrollReveal>
+          <ProductColorShowcase
+            title="2 种经典配色"
+            subtitle="非洲生命之美"
+            initialVariantId="black"
+            variants={[
+              {
+                id: "black",
+                name: "钻石黑",
+                description: "深邃优雅，彰显品质。",
+                imageSrc: "/images/banners/homepage/aloba-black.png",
+                dotColor: "#000000",
+              },
+              {
+                id: "red",
+                name: "激情红",
+                description: "活力四射，引人注目。",
+                imageSrc: "/images/banners/homepage/aloba-red.png",
+                dotColor: "#DC2626",
+              },
+            ]}
+          />
 
           {/* 技术规格 */}
-          <ScrollReveal
-            variant="fadeUp"
-            amount={0.15}
-            duration={0.9}
-            delay={0.1}
-            once={true}
-          >
-            <ProductSpecification
-              keyMetrics={details.keyMetrics}
-              detailedSpecs={details.detailedSpecs}
-            />
-          </ScrollReveal>
+          <ProductSpecification
+            keyMetrics={details.keyMetrics}
+            detailedSpecs={details.detailedSpecs}
+          />
         </>
       )}
     </main>

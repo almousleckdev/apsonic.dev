@@ -52,7 +52,7 @@ export const ProductFeatureShowcase: React.FC<ProductFeatureShowcaseProps> = ({
           className="text-2xl sm:text-3xl md:text-4xl font-light text-gray-900 mb-12 sm:mb-16 tracking-wide text-center px-4"
           initial={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: reduceMotion ? 0 : 0.45, ease: easing }}
         >
           {sectionTitle}
