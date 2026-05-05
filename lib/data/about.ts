@@ -1,17 +1,3 @@
-import {
-  MdVerified,
-  MdGroups,
-  MdEco,
-  MdHandshake,
-  MdTimeline,
-  MdTrendingUp,
-  MdPublic,
-  MdRocketLaunch,
-  MdLocalGasStation,
-  MdFlashOn,
-  MdSpeed,
-} from "react-icons/md";
-
 export interface TimelineEvent {
   year: string;
   title: string;

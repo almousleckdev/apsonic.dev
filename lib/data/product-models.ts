@@ -593,7 +593,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 150,
-    image: "/categories/三轮车/AP150ZH-175 MAX (1).png",
+    image: "/categories/三轮车/AP150ZH-175 更新/AP150ZH-175 MAX (1).png",
     brandId: "apsonic",
   },
   {
@@ -602,7 +602,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 150,
-    image: "/categories/三轮车/AP150ZH-175 SPORT PLUS (1).png",
+    image: "/categories/三轮车/AP150ZH-175 更新/AP150ZH-175 SPORT PLUS (1).png",
     brandId: "apsonic",
   },
   {
@@ -611,7 +611,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 150,
-    image: "/categories/三轮车/AP150ZH-175 SPORT PLUS (2).png",
+    image: "/categories/三轮车/AP150ZH-175 更新/AP150ZH-175 SPORT PLUS (2).png",
     brandId: "apsonic",
   },
   {
@@ -620,7 +620,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 150,
-    image: "/categories/三轮车/AP150ZH-20 MAX (1).png",
+    image: "/categories/三轮车/AP150ZH-20更新/AP150ZH-20 MAX (1).png",
     brandId: "apsonic",
   },
   {
@@ -629,7 +629,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 150,
-    image: "/categories/三轮车/AP150ZH-20 SPORT (1).png",
+    image: "/categories/三轮车/AP150ZH-20更新/AP150ZH-20 SPORT (1).png",
     brandId: "apsonic",
   },
   {
@@ -638,7 +638,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 150,
-    image: "/categories/三轮车/AP150ZH-20 SPORT (2).png",
+    image: "/categories/三轮车/AP150ZH-20更新/AP150ZH-20 SPORT (2).png",
     brandId: "apsonic",
   },
   {
@@ -647,7 +647,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 150,
-    image: "/categories/三轮车/AP150ZH-200 (1).png",
+    image: "/categories/三轮车/AP150ZH-200更新/AP150ZH-200 (1).png",
     brandId: "apsonic",
   },
   {
@@ -656,7 +656,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 150,
-    image: "/categories/三轮车/AP150ZH-200 PLUS (1).png",
+    image: "/categories/三轮车/AP150ZH-200更新/AP150ZH-200 PLUS (1).png",
     brandId: "apsonic",
   },
   {
@@ -665,7 +665,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 150,
-    image: "/categories/三轮车/AP150ZH-200 PLUS (2).png",
+    image: "/categories/三轮车/AP150ZH-200更新/AP150ZH-200 PLUS (2).png",
     brandId: "apsonic",
   },
   {
@@ -674,7 +674,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 150,
-    image: "/categories/三轮车/AP150ZH-200A MAX (1).png",
+    image: "/categories/三轮车/AP150ZH-200更新/AP150ZH-200A MAX (1).png",
     brandId: "apsonic",
   },
   {
@@ -683,7 +683,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 150,
-    image: "/categories/三轮车/AP150ZH-200A MAX (2).png",
+    image: "/categories/三轮车/AP150ZH-200更新/AP150ZH-200A MAX (2).png",
     brandId: "apsonic",
   },
   {
@@ -692,7 +692,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 150,
-    image: "/categories/三轮车/AP150ZH-200A SPORT PRO (1).png",
+    image: "/categories/三轮车/AP150ZH-200更新/AP150ZH-200A SPORT PRO (1).png",
     brandId: "apsonic",
   },
   {
@@ -701,7 +701,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 150,
-    image: "/categories/三轮车/AP150ZH-20A (1).png",
+    image: "/categories/三轮车/AP150ZH-20更新/AP150ZH-20A (1).png",
     brandId: "apsonic",
   },
   {
@@ -710,7 +710,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 150,
-    image: "/categories/三轮车/AP150ZH-Q7 (1).png",
+    image: "/categories/三轮车/其他更新/AP150ZH-Q7 (1).png",
     brandId: "apsonic",
   },
   {
@@ -719,7 +719,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 200,
-    image: "/categories/三轮车/AP200ZH-3 (1).png",
+    image: "/categories/三轮车/其他更新/AP200ZH-3 (1).png",
     brandId: "apsonic",
   },
   {
@@ -728,7 +728,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 200,
-    image: "/categories/三轮车/AP200ZH-Q6 (1).png",
+    image: "/categories/三轮车/其他更新/AP200ZH-Q6 (1).png",
     brandId: "apsonic",
   },
   {
@@ -737,7 +737,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 250,
-    image: "/categories/三轮车/AP250ZH-Q7 (1).png",
+    image: "/categories/三轮车/其他更新/AP250ZH-Q7 (1).png",
     brandId: "apsonic",
   },
   {
@@ -746,7 +746,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 250,
-    image: "/categories/三轮车/AP250ZH-Q7 (1.2).png",
+    image: "/categories/三轮车/其他更新/AP250ZH-Q7 (1.2).png",
     brandId: "apsonic",
   },
   {
@@ -755,7 +755,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 150,
-    image: "/categories/三轮车/AP150ZK (1).png",
+    image: "/categories/三轮车/特殊/AP150ZK (1).png",
     brandId: "apsonic",
   },
   {
@@ -764,7 +764,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 150,
-    image: "/categories/三轮车/AP150ZK PLUS (1).png",
+    image: "/categories/三轮车/特殊/AP150ZK PLUS (1).png",
     brandId: "apsonic",
   },
   {
@@ -773,7 +773,7 @@ export const PRODUCT_MODELS: ProductModel[] = [
     brand: "APSONIC",
     category: "tricycle",
     displacement: 150,
-    image: "/categories/三轮车/AP150ZK PLUS (2).png",
+    image: "/categories/三轮车/特殊/AP150ZK PLUS (2).png",
     brandId: "apsonic",
   },
 ];

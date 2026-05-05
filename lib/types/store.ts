@@ -18,6 +18,6 @@ export interface Store {
 
 export interface StoreFilter {
     type: 'dealer' | 'service' | 'all';
-    search: string;
+    search?: string;
     country?: string;
 }

@@ -5,14 +5,14 @@ export { ProductShowcaseCard } from "./ProductShowcaseCard";
 export { BrandList } from "./BrandList";
 export { FilterButton } from "./FilterButton";
 export { ProductFilters } from "./ProductFilters";
-export { ProductGrid } from "./ProductGrid";
+
 export { ProductsDropdown } from "./ProductsDropdown";
 export { ProductHero } from "./ProductHero";
 export { ProductFeatureHighlight } from "./ProductFeatureHighlight";
 export { ProductFeatureShowcase } from "./ProductFeatureShowcase";
 export { ProductEngineSpecs } from "./ProductEngineSpecs";
 export { ProductFeatureGrid } from "./ProductFeatureGrid";
-export { ProductColorViewer } from "./ProductColorViewer";
+
 export {
   ProductColorShowcase,
   type ColorShowcaseVariant,
