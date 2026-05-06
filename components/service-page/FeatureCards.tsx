@@ -58,7 +58,14 @@ export const FeatureCards: React.FC<FeatureCardsProps> = ({
                       alt={card.title}
                       fill
                       className="object-contain object-center"
-                      style={card.imageScale ? { transform: `scale(${card.imageScale})`, transformOrigin: 'center' } : undefined}
+                      style={
+                        card.imageScale
+                          ? {
+                              transform: `scale(${card.imageScale})`,
+                              transformOrigin: "center",
+                            }
+                          : undefined
+                      }
                       sizes="(max-width: 768px) 100vw, 400px"
                     />
                   </div>

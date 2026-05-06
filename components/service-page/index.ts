@@ -8,6 +8,7 @@ export { ServiceCoverage } from './ServiceCoverage';
 export { DealerNetworkInfographic } from './DealerNetworkInfographic';
 
 export { FAQ } from './FAQ';
+export { ServiceDetailPage } from './ServiceDetailPage';
 
 export type { FeatureCard } from './FeatureCards';
 export type { ExploreCard } from './ExploreMore';

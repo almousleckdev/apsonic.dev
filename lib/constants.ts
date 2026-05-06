@@ -44,8 +44,8 @@ export const FOOTER_PRODUCTS = {
 export const FOOTER_SERVICES = {
   title: '服务',
   items: [
-    { label: '售后服务', href: '/services/after-sales' },
-    { label: '供应链支持', href: '/services/supply-chain' },
+    { label: '产品手册', href: '/services/after-sales' },
+    { label: '售后服务网络查询', href: '/services/supply-chain' },
   ],
 };
 

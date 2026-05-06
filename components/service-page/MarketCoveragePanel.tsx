@@ -128,10 +128,6 @@ export const MarketCoveragePanel = () => {
             
             <div className="flex items-center divide-x divide-gray-200 w-full justify-center lg:justify-start">
               <div className="pr-6 sm:pr-8 text-center lg:text-left">
-                <div className="text-3xl sm:text-4xl font-bold text-[#1FA84F] mb-1"><AnimatedCounter to={125} /></div>
-                <div className="text-xs sm:text-sm text-gray-500 font-medium">一级代理</div>
-              </div>
-              <div className="px-6 sm:px-8 text-center lg:text-left">
                 <div className="text-3xl sm:text-4xl font-bold text-[#1FA84F] mb-1"><AnimatedCounter to={4500} suffix="+" /></div>
                 <div className="text-xs sm:text-sm text-gray-500 font-medium">销售终端</div>
               </div>

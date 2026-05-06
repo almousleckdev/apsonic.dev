@@ -19,11 +19,11 @@ export const ServiceHero: React.FC<ServiceHeroProps> = ({ className }) => {
           src="/images/services/services1.jpg"
           alt="Apsonic Professional Service"
           fill
-          className="object-cover object-center opacity-80"
+          className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
       </div>
 
       {/* Main Content */}
@@ -35,10 +35,10 @@ export const ServiceHero: React.FC<ServiceHeroProps> = ({ className }) => {
             transition={{ duration: 1, ease: ENTERPRISE_EASE }}
           >
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
-              服务 <span className="text-white">卓越</span>
+              全方位售后服务
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-12 font-light max-w-2xl mx-auto">
-              获取手册、机械师培训和正品配件支持，为您的车队提供全方位服务。
+              导购手册、装车技术指导视频、售后门店查询.
             </p>
           </motion.div>
 

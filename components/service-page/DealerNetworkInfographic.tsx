@@ -125,16 +125,6 @@ export const DealerNetworkInfographic: React.FC<{ className?: string }> = ({
                   className="text-4xl font-bold"
                   style={{ color: colors.brand.green }}
                 >
-                  <AnimatedCounter to={125} />
-                </span>
-                <span className="text-gray-600 text-sm mt-1">一级代理</span>
-              </div>
-              <div className="hidden sm:block w-px h-12 bg-gray-300" />
-              <div className="flex flex-col">
-                <span
-                  className="text-4xl font-bold"
-                  style={{ color: colors.brand.green }}
-                >
                   <AnimatedCounter to={4500} suffix="+" />
                 </span>
                 <span className="text-gray-600 text-sm mt-1">销售终端</span>
