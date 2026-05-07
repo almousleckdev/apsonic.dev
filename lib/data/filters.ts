@@ -5,10 +5,11 @@ export interface FilterOption {
 }
 
 export const CATEGORY_OPTIONS: FilterOption[] = [
-  { value: '', label: 'All Types' },
-  { value: 'underbone', label: 'Underbone' },
-  { value: 'street', label: 'Street' },
-  { value: 'offroad', label: 'Off-Road' },
-  { value: 'tricycle', label: 'Tricycle' },
+  { value: "", label: "All Types" },
+  { value: "standard", label: "Standard" },
+  { value: "street", label: "Street" },
+  { value: "offroad", label: "Off-Road" },
+  { value: "underbone", label: "Underbone" },
+  { value: "tricycle", label: "Tricycle" },
 ];
 

@@ -16,52 +16,31 @@ export default function AboutPage() {
     <main className="min-h-screen bg-white">
       <AboutHero />
 
-      <ScrollReveal
-        variant="fadeUp"
-        delay={0.1}
-      >
+      <ScrollReveal variant="fadeUp" delay={0.1}>
         <MissionSection />
       </ScrollReveal>
 
-      <ScrollReveal
-        variant="slideRight"
-        delay={0.1}
-      >
+      <ScrollReveal variant="slideRight" delay={0.1}>
         <RootsSection />
       </ScrollReveal>
 
-      <ScrollReveal
-        variant="scaleIn"
-        delay={0.1}
-      >
+      <ScrollReveal variant="scaleIn" delay={0.1}>
         <VideoShowcaseSection />
       </ScrollReveal>
 
-      <ScrollReveal
-        variant="fadeIn"
-        delay={0.1}
-      >
+      <ScrollReveal variant="fadeIn" delay={0.1}>
         <ImpactGallerySection />
       </ScrollReveal>
 
-      <ScrollReveal
-        variant="fadeUp"
-        delay={0.1}
-      >
+      <ScrollReveal variant="fadeUp" delay={0.1}>
         <MarketDaySection />
       </ScrollReveal>
 
-      <ScrollReveal
-        variant="slideRight"
-        delay={0.1}
-      >
+      <ScrollReveal variant="slideRight" delay={0.1}>
         <VoicesSection />
       </ScrollReveal>
 
-      <ScrollReveal
-        variant="fadeUp"
-        delay={0.15}
-      >
+      <ScrollReveal variant="fadeUp" delay={0.15}>
         <NewsSection variant="overlay" light={true} className="pt-4 pb-20" />
       </ScrollReveal>
     </main>

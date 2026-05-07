@@ -6,7 +6,7 @@ import { colors } from "@/lib/design-tokens";
 import { HelpIcon, ChatIcon, LocationIcon } from "@/components/ui/Icons";
 import { Tooltip } from "@/components/ui/Tooltip";
 import { SIDEBAR_ICONS } from "@/lib/data/sidebar";
-import { AIChat } from "@/components/consultation/AIChat";
+// import { AIChat } from "@/components/consultation/AIChat";
 import { cn } from "@/lib/utils";
 
 // Map icon names to components
@@ -22,7 +22,7 @@ import { useScroll, useMotionValueEvent } from "framer-motion";
 
 export const RightSidebar: React.FC = () => {
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
-  const [isChatOpen, setIsChatOpen] = useState(false);
+  // const [isChatOpen, setIsChatOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const { scrollY } = useScroll();
@@ -39,9 +39,9 @@ export const RightSidebar: React.FC = () => {
     setHoveredIcon(null);
   };
 
-  const handleChatClick = () => {
+  /* const handleChatClick = () => {
     setIsChatOpen(true);
-  };
+  }; */
 
   return (
     <>
@@ -72,9 +72,9 @@ export const RightSidebar: React.FC = () => {
           const IconComponent = ICON_MAP[item.iconName];
 
           const handleClick = () => {
-            if (item.id === "chat") {
+            /* if (item.id === "chat") {
               handleChatClick();
-            } else if (item.onClick) {
+            } else */ if (item.onClick) {
               item.onClick();
             }
           };
@@ -121,7 +121,7 @@ export const RightSidebar: React.FC = () => {
         })}
       </aside>
 
-      <AIChat isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
+      {/* <AIChat isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} /> */}
     </>
   );
 };

@@ -12,23 +12,21 @@ export const SIDEBAR_ICONS: SidebarIconConfig[] = [
     id: 'help',
     iconName: 'help',
     label: 'Help',
-    onClick: () => {
-      // Handle help click
-    },
+    href: '/contact',
   },
-  {
+  /* {
     id: 'chat',
     iconName: 'chat',
     label: 'AI Chat',
     onClick: () => {
       // Handled in RightSidebar component
     },
-  },
+  }, */
   {
     id: 'location',
     iconName: 'location',
     label: 'Store Locator',
-    href: '/services',
+    href: '/services/locations',
   },
 ];
 

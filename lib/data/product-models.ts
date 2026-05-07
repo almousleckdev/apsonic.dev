@@ -780,6 +780,15 @@ export const PRODUCT_MODELS: ProductModel[] = [
 
 import { applyFilters } from "@/lib/utils/filtering";
 
+const CATEGORY_SEARCH_MAP: Record<string, string> = {
+  "骑士车": "standard",
+  "街车": "street",
+  "越野": "offroad",
+  "越野车": "offroad",
+  "弯梁车": "underbone",
+  "三轮车": "tricycle",
+};
+
 // Filter products by filters
 export function filterProducts(filters: {
   type?: string;
@@ -787,16 +796,25 @@ export function filterProducts(filters: {
   brand?: string;
   search?: string;
 }): ProductModel[] {
+  let searchType = filters.type;
+  let searchQuery = filters.search;
+
+  // If search matches a category name, use it as a type filter instead of model search
+  if (searchQuery && CATEGORY_SEARCH_MAP[searchQuery]) {
+    searchType = CATEGORY_SEARCH_MAP[searchQuery];
+    searchQuery = undefined;
+  }
+
   return applyFilters(PRODUCT_MODELS, {
     exact: {
-      category: filters.type,
+      category: searchType,
       displacement: filters.displacement,
       brandId: filters.brand,
     },
-    search: filters.search
+    search: searchQuery
       ? {
-          query: filters.search,
-          fields: ["model", "brand"],
+          query: searchQuery,
+          fields: ["model", "brand", "category"],
         }
       : undefined,
   });

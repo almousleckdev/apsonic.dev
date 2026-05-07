@@ -15,10 +15,10 @@ export const ImpactGallerySection = () => {
       className=" overflow-hidden"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-[80vh] w-full">
-        {/* Item 1: Main Africa Cup Message */}
+        {/* Item 1: 三届合作伙伴 */}
         <div className="relative group h-full overflow-hidden">
           <Image
-            src="/about/Picture4.png"
+            src="/images/news/2d2060836b523eaf2074ccc2c5fff84.jpg"
             alt="APSONIC非洲国家杯官方合作伙伴"
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -34,11 +34,11 @@ export const ImpactGallerySection = () => {
           </div>
         </div>
 
-        {/* Item 2: Stadium Branding */}
+        {/* Item 2: 顶级赛场 */}
         <div className="relative group h-full overflow-hidden">
           <Image
-            src="/images/services/services2.jpg"
-            alt="APSONIC品牌闪耀非洲杯赛场"
+            src="/images/news/6b49b8ea57d293a6eb4bf25457a5108c.jpg"
+            alt="品牌闪耀非洲顶级赛场"
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
@@ -53,11 +53,11 @@ export const ImpactGallerySection = () => {
           </div>
         </div>
 
-        {/* Item 3: Global Sports Marketing */}
+        {/* Item 3: 营销战略 */}
         <div className="relative group h-full overflow-hidden">
           <Image
-            src="/images/services/services1.jpg"
-            alt="APSONIC全球体育营销战略"
+            src="/about/Picture4.png"
+            alt="全球体育营销战略布局"
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"
           />

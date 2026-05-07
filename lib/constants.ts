@@ -30,6 +30,7 @@ export const FOOTER_PRODUCTS = {
       label: 'APSONIC Pro',
       subItems: [
         { label: '街车', href: '/products?category=pro-street' },
+        { label: '越野车', href: '/products?category=pro-offroad' },
       ],
     },
     {

@@ -30,13 +30,6 @@ export const BRANDS: Brand[] = [
 export const BRAND_CATEGORIES: Record<string, ProductCategory[]> = {
   apsonic: [
     {
-      id: "underbone",
-      name: "弯梁车",
-      slug: "underbone",
-      image: "/dropdown/11.jpg",
-      brandId: "apsonic",
-    },
-    {
       id: "street",
       name: "街车",
       slug: "street",
@@ -45,11 +38,18 @@ export const BRAND_CATEGORIES: Record<string, ProductCategory[]> = {
     },
     {
       id: "offroad",
-      name: "越野",
+      name: "越野车",
       slug: "offroad",
       image: "/products/AP250GY (1).png",
       imageScale: 1.2,
       imageTranslateY: 6,
+      brandId: "apsonic",
+    },
+    {
+      id: "underbone",
+      name: "弯梁车",
+      slug: "underbone",
+      image: "/dropdown/11.jpg",
       brandId: "apsonic",
     },
     {

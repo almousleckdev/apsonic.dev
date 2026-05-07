@@ -29,9 +29,9 @@ export const SearchInput: React.FC<SearchInputProps> = ({
   const isDark = variant === "dark";
 
   const sizeClasses = {
-    sm: "h-9 px-4 text-xs",
-    md: "h-10 px-5 text-sm",
-    lg: "h-12 px-6 text-base",
+    sm: "h-9 pr-4 text-xs",
+    md: "h-10 pr-5 text-sm",
+    lg: "h-12 pr-6 text-base",
   };
 
   const variantStyles = isDark
@@ -55,7 +55,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({
         placeholder={placeholder}
         value={value}
         className={cn(
-          "w-full rounded-full pl-11 outline-none border transition-all duration-200",
+          "w-full rounded-full pl-12 outline-none border transition-all duration-200",
           "focus:ring-4",
           sizeClasses[size as keyof typeof sizeClasses],
           variantStyles.input,

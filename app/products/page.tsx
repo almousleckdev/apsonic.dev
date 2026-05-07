@@ -46,7 +46,7 @@ function ProductsContent() {
 
   const filteredProducts = useProductFilters(filters);
   const groupedProducts = groupProductsByCategory(filteredProducts);
-  const categoryOrder = ["underbone", "standard", "street", "offroad", "tricycle"];
+  const categoryOrder = ["standard", "street", "offroad", "underbone", "tricycle"];
 
   return (
     <main className="min-h-screen bg-white pb-32">

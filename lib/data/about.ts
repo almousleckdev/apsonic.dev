@@ -66,7 +66,7 @@ export const videos = [
     description:
       "作为非洲杯官方全球合作伙伴，APSONIC用一支震撼人心的广告片，向世界展示了品牌的力量与承诺。从赛场到街头，从梦想到现实，我们与非洲大陆共同书写着激情与荣耀的篇章。",
     videoUrl: "/videos/APSONIC_TVC_30s_compressed.mp4",
-    thumbnail: "/videos/4501767142327_.pic.jpg",
+    thumbnail: "/images/news/非洲杯大屏幕3.png",
   },
   {
     id: "2",
