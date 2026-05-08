@@ -4,7 +4,6 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { colors, typography } from "@/lib/design-tokens";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 
 export const AboutHero = () => {

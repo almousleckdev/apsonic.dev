@@ -12,22 +12,22 @@ export interface ServiceHeroProps {
 
 export const ServiceHero: React.FC<ServiceHeroProps> = ({ className }) => {
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-black flex flex-col justify-center">
+    <div className="relative h-screen w-full overflow-hidden bg-black">
       {/* Background Image with Cinematic Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/services/services1.jpg"
+          src="/images/about/7361770692820_.pic_hd.jpg"
           alt="Apsonic Professional Service"
           fill
-          className="object-cover object-center"
+          className="object-cover object-top"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-4 pt-32 mt-20">
+      <div className="relative z-10 flex h-full w-full flex-col items-center justify-end px-4 pb-20">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
