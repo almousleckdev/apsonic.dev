@@ -28,12 +28,12 @@ export default function ServicesPage() {
           <OfficeLocations />
         </ScrollReveal>
       </div>
-      <ScrollReveal
+      {/* <ScrollReveal
         variant="fadeIn"
         delay={0.15}
       >
         <MarketCoveragePanel />
-      </ScrollReveal>
+      </ScrollReveal> */}
       <ScrollReveal
         variant="fadeUp"
         delay={0.1}

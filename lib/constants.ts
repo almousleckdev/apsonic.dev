@@ -72,7 +72,7 @@ export const FOOTER_CONTACT = {
 export const NAV_ITEMS = [
   { label: '产品', href: '/products', labelEn: 'Products' },
   { label: '服务', href: '/services', labelEn: 'Services' },
-  { label: '关于', href: '/about', labelEn: 'About APSONIC' },
+  // { label: '关于', href: '/about', labelEn: 'About APSONIC' },
   { label: '联系', href: '/contact', labelEn: 'Contact Us' },
 ];
 

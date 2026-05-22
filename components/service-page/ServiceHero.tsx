@@ -16,7 +16,7 @@ export const ServiceHero: React.FC<ServiceHeroProps> = ({ className }) => {
       {/* Background Image with Cinematic Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/about/7361770692820_.pic_hd.jpg"
+          src="/about/abouthero.jpeg"
           alt="Apsonic Professional Service"
           fill
           className="object-cover object-top"

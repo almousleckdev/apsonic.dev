@@ -18,7 +18,7 @@ export const AboutHero = () => {
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <Image
-          src="/images/about/7361770692820_.pic_hd.jpg"
+          src="/about/abouthero.jpeg"
           alt="APSONIC 摩托车生产基地"
           fill
           className="object-cover object-top"
@@ -33,26 +33,6 @@ export const AboutHero = () => {
 
       {/* Content Container */}
       <div className="relative z-10 flex h-full w-full flex-col items-center justify-end px-4 pb-24 text-center sm:px-6 lg:px-8">
-        {/* Animated Tagline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-          className="text-5xl lg:text-6xl max-w-4xl font-bold tracking-tight text-white"
-        >
-          道路的心跳
-        </motion.h1>
-
-        {/* Subtext */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-          className="mt-6 max-w-2xl text-lg md:text-xl text-gray-200 leading-relaxed font-light"
-          style={{ fontFamily: "var(--font-geist-mono)" }}
-        >
-          为大陆而设计。经久耐用。赋能前行。
-        </motion.p>
 
         {/* Call to Action */}
         <motion.div

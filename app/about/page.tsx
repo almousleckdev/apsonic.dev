@@ -15,9 +15,9 @@ export default function AboutPage() {
     <main className="min-h-screen bg-white">
       <AboutHero />
 
-      <ScrollReveal variant="fadeUp" delay={0.1}>
+      {/* <ScrollReveal variant="fadeUp" delay={0.1}>
         <MissionSection />
-      </ScrollReveal>
+      </ScrollReveal> */}
 
       <ScrollReveal variant="slideRight" delay={0.1}>
         <RootsSection />
