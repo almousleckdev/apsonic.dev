@@ -16,12 +16,21 @@ export const useServiceSupport = () => {
   const [isLoadingLocation, setIsLoadingLocation] = useState(false);
   const [locationError, setLocationError] = useState<string | null>(null);
 
+  const handleSetQueryType = (type: StoreQueryType | null | ((prev: StoreQueryType | null) => StoreQueryType | null)) => {
+    setQueryType((prev) => {
+      const nextType = typeof type === 'function' ? type(prev) : type;
+      if (nextType !== 'nearby') {
+        setUserLocation(null);
+        setUserAddress(null);
+        setLocationError(null);
+      }
+      return nextType;
+    });
+  };
+
   // Fetch user location when nearby query is enabled
   useEffect(() => {
     if (queryType !== 'nearby') {
-      setUserLocation(null);
-      setUserAddress(null);
-      setLocationError(null);
       return;
     }
 
@@ -94,7 +103,7 @@ export const useServiceSupport = () => {
 
   return {
     queryType,
-    setQueryType,
+    setQueryType: handleSetQueryType,
     searchTerm,
     selectedStore,
     setSelectedStore,

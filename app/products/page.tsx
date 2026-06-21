@@ -13,6 +13,8 @@ const CATEGORY_LABELS: Record<string, string> = {
   standard: "骑士车",
   street: "街车",
   offroad: "越野车",
+  scooter: "踏板车",
+  atv: "ATV",
   tricycle: "三轮车",
 };
 
@@ -22,6 +24,8 @@ const CATEGORY_SLUG_TO_TYPE: Record<string, string> = {
   standard: "standard",
   street: "street",
   offroad: "offroad",
+  scooter: "scooter",
+  atv: "atv",
   tricycle: "tricycle",
 };
 
@@ -46,7 +50,7 @@ function ProductsContent() {
 
   const filteredProducts = useProductFilters(filters);
   const groupedProducts = groupProductsByCategory(filteredProducts);
-  const categoryOrder = ["standard", "street", "offroad", "underbone", "tricycle"];
+  const categoryOrder = ["standard", "street", "offroad", "underbone", "scooter", "atv", "tricycle"];
 
   return (
     <main className="min-h-screen bg-white pb-32">

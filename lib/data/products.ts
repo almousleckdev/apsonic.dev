@@ -53,6 +53,22 @@ export const BRAND_CATEGORIES: Record<string, ProductCategory[]> = {
       brandId: "apsonic",
     },
     {
+      id: "scooter",
+      name: "踏板车",
+      slug: "scooter",
+      image: "/categories/踏板车/AP125T/AP125T 右侧 精修 白（2）.png",
+      imageScale: 1.0,
+      brandId: "apsonic",
+    },
+    {
+      id: "atv",
+      name: "ATV",
+      slug: "atv",
+      image: "/categories/ATV/AP150ST-250 正右侧 投影.png",
+      imageScale: 1.0,
+      brandId: "apsonic",
+    },
+    {
       id: "tricycle",
       name: "三轮车",
       slug: "tricycle",

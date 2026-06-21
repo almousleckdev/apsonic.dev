@@ -51,13 +51,25 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   }, [isInView, from, to, duration, prefix, suffix]);
 
   return (
-    <span
-      ref={nodeRef}
-      className={`font-mono tabular-nums inline-block min-w-[2ch] whitespace-nowrap ${className || ""}`}
-    >
-      {prefix}
-      {from.toLocaleString()}
-      {suffix}
+    <span className={`inline-grid ${className || ""}`}>
+      {/* Invisible spacer to reserve the maximum layout width */}
+      <span
+        className="invisible col-start-1 row-start-1 font-mono tabular-nums whitespace-nowrap"
+        aria-hidden="true"
+      >
+        {prefix}
+        {to.toLocaleString()}
+        {suffix}
+      </span>
+      {/* Visible animated counter */}
+      <span
+        ref={nodeRef}
+        className="col-start-1 row-start-1 font-mono tabular-nums whitespace-nowrap"
+      >
+        {prefix}
+        {from.toLocaleString()}
+        {suffix}
+      </span>
     </span>
   );
 };

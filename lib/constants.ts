@@ -23,6 +23,8 @@ export const FOOTER_PRODUCTS = {
         { label: '弯梁车', href: '/products?category=underbone' },
         { label: '街车', href: '/products?category=street' },
         { label: '运动车', href: '/products?category=sport' },
+        { label: '踏板车', href: '/products?category=scooter' },
+        { label: 'ATV', href: '/products?category=atv' },
         { label: '三轮车', href: '/products?category=tricycle' },
       ],
     },
@@ -97,6 +99,8 @@ export const CATEGORY_DISPLAY_NAMES: Record<string, string> = {
   underbone: 'Underbone',
   street: 'Street',
   offroad: 'Off-Road',
+  scooter: 'Scooter',
+  atv: 'ATV',
   tricycle: 'Tricycle',
 };
 
